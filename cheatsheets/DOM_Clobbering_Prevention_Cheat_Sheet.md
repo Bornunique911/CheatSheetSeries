@@ -88,7 +88,7 @@ For quick reference, below is the summary of guidelines discussed next.
 
 Robust HTML sanitizers can prevent or restrict the risk of DOM Clobbering. They can do so in multiple ways. For example:
 
-- completely remove named properties like `id` and `name`. While effective, this may hinder the usability when named properties are needed for legitimate functionalties.
+- completely remove named properties like `id` and `name`. While effective, this may hinder the usability when named properties are needed for legitimate functionalities.
 - namespace isolation, which can be, for example, prefixing the value of named properties by a constant string to limit the risk of naming collisions.
 - dynamically checking if named properties of the input mark has collisions with the existing DOM tree, and if that is the case, then remove named properties of the input markup.
 
@@ -96,7 +96,7 @@ OWASP recommends [DOMPurify](https://github.com/cure53/DOMPurify) or the [Saniti
 
 #### DOMPurify Sanitizer
 
-By default, DOMPurify removes all clobbering collisions with **built-in** APIs and properties (using the enabled-by-default `SANITIZE_DOM` configuration option). ]
+By default, DOMPurify removes all clobbering collisions with **built-in** APIs and properties (using the enabled-by-default `SANITIZE_DOM` configuration option).
 
 To be protected against clobbering of custom variables and properties as well, you need to enable the `SANITIZE_NAMED_PROPS` config:
 
@@ -124,7 +124,7 @@ containerDOMElement.setHTML(input, {sanitizer: sanitizerInstance});
 
 [Content-Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) is a set of rules that tell the browser which resources are allowed to be loaded on a web page. By restricting the sources of JavaScript files (e.g., with the [script-src](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src) directive), CSP can prevent malicious code from being injected into the page.
 
-**Note:** CSP can only mitigate **some varints** of DOM clobbering attacks, such as when attackers attempt to load new scripts by clobbering script sources, but not when already-present code can be abused for code execution, e.g., clobbering the parameters of code evaluation constructs like `eval()`.
+**Note:** CSP can only mitigate **some variants** of DOM clobbering attacks, such as when attackers attempt to load new scripts by clobbering script sources, but not when already-present code can be abused for code execution, e.g., clobbering the parameters of code evaluation constructs like `eval()`.
 
 ### \#3: Freezing Sensitive DOM Objects
 
@@ -138,11 +138,11 @@ DOM Clobbering can be avoided by defensive programming and adhering to a few cod
 
 ### \#4: Validate All Inputs to DOM Tree
 
-Before inserting any markup into the webpage's DOM tree, sanitize `id` and `name` attributes (see [HTML sanitization](#html-sanitization)).
+Before inserting any markup into the webpage's DOM tree, sanitize `id` and `name` attributes (see [HTML sanitization](#1-html-sanitization)).
 
 ### \#5: Use Explicit Variable Declarations
 
-When initializing varibles, always use a variable declarator like `var`, `let` or `const`, which prevents clobbering of the variable.
+When initializing variables, always use a variable declarator like `var`, `let` or `const`, which prevents clobbering of the variable.
 
 **Note:** Declaring a variable with `let` does not create a property on `window`, unlike `var`. Therefore, `window.VARNAME` can still be clobbered (assuming `VARNAME` is the name of the variable).
 
@@ -158,9 +158,9 @@ Document properties, including built-in ones, are always overshadowed by DOM Clo
 
 ### \#8: Enforce Type Checking
 
-Always check the type of Document and Window properties before using them in sensitive operations, e.g., using the [instance of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof) operator.
+Always check the type of `document` and `window` properties before using them in sensitive operations, e.g., using the [`instanceof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof) operator.
 
-**Hint:** When an object is clobbered, it would refer to an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) instance, which may not be the expected type.
+**Hint:** When an object is clobbered, it would refer to an [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element) instance, which may not be the expected type.
 
 ### \#9: Use Strict Mode
 
@@ -168,13 +168,13 @@ Use `strict` mode to prevent unintended global variable creation, and to [raise 
 
 ### \#10: Apply Browser Feature Detection
 
-Instead of relying on browser-specific features or properties, use feature detection to determine whether a feature is supported before using it. This can help prevent errors and DOM Clobberng that might arise when using those features in unsupported browsers.
+Instead of relying on browser-specific features or properties, use feature detection to determine whether a feature is supported before using it. This can help prevent errors and DOM Clobbering that might arise when using those features in unsupported browsers.
 
 **Hint:** Unsupported feature APIs can act as an undefined variable/property in unsupported browsers, making them clobberable.
 
 ### \#11: Limit Variables to Local Scope
 
-Global variables are more prone to being overwritten by DOM Clobberng. Whenever possible, use local variables and object properties.
+Global variables are more prone to being overwritten by DOM Clobbering. Whenever possible, use local variables and object properties.
 
 ### \#12: Use Unique Variable Names In Production
 

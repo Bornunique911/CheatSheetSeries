@@ -10,7 +10,7 @@ This article is focused on providing clear, actionable guidance for safely deser
 
 **Deserialization** is the reverse of that process, taking data structured in some format, and rebuilding it into an object. Today, the most popular data format for serializing data is JSON. Before that, it was XML.
 
-However, many programming languages have native ways to serialize objects. These native formats usually offer more features than JSON or XML, including customizability of the serialization process.
+However, many programming languages have native ways to serialize objects. These native formats usually offer more features than JSON or XML, including customization of the serialization process.
 
 Unfortunately, the features of these native deserialization mechanisms can sometimes be repurposed for malicious effect when operating on untrusted data. Attacks against deserializers have been found to allow denial-of-service, access control, or remote code execution (RCE) attacks.
 
@@ -28,7 +28,7 @@ Check the use of [`unserialize()`](https://www.php.net/manual/en/function.unseri
 
 #### Opaque-box Review
 
-If the traffic data contains the symbol dot `.` at the end, it's very likely that the data was sent in serialization.
+If the traffic data contains the symbol dot `.` at the end, it's very likely that the data was sent in serialization. It will be only true if the data is not being encoded using Base64 or Hexadecimal schemas. If the data is being encoded, then it's best to check if the serialization is likely happening or not by looking at the starting characters of the parameter value. For example if data is Base64 encoded, then it will most likely start with `gASV`.
 
 #### Clear-box Review
 
@@ -56,7 +56,7 @@ print(yaml.load(document))
 
 The following techniques are all good for preventing attacks against deserialization against [Java's Serializable format](https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html).
 
-Implementation advices:
+Implementation advice:
 
 - In your code, override the `ObjectInputStream#resolveClass()` method to prevent arbitrary classes from being deserialized. This safe behavior can be wrapped in a library like [SerialKiller](https://github.com/ikkisoft/SerialKiller).
 - Use a safe replacement for the generic `readObject()` method as seen here. Note that this addresses "[billion laughs](https://en.wikipedia.org/wiki/Billion_laughs_attack)" type attacks by checking input length and number of objects deserialized.
@@ -191,8 +191,8 @@ as long as class registration is not turned **off** ([see documentation](https:/
 and [this issue](https://github.com/EsotericSoftware/kryo/issues/929))
 - **[YamlBeans v1.16+](https://github.com/EsotericSoftware/yamlbeans)** (YAML) - can be used safely
 as long as the **UnsafeYamlConfig** class isn't used (see [this commit](https://github.com/EsotericSoftware/yamlbeans/commit/b1122588e7610ae4e0d516c50d08c94ee87946e6))
-    - _NOTE: because these versions are not available in Maven Central,
-[a fork exists](https://github.com/Contrast-Security-OSS/yamlbeans) that can be used instead._
+    - *NOTE: because these versions are not available in Maven Central,
+[a fork exists](https://github.com/Contrast-Security-OSS/yamlbeans) that can be used instead.*
 - **[XStream v1.4.17+](https://x-stream.github.io/)** (JSON and XML) - can be used safely
 as long as the allowlist and other security controls are not relaxed ([see documentation](https://x-stream.github.io/security.html))
 
@@ -211,8 +211,8 @@ JSON allows deserialization of any class. Can only be used safely in following s
 - **[Kryo < v5.0.0](https://github.com/EsotericSoftware/kryo)** (custom format) - cannot be used safely unless class registration is turned **on**,
 which disables deserialization of any class ([see documentation](https://github.com/EsotericSoftware/kryo#optional-registration)
 and [this issue](https://github.com/EsotericSoftware/kryo/issues/929))
-    - _NOTE: other wrappers exist around Kryo such as [Chill](https://github.com/twitter/chill), which may also have class registration
-not required by default regardless of the underlying version of Kryo being used_
+    - *NOTE: other wrappers exist around Kryo such as [Chill](https://github.com/twitter/chill), which may also have class registration
+not required by default regardless of the underlying version of Kryo being used*
 - **[SnakeYAML](https://bitbucket.org/snakeyaml/snakeyaml/src)** (YAML) - cannot be used safely unless
 the **org.yaml.snakeyaml.constructor.SafeConstructor** class is used, which disables
 deserialization of any class ([see docs](https://bitbucket.org/snakeyaml/snakeyaml/wiki/CVE-2022-1471))
@@ -224,7 +224,7 @@ The following libraries are either no longer maintained or cannot be used safely
 - **[Castor](https://github.com/castor-data-binding/castor)** (XML) - appears to be abandoned with no commits since 2016
 - **[fastjson < v1.2.68](https://github.com/alibaba/fastjson)** (JSON) - these versions allows deserialization of any class
 ([see documentation](https://github.com/alibaba/fastjson/wiki/enable_autotype))
-- **[XMLDecoder in the JDK](https://docs.oracle.com/javase/8/docs/api/java/beans/XMLDecoder.html)** (XML) - _"close to impossible to securely deserialize Java objects in this format from untrusted inputs"_
+- **[XMLDecoder in the JDK](https://docs.oracle.com/javase/8/docs/api/java/beans/XMLDecoder.html)** (XML) - *"close to impossible to securely deserialize Java objects in this format from untrusted inputs"*
 ("Red Hat Defensive Coding Guide", [end of section 2.6.5](https://redhat-crypto.gitlab.io/defensive-coding-guide/#sect-Defensive_Coding-Tasks-Serialization-XML))
 - **[XStream < v1.4.17](https://x-stream.github.io/)** (JSON and XML) - these versions allows deserialization of any class (see [documentation](https://x-stream.github.io/security.html#explicit))
 - **[YamlBeans < v1.16](https://github.com/EsotericSoftware/yamlbeans)** (YAML) - these versions allows deserialization of any class
@@ -268,7 +268,7 @@ TypeNameHandling = TypeNameHandling.None
 
 If `JavaScriptSerializer` is to be used then do not use it with a `JavaScriptTypeResolver`.
 
-If you must deserialise data streams that define their own type, then restrict the types that are allowed to be deserialized. One should be aware that this is still risky as many native .Net types potentially dangerous in themselves. e.g.
+If you must deserialize data streams that define their own type, then restrict the types that are allowed to be deserialized. One should be aware that this is still risky as many native .Net types potentially dangerous in themselves. e.g.
 
 ```csharp
 System.IO.FileInfo
@@ -276,7 +276,7 @@ System.IO.FileInfo
 
 `FileInfo` objects that reference files actually on the server can when deserialized, change the properties of those files e.g. to read-only, creating a potential denial of service attack.
 
-Even if you have limited the types that can be deserialised remember that some types have properties that are risky. `System.ComponentModel.DataAnnotations.ValidationException`, for example has a property `Value` of type `Object`. if this type is the type allowed for deserialization then an attacker can set the `Value` property to any object type they choose.
+Even if you have limited the types that can be deserialized remember that some types have properties that are risky. `System.ComponentModel.DataAnnotations.ValidationException`, for example has a property `Value` of type `Object`. if this type is the type allowed for deserialization then an attacker can set the `Value` property to any object type they choose.
 
 Attackers should be prevented from steering the type that will be instantiated. If this is possible then even `DataContractSerializer` or `XmlSerializer` can be subverted e.g.
 

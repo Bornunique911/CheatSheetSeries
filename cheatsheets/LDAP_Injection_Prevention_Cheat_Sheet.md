@@ -41,7 +41,7 @@ or
 
 `uid=inewton, ou=Mathematics Department, dc=Cambridge, dc=com`
 
-A whitelist can be used to restrict input to a list of valid characters. Characters and character sequences that must be excluded from whitelists — including
+An allowlist can be used to restrict input to a list of valid characters. Characters and character sequences that must be excluded from allowlists — including
 Java Naming and Directory Interface (JNDI) metacharacters and LDAP special characters — are listed in the following list.
 
 The [exhaustive list](https://ldapwiki.com/wiki/Wiki.jsp?page=DN%20Escape%20Values) is the following: `\ # + < > , ; " =` and leading or trailing spaces.
@@ -54,7 +54,7 @@ Some "special" characters that are allowed in Distinguished Names and do not nee
 
 #### Search Filter Escaping
 
-Each DN points to exactly 1 entry, which can be thought of sort of like a row in a RDBMS. For each entry, there will be 1 or more attributes which are analogous to RDBMS columns. If you are interested in searching through LDAP for users will certain attributes, you may do so with search filters.
+Each DN points to exactly 1 entry, which can be thought of sort of like a row in a RDBMS. For each entry, there will be 1 or more attributes which are analogous to RDBMS columns. If you are interested in searching through LDAP for users with certain attributes, you may do so with search filters.
 
 In a search filter, you can use standard boolean logic to get a list of users matching an arbitrary constraint. Search filters are written in Polish notation AKA prefix notation.
 
@@ -79,37 +79,55 @@ For more information on search filter escaping visit [RFC4515](https://datatrack
 
 #### Safe Java Escaping Example
 
-The following solution uses a whitelist to sanitize user input so that the filter string contains only valid characters. In this code, userSN may contain
-only letters and spaces, whereas a password may contain only alphanumeric characters:
+The following solution uses an allowlist to sanitize user input so that the filter string contains only valid characters. In this code, userSN may contain
+only letters and spaces.
 
 ```java
 // String userSN = "Sherlock Holmes"; // Valid
-// String userPassword = "secret2"; // Valid
 // ... beginning of LDAPInjection.searchRecord()...
 sc.setSearchScope(SearchControls.SUBTREE_SCOPE);
 String base = "dc=example,dc=com";
 
-if (!userSN.matches("[\\w\\s]*") || !userPassword.matches("[\\w]*")) {
+if (!userSN.matches("[\\w\\s]*")) {
  throw new IllegalArgumentException("Invalid input");
 }
 
-String filter = "(&(sn = " + userSN + ")(userPassword=" + userPassword + "))";
+String filter = "(sn = " + userSN + ")";
 // ... remainder of LDAPInjection.searchRecord()... 
 ```
 
-When a database field such as a password must include special characters, it is critical to ensure that the authentic data is stored in sanitized form in the
+When a database field must include special characters, it is critical to ensure that the authentic data is stored in sanitized form in the
 database and also that any user input is normalized before the validation or comparison takes place. Using characters that have special meanings in JNDI
-and LDAP in the absence of a comprehensive normalization and whitelisting-based routine is discouraged. Special characters must be transformed to
-sanitized, safe values before they are added to the whitelist expression against which input will be validated. Likewise, normalization of user input should
+and LDAP in the absence of a comprehensive normalization and allowlisting-based routine is discouraged. Special characters must be transformed to
+sanitized, safe values before they are added to the allowlist expression against which input will be validated. Likewise, normalization of user input should
 occur before the validation step (source: [Prevent LDAP injection](https://wiki.sei.cmu.edu/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=88487534)).
 
 For further information visit [OWASP ESAPI Java Encoder Project which includes encodeForLDAP(String) and encodeForDN(String)](https://owasp.org/www-project-java-encoder/).
+
+#### Insecure vs Secure Java LDAP Query Construction
+
+❌ **Insecure Example (vulnerable to LDAP Injection)**
+
+```java
+// User input directly concatenated into the filter
+String filter = "(&(uid=" + userInput + ")(objectClass=person))";
+NamingEnumeration<SearchResult> results =
+    ctx.search("ou=users,dc=example,dc=com", filter, controls);
+
+
+✅ Secure Example (using parameterized filter)
+
+// User input safely passed as a parameter
+String filter = "(&(uid={0})(objectClass=person))";
+NamingEnumeration<SearchResult> results =
+    ctx.search("ou=users,dc=example,dc=com", filter, new Object[]{ userInput }, controls);
+```
 
 #### Safe C Sharp .NET TBA Example
 
 [.NET AntiXSS](https://blogs.msdn.microsoft.com/securitytools/2010/09/30/antixss-4-0-released/) (now the Encoder class) has LDAP encoding functions including `Encoder.LdapFilterEncode(string)`, `Encoder.LdapDistinguishedNameEncode(string)` and `Encoder.LdapDistinguishedNameEncode(string, bool, bool)`.
 
-`Encoder.LdapFilterEncode` encodes input according to [RFC4515](https://tools.ietf.org/search/rfc4515) where unsafe values are converted to `\XX` where `XX` is the representation of the unsafe character.
+`Encoder.LdapFilterEncode` encodes input according to [RFC4515](https://datatracker.ietf.org/doc/html/rfc4515) where unsafe values are converted to `\XX` where `XX` is the representation of the unsafe character.
 
 `Encoder.LdapDistinguishedNameEncode` encodes input according to [RFC2253](https://tools.ietf.org/html/rfc2253) where unsafe characters are converted to `#XX` where `XX` is the representation of the unsafe character and the comma, plus, quote, slash, less than and great than signs are escaped using slash notation (`\X`). In addition to this a space or octothorpe (`#`) at the beginning of the input string is `\` escaped as is a space at the end of a string.
 
@@ -119,7 +137,7 @@ For further information visit [OWASP ESAPI Java Encoder Project which includes e
 
 #### Safe .NET Example
 
-We recommend using [LINQ to LDAP](https://www.nuget.org/packages/LinqToLdap/) in DotNet. It provides automatic LDAP encoding when building LDAP queries.
+We recommend using [LINQ to LDAP](https://www.nuget.org/packages/LinqToLdap/) (for .NET Framework 4.5 or lower [until it has been updated](https://github.com/madhatter22/LinqToLdap/issues/31)) in DotNet. It provides automatic LDAP encoding when building LDAP queries.
 Contact the [Readme file](https://github.com/madhatter22/LinqToLdap/blob/master/README.md) in the project repository.
 
 ## Additional Defenses

@@ -54,7 +54,7 @@ This XML structure has three main sections (or nodes):
 
       The tests will use this as a input source for the different test cases by:
       1) Defining legitimate access and the correct implementation
-      2) Identifing illegitimate access (authorization definition issue
+      2) Identifying illegitimate access (authorization definition issue
       on service implementation)
 
       The "name" attribute is used to uniquely identify a SERVICE or a ROLE.
@@ -394,7 +394,9 @@ Access issues detected using the BASIC USER point of view:
 
 Even if the authorization matrix is stored in a human-readable format (XML), you might want to show an on-the-fly rendered representation of the XML file to spot potential inconsistencies and facilitate the review, audit and discussion about the authorization matrix.
 
+<!-- textlint-disable -->
 To achieve this task, you could use the following XSL stylesheet:
+<!-- textlint-enable -->
 
 ``` xslt
 <?xml version="1.0" encoding="UTF-8"?>

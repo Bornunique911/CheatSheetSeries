@@ -16,6 +16,8 @@ Fortunately, applications built with modern web frameworks have fewer XSS bugs, 
 - React’s `dangerouslySetInnerHTML` without sanitising the HTML
 - React cannot handle `javascript:` or `data:` URLs without specialized validation
 - Angular’s `bypassSecurityTrustAs*` functions
+- Lit's `unsafeHTML` function
+- Polymer's `inner-h-t-m-l` attribute and `htmlLiteral` function
 - Template injection
 - Out of date framework plugins or components
 - and more
@@ -24,7 +26,7 @@ When you use a modern web framework, you need to know how your framework prevent
 
 ## XSS Defense Philosophy
 
-In order for an XSS attack to be successful, an attacker must be able to to insert and execute malicious content in a webpage. Thus, all variables in a web application needs to be protected. Ensuring that **all variables** go through validation and are then escaped or sanitized is known as **perfect injection resistance**. Any variable that does not go through this process is a potential weakness. Frameworks make it easy to ensure variables are correctly validated and escaped or sanitised.
+In order for an XSS attack to be successful, an attacker must be able to insert and execute malicious content in a webpage. Thus, all variables in a web application needs to be protected. Ensuring that **all variables** go through validation and are then escaped or sanitized is known as **perfect injection resistance**. Any variable that does not go through this process is a potential weakness. Frameworks make it easy to ensure variables are correctly validated and escaped or sanitised.
 
 However, no framework is perfect and security gaps still exist in popular frameworks like React and Angular. Output encoding and HTML sanitization help address those gaps.
 
@@ -109,9 +111,11 @@ For JSON, verify that the `Content-Type` header is `application/json` and not `t
 <span style="property : $varUnsafe">Oh no</span>
 ```
 
-If you're using JavaScript to change a CSS property, look into using `style.property = x`. This is a **Safe Sink** and will automatically CSS encode data in it.
+If you're using JavaScript to change a CSS property, look into using
+`style.property = x`.
+This is a **Safe Sink** and will automatically CSS encode data in it.
 
-// Add CSS Encoding Advice
+When inserting variables into CSS properties, ensure the data is properly encoded and sanitized to prevent injection attacks. Avoid placing variables directly into selectors or other CSS contexts.
 
 ### Output Encoding for “URL Contexts”
 
@@ -190,7 +194,7 @@ elem.innerHTML = DOMPurify.sanitize(dangerVar);
 
 **Safe HTML Attributes include:** `align`, `alink`, `alt`, `bgcolor`, `border`, `cellpadding`, `cellspacing`, `class`, `color`, `cols`, `colspan`, `coords`, `dir`, `face`, `height`, `hspace`, `ismap`, `lang`, `marginheight`, `marginwidth`, `multiple`, `nohref`, `noresize`, `noshade`, `nowrap`, `ref`, `rel`, `rev`, `rows`, `rowspan`, `scrolling`, `shape`, `span`, `summary`, `tabindex`, `title`, `usemap`, `valign`, `value`, `vlink`, `vspace`, `width`.
 
-For a comprehensive list, check out the [DOMPurify allowlist](https://github.com/cure53/DOMPurify/blob/main/src/attrs.js)
+For attributes not reported above, ensure that if JavaScript code is provided as a value, it cannot be executed.
 
 ## Other Controls
 
@@ -211,7 +215,7 @@ Context: HTML Body
 Code: `<span>UNTRUSTED DATA </span>`
 Sample Defense: HTML Entity Encoding (rule \#1)
 
-Data Type: Strong
+Data Type: String
 Context: Safe HTML Attributes
 Code: `<input type="text" name="fname" value="UNTRUSTED DATA ">`
 Sample Defense: Aggressive HTML Entity Encoding (rule \#2), Only place untrusted data into a list of safe attributes (listed below), Strictly validate unsafe attributes such as background, ID and name.
@@ -229,7 +233,7 @@ Sample Defense: Canonicalize input, URL Validation, Safe URL verification, Allow
 Data Type: String
 Context: CSS Value
 Code: `HTML <div style="width: UNTRUSTED DATA ;">Selection</div>`
-Sample Defense: Strict structural validation (rule \#4), CSS hex encoding, Good design of CSS features. J
+Sample Defense: Strict structural validation (rule \#4), CSS hex encoding, Good design of CSS features.
 
 Data Type: String
 Context: JavaScript Variable
@@ -314,7 +318,7 @@ The third problem with this is that it is not effective against DOM-based XSS. T
 
 The last problem with interceptors is that they generally are oblivious to data in your application's responses that originate from other internal sources such as an internal REST-based web service or even an internal database. The problem is that unless your application is strictly validating that data _at the point that it is retrieved_ (which generally is the only point your application has enough context to do a strict data validation using an allow-list approach), that data should always be considered tainted. But if you are attempting to do output encoding or strict data validation all of tainted data on the HTTP response side of an interceptor (such as a Java servlet filter), at that point, your application's interceptor will have no idea of there is tainted data present from those REST web services or other databases that you used. The approach that generally is used on response-side interceptors attempting to provide XSS defense has been to only consider the matching "input parameters" as tainted and do output encoding or HTML sanitization on them and everything else is considered safe. But sometimes it's not? While it frequently is assumed that all internal web services and all internal databases can be "trusted" and used as it, this is a very bad assumption to make unless you have included that in some deep threat modeling for your application.
 
-For example, suppose you are working on an application to show a customer their detailed monthly bill. Let's assume that your application is either querying a foreign (as in not part of your specific application) internal database or REST web service that your application uses to obtain the user's full name, address, etc. But that data originates from another application which you are assuming is "trusted" but actually has an unreported persistent XSS vulnerability on the various customer address-related fields. Furthermore, let's assume that you company's customer support staff can examine a customer's detailed bill to assist them when customers have questions about their bills. So nefarious customer decides to plant an XSS bomb in the address field and then calls customer service for assistance with the bill. Should a scenario lik3 that ever play out, an interceptor attempting to prevent XSS is going to miss that completely and the result is going to be something much worse than just popping an alert box to display "1" or "XSS" or "pwn'd".
+For example, suppose you are working on an application to show a customer their detailed monthly bill. Let's assume that your application is either querying a foreign (as in not part of your specific application) internal database or REST web service that your application uses to obtain the user's full name, address, etc. But that data originates from another application which you are assuming is "trusted" but actually has an unreported persistent XSS vulnerability on the various customer address-related fields. Furthermore, let's assume that you company's customer support staff can examine a customer's detailed bill to assist them when customers have questions about their bills. So nefarious customer decides to plant an XSS bomb in the address field and then calls customer service for assistance with the bill. Should a scenario like that ever play out, an interceptor attempting to prevent XSS is going to miss that completely and the result is going to be something much worse than just popping an alert box to display "1" or "XSS" or "pwn'd".
 
 ### Summary
 
@@ -343,4 +347,4 @@ The following article describes how attackers can exploit different kinds of XSS
 **How to Test for Cross-Site Scripting Vulnerabilities:**
 
 - [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) article on testing for Cross-Site Scripting vulnerabilities.
-- [XSS Experimental Minimal Encoding Rules](https://wiki.owasp.org/index.php/XSS_Experimental_Minimal_Encoding_Rules)#  <#Title#>
+- [XSS Experimental Minimal Encoding Rules](https://wiki.owasp.org/index.php/XSS_Experimental_Minimal_Encoding_Rules) Provides examples and guidelines for experimental minimal encoding strategies to prevent Cross-Site Scripting (XSS) attacks.

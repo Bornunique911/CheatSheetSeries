@@ -1,6 +1,6 @@
 # Index Alphabetical
 
-**91** cheat sheets available.
+**92** cheat sheets available.
 
 *Icons beside the cheat sheet name indicate in which language(s) code snippet(s) are provided.*
 
@@ -25,6 +25,8 @@
 ## B
 
 [Bean Validation Cheat Sheet](cheatsheets/Bean_Validation_Cheat_Sheet.md) ![Java](assets/Index_Java.svg) ![Xml](assets/Index_Xml.svg)
+
+[Business Logic Security Cheat Sheet](cheatsheets/Business_Logic_Security_Cheat_Sheet.md)
 
 ## C
 
@@ -65,6 +67,8 @@
 [Denial of Service Cheat Sheet](cheatsheets/Denial_of_Service_Cheat_Sheet.md)
 
 [DOM Clobbering Prevention Cheat Sheet](cheatsheets/DOM_Clobbering_Prevention_Cheat_Sheet.md) ![Javascript](assets/Index_Javascript.svg) ![Html](assets/Index_Html.svg)
+
+[Drone Security Cheat Sheet](cheatsheets/Drone_Security_Cheat_Sheet.md)
 
 ## E
 
@@ -168,6 +172,8 @@
 
 ## R
 
+[RAG Security Cheat Sheet](cheatsheets/RAG_Security_Cheat_Sheet.md)
+
 [REST Security Cheat Sheet](cheatsheets/REST_Security_Cheat_Sheet.md)
 
 [REST Assessment Cheat Sheet](cheatsheets/REST_Assessment_Cheat_Sheet.md)
@@ -180,7 +186,11 @@
 
 [Secure Cloud Architecture Cheat Sheet](cheatsheets/Secure_Cloud_Architecture_Cheat_Sheet.md)
 
+[Secure Coding with AI Cheat Sheet](cheatsheets/Secure_Coding_with_AI_Cheat_Sheet.md)
+
 [Securing Cascading Style Sheets Cheat Sheet](cheatsheets/Securing_Cascading_Style_Sheets_Cheat_Sheet.md)
+
+[Security Terminology Cheat Sheet](cheatsheets/Security_Terminology_Cheat_Sheet.md)
 
 [SQL Injection Prevention Cheat Sheet](cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.md) ![Java](assets/Index_Java.svg) ![Csharp](assets/Index_Csharp.svg) ![Vbnet](assets/Index_Vbnet.svg)
 

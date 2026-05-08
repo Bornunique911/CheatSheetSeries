@@ -1,29 +1,46 @@
 # Contributing Guide
 
-- For minor fixes such as a typo in existing cheat sheet, a simple pull request is all that's needed. For more involved changes, please follow the process laid out below.
-- :heavy_exclamation_mark: Focus on updating a single file in a Pull Request to make the review processes simpler for the core team.
-- :warning: Pull Requests marked as **WAITING_UPDATE** (indicating that the core team are waiting for an update from the author of the Pull Request) that do not receive any updates from the author in one month will be closed.
+Thank you for your interest in the OWASP Cheat Sheet Series! This guide covers **how to contribute** including the process, project rules, and policies. For guidance on **how to write good cheat sheet content**, see the [Cheat Sheet Writing Guide](GUIDELINE.md).
+
+When contributing:
+
+- Follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+- Follow our restrictions on the [use of AI](#use-of-ai) for all issues, pull requests, comments and discussions.
+
+## Types of Contributions
+
+### Minor Fixes
+
+For typos, broken links, or small corrections to existing cheat sheets, a simple pull request is all that's needed. No issue required.
+
+### Updating an Existing Cheat Sheet
+
+1. [Create a new issue](https://github.com/OWASP/CheatSheetSeries/issues/new/choose) using the **update_cheatsheet_proposal** template.
+2. Wait for the issue to be discussed and approved.
+3. Fork and clone this repository.
+4. Make your changes to the target cheat sheet.
+5. Submit your [Pull Request](https://help.github.com/articles/creating-a-pull-request/).
+
+### Creating a New Cheat Sheet
+
+1. [Create a new issue](https://github.com/OWASP/CheatSheetSeries/issues/new/choose) using the **new_cheatsheet_proposal** template.
+2. Wait for the issue to be discussed and approved.
+3. Fork and clone this repository.
+4. Create your cheat sheet using the [template](templates/New_CheatSheet.md). See the [Cheat Sheet Writing Guide](GUIDELINE.md) for help with content and structure.
+5. Submit your [Pull Request](https://help.github.com/articles/creating-a-pull-request/).
+
+### Important Notes
+
+- :heavy_exclamation_mark: Focus on updating a **single file** in a Pull Request to make the review process simpler for the core team.
+- :warning: Pull Requests marked as **WAITING_UPDATE** that do not receive any updates from the author in one month will be closed.
 - :warning: If the assignees of an issue do not provide a Pull Request within one month then the issue will go back to the **HELP_WANTED** state and assignees will be removed.
-
-To propose changes to the existing cheat sheets or the creation of a new one, the process is as follows:
-
-1. Create a new [issue](https://github.com/OWASP/CheatSheetSeries/issues/new/choose) using either:
-   - The `new_cheatsheet_proposal` template if you want to propose a new cheat sheet.
-   - The `update_cheatsheet_proposal` template if you want to modify an existing cheat sheet.
-2. Once the issue has been discussed and approved:
-    1. Fork and clone this repository.
-    2. Either:
-      - Create the cheat sheet using the [new cheat sheet template](templates/New_CheatSheet.md).
-      - Modify the target cheat sheet in case of an update or refactor.
-    3. Submit your [Pull Request](https://help.github.com/articles/creating-a-pull-request/).
-    4. Verify that the CI job [applied on your Pull Request](https://travis-ci.org/OWASP/CheatSheetSeries/pull_requests) does not fail!
-      - If you believe they're failing due to something that's not your fault (such as another untouched file), add a comment in the Pull Request.
+- Verify that the CI checks applied on your Pull Request pass. If you believe they're failing due to something that's not your fault (such as another untouched file), add a comment in the Pull Request.
 
 ## Style Guide
 
 ### Markdown
 
-- Use the markdown syntax described in this [guide](https://daringfireball.net/projects/markdown/syntax), it's using python-markdown so check if what you need is [supported](https://python-markdown.github.io/#support).
+- Use the markdown syntax described in this [guide](https://daringfireball.net/projects/markdown/syntax), using python-markdown so check if what you need is [supported](https://python-markdown.github.io/#support).
 - Use `**bold**` syntax for **bold** text.
 - Lists and nested lists should use `-` strictly.
 - Avoid the use of HTML in the cheat sheets (stick to pure Markdown).
@@ -49,7 +66,9 @@ To propose changes to the existing cheat sheets or the creation of a new one, th
 
 The intended audience of the cheat sheets is developers, _not_ security experts. As such, do not assume that the person reading the cheat sheet has a strong understanding of security topics. In depth or academic discussions are generally not appropriate in cheat sheets, and should be linked to as external references where appropriate.
 
-The purpose of the cheat sheets is to provide **useful, practical advice** that can be followed by developers. It is much better to give _good_ practices that can actually be followed than _best_ practices that are completely impractical
+The purpose of the cheat sheets is to provide **useful, practical advice** that can be followed by developers. It is much better to give _good_ practices that can actually be followed than _best_ practices that are completely impractical.
+
+**Prefer architectural guidance over code samples.** Cheat sheets should focus on architectural patterns, design principles, and security decisions rather than language-specific code. Code samples require ongoing maintenance across languages and frameworks, and snippets taken out of context are often not fully secure. Describing _what_ to do and _why_ is more durable and broadly useful than showing _how_ in a single language. When code examples are included, they should be short, clearly illustrative, and not presented as production-ready implementations.
 
 When submitting changes in a PR, consider the following areas:
 
@@ -57,6 +76,9 @@ When submitting changes in a PR, consider the following areas:
 - The content should be factual and correct.
 - Statements should be supported by authoritative references where possible.
 - Recommendations should be feasible for the majority of developers to implement.
+- Guidance should be architectural and language-agnostic where possible, with code samples used sparingly to illustrate a point.
+
+For detailed guidance on writing effective cheat sheet content, including structure and approach, see the [Cheat Sheet Writing Guide](GUIDELINE.md).
 
 ### Structure
 
@@ -69,11 +91,11 @@ When submitting changes in a PR, consider the following areas:
 
 - Use US English.
     - Spell check before submitting a PR.
-- Try and keep the language relatively simple to make it easier for non-native speakers
+- Try and keep the language relatively simple to make it easier for non-native speakers.
 - Define any non-ubiquitous acronyms when they are first used.
     - This is not necessary for extremely common acronyms such as "HTTP" or "URL".
 
-## How to setup my contributor environment
+## How to Set Up Your Contributor Environment
 
 Follow these steps:
 
@@ -108,3 +130,16 @@ FILE: cheatsheets/Transaction_Authorization_Cheat_Sheet.md
 ...
 
 ```
+
+### Use of AI
+
+The Cheat Sheet Series is a documentation project, and so the content must be accurate, informative and concise.
+
+The use of AI in the Cheat Sheet project can be useful for summarising content, providing suggestions for improvements and code examples.
+There are also down-sides to using AI when it is used to generate content and pull requests for the Cheat Sheets.
+
+Depending on the prompts used, generative AI can produce content that is generalised and verbose; therefore review all output carefully before considering it for issues, pull requests, comments and discussions.
+If it is genuinely helpful to use generative AI then it **must** be declared in any pull request, failure to do so can result in the contribution being closed or deleted.
+
+Templates for all issues and pull requests must be used, otherwise it suggests that they have been generated by AI without taking this contributing guidance into account.
+Remember that the project maintainers' time is limited, so if a contribution reads like AI-slop then the issue may get closed or the pull request discarded.

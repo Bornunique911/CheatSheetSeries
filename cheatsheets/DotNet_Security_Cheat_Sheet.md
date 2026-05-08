@@ -49,6 +49,8 @@ CookieHttpOnly = true,
 
 Reduce the time period a session can be stolen in by reducing session timeout and removing sliding expiration:
 
+The decision to use sliding expiration depends on your application's threat model. Setting `SlidingExpiration` to `false` enforces an absolute session lifetime, which limits how long a stolen session can be reused, at the cost of reduced usability for long-lived interactive sessions. For some applications, enabling sliding expiration (`true`) may be preferred for user experience, as it keeps the session alive as long as the user is active. This convenience comes with increased risk if a session is compromised.
+
 ```csharp
 ExpireTimeSpan = TimeSpan.FromMinutes(60),
 SlidingExpiration = false
@@ -775,8 +777,9 @@ e.g
 services.ConfigureApplicationCookie(options =>
 {
  options.Cookie.HttpOnly = true;
- options.Cookie.Expiration = TimeSpan.FromHours(1)
- options.SlidingExpiration = true;
+ options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+ // See the discussion in A01 for trade-offs on using sliding expiration.
+ options.SlidingExpiration = false;
 });
 ```
 
@@ -817,7 +820,7 @@ What logs to collect and more information about logging can be found in the [Log
 
 .NET Core comes with a LoggerFactory, which is in Microsoft.Extensions.Logging. More information about ILogger can be found [here](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger).
 
-How to log all errors from the `Startup.cs`, so that anytime an error is thrown it will be logged:
+Here's how to log all errors from the `Startup.cs`, so that anytime an error is thrown it will be logged:
 
 ``` csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -965,7 +968,7 @@ Malicious users are able to use objects like cookies to insert malicious informa
 DO: Prevent Deserialization of Domain Objects
 
 DO: Run the Deserialization Code with Limited Access Permissions
-If a deserialized hostile object tries to initiate a system processes or access a resource within the server or the host's OS, it will be denied access and a permission flag will be raised so that a system administrator is made aware of any anomalous activity on the server.
+If a deserialized hostile object tries to initiate a system process or access a resource within the server or the host's OS, it will be denied access and a permission flag will be raised so that a system administrator is made aware of any anomalous activity on the server.
 
 More information about Insecure Deserialization can be found in the [Deserialization Cheat Sheet](Deserialization_Cheat_Sheet.md#net-csharp).
 

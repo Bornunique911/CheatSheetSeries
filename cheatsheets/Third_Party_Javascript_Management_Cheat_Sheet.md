@@ -27,7 +27,7 @@ The invocation of third-party JS code in a web application requires consideratio
 
 ### Risk 1: Loss of control over changes to the client application
 
-This risk arises from the fact that there is usually no guaranty that the code hosted at the third-party will remain the same as seen from the developers and testers: new features may be pushed in the third-party code at any time, thus potentially breaking the interface or data-flows and exposing the availability of your application to its users/customers.
+This risk arises from the fact that there is usually no guarantee that the code hosted at the third-party will remain the same as seen from the developers and testers: new features may be pushed in the third-party code at any time, thus potentially breaking the interface or data-flows and exposing the availability of your application to its users/customers.
 
 Typical defenses include, but are not restricted to: in-house script mirroring (to prevent alterations by 3rd parties), sub-resource integrity (to enable browser-level interception) and secure transmission of the third-party code (to prevent modifications while in-transit). See below for more details.
 
@@ -50,7 +50,7 @@ Typical defenses include, but are not restricted to:
 
 ### Risk 3: Disclosure of sensitive information to 3rd parties
 
-When a third-party script is invoked in a website/application, the browser directly contacts the third-party servers. By default, the request includes all regular HTTP headers. In addition to the originating IP address of the browser, the third-party also obtains other data such as the referrer (in non-https requests) and any cookies previously set by the 3rd party, for example when visiting another organization's website that also invokes the third-party script.
+When a third-party script is invoked in a website/application, the browser directly contacts the third-party servers. By default, the request includes all regular HTTP headers. In addition to the originating IP address of the browser, the third-party also obtains other data such as the referrer (in non-https requests) and any cookies previously set by the third-party, for example when visiting another organization's website that also invokes the third-party script.
 
 In many cases, this grants the third-party primary access to information on the organization's users / customers / clients. Additionally, if the third-party is sharing the script with other entities, it also collects secondary data from all the other entities, thus knowing who the organization's visitors are but also what other organizations they interact with.
 
@@ -79,7 +79,7 @@ This is where the vendor provides the host with the JavaScript and the host puts
 
 ### JavaScript Request to Vendor
 
-This is where one or a few lines of code on the host page each request a JavaScript file or URL directly from the vendor site. When the host page is being created, the developer includes the lines of code provided by the vendor that will request the vendor JavaScript. Each time the page is accessed the requests are made to the vendor site for the javascript, which then executes on the user browser.
+This is where one or a few lines of code on the host page each request a JavaScript file or URL directly from the vendor site. When the host page is being created, the developer includes the lines of code provided by the vendor that will request the vendor JavaScript. Each time the page is accessed the requests are made to the vendor site for the JavaScript, which then executes on the user browser.
 
 ```html
 <!-- Some host, e.g. foobar.com, HTML code here -->`
@@ -182,7 +182,7 @@ Changing third party vendors just means changing the data dissemination rules at
 
 ### Indirect Requests
 
-For indirect requests to tag manager/aggregator sites that offer the GUI to configure the javascript, they may also implement:
+For indirect requests to tag manager/aggregator sites that offer the GUI to configure the JavaScript, they may also implement:
 
 - Technical controls such as only allowing the JavaScript to access the data layer values, no other DOM element
 - Restricting the tag types deployed on a host site, e.g. disabling of custom HTML tags and JavaScript code
@@ -200,7 +200,7 @@ Both of these tools be used by sites to sandbox/clean DOM data.
 
 ### Subresource Integrity
 
-[Subresource Integrity](https://www.w3.org/TR/SRI/) will ensure that only the code that has been reviewed is executed. The developer generates integrity metadata for the vendor javascript, and adds it to the script element like this:
+[Subresource Integrity](https://www.w3.org/TR/SRI/) will ensure that only the code that has been reviewed is executed. The developer generates integrity metadata for the vendor JavaScript, and adds it to the script element like this:
 
 ```javascript
 <script src="https://analytics.vendor.com/v1.1/script.js"

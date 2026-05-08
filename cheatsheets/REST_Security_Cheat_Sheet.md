@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[REST](http://en.wikipedia.org/wiki/Representational_state_transfer) (or **RE**presentational **S**tate **T**ransfer) is an architectural style first described in [Roy Fielding](https://en.wikipedia.org/wiki/Roy_Fielding)'s Ph.D. dissertation on [Architectural Styles and the Design of Network-based Software Architectures](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm).
+[REST](https://en.wikipedia.org/wiki/REST) (or **RE**presentational **S**tate **T**ransfer) is an architectural style first described in [Roy Fielding](https://en.wikipedia.org/wiki/Roy_Fielding)'s Ph.D. dissertation on [Architectural Styles and the Design of Network-based Software Architectures](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm).
 
 It evolved as Fielding wrote the HTTP/1.1 and URI specs and has been proven to be well-suited for developing distributed hypermedia applications. While REST is more widely applicable, it is most commonly used within the context of communicating with services via HTTP.
 
@@ -77,6 +77,53 @@ API keys can reduce the impact of denial-of-service attacks. However, when they 
 
 In Java EE in particular, this can be difficult to implement properly. See [Bypassing Web Authentication and Authorization with HTTP Verb Tampering](../assets/REST_Security_Cheat_Sheet_Bypassing_VBAAC_with_HTTP_Verb_Tampering.pdf) for an explanation of this common misconfiguration.
 
+## Preventing Out-of-Order API Execution
+
+Modern REST APIs often implement business workflows through a sequence of endpoints (for example, create → validate → approve → finalize). If the backend does not explicitly validate workflow state transitions, attackers may invoke endpoints out of sequence to bypass intended controls.
+
+### Problem
+
+Out-of-order API execution occurs when an attacker:
+
+- Skips required workflow steps by directly calling later-stage endpoints
+- Replays or reuses tokens across workflow boundaries
+- Exploits assumptions that the frontend enforces correct sequencing
+
+Because each endpoint may be individually authenticated and authorized, traditional access control checks often fail to detect these issues.
+
+### Example
+
+A checkout workflow expects the following sequence:
+
+```http
+POST /checkout/create
+POST /checkout/pay
+POST /checkout/confirm
+```
+
+If the backend does not validate workflow state transitions, an attacker could directly invoke:
+
+```http
+POST /checkout/confirm
+```
+
+without completing payment.
+
+### Prevention Guidance
+
+- Enforce workflow state validation on the server side for every request
+- Model workflows explicitly using finite states or state machines
+- Bind tokens or identifiers to specific workflow stages
+- Avoid relying on frontend logic to enforce sequencing
+- Reject invalid or out-of-order transitions with clear error responses
+
+### Testing Checklist
+
+- Can endpoints be invoked out of sequence?
+- Does each endpoint validate the current workflow state?
+- Are tokens reusable across workflow steps?
+- Are invalid state transitions consistently rejected?
+
 ## Input validation
 
 - Do not trust input parameters/objects.
@@ -98,7 +145,7 @@ A REST request or response body should match the intended content type in the he
 
 ### Validate request content types
 
-- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Unacceptable` or `415 Unsupported Media Type`.
+- Reject requests containing unexpected or missing content type headers with HTTP response status `406 Unacceptable` or `415 Unsupported Media Type`. For requests with `Content-Length: 0` however, a `Content-type` header is optional.
 - For XML content types ensure appropriate XML parser hardening, see the [XXE cheat sheet](XML_External_Entity_Prevention_Cheat_Sheet.md).
 - Avoid accidentally exposing unintended content types by explicitly defining content types e.g. [Jersey](https://jersey.github.io/) (Java) `@consumes("application/json"); @produces("application/json")`. This avoids [XXE-attack](https://owasp.org/www-community/vulnerabilities/XML_External_Entity_%28XXE%29_Processing) vectors for example.
 
@@ -133,9 +180,9 @@ Services including script code (e.g. JavaScript) in their responses must be espe
 
 ## Security Headers
 
-There are a number of [security related headers](https://owasp.org/www-project-secure-headers/) that can be returned in the HTTP responses to instruct browsers to act in specific ways. However, some of these headers are intended to be used with HTML responses, and as such may provide little or no security benefits on an API that does not return HTML.
+There are a number of [security related headers](https://owasp.org/www-project-secure-headers/) that can be returned in the HTTP responses to instruct browsers to act in specific ways. However, some of these headers are intended to be used with HTML responses, and as such may provide little or no security benefits on an API that does not return HTML. Note that if the API is only consumed by non-browser clients (e.g. mobile apps, server-to-server calls, command-line tools), most of these headers will have no effect since they are directives for browsers.
 
-The following headers should be included in all API responses:
+The following headers should be included in all API responses that may be consumed by browser clients:
 
 | Header | Rationale |
 |--------|-----------|
@@ -144,7 +191,7 @@ The following headers should be included in all API responses:
 | `Content-Type` | Header to specify the content type of a response. This must be specified as per the type of content returned by an API call. If not specified or if specified incorrectly, a browser might attempt to guess the content type of the response. This can return in MIME sniffing attacks. One common content type value is `application/json` if the API response is JSON. |
 | `Strict-Transport-Security` | Header to instruct a browser that the domain should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. This header ensures that API calls are made over HTTPS and protects against spoofed certificates. |
 | `X-Content-Type-Options: nosniff` | Header to instruct a browser to always use the MIME type that is declared in the `Content-Type` header rather than trying to determine the MIME type based on the file's content. This header with a `nosniff` value prevents browsers from performing MIME sniffing, and inappropriately interpreting responses as HTML. |
-| `X-Frame-Options: DENY` | Header used to specify whether a response can be framed in a `<frame>`, `<iframe>`, `<embed>` or `<object>` element. For an API response, there is no requirement to be framed in any of those elements. Providing `DENY` prevents any domain from framing the response returned by the API call. This header with a `DENY` value protects protect against [drag-and-drop](https://www.w3.org/Security/wiki/Clickjacking_Threats#Drag_and_drop_attacks) style clickjacking attacks. |
+| `X-Frame-Options: DENY` | Legacy header superseded by `Content-Security-Policy: frame-ancestors 'none'` (see above). Still recommended for compatibility with older browsers that do not support CSP Level 2. Providing `DENY` prevents any domain from framing the response. |
 
 The headers below are only intended to provide additional security when responses are rendered as HTML. As such, if the API will **never** return HTML in responses, then these headers may not be necessary. However, if there is any uncertainty about the function of the headers, or the types of information that the API returns (or may return in future), then it is recommended to include them as part of a defence-in-depth approach.
 
@@ -176,7 +223,7 @@ RESTful web services should be careful to prevent leaking credentials. Passwords
 
 **NOT OK:**
 
-`https://example.com/controller/123/action?apiKey=a53f435643de32` because API Key is into the URL.
+`https://example.com/controller/123/action?apiKey=a53f435643de32` because the apiKey is in the URL.
 
 ## HTTP Return Code
 
