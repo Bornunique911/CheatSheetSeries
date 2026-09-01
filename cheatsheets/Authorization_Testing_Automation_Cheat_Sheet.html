@@ -17,14 +17,17 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
         <link rel="canonical" href="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Testing_Automation_Cheat_Sheet.html">
       
       
-        <link rel="prev" href="Authorization_Cheat_Sheet.html">
+        <link rel="prev" href="Authorization_Regression_Testing_Cheat_Sheet.html">
       
       
-        <link rel="next" href="Bean_Validation_Cheat_Sheet.html">
+        <link rel="next" href="Automotive_Security_Cheat_Sheet.html">
+      
+      
+        
       
       
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -32,10 +35,10 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -54,11 +57,10 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -73,9 +75,6 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -106,7 +105,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -131,20 +130,20 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -152,33 +151,38 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -189,13 +193,14 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -240,7 +245,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -255,13 +260,21 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -271,6 +284,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
       
       
+  
   
   
   
@@ -278,9 +292,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -290,6 +311,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
       
       
+  
   
   
   
@@ -297,9 +319,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -309,6 +338,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
       
       
+  
   
   
   
@@ -316,9 +346,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -328,6 +365,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
       
       
+  
   
   
   
@@ -335,9 +373,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -347,6 +392,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
       
       
+  
   
   
   
@@ -354,9 +400,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -371,25 +424,37 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -398,7 +463,11 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -407,13 +476,21 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -424,6 +501,63 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -431,9 +565,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -444,6 +585,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -451,9 +593,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -464,6 +613,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -471,9 +621,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -484,6 +641,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -491,9 +649,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -507,13 +672,49 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
   
   
   
+  
     <li class="md-nav__item">
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -527,6 +728,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -540,9 +742,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -551,9 +760,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -575,28 +791,44 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#context" class="md-nav__link">
-    Context
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#objective" class="md-nav__link">
-    Objective
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#proposition" class="md-nav__link">
-    Proposition
+    <span class="md-ellipsis">
+      
+        Proposition
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Proposition">
@@ -604,21 +836,33 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
         
           <li class="md-nav__item">
   <a href="#preparing-to-automate-the-authorization-matrix" class="md-nav__link">
-    Preparing to automate the authorization matrix
+    <span class="md-ellipsis">
+      
+        Preparing to automate the authorization matrix
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#create-the-authorization-matrix-pivot-file" class="md-nav__link">
-    Create the authorization matrix pivot file
+    <span class="md-ellipsis">
+      
+        Create the authorization matrix pivot file
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#implementing-an-integration-test" class="md-nav__link">
-    Implementing an integration test
+    <span class="md-ellipsis">
+      
+        Implementing an integration test
+      
+    </span>
   </a>
   
 </li>
@@ -630,14 +874,22 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
         <li class="md-nav__item">
   <a href="#rendering-the-authorization-matrix-for-an-audit-review" class="md-nav__link">
-    Rendering the authorization matrix for an audit / review
+    <span class="md-ellipsis">
+      
+        Rendering the authorization matrix for an audit / review
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sources-of-the-prototype" class="md-nav__link">
-    Sources of the prototype
+    <span class="md-ellipsis">
+      
+        Sources of the prototype
+      
+    </span>
   </a>
   
 </li>
@@ -656,13 +908,21 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
   
   
   
+  
     <li class="md-nav__item">
-      <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    Bean Validation
+    
+  
+    Automotive Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -673,6 +933,119 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bean Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -680,9 +1053,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -693,6 +1073,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -700,9 +1081,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -713,6 +1101,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -720,9 +1109,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -733,6 +1129,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -740,9 +1137,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -753,6 +1157,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -760,9 +1165,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -773,6 +1185,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -780,9 +1221,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -793,6 +1241,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -800,9 +1249,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -813,6 +1269,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -820,9 +1277,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -833,6 +1297,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -840,9 +1305,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -853,6 +1325,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -860,9 +1333,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -873,6 +1353,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -880,9 +1361,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -893,6 +1381,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -900,9 +1389,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -913,6 +1409,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -920,9 +1417,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -933,6 +1437,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -940,9 +1473,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -953,6 +1493,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -960,9 +1501,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -973,6 +1521,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -980,9 +1529,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -993,6 +1549,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1000,9 +1557,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1013,6 +1577,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1020,9 +1585,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1033,6 +1605,63 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1040,9 +1669,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1053,6 +1689,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1060,9 +1697,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1073,6 +1717,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1080,9 +1725,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1093,6 +1745,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1100,9 +1781,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1113,6 +1801,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1120,9 +1809,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1133,6 +1829,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1140,9 +1837,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1153,6 +1857,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1160,9 +1865,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1173,6 +1885,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1180,9 +1893,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1193,6 +1913,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1200,9 +1921,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1213,6 +1941,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1220,9 +1949,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1233,6 +1969,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1240,9 +1977,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1253,6 +1997,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1260,9 +2005,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1273,6 +2025,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1280,9 +2033,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1293,16 +2053,24 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1313,6 +2081,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1320,9 +2089,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1333,6 +2109,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1340,9 +2117,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1353,6 +2137,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1360,9 +2145,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1373,6 +2165,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1380,9 +2173,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1393,6 +2193,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1400,9 +2229,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1413,6 +2249,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1420,9 +2285,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1433,6 +2305,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1440,9 +2313,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1453,6 +2333,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1460,9 +2369,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1473,6 +2389,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1480,9 +2397,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1493,6 +2417,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1500,9 +2425,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1513,6 +2445,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1520,9 +2453,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1533,6 +2473,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1540,9 +2509,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1553,6 +2529,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1560,9 +2537,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1573,6 +2557,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1580,9 +2565,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1593,6 +2585,63 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1600,9 +2649,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1613,6 +2669,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1620,9 +2677,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1633,6 +2697,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1640,9 +2705,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1653,6 +2725,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1660,9 +2733,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1673,6 +2753,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1680,9 +2761,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1693,6 +2781,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1700,9 +2789,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1713,6 +2809,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1720,9 +2817,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1733,6 +2837,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1740,9 +2845,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1753,6 +2865,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1760,9 +2873,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1773,6 +2893,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1780,9 +2929,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1793,6 +2949,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1800,9 +2957,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1813,6 +2977,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1820,9 +2985,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1833,6 +3005,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1840,9 +3013,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1853,6 +3033,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1860,9 +3041,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1873,6 +3061,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1880,9 +3069,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1893,6 +3089,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1900,9 +3125,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1913,6 +3145,63 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1920,9 +3209,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1933,6 +3229,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -1940,9 +3237,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1953,6 +3257,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1960,9 +3293,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1973,6 +3313,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1980,9 +3349,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1993,6 +3369,63 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2000,9 +3433,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2013,6 +3453,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2020,9 +3461,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2033,6 +3481,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2040,9 +3489,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2053,6 +3509,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2060,9 +3545,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2073,6 +3565,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2080,9 +3573,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2093,6 +3593,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2100,9 +3601,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2113,6 +3621,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2120,9 +3629,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2133,6 +3649,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2140,9 +3657,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2153,6 +3677,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2160,9 +3685,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2173,6 +3705,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2180,9 +3713,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2193,6 +3733,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2200,9 +3741,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2213,6 +3761,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2220,9 +3769,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2233,6 +3789,35 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2240,9 +3825,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2253,6 +3845,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2260,9 +3853,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2273,6 +3873,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2280,9 +3881,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2293,6 +3901,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
             
               
                 
+  
   
   
   
@@ -2300,9 +3909,16 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2316,13 +3932,77 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2366,28 +4046,44 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#context" class="md-nav__link">
-    Context
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#objective" class="md-nav__link">
-    Objective
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#proposition" class="md-nav__link">
-    Proposition
+    <span class="md-ellipsis">
+      
+        Proposition
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Proposition">
@@ -2395,21 +4091,33 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
         
           <li class="md-nav__item">
   <a href="#preparing-to-automate-the-authorization-matrix" class="md-nav__link">
-    Preparing to automate the authorization matrix
+    <span class="md-ellipsis">
+      
+        Preparing to automate the authorization matrix
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#create-the-authorization-matrix-pivot-file" class="md-nav__link">
-    Create the authorization matrix pivot file
+    <span class="md-ellipsis">
+      
+        Create the authorization matrix pivot file
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#implementing-an-integration-test" class="md-nav__link">
-    Implementing an integration test
+    <span class="md-ellipsis">
+      
+        Implementing an integration test
+      
+    </span>
   </a>
   
 </li>
@@ -2421,14 +4129,22 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       
         <li class="md-nav__item">
   <a href="#rendering-the-authorization-matrix-for-an-audit-review" class="md-nav__link">
-    Rendering the authorization matrix for an audit / review
+    <span class="md-ellipsis">
+      
+        Rendering the authorization matrix for an audit / review
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sources-of-the-prototype" class="md-nav__link">
-    Sources of the prototype
+    <span class="md-ellipsis">
+      
+        Sources of the prototype
+      
+    </span>
   </a>
   
 </li>
@@ -2443,9 +4159,11 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -2493,17 +4211,17 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <blockquote>
 <p>Placeholders (values between {}) are used to mark location where test value must be placed by the integration tests if needed</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!--</span>
 <span class="cm">      This file materializes the authorization matrix for the different</span>
 <span class="cm">      services exposed by the system:</span>
 
 <span class="cm">      The tests will use this as a input source for the different test cases by:</span>
 <span class="cm">      1) Defining legitimate access and the correct implementation</span>
-<span class="cm">      2) Identifing illegitimate access (authorization definition issue</span>
+<span class="cm">      2) Identifying illegitimate access (authorization definition issue</span>
 <span class="cm">      on service implementation)</span>
 
-<span class="cm">      The &quot;name&quot; attribute is used to uniquely identify a SERVICE or a ROLE.</span>
+<span class="cm">      The "name" attribute is used to uniquely identify a SERVICE or a ROLE.</span>
 <span class="cm">  --&gt;</span>
 <span class="w">  </span><span class="nt">&lt;authorization-matrix&gt;</span>
 
@@ -2511,54 +4229,54 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="cm">      provide a list+explanation</span>
 <span class="cm">      of the different roles (authorization level) --&gt;</span>
 <span class="w">      </span><span class="nt">&lt;roles&gt;</span>
-<span class="w">          </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span>
-<span class="w">          </span><span class="na">description=</span><span class="s">&quot;Indicate that no authorization is needed&quot;</span><span class="nt">/&gt;</span>
-<span class="w">          </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;BASIC&quot;</span>
-<span class="w">          </span><span class="na">description=</span><span class="s">&quot;Role affecting a standard user (lowest access right just above anonymous)&quot;</span><span class="nt">/&gt;</span>
-<span class="w">          </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span>
-<span class="w">          </span><span class="na">description=</span><span class="s">&quot;Role affecting an administrator user (highest access right)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ANONYMOUS"</span>
+<span class="w">          </span><span class="na">description=</span><span class="s">"Indicate that no authorization is needed"</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"BASIC"</span>
+<span class="w">          </span><span class="na">description=</span><span class="s">"Role affecting a standard user (lowest access right just above anonymous)"</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ADMIN"</span>
+<span class="w">          </span><span class="na">description=</span><span class="s">"Role affecting an administrator user (highest access right)"</span><span class="nt">/&gt;</span>
 <span class="w">      </span><span class="nt">&lt;/roles&gt;</span>
 
 <span class="w">      </span><span class="cm">&lt;!-- List and describe the available services exposed by the system and the associated</span>
 <span class="cm">      logical role(s) that can call them --&gt;</span>
 <span class="w">      </span><span class="nt">&lt;services&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ReadSingleMessage&quot;</span><span class="w"> </span><span class="na">uri=</span><span class="s">&quot;/{messageId}&quot;</span><span class="w"> </span><span class="na">http-method=</span><span class="s">&quot;GET&quot;</span>
-<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;BASIC&quot;</span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"ReadSingleMessage"</span><span class="w"> </span><span class="na">uri=</span><span class="s">"/{messageId}"</span><span class="w"> </span><span class="na">http-method=</span><span class="s">"GET"</span>
+<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">"200"</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">"403"</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ANONYMOUS"</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"BASIC"</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ADMIN"</span><span class="nt">/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ReadAllMessages&quot;</span><span class="w"> </span><span class="na">uri=</span><span class="s">&quot;/&quot;</span><span class="w"> </span><span class="na">http-method=</span><span class="s">&quot;GET&quot;</span>
-<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ANONYMOUS&quot;</span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;BASIC&quot;</span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"ReadAllMessages"</span><span class="w"> </span><span class="na">uri=</span><span class="s">"/"</span><span class="w"> </span><span class="na">http-method=</span><span class="s">"GET"</span>
+<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">"200"</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">"403"</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ANONYMOUS"</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"BASIC"</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ADMIN"</span><span class="nt">/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;CreateMessage&quot;</span><span class="w"> </span><span class="na">uri=</span><span class="s">&quot;/&quot;</span><span class="w"> </span><span class="na">http-method=</span><span class="s">&quot;PUT&quot;</span>
-<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;BASIC&quot;</span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"CreateMessage"</span><span class="w"> </span><span class="na">uri=</span><span class="s">"/"</span><span class="w"> </span><span class="na">http-method=</span><span class="s">"PUT"</span>
+<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">"200"</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">"403"</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"BASIC"</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ADMIN"</span><span class="nt">/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DeleteMessage&quot;</span><span class="w"> </span><span class="na">uri=</span><span class="s">&quot;/{messageId}&quot;</span><span class="w"> </span><span class="na">http-method=</span><span class="s">&quot;DELETE&quot;</span>
-<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">&quot;403&quot;</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ADMIN&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"DeleteMessage"</span><span class="w"> </span><span class="na">uri=</span><span class="s">"/{messageId}"</span><span class="w"> </span><span class="na">http-method=</span><span class="s">"DELETE"</span>
+<span class="w">          </span><span class="na">http-response-code-for-access-allowed=</span><span class="s">"200"</span><span class="w"> </span><span class="na">http-response-code-for-access-denied=</span><span class="s">"403"</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;role</span><span class="w"> </span><span class="na">name=</span><span class="s">"ADMIN"</span><span class="nt">/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
 <span class="w">      </span><span class="nt">&lt;/services&gt;</span>
 
 <span class="w">      </span><span class="cm">&lt;!-- Provide a test payload for each service if needed --&gt;</span>
 <span class="w">      </span><span class="nt">&lt;services-testing&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ReadSingleMessage&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"ReadSingleMessage"</span><span class="nt">&gt;</span>
 <span class="w">              </span><span class="nt">&lt;payload/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ReadAllMessages&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"ReadAllMessages"</span><span class="nt">&gt;</span>
 <span class="w">              </span><span class="nt">&lt;payload/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;CreateMessage&quot;</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="nt">&lt;payload</span><span class="w"> </span><span class="na">content-type=</span><span class="s">&quot;application/json&quot;</span><span class="nt">&gt;</span>
-<span class="w">                  </span>{&quot;content&quot;:&quot;test&quot;}
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"CreateMessage"</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="nt">&lt;payload</span><span class="w"> </span><span class="na">content-type=</span><span class="s">"application/json"</span><span class="nt">&gt;</span>
+<span class="w">                  </span>{"content":"test"}
 <span class="w">              </span><span class="nt">&lt;/payload&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
-<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DeleteMessage&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">"DeleteMessage"</span><span class="nt">&gt;</span>
 <span class="w">              </span><span class="nt">&lt;payload/&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/service&gt;</span>
 <span class="w">      </span><span class="nt">&lt;/services-testing&gt;</span>
@@ -2606,7 +4324,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="cm">       */</span>
 <span class="w">      </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">AuthorizationMatrix</span><span class="w"> </span><span class="n">AUTHZ_MATRIX</span><span class="p">;</span>
 
-<span class="w">      </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">BASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://localhost:8080&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">BASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"http://localhost:8080"</span><span class="p">;</span>
 
 
 <span class="w">      </span><span class="cm">/**</span>
@@ -2616,11 +4334,11 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="cm">       */</span>
 <span class="w">      </span><span class="nd">@BeforeClass</span>
 <span class="w">      </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">globalInit</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;authorization-matrix.xml&quot;</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">"authorization-matrix.xml"</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">              </span><span class="n">SAXParserFactory</span><span class="w"> </span><span class="n">spf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SAXParserFactory</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span>
-<span class="w">              </span><span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">&quot;http://xml.org/sax/features/external-general-entities&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
-<span class="w">              </span><span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">&quot;http://xml.org/sax/features/external-parameter-entities&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
-<span class="w">              </span><span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">&quot;http://apache.org/xml/features/nonvalidating/load-external-dtd&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">              </span><span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">"http://xml.org/sax/features/external-general-entities"</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">              </span><span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">"http://xml.org/sax/features/external-parameter-entities"</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">              </span><span class="n">spf</span><span class="p">.</span><span class="na">setFeature</span><span class="p">(</span><span class="s">"http://apache.org/xml/features/nonvalidating/load-external-dtd"</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
 <span class="w">              </span><span class="n">Source</span><span class="w"> </span><span class="n">xmlSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SAXSource</span><span class="p">(</span><span class="n">spf</span><span class="p">.</span><span class="na">newSAXParser</span><span class="p">().</span><span class="na">getXMLReader</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InputSource</span><span class="p">(</span><span class="n">fis</span><span class="p">));</span>
 <span class="w">              </span><span class="n">JAXBContext</span><span class="w"> </span><span class="n">jc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JAXBContext</span><span class="p">.</span><span class="na">newInstance</span><span class="p">(</span><span class="n">AuthorizationMatrix</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 <span class="w">              </span><span class="n">AUTHZ_MATRIX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">AuthorizationMatrix</span><span class="p">)</span><span class="w"> </span><span class="n">jc</span><span class="p">.</span><span class="na">createUnmarshaller</span><span class="p">().</span><span class="na">unmarshal</span><span class="p">(</span><span class="n">xmlSource</span><span class="p">);</span>
@@ -2637,7 +4355,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="w">          </span><span class="c1">//Run the tests - No access token here</span>
 <span class="w">          </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executeTestWithPointOfView</span><span class="p">(</span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">ANONYMOUS</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
 <span class="w">          </span><span class="c1">//Verify the test results</span>
-<span class="w">          </span><span class="n">Assert</span><span class="p">.</span><span class="na">assertEquals</span><span class="p">(</span><span class="s">&quot;Access issues detected using the ANONYMOUS USER point of view:\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatErrorsList</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">          </span><span class="n">Assert</span><span class="p">.</span><span class="na">assertEquals</span><span class="p">(</span><span class="s">"Access issues detected using the ANONYMOUS USER point of view:\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatErrorsList</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
 <span class="w">      </span><span class="p">}</span>
 
 <span class="w">      </span><span class="cm">/**</span>
@@ -2648,11 +4366,11 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="w">      </span><span class="nd">@Test</span>
 <span class="w">      </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAccessUsingBasicUserPointOfView</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="c1">//Get access token representing the authorization for the associated point of view</span>
-<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateTestCaseAccessToken</span><span class="p">(</span><span class="s">&quot;basic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">BASIC</span><span class="p">);</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateTestCaseAccessToken</span><span class="p">(</span><span class="s">"basic"</span><span class="p">,</span><span class="w"> </span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">BASIC</span><span class="p">);</span>
 <span class="w">          </span><span class="c1">//Run the tests</span>
 <span class="w">          </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executeTestWithPointOfView</span><span class="p">(</span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">BASIC</span><span class="p">,</span><span class="w"> </span><span class="n">accessToken</span><span class="p">);</span>
 <span class="w">          </span><span class="c1">//Verify the test results</span>
-<span class="w">          </span><span class="n">Assert</span><span class="p">.</span><span class="na">assertEquals</span><span class="p">(</span><span class="s">&quot;Access issues detected using the BASIC USER point of view:\n &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatErrorsList</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">          </span><span class="n">Assert</span><span class="p">.</span><span class="na">assertEquals</span><span class="p">(</span><span class="s">"Access issues detected using the BASIC USER point of view:\n "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatErrorsList</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
 <span class="w">      </span><span class="p">}</span>
 
 <span class="w">      </span><span class="cm">/**</span>
@@ -2663,11 +4381,11 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="w">      </span><span class="nd">@Test</span>
 <span class="w">      </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAccessUsingAdministratorUserPointOfView</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="c1">//Get access token representing the authorization for the associated point of view</span>
-<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateTestCaseAccessToken</span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">ADMIN</span><span class="p">);</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateTestCaseAccessToken</span><span class="p">(</span><span class="s">"admin"</span><span class="p">,</span><span class="w"> </span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">ADMIN</span><span class="p">);</span>
 <span class="w">          </span><span class="c1">//Run the tests</span>
 <span class="w">          </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executeTestWithPointOfView</span><span class="p">(</span><span class="n">SecurityRole</span><span class="p">.</span><span class="na">ADMIN</span><span class="p">,</span><span class="w"> </span><span class="n">accessToken</span><span class="p">);</span>
 <span class="w">          </span><span class="c1">//Verify the test results</span>
-<span class="w">          </span><span class="n">Assert</span><span class="p">.</span><span class="na">assertEquals</span><span class="p">(</span><span class="s">&quot;Access issues detected using the ADMIN USER point of view:\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatErrorsList</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">          </span><span class="n">Assert</span><span class="p">.</span><span class="na">assertEquals</span><span class="p">(</span><span class="s">"Access issues detected using the ADMIN USER point of view:\n"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">formatErrorsList</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
 <span class="w">      </span><span class="p">}</span>
 
 <span class="w">      </span><span class="cm">/**</span>
@@ -2680,9 +4398,9 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="cm">       */</span>
 <span class="w">      </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">executeTestWithPointOfView</span><span class="p">(</span><span class="n">SecurityRole</span><span class="w"> </span><span class="n">pointOfView</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">accessToken</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">errorMessageTplForUnexpectedReturnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The service &#39;%s&#39; when called with POV &#39;%s&#39; return a response code %s that is not the expected one in allowed or denied case.&quot;</span><span class="p">;</span>
-<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">errorMessageTplForIncorrectReturnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The service &#39;%s&#39; when called with POV &#39;%s&#39; return a response code %s that is not the expected one (%s expected).&quot;</span><span class="p">;</span>
-<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">fatalErrorMessageTpl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The service &#39;%s&#39; when called with POV %s meet the error: %s&quot;</span><span class="p">;</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">errorMessageTplForUnexpectedReturnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The service '%s' when called with POV '%s' return a response code %s that is not the expected one in allowed or denied case."</span><span class="p">;</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">errorMessageTplForIncorrectReturnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The service '%s' when called with POV '%s' return a response code %s that is not the expected one (%s expected)."</span><span class="p">;</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">fatalErrorMessageTpl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The service '%s' when called with POV %s meet the error: %s"</span><span class="p">;</span>
 
 <span class="w">          </span><span class="c1">//Get the list of services to call</span>
 <span class="w">          </span><span class="n">List</span><span class="o">&lt;</span><span class="n">AuthorizationMatrix</span><span class="p">.</span><span class="na">Services</span><span class="p">.</span><span class="na">Service</span><span class="o">&gt;</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AUTHZ_MATRIX</span><span class="p">.</span><span class="na">getServices</span><span class="p">().</span><span class="na">getService</span><span class="p">();</span>
@@ -2709,13 +4427,13 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="w">                  </span><span class="kt">boolean</span><span class="w"> </span><span class="n">accessIsGrantedInAuthorizationMatrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">role</span><span class="p">.</span><span class="na">isPresent</span><span class="p">();</span>
 <span class="w">                  </span><span class="c1">//Verify behavior consistency according to the response code returned and the authorization configured in the matrix</span>
 <span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">serviceResponseCode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">getHttpResponseCodeForAccessAllowed</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                      </span><span class="c1">//Roles is not in the list of role allowed to access to the service so it&#39;s an error</span>
+<span class="w">                      </span><span class="c1">//Roles is not in the list of role allowed to access to the service so it's an error</span>
 <span class="w">                      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">accessIsGrantedInAuthorizationMatrix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                          </span><span class="n">errors</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">errorMessageTplForIncorrectReturnCode</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">pointOfView</span><span class="p">.</span><span class="na">name</span><span class="p">(),</span><span class="w"> </span><span class="n">serviceResponseCode</span><span class="p">,</span>
 <span class="w">                           </span><span class="n">service</span><span class="p">.</span><span class="na">getHttpResponseCodeForAccessDenied</span><span class="p">()));</span>
 <span class="w">                      </span><span class="p">}</span>
 <span class="w">                  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">serviceResponseCode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">getHttpResponseCodeForAccessDenied</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                      </span><span class="c1">//Roles is in the list of role allowed to access to the service so it&#39;s an error</span>
+<span class="w">                      </span><span class="c1">//Roles is in the list of role allowed to access to the service so it's an error</span>
 <span class="w">                      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">accessIsGrantedInAuthorizationMatrix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                          </span><span class="n">errors</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">errorMessageTplForIncorrectReturnCode</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">pointOfView</span><span class="p">.</span><span class="na">name</span><span class="p">(),</span><span class="w"> </span><span class="n">serviceResponseCode</span><span class="p">,</span>
 <span class="w">                           </span><span class="n">service</span><span class="p">.</span><span class="na">getHttpResponseCodeForAccessAllowed</span><span class="p">()));</span>
@@ -2750,31 +4468,31 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 
 <span class="w">          </span><span class="c1">//Build the request - Use Apache HTTP Client in order to be more flexible in the combination.</span>
 <span class="w">          </span><span class="n">HttpRequestBase</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
-<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">BASE_URL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">uri</span><span class="p">).</span><span class="na">replaceAll</span><span class="p">(</span><span class="s">&quot;\\{messageId\\}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">BASE_URL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">uri</span><span class="p">).</span><span class="na">replaceAll</span><span class="p">(</span><span class="s">"\\{messageId\\}"</span><span class="p">,</span><span class="w"> </span><span class="s">"1"</span><span class="p">);</span>
 <span class="w">          </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">httpMethod</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">              </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;GET&quot;</span><span class="p">:</span>
+<span class="w">              </span><span class="k">case</span><span class="w"> </span><span class="s">"GET"</span><span class="p">:</span>
 <span class="w">                  </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpGet</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
 <span class="w">                  </span><span class="k">break</span><span class="p">;</span>
-<span class="w">              </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;DELETE&quot;</span><span class="p">:</span>
+<span class="w">              </span><span class="k">case</span><span class="w"> </span><span class="s">"DELETE"</span><span class="p">:</span>
 <span class="w">                  </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpDelete</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
 <span class="w">                  </span><span class="k">break</span><span class="p">;</span>
-<span class="w">              </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;PUT&quot;</span><span class="p">:</span>
+<span class="w">              </span><span class="k">case</span><span class="w"> </span><span class="s">"PUT"</span><span class="p">:</span>
 <span class="w">                  </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpPut</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
 <span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">payload</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                      </span><span class="n">request</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">payloadContentType</span><span class="p">);</span>
+<span class="w">                      </span><span class="n">request</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="w"> </span><span class="n">payloadContentType</span><span class="p">);</span>
 <span class="w">                      </span><span class="p">((</span><span class="n">HttpPut</span><span class="p">)</span><span class="w"> </span><span class="n">request</span><span class="p">).</span><span class="na">setEntity</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringEntity</span><span class="p">(</span><span class="n">payload</span><span class="p">.</span><span class="na">trim</span><span class="p">()));</span>
 <span class="w">                  </span><span class="p">}</span>
 <span class="w">                  </span><span class="k">break</span><span class="p">;</span>
 <span class="w">              </span><span class="k">default</span><span class="p">:</span>
-<span class="w">                  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnsupportedOperationException</span><span class="p">(</span><span class="n">httpMethod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; not supported !&quot;</span><span class="p">);</span>
+<span class="w">                  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnsupportedOperationException</span><span class="p">(</span><span class="n">httpMethod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" not supported !"</span><span class="p">);</span>
 <span class="w">          </span><span class="p">}</span>
-<span class="w">          </span><span class="n">request</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&quot;Authorization&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">accessToken</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">accessToken</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">request</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">accessToken</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">accessToken</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
 
 
 <span class="w">          </span><span class="c1">//Send the request and get the HTTP response code.</span>
 <span class="w">          </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CloseableHttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClients</span><span class="p">.</span><span class="na">createDefault</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <span class="w">              </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">CloseableHttpResponse</span><span class="w"> </span><span class="n">httpResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="n">request</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                  </span><span class="c1">//Don&#39;t care here about the response content...</span>
+<span class="w">                  </span><span class="c1">//Don't care here about the response content...</span>
 <span class="w">                  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">httpResponse</span><span class="p">.</span><span class="na">getStatusLine</span><span class="p">().</span><span class="na">getStatusCode</span><span class="p">();</span>
 <span class="w">              </span><span class="p">}</span>
 <span class="w">          </span><span class="p">}</span>
@@ -2803,7 +4521,7 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="cm">       */</span>
 <span class="w">      </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">formatErrorsList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
-<span class="w">          </span><span class="n">errors</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">));</span>
+<span class="w">          </span><span class="n">errors</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">"\n"</span><span class="p">));</span>
 <span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
@@ -2813,71 +4531,74 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="n">Time</span><span class="w"> </span><span class="n">elapsed</span><span class="p">:</span><span class="w"> </span><span class="mf">1.009</span><span class="w"> </span><span class="n">s</span><span class="w">  </span><span class="err">###</span><span class="w"> </span><span class="n">FAILURE</span>
 <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">AssertionError</span><span class="p">:</span>
 <span class="n">Access</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ANONYMOUS</span><span class="w"> </span><span class="n">USER</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">view</span><span class="p">:</span>
-<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="err">&#39;</span><span class="n">DeleteMessage</span><span class="err">&#39;</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">POV</span><span class="w"> </span><span class="err">&#39;</span><span class="n">ANONYMOUS</span><span class="err">&#39;</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="err">'</span><span class="n">DeleteMessage</span><span class="err">'</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">POV</span><span class="w"> </span><span class="err">'</span><span class="n">ANONYMOUS</span><span class="err">'</span><span class="w"> </span><span class="k">return</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="nf">one</span><span class="w"> </span><span class="p">(</span><span class="mi">403</span><span class="w"> </span><span class="n">expected</span><span class="p">).</span>
 
-<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="err">&#39;</span><span class="n">CreateMessage</span><span class="err">&#39;</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">POV</span><span class="w"> </span><span class="err">&#39;</span><span class="n">ANONYMOUS</span><span class="err">&#39;</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="err">'</span><span class="n">CreateMessage</span><span class="err">'</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">POV</span><span class="w"> </span><span class="err">'</span><span class="n">ANONYMOUS</span><span class="err">'</span><span class="w"> </span><span class="k">return</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="nf">one</span><span class="w"> </span><span class="p">(</span><span class="mi">403</span><span class="w"> </span><span class="n">expected</span><span class="p">).</span>
 
 <span class="n">testAccessUsingBasicUserPointOfView</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="na">owasp</span><span class="p">.</span><span class="na">pocauthztesting</span><span class="p">.</span><span class="na">AuthorizationMatrixIT</span><span class="p">)</span>
 <span class="n">Time</span><span class="w"> </span><span class="n">elapsed</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="n">s</span><span class="w">  </span><span class="err">###</span><span class="w"> </span><span class="n">FAILURE</span><span class="o">!</span>
 <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">AssertionError</span><span class="p">:</span>
 <span class="n">Access</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">BASIC</span><span class="w"> </span><span class="n">USER</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">view</span><span class="p">:</span>
-<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="err">&#39;</span><span class="n">DeleteMessage</span><span class="err">&#39;</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">POV</span><span class="w"> </span><span class="err">&#39;</span><span class="n">BASIC</span><span class="err">&#39;</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="err">'</span><span class="n">DeleteMessage</span><span class="err">'</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="n">POV</span><span class="w"> </span><span class="err">'</span><span class="n">BASIC</span><span class="err">'</span><span class="w"> </span><span class="k">return</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="nf">one</span><span class="w"> </span><span class="p">(</span><span class="mi">403</span><span class="w"> </span><span class="n">expected</span><span class="p">).</span>
 </code></pre></div>
 <h2 id="rendering-the-authorization-matrix-for-an-audit-review">Rendering the authorization matrix for an audit / review<a class="headerlink" href="#rendering-the-authorization-matrix-for-an-audit-review" title="Permanent link">&para;</a></h2>
 <p>Even if the authorization matrix is stored in a human-readable format (XML), you might want to show an on-the-fly rendered representation of the XML file to spot potential inconsistencies and facilitate the review, audit and discussion about the authorization matrix.</p>
+<!-- textlint-disable -->
 <p>To achieve this task, you could use the following XSL stylesheet:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="k">&lt;xsl:stylesheet</span><span class="w"> </span><span class="na">xmlns:xsl=</span><span class="s">&quot;http://www.w3.org/1999/XSL/Transform&quot;</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="k">&lt;xsl:template</span><span class="w"> </span><span class="na">match=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>
+<!-- textlint-enable -->
+
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="k">&lt;xsl:stylesheet</span><span class="w"> </span><span class="na">xmlns:xsl=</span><span class="s">"http://www.w3.org/1999/XSL/Transform"</span><span class="w"> </span><span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="k">&lt;xsl:template</span><span class="w"> </span><span class="na">match=</span><span class="s">"/"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;html&gt;</span>
 <span class="w">      </span><span class="nt">&lt;head&gt;</span>
 <span class="w">        </span><span class="nt">&lt;title&gt;</span>Authorization<span class="w"> </span>Matrix<span class="nt">&lt;/title&gt;</span>
-<span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span>
-<span class="w">        </span><span class="na">href=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css&quot;</span>
-<span class="w">        </span><span class="na">integrity=</span><span class="s">&quot;sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ&quot;</span>
-<span class="w">        </span><span class="na">crossorigin=</span><span class="s">&quot;anonymous&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">rel=</span><span class="s">"stylesheet"</span>
+<span class="w">        </span><span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"</span>
+<span class="w">        </span><span class="na">integrity=</span><span class="s">"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"</span>
+<span class="w">        </span><span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">      </span><span class="nt">&lt;/head&gt;</span>
 <span class="w">      </span><span class="nt">&lt;body&gt;</span>
 <span class="w">        </span><span class="nt">&lt;h3&gt;</span>Roles<span class="nt">&lt;/h3&gt;</span>
 <span class="w">        </span><span class="nt">&lt;ul&gt;</span>
-<span class="w">          </span><span class="k">&lt;xsl:for-each</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;authorization-matrix/roles/role&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="k">&lt;xsl:for-each</span><span class="w"> </span><span class="na">select=</span><span class="s">"authorization-matrix/roles/role"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="k">&lt;xsl:choose</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;@name = &#39;ADMIN&#39;&quot;</span><span class="nt">&gt;</span>
-<span class="w">                </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;alert alert-warning&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">"@name = 'ADMIN'"</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">"alert alert-warning"</span><span class="w"> </span><span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;strong&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;/strong&gt;</span>
 <span class="w">                  </span>:
-<span class="w">                  </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@description"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/div&gt;</span>
 <span class="w">              </span><span class="k">&lt;/xsl:when&gt;</span>
-<span class="w">              </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;@name = &#39;BASIC&#39;&quot;</span><span class="nt">&gt;</span>
-<span class="w">                </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;alert alert-info&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">"@name = 'BASIC'"</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">"alert alert-info"</span><span class="w"> </span><span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;strong&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;/strong&gt;</span>
 <span class="w">                  </span>:
-<span class="w">                  </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@description"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/div&gt;</span>
 <span class="w">              </span><span class="k">&lt;/xsl:when&gt;</span>
 <span class="w">              </span><span class="k">&lt;xsl:otherwise</span><span class="nt">&gt;</span>
-<span class="w">                </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">"alert alert-danger"</span><span class="w"> </span><span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;strong&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;/strong&gt;</span>
 <span class="w">                  </span>:
-<span class="w">                  </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@description"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/div&gt;</span>
 <span class="w">              </span><span class="k">&lt;/xsl:otherwise&gt;</span>
 <span class="w">            </span><span class="k">&lt;/xsl:choose&gt;</span>
 <span class="w">          </span><span class="k">&lt;/xsl:for-each&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/ul&gt;</span>
 <span class="w">        </span><span class="nt">&lt;h3&gt;</span>Authorizations<span class="nt">&lt;/h3&gt;</span>
-<span class="w">        </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;table table-hover table-sm&quot;</span><span class="nt">&gt;</span>
-<span class="w">          </span><span class="nt">&lt;thead</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;thead-inverse&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">class=</span><span class="s">"table table-hover table-sm"</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;thead</span><span class="w"> </span><span class="na">class=</span><span class="s">"thead-inverse"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;tr&gt;</span>
 <span class="w">              </span><span class="nt">&lt;th&gt;</span>Service<span class="nt">&lt;/th&gt;</span>
 <span class="w">              </span><span class="nt">&lt;th&gt;</span>URI<span class="nt">&lt;/th&gt;</span>
@@ -2886,37 +4607,37 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 <span class="w">            </span><span class="nt">&lt;/tr&gt;</span>
 <span class="w">          </span><span class="nt">&lt;/thead&gt;</span>
 <span class="w">          </span><span class="nt">&lt;tbody&gt;</span>
-<span class="w">            </span><span class="k">&lt;xsl:for-each</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;authorization-matrix/services/service&quot;</span><span class="nt">&gt;</span>
-<span class="w">              </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;service-name&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;service-uri&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@uri&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;service-method&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@http-method&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">              </span><span class="k">&lt;xsl:for-each</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;role&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="k">&lt;xsl:for-each</span><span class="w"> </span><span class="na">select=</span><span class="s">"authorization-matrix/services/service"</span><span class="nt">&gt;</span>
+<span class="w">              </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"service-name"</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"service-uri"</span><span class="w"> </span><span class="na">select=</span><span class="s">"@uri"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"service-method"</span><span class="w"> </span><span class="na">select=</span><span class="s">"@http-method"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="k">&lt;xsl:for-each</span><span class="w"> </span><span class="na">select=</span><span class="s">"role"</span><span class="nt">&gt;</span>
 <span class="w">                </span><span class="nt">&lt;tr&gt;</span>
-<span class="w">                  </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">scope=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;$service-name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;td</span><span class="w"> </span><span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"$service-name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;/td&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;td&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;$service-uri&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"$service-uri"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;/td&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;td&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;$service-method&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"$service-method"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;/td&gt;</span>
 <span class="w">                  </span><span class="nt">&lt;td&gt;</span>
-<span class="w">                    </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;service-role-name&quot;</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="k">&lt;xsl:variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"service-role-name"</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                    </span><span class="k">&lt;xsl:choose</span><span class="nt">&gt;</span>
-<span class="w">                      </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;@name = &#39;ADMIN&#39;&quot;</span><span class="nt">&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;alert alert-warning&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
-<span class="w">                          </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                      </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">"@name = 'ADMIN'"</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">"alert alert-warning"</span><span class="w"> </span><span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+<span class="w">                          </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                        </span><span class="nt">&lt;/div&gt;</span>
 <span class="w">                      </span><span class="k">&lt;/xsl:when&gt;</span>
-<span class="w">                      </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;@name = &#39;BASIC&#39;&quot;</span><span class="nt">&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;alert alert-info&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
-<span class="w">                          </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                      </span><span class="k">&lt;xsl:when</span><span class="w"> </span><span class="na">test=</span><span class="s">"@name = 'BASIC'"</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">"alert alert-info"</span><span class="w"> </span><span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+<span class="w">                          </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                        </span><span class="nt">&lt;/div&gt;</span>
 <span class="w">                      </span><span class="k">&lt;/xsl:when&gt;</span>
 <span class="w">                      </span><span class="k">&lt;xsl:otherwise</span><span class="nt">&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;alert&quot;</span><span class="nt">&gt;</span>
-<span class="w">                          </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">&quot;@name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">"alert alert-danger"</span><span class="w"> </span><span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+<span class="w">                          </span><span class="k">&lt;xsl:value-of</span><span class="w"> </span><span class="na">select=</span><span class="s">"@name"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">                        </span><span class="nt">&lt;/div&gt;</span>
 <span class="w">                      </span><span class="k">&lt;/xsl:otherwise&gt;</span>
 <span class="w">                    </span><span class="k">&lt;/xsl:choose&gt;</span>
@@ -2940,11 +4661,22 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
 
 
 
+
+
+  
+  
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -2976,10 +4708,14 @@ redirect_from: "/cheatsheets/Authorization_Testing_Automation.html"
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

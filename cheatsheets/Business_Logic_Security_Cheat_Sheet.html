@@ -1,0 +1,5529 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+        <link rel="canonical" href="https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html">
+      
+      
+        <link rel="prev" href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html">
+      
+      
+        <link rel="next" href="C-Based_Toolchain_Hardening_Cheat_Sheet.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Business Logic Security - OWASP Cheat Sheet Series</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#business-logic-security-cheat-sheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-header__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
+      
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Business Logic Security
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OWASP/CheatSheetSeries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
+      
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OWASP/CheatSheetSeries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Alphabetical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexASVS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index ASVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexMASVS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index MASVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexProactiveControls.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Proactive Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexTopTen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cheatsheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abuse Case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attack Surface Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Testing Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bean Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-business-logic-flaws-are-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Business Logic Flaws Are Different
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#always-re-derive-security-relevant-values-server-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Always Re-derive Security-relevant Values Server-side
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Always Re-derive Security-relevant Values Server-side">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prices-and-totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prices and Totals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-and-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissions and Ownership
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity and Role
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enforce-workflows-as-explicit-state-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enforce Workflows as Explicit State Machines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enforce Workflows as Explicit State Machines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-state-on-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model State on the Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-hidden-form-fields-as-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Use Hidden Form Fields as State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reject-replays-of-completed-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reject Replays of Completed Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expire-partial-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expire Partial States
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevent-race-conditions-on-sensitive-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent Race Conditions on Sensitive Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prevent Race Conditions on Sensitive Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-the-critical-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identify the Critical Sections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-database-transactions-and-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Database Transactions and Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-idempotency-keys-for-external-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Idempotency Keys for External Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-assume-fast-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Assume "Fast Enough"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protect-abuse-friendly-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protect Abuse-friendly Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protect Abuse-friendly Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abuse-patterns-to-design-against" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abuse Patterns to Design Against
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controls-to-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controls to Apply
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threat-model-from-the-business-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Model from the Business Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Threat Model from the Business Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questions-to-ask-early" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions to Ask Early
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dishonest-user-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "Dishonest User" Exercise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-down-the-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Down the Invariants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-at-the-business-logic-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization at the Business-logic Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authorization at the Business-logic Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contextual-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contextual Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-implicit-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid "Implicit" Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-related-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Related Guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-inputs-for-business-meaning-not-just-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Inputs for Business Meaning, Not Just Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validate Inputs for Business Meaning, Not Just Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validate-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Ranges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Combinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-trust-derived-or-hidden-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Trust Derived or Hidden Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-and-anomaly-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability and Anomaly Detection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observability and Anomaly Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-alert-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Alert On
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#close-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Close the Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-business-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Business Logic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Business Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-the-rules-not-the-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the Rules, Not the Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-with-an-adversarial-mindset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test with an Adversarial Mindset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-examples-of-business-logic-flaws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Examples of Business Logic Flaws
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Examples of Business Logic Flaws">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#price-and-quantity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Price and Quantity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-in-disguise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization-in-disguise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-dispensing-abuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value-dispensing Abuse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C-Based Toolchain Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI CD Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing and Using Security Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clickjacking Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Credential Stuffing Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Site Request Forgery Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Site Scripting Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptographic Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM Clobbering Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM based XSS Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Denial of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deserialization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Django REST Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Django Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DotNet Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Upload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forgot Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML5 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Headers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Strict Transport Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Prevention in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Insecure Direct Object Reference Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JAAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Web Token
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging Vocabulary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mass Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices based Security Arch Doc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobile Application Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multifactor Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NPM Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NodeJS Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nodejs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OAuth2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Command Injection Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Password Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prototype Pollution Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parameterization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ruby on Rails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAML Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Cloud Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Product Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Securing Cascading Style Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server Side Request Forgery Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS Cipher String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Javascript Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transaction Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unvalidated Redirects and Forwards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Privacy Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Patching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerability Disclosure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerable Dependency Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Service Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML External Entity Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XSS Filter Evasion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XS Leaks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-business-logic-flaws-are-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Business Logic Flaws Are Different
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#always-re-derive-security-relevant-values-server-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Always Re-derive Security-relevant Values Server-side
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Always Re-derive Security-relevant Values Server-side">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prices-and-totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prices and Totals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-and-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissions and Ownership
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity and Role
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enforce-workflows-as-explicit-state-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enforce Workflows as Explicit State Machines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enforce Workflows as Explicit State Machines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-state-on-the-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model State on the Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-hidden-form-fields-as-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Use Hidden Form Fields as State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reject-replays-of-completed-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reject Replays of Completed Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expire-partial-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expire Partial States
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevent-race-conditions-on-sensitive-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent Race Conditions on Sensitive Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prevent Race Conditions on Sensitive Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identify-the-critical-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identify the Critical Sections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-database-transactions-and-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Database Transactions and Locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-idempotency-keys-for-external-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Idempotency Keys for External Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-assume-fast-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Assume "Fast Enough"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protect-abuse-friendly-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protect Abuse-friendly Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protect Abuse-friendly Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abuse-patterns-to-design-against" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abuse Patterns to Design Against
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controls-to-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controls to Apply
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threat-model-from-the-business-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Model from the Business Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Threat Model from the Business Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questions-to-ask-early" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions to Ask Early
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-dishonest-user-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "Dishonest User" Exercise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-down-the-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Down the Invariants
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorization-at-the-business-logic-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization at the Business-logic Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authorization at the Business-logic Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contextual-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contextual Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-implicit-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid "Implicit" Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-related-guidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Related Guidance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-inputs-for-business-meaning-not-just-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Inputs for Business Meaning, Not Just Format
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validate Inputs for Business Meaning, Not Just Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validate-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Ranges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate Combinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-trust-derived-or-hidden-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Don't Trust Derived or Hidden Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability-and-anomaly-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability and Anomaly Detection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Observability and Anomaly Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-alert-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Alert On
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#close-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Close the Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-business-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Business Logic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Business Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-the-rules-not-the-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the Rules, Not the Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-with-an-adversarial-mindset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test with an Adversarial Mindset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-examples-of-business-logic-flaws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Examples of Business Logic Flaws
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Examples of Business Logic Flaws">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#price-and-quantity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Price and Quantity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-in-disguise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization-in-disguise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-dispensing-abuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value-dispensing Abuse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="business-logic-security-cheat-sheet">Business Logic Security Cheat Sheet<a class="headerlink" href="#business-logic-security-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Business logic vulnerabilities are flaws in the way an application implements its intended workflow. They aren't missing input sanitization or unescaped output. The code does what the developer told it to do, but what the developer told it to do doesn't match what the business actually needs. A user skips a required step, submits a request out of order, pays a negative price, stacks coupons in a way nobody planned for, or wins a race against the server's own bookkeeping.</p>
+<p>No scanner will find these bugs for you. They don't have a signature to match on. They show up in code that looks perfectly fine in isolation because the bug isn't in any single function. It's in the gap between what the developer assumed and what a user can actually do.</p>
+<p>This cheat sheet covers practical patterns for preventing business logic abuse. It's aimed at developers building features, not at penetration testers looking for them. For testing guidance, see the <a href="https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/10-Business_Logic_Testing/">OWASP Web Security Testing Guide, Business Logic Testing section</a>.</p>
+<p>Key takeaways:</p>
+<ul>
+<li>Always re-derive security-relevant values (prices, permissions, ownership) on the server. Client state is input, not truth.</li>
+<li>Enforce workflows as explicit state machines. Don't rely on the UI to gate the order of steps.</li>
+<li>Treat concurrency as a real threat. If two requests can race, assume they will.</li>
+<li>Rate-limit and monitor at the feature level, not just at authentication. Abuse-friendly features (referrals, coupons, password reset) need their own controls.</li>
+<li>Threat model from the business process, not just the technical architecture. Ask what happens if a user acts dishonestly, not just what happens if an attacker sends a malicious payload.</li>
+</ul>
+<h2 id="why-business-logic-flaws-are-different">Why Business Logic Flaws Are Different<a class="headerlink" href="#why-business-logic-flaws-are-different" title="Permanent link">&para;</a></h2>
+<p>Most well-known web vulnerabilities (SQL injection, XSS, CSRF, path traversal) have a clear technical signature. A security scanner can fuzz parameters, look for reflected payloads, and produce a reasonable report. Business logic bugs don't work that way.</p>
+<p>Consider an e-commerce checkout. The server accepts a request containing a product ID, quantity, and coupon code. Every input is validated: the product ID exists, the quantity is a positive integer, the coupon code matches a known pattern. No technical rule is broken. But the application recalculates the total from the client-submitted price instead of looking it up server-side, so a user can pay one cent for a television. That's a business logic bug, and no amount of input validation helps, because the input is syntactically perfect.</p>
+<p>The patterns repeat across industries:</p>
+<ul>
+<li>A user-facing application assumes the client will respect the order of steps in a multi-step workflow, and exposes the endpoints for each step without checking whether the previous steps were completed.</li>
+<li>A system takes user-controlled data (price, account balance, user role) from the request body and trusts it, because the UI never shows the user how to change it.</li>
+<li>An endpoint performs two operations (check balance, then debit) without a lock, so two concurrent requests both pass the balance check and both debit.</li>
+<li>A feature intended to reward legitimate use (referrals, points, promo credits) has no controls against one user creating many accounts.</li>
+</ul>
+<p>None of these are subtle once you see them. They're just invisible to tools that don't understand the business process.</p>
+<h2 id="always-re-derive-security-relevant-values-server-side">Always Re-derive Security-relevant Values Server-side<a class="headerlink" href="#always-re-derive-security-relevant-values-server-side" title="Permanent link">&para;</a></h2>
+<p>The single most effective defensive habit is this: if a value in the request influences price, access, ownership, or state, assume the client made it up and recompute it from trusted data.</p>
+<h3 id="prices-and-totals">Prices and Totals<a class="headerlink" href="#prices-and-totals" title="Permanent link">&para;</a></h3>
+<p>Never accept a price, subtotal, tax, or total from the client. Accept product identifiers and quantities only, and compute the rest on the server from your own database. The same applies to discounts: accept a coupon code, validate the code server-side, and apply the discount server-side. Don't accept a "discount amount" field from the request.</p>
+<table>
+<thead>
+<tr>
+<th>Client sends</th>
+<th>Server should</th>
+<th>Server should not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product ID and quantity</td>
+<td>Look up the price, compute line total</td>
+<td>Accept a price field and trust it</td>
+</tr>
+<tr>
+<td>Coupon code</td>
+<td>Validate and apply the discount itself</td>
+<td>Accept a "discounted total" field</td>
+</tr>
+<tr>
+<td>Shipping selection</td>
+<td>Compute cost from its own rate table</td>
+<td>Accept a shipping cost field</td>
+</tr>
+<tr>
+<td>Tax-exempt flag</td>
+<td>Determine from account state</td>
+<td>Accept a client-supplied exemption</td>
+</tr>
+</tbody>
+</table>
+<p>This pattern extends beyond commerce. A social app shouldn't accept a "post visibility" value from the client if the value is supposed to be derived from the user's privacy settings. A banking app shouldn't accept a "source account balance" that the client calculated.</p>
+<h3 id="permissions-and-ownership">Permissions and Ownership<a class="headerlink" href="#permissions-and-ownership" title="Permanent link">&para;</a></h3>
+<p>Re-check ownership on every request that acts on a resource. Don't rely on the URL, the referrer, or a flag in the request body. The backend should ask: "Is the authenticated user actually allowed to perform this action on this object, right now?"</p>
+<p>A common mistake is checking ownership once when a resource is loaded and then trusting subsequent requests that reference it. Each request is independent. Each request must be authorized on its own.</p>
+<h3 id="identity-and-role">Identity and Role<a class="headerlink" href="#identity-and-role" title="Permanent link">&para;</a></h3>
+<p>Never accept a user ID, tenant ID, or role from the request body unless the request is explicitly an administrative action by a privileged caller, and even then the value has to be validated against what the caller is allowed to manage. The identity of the acting user always comes from the server-side session or token, never from a field the user can edit.</p>
+<h2 id="enforce-workflows-as-explicit-state-machines">Enforce Workflows as Explicit State Machines<a class="headerlink" href="#enforce-workflows-as-explicit-state-machines" title="Permanent link">&para;</a></h2>
+<p>Multi-step processes (signup flows, checkouts, approvals, KYC verification, password reset) are prime targets because developers often implement them as a sequence of pages that the UI walks the user through. If the UI is the only thing enforcing the sequence, an attacker who sends requests directly to each endpoint can skip steps, repeat steps, or reach terminal steps without the prerequisites.</p>
+<h3 id="model-state-on-the-server">Model State on the Server<a class="headerlink" href="#model-state-on-the-server" title="Permanent link">&para;</a></h3>
+<p>Every multi-step workflow should have an explicit state representation stored on the server, keyed to the user or session. Each transition should be validated against the current state.</p>
+<p>A minimal pattern:</p>
+<ol>
+<li>When the workflow starts, create a record with the initial state (e.g., <code>awaiting_email_verification</code>).</li>
+<li>Each step endpoint checks the current state, performs the action, and updates the state to the next valid value.</li>
+<li>If a request arrives for a step that doesn't match the current state, reject it.</li>
+<li>Terminal actions (submit order, approve, transfer funds) only run if the state is exactly what's required for that action.</li>
+</ol>
+<h3 id="dont-use-hidden-form-fields-as-state">Don't Use Hidden Form Fields as State<a class="headerlink" href="#dont-use-hidden-form-fields-as-state" title="Permanent link">&para;</a></h3>
+<p>A pattern that shows up repeatedly in real applications is storing the "current step" as a hidden field in the form, or in a cookie the client can read. This is not enforcement. The client can set it to whatever value it wants. State lives on the server, in storage the client can't write to.</p>
+<h3 id="reject-replays-of-completed-steps">Reject Replays of Completed Steps<a class="headerlink" href="#reject-replays-of-completed-steps" title="Permanent link">&para;</a></h3>
+<p>Once a step has been completed, later attempts to re-run it should fail. This matters especially for one-time operations like applying a signup bonus, redeeming a coupon, claiming a voucher, or accepting a referral reward. The cleanest pattern is to mark each such operation complete in persistent storage and treat attempts to re-run it as errors.</p>
+<h3 id="expire-partial-states">Expire Partial States<a class="headerlink" href="#expire-partial-states" title="Permanent link">&para;</a></h3>
+<p>Workflows that pause for user input (email verification, bank transfer confirmation, multi-step KYC) should have a deadline. If the user hasn't progressed in some bounded time, invalidate the partial state and require them to start over. Long-lived half-completed workflows accumulate and are a frequent source of exploitable inconsistencies.</p>
+<h2 id="prevent-race-conditions-on-sensitive-operations">Prevent Race Conditions on Sensitive Operations<a class="headerlink" href="#prevent-race-conditions-on-sensitive-operations" title="Permanent link">&para;</a></h2>
+<p>Any operation that reads a value, makes a decision, and then writes a value is a potential race condition. If two requests can run at the same time, they can both read the old value, both decide the same thing, and both write. This is how loyalty points get drained, balances go negative, single-use coupons get redeemed many times, and one-per-account bonuses become many-per-account.</p>
+<h3 id="identify-the-critical-sections">Identify the Critical Sections<a class="headerlink" href="#identify-the-critical-sections" title="Permanent link">&para;</a></h3>
+<p>Ask which operations have the shape "check a condition, then act on it". Typical examples:</p>
+<ul>
+<li>Check balance, then debit.</li>
+<li>Check that a coupon hasn't been used, then record its use.</li>
+<li>Check that a user has fewer than N items, then add one.</li>
+<li>Check that a slot is available, then book it.</li>
+<li>Check that a referral code hasn't been applied to this account, then apply it.</li>
+<li>Check whether a registration request is unique, then insert the new user record.</li>
+</ul>
+<p>Each of these is a race condition waiting to happen unless the check and the act are inside a single atomic operation.</p>
+<h3 id="use-database-transactions-and-locks">Use Database Transactions and Locks<a class="headerlink" href="#use-database-transactions-and-locks" title="Permanent link">&para;</a></h3>
+<p>The most broadly available fix is a database transaction with the right isolation level. At the default isolation level of most databases, the check and the update run separately and another transaction can slip between them. For operations that must be atomic, use one of:</p>
+<ul>
+<li>A <code>SERIALIZABLE</code> transaction isolation level. The database will detect conflicts and roll back one of the competing transactions.</li>
+<li>An explicit row lock (<code>SELECT ... FOR UPDATE</code> in PostgreSQL, MySQL InnoDB, and similar). The second caller blocks until the first one commits.</li>
+<li>A conditional update (<code>UPDATE ... WHERE balance &gt;= amount</code>) that succeeds only if the predicate still holds at write time. Check the number of affected rows. If zero, the check failed and the caller should see an error.</li>
+</ul>
+<h3 id="use-idempotency-keys-for-external-actions">Use Idempotency Keys for External Actions<a class="headerlink" href="#use-idempotency-keys-for-external-actions" title="Permanent link">&para;</a></h3>
+<p>For operations that talk to external systems (charge a card, send money, issue a voucher), a retry from the client should not result in a duplicate action. Accept a client-supplied idempotency key, store it with the result, and return the cached result on retry. Stripe and other payment providers implement this pattern, and the same idea applies to any non-idempotent operation your own service exposes.</p>
+<h3 id="dont-assume-fast-enough">Don't Assume "Fast Enough"<a class="headerlink" href="#dont-assume-fast-enough" title="Permanent link">&para;</a></h3>
+<p>A common rationalization is "the window between the check and the update is microseconds, no attacker can exploit it". Concurrent request tools can trivially send dozens of requests to arrive within a millisecond of each other. Modern bug bounty tooling sends them as a single multiplexed HTTP/2 request so they land at the server effectively simultaneously. If the window exists at all, assume it's exploitable.</p>
+<h3 id="pattern-reference">Pattern Reference<a class="headerlink" href="#pattern-reference" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Operation shape</th>
+<th>Safe pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read-modify-write on a single row</td>
+<td><code>SELECT ... FOR UPDATE</code> then <code>UPDATE</code>, inside a transaction</td>
+</tr>
+<tr>
+<td>Conditional decrement on a counter</td>
+<td><code>UPDATE ... SET value = value - 1 WHERE value &gt; 0</code>, check affected rows</td>
+</tr>
+<tr>
+<td>One-per-user bonus</td>
+<td>Unique constraint on (user_id, bonus_type) and let the database reject duplicates</td>
+</tr>
+<tr>
+<td>External non-idempotent call</td>
+<td>Idempotency key table plus a transactional write of the result</td>
+</tr>
+<tr>
+<td>Cross-row consistency</td>
+<td>Serializable transaction with explicit retry logic</td>
+</tr>
+</tbody>
+</table>
+<h2 id="protect-abuse-friendly-features">Protect Abuse-friendly Features<a class="headerlink" href="#protect-abuse-friendly-features" title="Permanent link">&para;</a></h2>
+<p>Some features are inherently abuse magnets because they dispense value in response to user actions. Referral bonuses, promo codes, signup credits, free trials, email reminders, password reset flows, account recovery paths, and anything that sends messages or makes outbound requests. These need their own controls beyond the authentication controls on the rest of the app.</p>
+<h3 id="abuse-patterns-to-design-against">Abuse Patterns to Design Against<a class="headerlink" href="#abuse-patterns-to-design-against" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Multi-accounting.</strong> One human creates many accounts to claim one-per-account rewards multiple times. Ask whether your signup flow makes this trivially cheap and consider what signals you have to detect it.</li>
+<li><strong>Self-referral.</strong> A user refers themselves using a second account. Referral flows should check that referrer and referee are distinguishable humans, not just distinguishable accounts.</li>
+<li><strong>Coupon stacking.</strong> Multiple promos that were each meant to be used alone get combined to push a price below cost. If your coupon engine allows stacking by default, it's probably a bug.</li>
+<li><strong>Free trial resets.</strong> A user cancels and re-signs up repeatedly to stay on the free tier forever. Track trial eligibility by something more stable than an email address.</li>
+<li><strong>Resource exhaustion.</strong> Features that send email, make outbound HTTP calls, trigger webhooks, or run expensive computations on demand are DoS vectors and spam vectors unless rate-limited.</li>
+<li><strong>Enumeration through behavior.</strong> A password reset endpoint that returns different messages for valid and invalid emails leaks account existence.</li>
+</ul>
+<h3 id="controls-to-apply">Controls to Apply<a class="headerlink" href="#controls-to-apply" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Per-feature rate limits.</strong> A global rate limit at the edge is not enough. The signup-bonus endpoint, the referral endpoint, the promo-redemption endpoint each need their own limits.</li>
+<li><strong>Identity signals beyond email.</strong> Device fingerprints, payment-method fingerprints, phone number verification, and KYC verification all carry more signal than email addresses, which are cheap to create in bulk.</li>
+<li><strong>Audit trails on value-dispensing operations.</strong> Every issued credit, applied promo, or granted bonus should be logged with the triggering user, target user, IP, and timestamp. When abuse is suspected, the log is how you untangle it.</li>
+<li><strong>Maximums at every layer.</strong> A per-action cap (e.g., one bonus per account) plus a per-account cap (e.g., total lifetime promo value) plus a per-source cap (e.g., per payment method or per device) gives defense in depth.</li>
+<li><strong>Asymmetric consequences.</strong> Actions that give value should be harder than actions that don't. Making someone wait 30 seconds, or complete a CAPTCHA, to claim a reward is fine. The legitimate user clicks once and moves on; the automated abuser suffers a per-request cost.</li>
+</ul>
+<h2 id="threat-model-from-the-business-process">Threat Model from the Business Process<a class="headerlink" href="#threat-model-from-the-business-process" title="Permanent link">&para;</a></h2>
+<p>Most threat modeling is done from a technical angle: data flow diagrams, trust boundaries, STRIDE categories. That's useful, but it misses the bugs where the code is technically correct and the process is the problem. Business logic threat modeling asks different questions.</p>
+<h3 id="questions-to-ask-early">Questions to Ask Early<a class="headerlink" href="#questions-to-ask-early" title="Permanent link">&para;</a></h3>
+<ul>
+<li>What does a legitimate user do in this feature, step by step?</li>
+<li>What does the system do at each step, and what assumption is it making about the user's intent?</li>
+<li>Which of those assumptions would benefit the user if they were false? (That's where the bugs live.)</li>
+<li>Can the user do things out of order? Skip a step? Repeat a step?</li>
+<li>Can two users act on the same object at the same time?</li>
+<li>Can one user act from two directions at once (e.g., two tabs, two devices)?</li>
+<li>What does this feature produce that has value? (Credits, access, trust, messages, outbound requests.)</li>
+<li>If an adversary tried to exploit this feature for gain, how would they go about it?</li>
+<li>What invariant must always hold (e.g., "a coupon can only be used once", "an account balance can never be negative")? What enforces it, and is that enforcement atomic?</li>
+</ul>
+<h3 id="the-dishonest-user-exercise">The "Dishonest User" Exercise<a class="headerlink" href="#the-dishonest-user-exercise" title="Permanent link">&para;</a></h3>
+<p>Sit with the feature specification and imagine a user whose only goal is to extract maximum value while staying within the letter of the system's rules. What would they do? What combination of legitimate actions would produce an illegitimate outcome? This is different from thinking about a technical attacker. The dishonest user isn't sending malicious payloads. They're using the app exactly as designed, just in an order or volume the designer didn't anticipate.</p>
+<h3 id="write-down-the-invariants">Write Down the Invariants<a class="headerlink" href="#write-down-the-invariants" title="Permanent link">&para;</a></h3>
+<p>For any feature that handles value, ownership, or state, write down the invariants in plain English:</p>
+<ul>
+<li>A user cannot approve their own request.</li>
+<li>A coupon code is valid for one redemption per user, and never more than N total.</li>
+<li>A transfer cannot complete if it would leave the source account below zero.</li>
+<li>A workflow reaches the "approved" state only after both reviewer A and reviewer B have approved.</li>
+</ul>
+<p>Then for each invariant, identify exactly what code enforces it. If the answer is "the UI" or "the user won't try that", the invariant isn't actually enforced.</p>
+<h2 id="authorization-at-the-business-logic-layer">Authorization at the Business-logic Layer<a class="headerlink" href="#authorization-at-the-business-logic-layer" title="Permanent link">&para;</a></h2>
+<p>Technical authorization (is this user authenticated, do they have this role) is necessary but not sufficient. Many business logic bugs are authorization bugs in disguise: the user has the general permission to use a feature, but the specific action they're taking violates a rule the system didn't think to check.</p>
+<h3 id="contextual-authorization">Contextual Authorization<a class="headerlink" href="#contextual-authorization" title="Permanent link">&para;</a></h3>
+<p>Check not just "can this user do X" but "can this user do X on this object, in this state, right now".</p>
+<p>Examples:</p>
+<ul>
+<li>A manager can approve expense reports, but not their own.</li>
+<li>A reviewer can approve a pull request, but not if they authored it.</li>
+<li>A user can cancel an order, but not after it has shipped.</li>
+<li>A user can change their email, but not to an address already in use, and not without verifying the new address.</li>
+</ul>
+<p>These checks are part of the business logic, not the authentication layer. They typically require knowledge the auth middleware doesn't have. Keep them close to the operation they guard.</p>
+<h3 id="avoid-implicit-permissions">Avoid "Implicit" Permissions<a class="headerlink" href="#avoid-implicit-permissions" title="Permanent link">&para;</a></h3>
+<p>If two features logically grant the same permission, make sure both are guarded. An internal admin endpoint that's checked carefully is no help if the same operation is reachable through a less-guarded public endpoint.</p>
+<p>Map every sensitive operation to every entry point that can trigger it, and verify each entry point enforces the rules. When adding a new entry point (a new API version, an internal tool, a webhook handler), explicitly audit which business rules it needs to apply.</p>
+<h3 id="reference-related-guidance">Reference Related Guidance<a class="headerlink" href="#reference-related-guidance" title="Permanent link">&para;</a></h3>
+<p>For general access control guidance, see the <a href="Access_Control_Cheat_Sheet.html">Access Control Cheat Sheet</a> and the <a href="Authorization_Cheat_Sheet.html">Authorization Cheat Sheet</a>. For the higher-sensitivity case of financial or state-changing transactions, see the <a href="Transaction_Authorization_Cheat_Sheet.html">Transaction Authorization Cheat Sheet</a>.</p>
+<h2 id="validate-inputs-for-business-meaning-not-just-format">Validate Inputs for Business Meaning, Not Just Format<a class="headerlink" href="#validate-inputs-for-business-meaning-not-just-format" title="Permanent link">&para;</a></h2>
+<p>Input validation typically focuses on format: is this a well-formed integer, is this within length limits, does it match a whitelist of characters. That catches injection attacks but not business logic abuse. The input can be perfectly formatted and still semantically invalid.</p>
+<h3 id="validate-ranges">Validate Ranges<a class="headerlink" href="#validate-ranges" title="Permanent link">&para;</a></h3>
+<p>A quantity can be a positive integer and still be wrong. A discount can be numeric and still absurd. Validate against the meaningful range for the business:</p>
+<ul>
+<li>Quantity must be at least 1 and no more than the stock available.</li>
+<li>Date must be in the future, not more than a year out, not on a blocked day.</li>
+<li>Amount must be positive, not more than the account allows, not above a regulatory limit.</li>
+<li>Text length must match what the downstream system can accept, which may be shorter than a generic limit.</li>
+</ul>
+<h3 id="validate-combinations">Validate Combinations<a class="headerlink" href="#validate-combinations" title="Permanent link">&para;</a></h3>
+<p>Fields that are individually valid can be collectively invalid. A booking for a valid room with a valid check-in date and a valid check-out date might still be invalid if the check-out precedes the check-in. A transfer between two valid accounts might still be invalid if the accounts belong to different customers and the user lacks permission to act on both.</p>
+<p>Write the validation rules that describe legal combinations and enforce them server-side. Unit-test the cases where each individual field is valid but the combination is not.</p>
+<h3 id="dont-trust-derived-or-hidden-fields">Don't Trust Derived or Hidden Fields<a class="headerlink" href="#dont-trust-derived-or-hidden-fields" title="Permanent link">&para;</a></h3>
+<p>Fields that are "not editable in the UI" are fully editable at the HTTP layer. Every field in a request is an input, including the ones in hidden form controls, disabled form controls, fields set by JavaScript, and fields you set in a previous response and expect to receive unchanged. If a field matters, validate it as if it came from an attacker, because it did.</p>
+<h2 id="observability-and-anomaly-detection">Observability and Anomaly Detection<a class="headerlink" href="#observability-and-anomaly-detection" title="Permanent link">&para;</a></h2>
+<p>Even a well-designed feature will eventually face a creative abuse attempt. Logging and monitoring are what let you notice it and respond.</p>
+<h3 id="what-to-log">What to Log<a class="headerlink" href="#what-to-log" title="Permanent link">&para;</a></h3>
+<p>For any operation that dispenses value, changes permissions, or moves money:</p>
+<ul>
+<li>The authenticated user</li>
+<li>The target resource</li>
+<li>The action taken</li>
+<li>The outcome</li>
+<li>Enough request context to reconstruct what happened (IP, user agent, correlation ID)</li>
+<li>Enough business context to audit (the price computed, the coupon applied, the new state)</li>
+</ul>
+<p>These logs should be tamper-evident and separate from general application logs.</p>
+<h3 id="what-to-alert-on">What to Alert On<a class="headerlink" href="#what-to-alert-on" title="Permanent link">&para;</a></h3>
+<p>Rates of the following often precede or accompany abuse:</p>
+<ul>
+<li>Signups from the same IP, device fingerprint, or payment instrument</li>
+<li>Repeated failed password-reset requests from the same source</li>
+<li>Unusually high rates of promo redemptions, referral completions, or credit issuances</li>
+<li>Bursts of requests to a single endpoint from a single user</li>
+<li>Workflows that complete in substantially less time than a human would need</li>
+</ul>
+<p>You don't need sophisticated machine learning for this. Simple thresholds on per-user, per-IP, and per-device rates catch most automated abuse.</p>
+<h3 id="close-the-loop">Close the Loop<a class="headerlink" href="#close-the-loop" title="Permanent link">&para;</a></h3>
+<p>When monitoring surfaces a potential abuse, two things should happen: the specific incident gets investigated and resolved, and the control that should have prevented it gets added or tightened. A detection that doesn't lead to a prevention is a detection you'll be making again next month.</p>
+<h2 id="testing-business-logic">Testing Business Logic<a class="headerlink" href="#testing-business-logic" title="Permanent link">&para;</a></h2>
+<p>Automated tests are how business rules stay enforced as the code evolves. Focus test effort on the rules, not the happy path.</p>
+<h3 id="test-the-rules-not-the-implementation">Test the Rules, Not the Implementation<a class="headerlink" href="#test-the-rules-not-the-implementation" title="Permanent link">&para;</a></h3>
+<p>For each invariant you identified during threat modeling, write a test that would fail if the invariant were violated. A test that says "a user cannot approve their own request" should attempt exactly that and assert the request is rejected. These tests document the rules as much as they verify them.</p>
+<h3 id="test-concurrency">Test Concurrency<a class="headerlink" href="#test-concurrency" title="Permanent link">&para;</a></h3>
+<p>If two requests can race, write a test that races them. Most test frameworks have ways to fire concurrent requests and assert the end state is consistent (e.g., balance is never negative, coupon is redeemed exactly once, bonus is granted exactly once across all winners).</p>
+<h3 id="test-ordering">Test Ordering<a class="headerlink" href="#test-ordering" title="Permanent link">&para;</a></h3>
+<p>For multi-step workflows, test attempts to skip, repeat, and reorder steps. The expected outcome for each is a rejection, not progress.</p>
+<h3 id="test-with-an-adversarial-mindset">Test with an Adversarial Mindset<a class="headerlink" href="#test-with-an-adversarial-mindset" title="Permanent link">&para;</a></h3>
+<p>Unit tests written by the developer who wrote the feature tend to cover cases the developer was already thinking about. A useful complement is adversarial testing: take the feature specification and write tests for the ways a motivated user would try to misuse it. Often the bug reproduces on the first attempt, because the feature wasn't designed with that misuse in mind.</p>
+<h2 id="common-examples-of-business-logic-flaws">Common Examples of Business Logic Flaws<a class="headerlink" href="#common-examples-of-business-logic-flaws" title="Permanent link">&para;</a></h2>
+<p>Concrete examples help developers recognize the pattern in their own code. The list below is not exhaustive.</p>
+<h3 id="price-and-quantity">Price and Quantity<a class="headerlink" href="#price-and-quantity" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Negative quantity in a cart to get a refund against another item's cost.</li>
+<li>Client-supplied price that the server trusts.</li>
+<li>Zero-price items that are actually valuable because a "free" flag was intended for a different product.</li>
+<li>Currency switching mid-transaction where the amount is kept but the currency changes (e.g., from USD to a much weaker unit).</li>
+<li>Coupon codes applied multiple times, or applied to products they were not meant for.</li>
+</ul>
+<h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Skipping identity verification by calling the post-verification endpoint directly.</li>
+<li>Advancing a job application, approval, or KYC workflow past a stage that was supposed to be gated on a reviewer.</li>
+<li>Triggering "checkout complete" without having actually paid.</li>
+<li>Claiming a reward for a task that was never completed.</li>
+</ul>
+<h3 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Withdrawing the same balance from two concurrent sessions.</li>
+<li>Redeeming a single-use voucher from two parallel requests.</li>
+<li>Transferring the same item to two recipients at once.</li>
+<li>Concurrently updating a counter so that one update is lost.</li>
+</ul>
+<h3 id="authorization-in-disguise">Authorization-in-disguise<a class="headerlink" href="#authorization-in-disguise" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approving your own request because the "not the author" check was forgotten.</li>
+<li>Canceling an order after it was supposed to be locked in.</li>
+<li>Modifying a shared resource because the "only the owner can modify" rule was never enforced on a specific endpoint.</li>
+</ul>
+<h3 id="value-dispensing-abuse">Value-dispensing Abuse<a class="headerlink" href="#value-dispensing-abuse" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Claiming a signup bonus multiple times by re-signing up.</li>
+<li>Earning referral rewards by referring yourself.</li>
+<li>Stacking promos that were meant to be mutually exclusive.</li>
+<li>Abusing "refer a friend" mechanics to send spam that looks like it comes from your platform.</li>
+</ul>
+<h2 id="summary-checklist">Summary Checklist<a class="headerlink" href="#summary-checklist" title="Permanent link">&para;</a></h2>
+<p>Before shipping any feature that handles money, permissions, or state, walkthrough this list:</p>
+<ul>
+<li>Are all security-relevant values (prices, permissions, identity, ownership) derived server-side, not accepted from the client?</li>
+<li>Is every multi-step workflow represented as an explicit state machine in server-side storage, with each transition validated?</li>
+<li>Is every check-then-act operation atomic (transaction, row lock, or conditional update)?</li>
+<li>Do external non-idempotent calls accept an idempotency key?</li>
+<li>Does every value-dispensing feature have a per-action cap, a per-account cap, and a rate limit?</li>
+<li>Are all invariants written down and tested?</li>
+<li>Is every entry point for a sensitive operation subject to the same business rules?</li>
+<li>Does logging capture enough context to reconstruct abuse after the fact, and do alerts fire on anomalous rates?</li>
+<li>Have you considered the dishonest-user perspective, not just the attacker-with-exploit perspective?</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/10-Business_Logic_Testing/">OWASP Web Security Testing Guide - Business Logic Testing</a></li>
+<li><a href="https://cwe.mitre.org/data/definitions/840.html">CWE-840: Business Logic Errors</a></li>
+<li><a href="https://cwe.mitre.org/data/definitions/841.html">CWE-841: Improper Enforcement of Behavioral Workflow</a></li>
+<li><a href="https://cwe.mitre.org/data/definitions/367.html">CWE-367: Time-of-check Time-of-use (TOCTOU) Race Condition</a></li>
+<li><a href="Authorization_Cheat_Sheet.html">OWASP Authorization Cheat Sheet</a></li>
+<li><a href="Access_Control_Cheat_Sheet.html">OWASP Access Control Cheat Sheet</a></li>
+<li><a href="Transaction_Authorization_Cheat_Sheet.html">OWASP Transaction Authorization Cheat Sheet</a></li>
+<li><a href="Input_Validation_Cheat_Sheet.html">OWASP Input Validation Cheat Sheet</a></li>
+<li><a href="Abuse_Case_Cheat_Sheet.html">OWASP Abuse Case Cheat Sheet</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©Copyright <script>document.write(new Date().getFullYear())</script> - Cheat Sheets Series Team - This work is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

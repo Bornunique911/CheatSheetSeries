@@ -19,8 +19,11 @@
         <link rel="next" href="LDAP_Injection_Prevention_Cheat_Sheet.html">
       
       
+        
+      
+      
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -680,6 +1085,7 @@
             
               
                 
+  
   
   
   
@@ -687,9 +1093,16 @@
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -700,6 +1113,7 @@
             
               
                 
+  
   
   
   
@@ -707,9 +1121,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -720,6 +1141,7 @@
             
               
                 
+  
   
   
   
@@ -727,9 +1149,16 @@
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -740,6 +1169,7 @@
             
               
                 
+  
   
   
   
@@ -747,9 +1177,16 @@
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -760,6 +1197,7 @@
             
               
                 
+  
   
   
   
@@ -767,9 +1205,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -780,6 +1225,7 @@
             
               
                 
+  
   
   
   
@@ -787,9 +1233,16 @@
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -800,6 +1253,7 @@
             
               
                 
+  
   
   
   
@@ -807,9 +1261,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -820,6 +1281,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -827,9 +1317,16 @@
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -840,6 +1337,7 @@
             
               
                 
+  
   
   
   
@@ -847,9 +1345,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -860,6 +1365,7 @@
             
               
                 
+  
   
   
   
@@ -867,9 +1373,16 @@
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -880,6 +1393,7 @@
             
               
                 
+  
   
   
   
@@ -887,9 +1401,16 @@
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -900,6 +1421,7 @@
             
               
                 
+  
   
   
   
@@ -907,9 +1429,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -920,6 +1449,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -927,9 +1513,16 @@
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -940,6 +1533,7 @@
             
               
                 
+  
   
   
   
@@ -947,9 +1541,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -960,6 +1561,7 @@
             
               
                 
+  
   
   
   
@@ -967,9 +1569,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -980,6 +1589,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -987,9 +1625,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1000,6 +1645,7 @@
             
               
                 
+  
   
   
   
@@ -1007,9 +1653,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1020,6 +1673,7 @@
             
               
                 
+  
   
   
   
@@ -1027,9 +1681,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1040,6 +1701,7 @@
             
               
                 
+  
   
   
   
@@ -1047,9 +1709,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1060,6 +1729,7 @@
             
               
                 
+  
   
   
   
@@ -1067,9 +1737,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1080,6 +1757,7 @@
             
               
                 
+  
   
   
   
@@ -1087,9 +1765,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1100,6 +1785,7 @@
             
               
                 
+  
   
   
   
@@ -1107,9 +1793,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1120,6 +1813,7 @@
             
               
                 
+  
   
   
   
@@ -1127,9 +1821,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1140,6 +1841,7 @@
             
               
                 
+  
   
   
   
@@ -1147,9 +1849,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1160,6 +1869,7 @@
             
               
                 
+  
   
   
   
@@ -1167,9 +1877,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1180,16 +1897,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1200,6 +1925,7 @@
             
               
                 
+  
   
   
   
@@ -1207,9 +1933,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1223,13 +1956,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1243,6 +1984,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -1256,9 +1998,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -1267,9 +2016,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1291,21 +2047,33 @@
       
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
-    Overview
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#receive-alerts-for-security-updates-and-reporting-vulnerabilities" class="md-nav__link">
-    Receive Alerts for Security Updates and Reporting Vulnerabilities
+    <span class="md-ellipsis">
+      
+        Receive Alerts for Security Updates and Reporting Vulnerabilities
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#introduction-what-is-kubernetes" class="md-nav__link">
-    INTRODUCTION: What Is Kubernetes?
+    <span class="md-ellipsis">
+      
+        INTRODUCTION: What Is Kubernetes?
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="INTRODUCTION: What Is Kubernetes?">
@@ -1313,14 +2081,22 @@
         
           <li class="md-nav__item">
   <a href="#control-plane-components" class="md-nav__link">
-    Control Plane Components
+    <span class="md-ellipsis">
+      
+        Control Plane Components
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#node-components" class="md-nav__link">
-    Node Components
+    <span class="md-ellipsis">
+      
+        Node Components
+      
+    </span>
   </a>
   
 </li>
@@ -1332,7 +2108,11 @@
       
         <li class="md-nav__item">
   <a href="#section-1-securing-kubernetes-hosts" class="md-nav__link">
-    SECTION 1: Securing Kubernetes Hosts
+    <span class="md-ellipsis">
+      
+        SECTION 1: Securing Kubernetes Hosts
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 1: Securing Kubernetes Hosts">
@@ -1340,7 +2120,11 @@
         
           <li class="md-nav__item">
   <a href="#updating-kubernetes" class="md-nav__link">
-    Updating Kubernetes
+    <span class="md-ellipsis">
+      
+        Updating Kubernetes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Updating Kubernetes">
@@ -1348,7 +2132,11 @@
         
           <li class="md-nav__item">
   <a href="#release-schedule-for-kubernetes" class="md-nav__link">
-    Release schedule for Kubernetes
+    <span class="md-ellipsis">
+      
+        Release schedule for Kubernetes
+      
+    </span>
   </a>
   
 </li>
@@ -1365,7 +2153,11 @@
       
         <li class="md-nav__item">
   <a href="#section-2-securing-kubernetes-components" class="md-nav__link">
-    SECTION 2: Securing Kubernetes Components
+    <span class="md-ellipsis">
+      
+        SECTION 2: Securing Kubernetes Components
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 2: Securing Kubernetes Components">
@@ -1373,14 +2165,22 @@
         
           <li class="md-nav__item">
   <a href="#securing-the-kubernetes-dashboard" class="md-nav__link">
-    Securing the Kubernetes Dashboard
+    <span class="md-ellipsis">
+      
+        Securing the Kubernetes Dashboard
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#restricting-access-to-etcd-important" class="md-nav__link">
-    Restricting Access To etcd (IMPORTANT)
+    <span class="md-ellipsis">
+      
+        Restricting Access To etcd (IMPORTANT)
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Restricting Access To etcd (IMPORTANT)">
@@ -1388,7 +2188,11 @@
         
           <li class="md-nav__item">
   <a href="#limiting-access-to-the-primary-etcd-instance" class="md-nav__link">
-    Limiting access to the primary etcd instance
+    <span class="md-ellipsis">
+      
+        Limiting access to the primary etcd instance
+      
+    </span>
   </a>
   
 </li>
@@ -1400,14 +2204,22 @@
         
           <li class="md-nav__item">
   <a href="#controlling-network-access-to-sensitive-ports" class="md-nav__link">
-    Controlling Network Access to Sensitive Ports
+    <span class="md-ellipsis">
+      
+        Controlling Network Access to Sensitive Ports
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#controlling-access-to-the-kubernetes-api" class="md-nav__link">
-    Controlling Access To The Kubernetes API
+    <span class="md-ellipsis">
+      
+        Controlling Access To The Kubernetes API
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Controlling Access To The Kubernetes API">
@@ -1415,21 +2227,33 @@
         
           <li class="md-nav__item">
   <a href="#how-kubernetes-handles-api-authorization" class="md-nav__link">
-    How Kubernetes handles API authorization
+    <span class="md-ellipsis">
+      
+        How Kubernetes handles API authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#external-api-authentication-for-kubernetes-recommended" class="md-nav__link">
-    External API Authentication for Kubernetes (RECOMMENDED)
+    <span class="md-ellipsis">
+      
+        External API Authentication for Kubernetes (RECOMMENDED)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#options-for-kubernetes-built-in-api-authentication-not-recommended" class="md-nav__link">
-    Options for Kubernetes Built-In API Authentication (NOT RECOMMENDED)
+    <span class="md-ellipsis">
+      
+        Options for Kubernetes Built-In API Authentication (NOT RECOMMENDED)
+      
+    </span>
   </a>
   
 </li>
@@ -1441,14 +2265,22 @@
         
           <li class="md-nav__item">
   <a href="#implementing-role-based-access-control-in-kubernetes" class="md-nav__link">
-    Implementing Role-Based Access Control in Kubernetes
+    <span class="md-ellipsis">
+      
+        Implementing Role-Based Access Control in Kubernetes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#limiting-access-to-the-kubelets" class="md-nav__link">
-    Limiting access to the Kubelets
+    <span class="md-ellipsis">
+      
+        Limiting access to the Kubelets
+      
+    </span>
   </a>
   
 </li>
@@ -1460,7 +2292,11 @@
       
         <li class="md-nav__item">
   <a href="#section-3-kubernetes-security-best-practices-build-phase" class="md-nav__link">
-    SECTION 3: Kubernetes Security Best Practices: Build Phase
+    <span class="md-ellipsis">
+      
+        SECTION 3: Kubernetes Security Best Practices: Build Phase
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 3: Kubernetes Security Best Practices: Build Phase">
@@ -1468,7 +2304,11 @@
         
           <li class="md-nav__item">
   <a href="#what-is-a-container-image" class="md-nav__link">
-    What is a container image?
+    <span class="md-ellipsis">
+      
+        What is a container image?
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="What is a container image?">
@@ -1476,7 +2316,11 @@
         
           <li class="md-nav__item">
   <a href="#ensure-that-cis-are-up-to-date" class="md-nav__link">
-    Ensure that CIs are up to date
+    <span class="md-ellipsis">
+      
+        Ensure that CIs are up to date
+      
+    </span>
   </a>
   
 </li>
@@ -1488,21 +2332,33 @@
         
           <li class="md-nav__item">
   <a href="#only-use-authorized-images-in-your-environment" class="md-nav__link">
-    Only use authorized images in Your environment
+    <span class="md-ellipsis">
+      
+        Only use authorized images in Your environment
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-a-ci-pipeline-to-control-and-identify-vulnerabilities" class="md-nav__link">
-    Use A CI Pipeline To Control and Identify Vulnerabilities
+    <span class="md-ellipsis">
+      
+        Use A CI Pipeline To Control and Identify Vulnerabilities
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#minimize-features-in-all-cis" class="md-nav__link">
-    Minimize Features in All CIs
+    <span class="md-ellipsis">
+      
+        Minimize Features in All CIs
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Minimize Features in All CIs">
@@ -1510,7 +2366,11 @@
         
           <li class="md-nav__item">
   <a href="#use-distroless-or-empty-images-when-possible" class="md-nav__link">
-    Use distroless or empty images when possible
+    <span class="md-ellipsis">
+      
+        Use distroless or empty images when possible
+      
+    </span>
   </a>
   
 </li>
@@ -1527,7 +2387,11 @@
       
         <li class="md-nav__item">
   <a href="#section-4-kubernetes-security-best-practices-deploy-phase" class="md-nav__link">
-    SECTION 4: Kubernetes Security Best Practices: Deploy Phase
+    <span class="md-ellipsis">
+      
+        SECTION 4: Kubernetes Security Best Practices: Deploy Phase
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 4: Kubernetes Security Best Practices: Deploy Phase">
@@ -1535,7 +2399,11 @@
         
           <li class="md-nav__item">
   <a href="#code-that-uses-namespaces-to-isolate-kubernetes-resources" class="md-nav__link">
-    Code that uses namespaces to isolate Kubernetes resources
+    <span class="md-ellipsis">
+      
+        Code that uses namespaces to isolate Kubernetes resources
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Code that uses namespaces to isolate Kubernetes resources">
@@ -1543,14 +2411,22 @@
         
           <li class="md-nav__item">
   <a href="#setting-the-namespace-for-a-request" class="md-nav__link">
-    Setting the namespace for a request
+    <span class="md-ellipsis">
+      
+        Setting the namespace for a request
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#setting-the-namespace-preference" class="md-nav__link">
-    Setting the namespace preference
+    <span class="md-ellipsis">
+      
+        Setting the namespace preference
+      
+    </span>
   </a>
   
 </li>
@@ -1562,28 +2438,33 @@
         
           <li class="md-nav__item">
   <a href="#use-the-imagepolicywebhook-to-govern-image-provenance" class="md-nav__link">
-    Use the ImagePolicyWebhook to govern image provenance
+    <span class="md-ellipsis">
+      
+        Use the ImagePolicyWebhook to govern image provenance
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#implement-continuous-security-vulnerability-scanning" class="md-nav__link">
-    Implement continuous security vulnerability scanning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continuously-assess-the-privileges-used-by-containers" class="md-nav__link">
-    Continuously assess the privileges used by containers
+    <span class="md-ellipsis">
+      
+        Implement continuous security vulnerability scanning
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#apply-security-context-to-your-pods-and-containers" class="md-nav__link">
-    Apply security context to your pods and containers
+    <span class="md-ellipsis">
+      
+        Apply security context to your pods and containers
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Apply security context to your pods and containers">
@@ -1591,7 +2472,50 @@
         
           <li class="md-nav__item">
   <a href="#security-context-example-a-pod-definition-that-includes-security-context-parameters" class="md-nav__link">
-    Security context example: A pod definition that includes security context parameters
+    <span class="md-ellipsis">
+      
+        Security context example: A pod definition that includes security context parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuously-assess-the-privileges-used-by-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuously assess the privileges used by containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuously assess the privileges used by containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilize-pod-security-standards-and-the-built-in-pod-security-admission-controller-to-enforce-container-privilege-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilize Pod Security Standards and the Built-in Pod Security Admission Controller to enforce container privilege levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-pod-security-policies-to-control-the-security-related-attributes-of-pods-which-includes-container-privilege-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Pod security policies to control the security-related attributes of pods, which includes container privilege levels
+      
+    </span>
   </a>
   
 </li>
@@ -1603,7 +2527,11 @@
         
           <li class="md-nav__item">
   <a href="#providing-extra-security-with-a-service-mesh" class="md-nav__link">
-    Providing extra security with a service mesh
+    <span class="md-ellipsis">
+      
+        Providing extra security with a service mesh
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Providing extra security with a service mesh">
@@ -1611,14 +2539,22 @@
         
           <li class="md-nav__item">
   <a href="#advantages-of-a-service-mesh" class="md-nav__link">
-    Advantages of a service mesh
+    <span class="md-ellipsis">
+      
+        Advantages of a service mesh
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#disadvantages-of-the-security-mesh" class="md-nav__link">
-    Disadvantages of the security mesh
+    <span class="md-ellipsis">
+      
+        Disadvantages of the security mesh
+      
+    </span>
   </a>
   
 </li>
@@ -1630,7 +2566,11 @@
         
           <li class="md-nav__item">
   <a href="#implementing-centralized-policy-management" class="md-nav__link">
-    Implementing centralized policy management
+    <span class="md-ellipsis">
+      
+        Implementing centralized policy management
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Implementing centralized policy management">
@@ -1638,7 +2578,11 @@
         
           <li class="md-nav__item">
   <a href="#most-common-use-cases-of-opa" class="md-nav__link">
-    Most common use cases of OPA
+    <span class="md-ellipsis">
+      
+        Most common use cases of OPA
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Most common use cases of OPA">
@@ -1646,21 +2590,33 @@
         
           <li class="md-nav__item">
   <a href="#opa-for-application-authorization" class="md-nav__link">
-    OPA for application authorization
+    <span class="md-ellipsis">
+      
+        OPA for application authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#opa-for-kubernetes-admission-control" class="md-nav__link">
-    OPA for Kubernetes admission control
+    <span class="md-ellipsis">
+      
+        OPA for Kubernetes admission control
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#opa-for-service-mesh-authorization" class="md-nav__link">
-    OPA for service mesh authorization
+    <span class="md-ellipsis">
+      
+        OPA for service mesh authorization
+      
+    </span>
   </a>
   
 </li>
@@ -1677,21 +2633,33 @@
         
           <li class="md-nav__item">
   <a href="#limiting-resource-usage-on-a-cluster" class="md-nav__link">
-    Limiting resource usage on a cluster
+    <span class="md-ellipsis">
+      
+        Limiting resource usage on a cluster
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-kubernetes-network-policies-to-control-traffic-between-pods-and-clusters" class="md-nav__link">
-    Use Kubernetes network policies to control traffic between pods and clusters
+    <span class="md-ellipsis">
+      
+        Use Kubernetes network policies to control traffic between pods and clusters
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#securing-data" class="md-nav__link">
-    Securing data
+    <span class="md-ellipsis">
+      
+        Securing data
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Securing data">
@@ -1699,28 +2667,44 @@
         
           <li class="md-nav__item">
   <a href="#keep-secrets-as-secrets" class="md-nav__link">
-    Keep secrets as secrets
+    <span class="md-ellipsis">
+      
+        Keep secrets as secrets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encrypt-secrets-at-rest" class="md-nav__link">
-    Encrypt secrets at rest
+    <span class="md-ellipsis">
+      
+        Encrypt secrets at rest
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#alternatives-to-kubernetes-secret-resources" class="md-nav__link">
-    Alternatives to Kubernetes Secret resources
+    <span class="md-ellipsis">
+      
+        Alternatives to Kubernetes Secret resources
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#finding-exposed-secrets" class="md-nav__link">
-    Finding exposed secrets
+    <span class="md-ellipsis">
+      
+        Finding exposed secrets
+      
+    </span>
   </a>
   
 </li>
@@ -1737,7 +2721,11 @@
       
         <li class="md-nav__item">
   <a href="#section-5-kubernetes-security-best-practices-runtime-phase" class="md-nav__link">
-    SECTION 5: Kubernetes Security Best Practices: Runtime Phase
+    <span class="md-ellipsis">
+      
+        SECTION 5: Kubernetes Security Best Practices: Runtime Phase
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 5: Kubernetes Security Best Practices: Runtime Phase">
@@ -1745,63 +2733,99 @@
         
           <li class="md-nav__item">
   <a href="#use-pod-security-admission-to-prevent-risky-containerspods-from-being-deployed" class="md-nav__link">
-    Use Pod Security Admission to prevent risky containers/Pods from being deployed
+    <span class="md-ellipsis">
+      
+        Use Pod Security Admission to prevent risky containers/Pods from being deployed
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#container-runtime-security" class="md-nav__link">
-    Container Runtime Security
+    <span class="md-ellipsis">
+      
+        Container Runtime Security
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#container-sandboxing" class="md-nav__link">
-    Container Sandboxing
+    <span class="md-ellipsis">
+      
+        Container Sandboxing
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#preventing-containers-from-loading-unwanted-kernel-modules" class="md-nav__link">
-    Preventing containers from loading unwanted kernel modules
+    <span class="md-ellipsis">
+      
+        Preventing containers from loading unwanted kernel modules
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#compare-and-analyze-different-runtime-activity-in-pods-of-the-same-deployments" class="md-nav__link">
-    Compare and analyze different runtime activity in pods of the same deployments
+    <span class="md-ellipsis">
+      
+        Compare and analyze different runtime activity in pods of the same deployments
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#monitor-network-traffic-to-limit-unnecessary-or-insecure-communication" class="md-nav__link">
-    Monitor network traffic to limit unnecessary or insecure communication
+    <span class="md-ellipsis">
+      
+        Monitor network traffic to limit unnecessary or insecure communication
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#if-breached-scale-suspicious-pods-to-zero" class="md-nav__link">
-    If breached, scale suspicious pods to zero
+    <span class="md-ellipsis">
+      
+        If breached, scale suspicious pods to zero
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#rotate-infrastructure-credentials-frequently" class="md-nav__link">
-    Rotate infrastructure credentials frequently
+    <span class="md-ellipsis">
+      
+        Rotate infrastructure credentials frequently
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#logging" class="md-nav__link">
-    Logging
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Logging">
@@ -1809,7 +2833,11 @@
         
           <li class="md-nav__item">
   <a href="#enable-audit-logging" class="md-nav__link">
-    Enable audit logging
+    <span class="md-ellipsis">
+      
+        Enable audit logging
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Enable audit logging">
@@ -1817,7 +2845,11 @@
         
           <li class="md-nav__item">
   <a href="#audit-logs" class="md-nav__link">
-    Audit logs
+    <span class="md-ellipsis">
+      
+        Audit logs
+      
+    </span>
   </a>
   
 </li>
@@ -1829,14 +2861,22 @@
         
           <li class="md-nav__item">
   <a href="#define-audit-policies" class="md-nav__link">
-    Define Audit Policies
+    <span class="md-ellipsis">
+      
+        Define Audit Policies
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#understanding-logging" class="md-nav__link">
-    Understanding Logging
+    <span class="md-ellipsis">
+      
+        Understanding Logging
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Understanding Logging">
@@ -1844,21 +2884,33 @@
         
           <li class="md-nav__item">
   <a href="#container-logging" class="md-nav__link">
-    Container logging
+    <span class="md-ellipsis">
+      
+        Container logging
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#node-logging" class="md-nav__link">
-    Node logging
+    <span class="md-ellipsis">
+      
+        Node logging
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cluster-logging" class="md-nav__link">
-    Cluster logging
+    <span class="md-ellipsis">
+      
+        Cluster logging
+      
+    </span>
   </a>
   
 </li>
@@ -1870,7 +2922,11 @@
         
           <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
-    Events
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
   </a>
   
 </li>
@@ -1886,30 +2942,102 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-5-final-thoughts" class="md-nav__link">
-    SECTION 5: Final Thoughts
+  <a href="#section-5-securing-a-managed-service-kubernetes-on-cloud-service-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SECTION 5: Securing a managed-service Kubernetes on Cloud Service Provider
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="SECTION 5: Final Thoughts">
+    <nav class="md-nav" aria-label="SECTION 5: Securing a managed-service Kubernetes on Cloud Service Provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-supply-chain-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SECTION 6: Supply Chain Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECTION 6: Supply Chain Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-securing-the-container-supply-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices for securing the container supply chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-7-final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SECTION 7: Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECTION 7: Final Thoughts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#embed-security-into-the-container-lifecycle-as-early-as-possible" class="md-nav__link">
-    Embed security into the container lifecycle as early as possible
+    <span class="md-ellipsis">
+      
+        Embed security into the container lifecycle as early as possible
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-kubernetes-native-security-controls-to-reduce-operational-risk" class="md-nav__link">
-    Use Kubernetes-native security controls to reduce operational risk
+    <span class="md-ellipsis">
+      
+        Use Kubernetes-native security controls to reduce operational risk
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#leverage-the-context-that-kubernetes-provides-to-prioritize-remediation-efforts" class="md-nav__link">
-    Leverage the context that Kubernetes provides to prioritize remediation efforts
+    <span class="md-ellipsis">
+      
+        Leverage the context that Kubernetes provides to prioritize remediation efforts
+      
+    </span>
   </a>
   
 </li>
@@ -1921,7 +3049,11 @@
       
         <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
-    References
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
   </a>
   
 </li>
@@ -1940,13 +3072,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1957,6 +3097,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1964,9 +3133,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1977,6 +3153,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1984,9 +3189,16 @@
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1997,6 +3209,7 @@
             
               
                 
+  
   
   
   
@@ -2004,9 +3217,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2017,6 +3237,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2024,9 +3273,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2037,6 +3293,7 @@
             
               
                 
+  
   
   
   
@@ -2044,9 +3301,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2057,6 +3321,7 @@
             
               
                 
+  
   
   
   
@@ -2064,9 +3329,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2077,6 +3349,7 @@
             
               
                 
+  
   
   
   
@@ -2084,9 +3357,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2097,6 +3377,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2104,9 +3413,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2117,6 +3433,7 @@
             
               
                 
+  
   
   
   
@@ -2124,9 +3441,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2137,6 +3461,7 @@
             
               
                 
+  
   
   
   
@@ -2144,9 +3469,16 @@
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2157,6 +3489,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2164,9 +3553,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2177,6 +3573,7 @@
             
               
                 
+  
   
   
   
@@ -2184,9 +3581,16 @@
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2197,6 +3601,7 @@
             
               
                 
+  
   
   
   
@@ -2204,9 +3609,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2217,6 +3629,7 @@
             
               
                 
+  
   
   
   
@@ -2224,9 +3637,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2237,6 +3657,7 @@
             
               
                 
+  
   
   
   
@@ -2244,9 +3665,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2257,6 +3685,7 @@
             
               
                 
+  
   
   
   
@@ -2264,9 +3693,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2277,6 +3713,7 @@
             
               
                 
+  
   
   
   
@@ -2284,9 +3721,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2297,6 +3741,7 @@
             
               
                 
+  
   
   
   
@@ -2304,9 +3749,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2317,6 +3769,7 @@
             
               
                 
+  
   
   
   
@@ -2324,9 +3777,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2337,6 +3797,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2344,9 +3833,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2357,6 +3853,7 @@
             
               
                 
+  
   
   
   
@@ -2364,9 +3861,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2377,6 +3881,7 @@
             
               
                 
+  
   
   
   
@@ -2384,9 +3889,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2397,6 +3909,7 @@
             
               
                 
+  
   
   
   
@@ -2404,9 +3917,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2417,6 +3937,7 @@
             
               
                 
+  
   
   
   
@@ -2424,9 +3945,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2437,6 +3965,7 @@
             
               
                 
+  
   
   
   
@@ -2444,9 +3973,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2457,6 +3993,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2464,9 +4029,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2477,6 +4049,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2484,9 +4113,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2497,6 +4133,7 @@
             
               
                 
+  
   
   
   
@@ -2504,9 +4141,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2517,6 +4161,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2524,9 +4197,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2537,6 +4217,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2544,9 +4253,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2557,6 +4273,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2564,9 +4337,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2577,6 +4357,7 @@
             
               
                 
+  
   
   
   
@@ -2584,9 +4365,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2597,6 +4385,7 @@
             
               
                 
+  
   
   
   
@@ -2604,9 +4393,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2617,6 +4413,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2624,9 +4449,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2637,6 +4469,7 @@
             
               
                 
+  
   
   
   
@@ -2644,9 +4477,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2657,6 +4497,7 @@
             
               
                 
+  
   
   
   
@@ -2664,9 +4505,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2677,6 +4525,7 @@
             
               
                 
+  
   
   
   
@@ -2684,9 +4533,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2697,6 +4553,7 @@
             
               
                 
+  
   
   
   
@@ -2704,9 +4561,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2717,6 +4581,7 @@
             
               
                 
+  
   
   
   
@@ -2724,9 +4589,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2737,6 +4609,7 @@
             
               
                 
+  
   
   
   
@@ -2744,9 +4617,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2757,6 +4637,7 @@
             
               
                 
+  
   
   
   
@@ -2764,9 +4645,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2777,6 +4665,7 @@
             
               
                 
+  
   
   
   
@@ -2784,9 +4673,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2797,6 +4693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2804,9 +4729,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2817,6 +4749,7 @@
             
               
                 
+  
   
   
   
@@ -2824,9 +4757,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2837,6 +4777,7 @@
             
               
                 
+  
   
   
   
@@ -2844,9 +4785,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2857,6 +4805,7 @@
             
               
                 
+  
   
   
   
@@ -2864,9 +4813,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2880,13 +4836,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2930,21 +4950,33 @@
       
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
-    Overview
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#receive-alerts-for-security-updates-and-reporting-vulnerabilities" class="md-nav__link">
-    Receive Alerts for Security Updates and Reporting Vulnerabilities
+    <span class="md-ellipsis">
+      
+        Receive Alerts for Security Updates and Reporting Vulnerabilities
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#introduction-what-is-kubernetes" class="md-nav__link">
-    INTRODUCTION: What Is Kubernetes?
+    <span class="md-ellipsis">
+      
+        INTRODUCTION: What Is Kubernetes?
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="INTRODUCTION: What Is Kubernetes?">
@@ -2952,14 +4984,22 @@
         
           <li class="md-nav__item">
   <a href="#control-plane-components" class="md-nav__link">
-    Control Plane Components
+    <span class="md-ellipsis">
+      
+        Control Plane Components
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#node-components" class="md-nav__link">
-    Node Components
+    <span class="md-ellipsis">
+      
+        Node Components
+      
+    </span>
   </a>
   
 </li>
@@ -2971,7 +5011,11 @@
       
         <li class="md-nav__item">
   <a href="#section-1-securing-kubernetes-hosts" class="md-nav__link">
-    SECTION 1: Securing Kubernetes Hosts
+    <span class="md-ellipsis">
+      
+        SECTION 1: Securing Kubernetes Hosts
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 1: Securing Kubernetes Hosts">
@@ -2979,7 +5023,11 @@
         
           <li class="md-nav__item">
   <a href="#updating-kubernetes" class="md-nav__link">
-    Updating Kubernetes
+    <span class="md-ellipsis">
+      
+        Updating Kubernetes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Updating Kubernetes">
@@ -2987,7 +5035,11 @@
         
           <li class="md-nav__item">
   <a href="#release-schedule-for-kubernetes" class="md-nav__link">
-    Release schedule for Kubernetes
+    <span class="md-ellipsis">
+      
+        Release schedule for Kubernetes
+      
+    </span>
   </a>
   
 </li>
@@ -3004,7 +5056,11 @@
       
         <li class="md-nav__item">
   <a href="#section-2-securing-kubernetes-components" class="md-nav__link">
-    SECTION 2: Securing Kubernetes Components
+    <span class="md-ellipsis">
+      
+        SECTION 2: Securing Kubernetes Components
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 2: Securing Kubernetes Components">
@@ -3012,14 +5068,22 @@
         
           <li class="md-nav__item">
   <a href="#securing-the-kubernetes-dashboard" class="md-nav__link">
-    Securing the Kubernetes Dashboard
+    <span class="md-ellipsis">
+      
+        Securing the Kubernetes Dashboard
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#restricting-access-to-etcd-important" class="md-nav__link">
-    Restricting Access To etcd (IMPORTANT)
+    <span class="md-ellipsis">
+      
+        Restricting Access To etcd (IMPORTANT)
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Restricting Access To etcd (IMPORTANT)">
@@ -3027,7 +5091,11 @@
         
           <li class="md-nav__item">
   <a href="#limiting-access-to-the-primary-etcd-instance" class="md-nav__link">
-    Limiting access to the primary etcd instance
+    <span class="md-ellipsis">
+      
+        Limiting access to the primary etcd instance
+      
+    </span>
   </a>
   
 </li>
@@ -3039,14 +5107,22 @@
         
           <li class="md-nav__item">
   <a href="#controlling-network-access-to-sensitive-ports" class="md-nav__link">
-    Controlling Network Access to Sensitive Ports
+    <span class="md-ellipsis">
+      
+        Controlling Network Access to Sensitive Ports
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#controlling-access-to-the-kubernetes-api" class="md-nav__link">
-    Controlling Access To The Kubernetes API
+    <span class="md-ellipsis">
+      
+        Controlling Access To The Kubernetes API
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Controlling Access To The Kubernetes API">
@@ -3054,21 +5130,33 @@
         
           <li class="md-nav__item">
   <a href="#how-kubernetes-handles-api-authorization" class="md-nav__link">
-    How Kubernetes handles API authorization
+    <span class="md-ellipsis">
+      
+        How Kubernetes handles API authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#external-api-authentication-for-kubernetes-recommended" class="md-nav__link">
-    External API Authentication for Kubernetes (RECOMMENDED)
+    <span class="md-ellipsis">
+      
+        External API Authentication for Kubernetes (RECOMMENDED)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#options-for-kubernetes-built-in-api-authentication-not-recommended" class="md-nav__link">
-    Options for Kubernetes Built-In API Authentication (NOT RECOMMENDED)
+    <span class="md-ellipsis">
+      
+        Options for Kubernetes Built-In API Authentication (NOT RECOMMENDED)
+      
+    </span>
   </a>
   
 </li>
@@ -3080,14 +5168,22 @@
         
           <li class="md-nav__item">
   <a href="#implementing-role-based-access-control-in-kubernetes" class="md-nav__link">
-    Implementing Role-Based Access Control in Kubernetes
+    <span class="md-ellipsis">
+      
+        Implementing Role-Based Access Control in Kubernetes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#limiting-access-to-the-kubelets" class="md-nav__link">
-    Limiting access to the Kubelets
+    <span class="md-ellipsis">
+      
+        Limiting access to the Kubelets
+      
+    </span>
   </a>
   
 </li>
@@ -3099,7 +5195,11 @@
       
         <li class="md-nav__item">
   <a href="#section-3-kubernetes-security-best-practices-build-phase" class="md-nav__link">
-    SECTION 3: Kubernetes Security Best Practices: Build Phase
+    <span class="md-ellipsis">
+      
+        SECTION 3: Kubernetes Security Best Practices: Build Phase
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 3: Kubernetes Security Best Practices: Build Phase">
@@ -3107,7 +5207,11 @@
         
           <li class="md-nav__item">
   <a href="#what-is-a-container-image" class="md-nav__link">
-    What is a container image?
+    <span class="md-ellipsis">
+      
+        What is a container image?
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="What is a container image?">
@@ -3115,7 +5219,11 @@
         
           <li class="md-nav__item">
   <a href="#ensure-that-cis-are-up-to-date" class="md-nav__link">
-    Ensure that CIs are up to date
+    <span class="md-ellipsis">
+      
+        Ensure that CIs are up to date
+      
+    </span>
   </a>
   
 </li>
@@ -3127,21 +5235,33 @@
         
           <li class="md-nav__item">
   <a href="#only-use-authorized-images-in-your-environment" class="md-nav__link">
-    Only use authorized images in Your environment
+    <span class="md-ellipsis">
+      
+        Only use authorized images in Your environment
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-a-ci-pipeline-to-control-and-identify-vulnerabilities" class="md-nav__link">
-    Use A CI Pipeline To Control and Identify Vulnerabilities
+    <span class="md-ellipsis">
+      
+        Use A CI Pipeline To Control and Identify Vulnerabilities
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#minimize-features-in-all-cis" class="md-nav__link">
-    Minimize Features in All CIs
+    <span class="md-ellipsis">
+      
+        Minimize Features in All CIs
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Minimize Features in All CIs">
@@ -3149,7 +5269,11 @@
         
           <li class="md-nav__item">
   <a href="#use-distroless-or-empty-images-when-possible" class="md-nav__link">
-    Use distroless or empty images when possible
+    <span class="md-ellipsis">
+      
+        Use distroless or empty images when possible
+      
+    </span>
   </a>
   
 </li>
@@ -3166,7 +5290,11 @@
       
         <li class="md-nav__item">
   <a href="#section-4-kubernetes-security-best-practices-deploy-phase" class="md-nav__link">
-    SECTION 4: Kubernetes Security Best Practices: Deploy Phase
+    <span class="md-ellipsis">
+      
+        SECTION 4: Kubernetes Security Best Practices: Deploy Phase
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 4: Kubernetes Security Best Practices: Deploy Phase">
@@ -3174,7 +5302,11 @@
         
           <li class="md-nav__item">
   <a href="#code-that-uses-namespaces-to-isolate-kubernetes-resources" class="md-nav__link">
-    Code that uses namespaces to isolate Kubernetes resources
+    <span class="md-ellipsis">
+      
+        Code that uses namespaces to isolate Kubernetes resources
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Code that uses namespaces to isolate Kubernetes resources">
@@ -3182,14 +5314,22 @@
         
           <li class="md-nav__item">
   <a href="#setting-the-namespace-for-a-request" class="md-nav__link">
-    Setting the namespace for a request
+    <span class="md-ellipsis">
+      
+        Setting the namespace for a request
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#setting-the-namespace-preference" class="md-nav__link">
-    Setting the namespace preference
+    <span class="md-ellipsis">
+      
+        Setting the namespace preference
+      
+    </span>
   </a>
   
 </li>
@@ -3201,28 +5341,33 @@
         
           <li class="md-nav__item">
   <a href="#use-the-imagepolicywebhook-to-govern-image-provenance" class="md-nav__link">
-    Use the ImagePolicyWebhook to govern image provenance
+    <span class="md-ellipsis">
+      
+        Use the ImagePolicyWebhook to govern image provenance
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#implement-continuous-security-vulnerability-scanning" class="md-nav__link">
-    Implement continuous security vulnerability scanning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continuously-assess-the-privileges-used-by-containers" class="md-nav__link">
-    Continuously assess the privileges used by containers
+    <span class="md-ellipsis">
+      
+        Implement continuous security vulnerability scanning
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#apply-security-context-to-your-pods-and-containers" class="md-nav__link">
-    Apply security context to your pods and containers
+    <span class="md-ellipsis">
+      
+        Apply security context to your pods and containers
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Apply security context to your pods and containers">
@@ -3230,7 +5375,50 @@
         
           <li class="md-nav__item">
   <a href="#security-context-example-a-pod-definition-that-includes-security-context-parameters" class="md-nav__link">
-    Security context example: A pod definition that includes security context parameters
+    <span class="md-ellipsis">
+      
+        Security context example: A pod definition that includes security context parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuously-assess-the-privileges-used-by-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuously assess the privileges used by containers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuously assess the privileges used by containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilize-pod-security-standards-and-the-built-in-pod-security-admission-controller-to-enforce-container-privilege-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilize Pod Security Standards and the Built-in Pod Security Admission Controller to enforce container privilege levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-pod-security-policies-to-control-the-security-related-attributes-of-pods-which-includes-container-privilege-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Pod security policies to control the security-related attributes of pods, which includes container privilege levels
+      
+    </span>
   </a>
   
 </li>
@@ -3242,7 +5430,11 @@
         
           <li class="md-nav__item">
   <a href="#providing-extra-security-with-a-service-mesh" class="md-nav__link">
-    Providing extra security with a service mesh
+    <span class="md-ellipsis">
+      
+        Providing extra security with a service mesh
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Providing extra security with a service mesh">
@@ -3250,14 +5442,22 @@
         
           <li class="md-nav__item">
   <a href="#advantages-of-a-service-mesh" class="md-nav__link">
-    Advantages of a service mesh
+    <span class="md-ellipsis">
+      
+        Advantages of a service mesh
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#disadvantages-of-the-security-mesh" class="md-nav__link">
-    Disadvantages of the security mesh
+    <span class="md-ellipsis">
+      
+        Disadvantages of the security mesh
+      
+    </span>
   </a>
   
 </li>
@@ -3269,7 +5469,11 @@
         
           <li class="md-nav__item">
   <a href="#implementing-centralized-policy-management" class="md-nav__link">
-    Implementing centralized policy management
+    <span class="md-ellipsis">
+      
+        Implementing centralized policy management
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Implementing centralized policy management">
@@ -3277,7 +5481,11 @@
         
           <li class="md-nav__item">
   <a href="#most-common-use-cases-of-opa" class="md-nav__link">
-    Most common use cases of OPA
+    <span class="md-ellipsis">
+      
+        Most common use cases of OPA
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Most common use cases of OPA">
@@ -3285,21 +5493,33 @@
         
           <li class="md-nav__item">
   <a href="#opa-for-application-authorization" class="md-nav__link">
-    OPA for application authorization
+    <span class="md-ellipsis">
+      
+        OPA for application authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#opa-for-kubernetes-admission-control" class="md-nav__link">
-    OPA for Kubernetes admission control
+    <span class="md-ellipsis">
+      
+        OPA for Kubernetes admission control
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#opa-for-service-mesh-authorization" class="md-nav__link">
-    OPA for service mesh authorization
+    <span class="md-ellipsis">
+      
+        OPA for service mesh authorization
+      
+    </span>
   </a>
   
 </li>
@@ -3316,21 +5536,33 @@
         
           <li class="md-nav__item">
   <a href="#limiting-resource-usage-on-a-cluster" class="md-nav__link">
-    Limiting resource usage on a cluster
+    <span class="md-ellipsis">
+      
+        Limiting resource usage on a cluster
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-kubernetes-network-policies-to-control-traffic-between-pods-and-clusters" class="md-nav__link">
-    Use Kubernetes network policies to control traffic between pods and clusters
+    <span class="md-ellipsis">
+      
+        Use Kubernetes network policies to control traffic between pods and clusters
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#securing-data" class="md-nav__link">
-    Securing data
+    <span class="md-ellipsis">
+      
+        Securing data
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Securing data">
@@ -3338,28 +5570,44 @@
         
           <li class="md-nav__item">
   <a href="#keep-secrets-as-secrets" class="md-nav__link">
-    Keep secrets as secrets
+    <span class="md-ellipsis">
+      
+        Keep secrets as secrets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encrypt-secrets-at-rest" class="md-nav__link">
-    Encrypt secrets at rest
+    <span class="md-ellipsis">
+      
+        Encrypt secrets at rest
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#alternatives-to-kubernetes-secret-resources" class="md-nav__link">
-    Alternatives to Kubernetes Secret resources
+    <span class="md-ellipsis">
+      
+        Alternatives to Kubernetes Secret resources
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#finding-exposed-secrets" class="md-nav__link">
-    Finding exposed secrets
+    <span class="md-ellipsis">
+      
+        Finding exposed secrets
+      
+    </span>
   </a>
   
 </li>
@@ -3376,7 +5624,11 @@
       
         <li class="md-nav__item">
   <a href="#section-5-kubernetes-security-best-practices-runtime-phase" class="md-nav__link">
-    SECTION 5: Kubernetes Security Best Practices: Runtime Phase
+    <span class="md-ellipsis">
+      
+        SECTION 5: Kubernetes Security Best Practices: Runtime Phase
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SECTION 5: Kubernetes Security Best Practices: Runtime Phase">
@@ -3384,63 +5636,99 @@
         
           <li class="md-nav__item">
   <a href="#use-pod-security-admission-to-prevent-risky-containerspods-from-being-deployed" class="md-nav__link">
-    Use Pod Security Admission to prevent risky containers/Pods from being deployed
+    <span class="md-ellipsis">
+      
+        Use Pod Security Admission to prevent risky containers/Pods from being deployed
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#container-runtime-security" class="md-nav__link">
-    Container Runtime Security
+    <span class="md-ellipsis">
+      
+        Container Runtime Security
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#container-sandboxing" class="md-nav__link">
-    Container Sandboxing
+    <span class="md-ellipsis">
+      
+        Container Sandboxing
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#preventing-containers-from-loading-unwanted-kernel-modules" class="md-nav__link">
-    Preventing containers from loading unwanted kernel modules
+    <span class="md-ellipsis">
+      
+        Preventing containers from loading unwanted kernel modules
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#compare-and-analyze-different-runtime-activity-in-pods-of-the-same-deployments" class="md-nav__link">
-    Compare and analyze different runtime activity in pods of the same deployments
+    <span class="md-ellipsis">
+      
+        Compare and analyze different runtime activity in pods of the same deployments
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#monitor-network-traffic-to-limit-unnecessary-or-insecure-communication" class="md-nav__link">
-    Monitor network traffic to limit unnecessary or insecure communication
+    <span class="md-ellipsis">
+      
+        Monitor network traffic to limit unnecessary or insecure communication
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#if-breached-scale-suspicious-pods-to-zero" class="md-nav__link">
-    If breached, scale suspicious pods to zero
+    <span class="md-ellipsis">
+      
+        If breached, scale suspicious pods to zero
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#rotate-infrastructure-credentials-frequently" class="md-nav__link">
-    Rotate infrastructure credentials frequently
+    <span class="md-ellipsis">
+      
+        Rotate infrastructure credentials frequently
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#logging" class="md-nav__link">
-    Logging
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Logging">
@@ -3448,7 +5736,11 @@
         
           <li class="md-nav__item">
   <a href="#enable-audit-logging" class="md-nav__link">
-    Enable audit logging
+    <span class="md-ellipsis">
+      
+        Enable audit logging
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Enable audit logging">
@@ -3456,7 +5748,11 @@
         
           <li class="md-nav__item">
   <a href="#audit-logs" class="md-nav__link">
-    Audit logs
+    <span class="md-ellipsis">
+      
+        Audit logs
+      
+    </span>
   </a>
   
 </li>
@@ -3468,14 +5764,22 @@
         
           <li class="md-nav__item">
   <a href="#define-audit-policies" class="md-nav__link">
-    Define Audit Policies
+    <span class="md-ellipsis">
+      
+        Define Audit Policies
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#understanding-logging" class="md-nav__link">
-    Understanding Logging
+    <span class="md-ellipsis">
+      
+        Understanding Logging
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Understanding Logging">
@@ -3483,21 +5787,33 @@
         
           <li class="md-nav__item">
   <a href="#container-logging" class="md-nav__link">
-    Container logging
+    <span class="md-ellipsis">
+      
+        Container logging
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#node-logging" class="md-nav__link">
-    Node logging
+    <span class="md-ellipsis">
+      
+        Node logging
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cluster-logging" class="md-nav__link">
-    Cluster logging
+    <span class="md-ellipsis">
+      
+        Cluster logging
+      
+    </span>
   </a>
   
 </li>
@@ -3509,7 +5825,11 @@
         
           <li class="md-nav__item">
   <a href="#events" class="md-nav__link">
-    Events
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
   </a>
   
 </li>
@@ -3525,30 +5845,102 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-5-final-thoughts" class="md-nav__link">
-    SECTION 5: Final Thoughts
+  <a href="#section-5-securing-a-managed-service-kubernetes-on-cloud-service-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SECTION 5: Securing a managed-service Kubernetes on Cloud Service Provider
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="SECTION 5: Final Thoughts">
+    <nav class="md-nav" aria-label="SECTION 5: Securing a managed-service Kubernetes on Cloud Service Provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-supply-chain-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SECTION 6: Supply Chain Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECTION 6: Supply Chain Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-securing-the-container-supply-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices for securing the container supply chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-7-final-thoughts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SECTION 7: Final Thoughts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SECTION 7: Final Thoughts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#embed-security-into-the-container-lifecycle-as-early-as-possible" class="md-nav__link">
-    Embed security into the container lifecycle as early as possible
+    <span class="md-ellipsis">
+      
+        Embed security into the container lifecycle as early as possible
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-kubernetes-native-security-controls-to-reduce-operational-risk" class="md-nav__link">
-    Use Kubernetes-native security controls to reduce operational risk
+    <span class="md-ellipsis">
+      
+        Use Kubernetes-native security controls to reduce operational risk
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#leverage-the-context-that-kubernetes-provides-to-prioritize-remediation-efforts" class="md-nav__link">
-    Leverage the context that Kubernetes provides to prioritize remediation efforts
+    <span class="md-ellipsis">
+      
+        Leverage the context that Kubernetes provides to prioritize remediation efforts
+      
+    </span>
   </a>
   
 </li>
@@ -3560,7 +5952,11 @@
       
         <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
-    References
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
   </a>
   
 </li>
@@ -3575,9 +5971,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -3604,27 +6002,27 @@
 <p>When you deploy Kubernetes, you get a cluster. A Kubernetes cluster consists of a set of worker machines, called nodes that run containerized applications. The control plane manages the worker nodes and the Pods in the cluster.</p>
 <h3 id="control-plane-components">Control Plane Components<a class="headerlink" href="#control-plane-components" title="Permanent link">&para;</a></h3>
 <p>The control plane's components make global decisions about the cluster, as well as detecting and responding to cluster events. It consists of components such as kube-apiserver, etcd, kube-scheduler, kube-controller-manager and cloud-controller-manager.</p>
-<p>Component: kube-apiserver
-Description: Exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane.</p>
-<p>Component: etcd
-Description: A consistent and highly-available key-value store used as Kubernetes' backing store for all cluster data.</p>
-<p>Component: kube-scheduler
-Description: Watches for newly created Pods with no assigned node, and selects a node for them to run on.</p>
-<p>Component: kube-controller-manager
-Description: Runs controller processes. Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.</p>
-<p>Component: cloud-controller-manager
-Description: The cloud controller manager lets you link your cluster into your cloud provider's API, and separates out the components that interact with that cloud platform from components that just interact with your cluster.</p>
+<p><strong>Component:</strong> kube-apiserver<br />
+<strong>Description:</strong> Exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane.</p>
+<p><strong>Component:</strong> etcd<br />
+<strong>Description:</strong> A consistent and highly-available key-value store used as Kubernetes' backing store for all cluster data.</p>
+<p><strong>Component:</strong> kube-scheduler<br />
+<strong>Description:</strong> Watches for newly created Pods with no assigned node, and selects a node for them to run on.</p>
+<p><strong>Component:</strong> kube-controller-manager<br />
+<strong>Description:</strong> Runs controller processes. Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.</p>
+<p><strong>Component:</strong> cloud-controller-manager<br />
+<strong>Description:</strong> The cloud controller manager lets you link your cluster into your cloud provider's API, and separates out the components that interact with that cloud platform from components that just interact with your cluster.</p>
 <h3 id="node-components">Node Components<a class="headerlink" href="#node-components" title="Permanent link">&para;</a></h3>
 <p>Node components run on every node, maintaining running pods and providing the Kubernetes runtime environment. It consists of components such as kubelet, kube-proxy and container runtime.</p>
-<p>Component: kubelet
-Description: An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.</p>
-<p>Component: kube-proxy
-Description: A network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.</p>
-<p>Container: runtime
-Description: The container runtime is the software that is responsible for running containers |</p>
+<p><strong>Component:</strong> kubelet<br />
+<strong>Description:</strong> An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.</p>
+<p><strong>Component:</strong> kube-proxy<br />
+<strong>Description:</strong> A network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.</p>
+<p><strong>Container:</strong> runtime<br />
+<strong>Description:</strong> The container runtime is the software that is responsible for running containers |</p>
 <h2 id="section-1-securing-kubernetes-hosts">SECTION 1: Securing Kubernetes Hosts<a class="headerlink" href="#section-1-securing-kubernetes-hosts" title="Permanent link">&para;</a></h2>
 <p>Kubernetes can be deployed in different ways: on bare metal, on-premise, and in the public cloud (a custom Kubernetes build on virtual machines OR use a managed service). Since Kubernetes is designed to be highly portable, customers can easily and migrate their workloads and switch between multiple installations.</p>
-<p>Because Kubernetes can be designed to fit a large variety of scenarios, this flexibility is a weakness when it comes to securing Kubernetes clusters. The engineers responsible for deploying the Kubernetes platform must to know about all the potential attack vectors and vulnerabilities for their clusters.</p>
+<p>Because Kubernetes can be designed to fit a large variety of scenarios, this flexibility is a weakness when it comes to securing Kubernetes clusters. The engineers responsible for deploying the Kubernetes platform must know about all the potential attack vectors and vulnerabilities for their clusters.</p>
 <p>To harden the underlying hosts for Kubernetes clusters, we recommend that you install the latest version of the operating systems, harden the operating systems, implement necessary patch management and configuration management systems, implement essential firewall rules and undertake specific datacenter-based security measures.</p>
 <h3 id="updating-kubernetes">Updating Kubernetes<a class="headerlink" href="#updating-kubernetes" title="Permanent link">&para;</a></h3>
 <p>Since no one can track all potential attack vectors for your Kubernetes cluster, the first and best defense is to always run the latest stable version of Kubernetes.</p>
@@ -3682,7 +6080,7 @@ Description: The container runtime is the software that is responsible for runni
 <tbody>
 <tr>
 <td>TCP</td>
-<td>6443-</td>
+<td>6443</td>
 <td>Kubernetes API Server</td>
 </tr>
 <tr>
@@ -3697,12 +6095,12 @@ Description: The container runtime is the software that is responsible for runni
 </tr>
 <tr>
 <td>TCP</td>
-<td>10251</td>
+<td>10259</td>
 <td>kube-scheduler</td>
 </tr>
 <tr>
 <td>TCP</td>
-<td>10252</td>
+<td>10257</td>
 <td>kube-controller-manager</td>
 </tr>
 <tr>
@@ -3724,6 +6122,16 @@ Description: The container runtime is the software that is responsible for runni
 <tbody>
 <tr>
 <td>TCP</td>
+<td>10248</td>
+<td>Kubelet Healthz API</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>10249</td>
+<td>Kube-proxy Metrics API</td>
+</tr>
+<tr>
+<td>TCP</td>
 <td>10250</td>
 <td>Kubelet API</td>
 </tr>
@@ -3731,6 +6139,11 @@ Description: The container runtime is the software that is responsible for runni
 <td>TCP</td>
 <td>10255</td>
 <td>Read-Only Kubelet API</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>10256</td>
+<td>Kube-proxy Healthz API</td>
 </tr>
 <tr>
 <td>TCP</td>
@@ -3795,7 +6208,7 @@ Description: The container runtime is the software that is responsible for runni
 <p>During the build phase, you should secure your Kubernetes container images by building secure images and scanning those images for any known vulnerabilities.</p>
 <p>--</p>
 <h3 id="what-is-a-container-image">What is a container image?<a class="headerlink" href="#what-is-a-container-image" title="Permanent link">&para;</a></h3>
-<p>A container image (CI) is an immutable, lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings [<a href="https://www.docker.com/resources/what-container">https://www.docker.com/resources/what-container</a>]. Each image shares the kernel of the operating system present in the host machine.</p>
+<p>A container image (CI) is an immutable, lightweight, standalone package that contains everything required to run an application — the application code, runtime, system libraries, configuration and system tools. Images are built as layered, read-only artifacts that are portable between hosts but share the host machine’s operating system kernel. See Docker: What is a container? (<a href="https://www.docker.com/resources/what-container">https://www.docker.com/resources/what-container</a>).</p>
 <p>Your CIs must be built on a approved and secure base image. This base image must be scanned and monitored at regular intervals to ensure that all CIs are based on a secure and authentic image. Implement strong governance policies that determine how images are built and stored in trusted image registries.</p>
 <p>--</p>
 <h4 id="ensure-that-cis-are-up-to-date">Ensure that CIs are up to date<a class="headerlink" href="#ensure-that-cis-are-up-to-date" title="Permanent link">&para;</a></h4>
@@ -3858,24 +6271,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <p>--</p>
 <h3 id="implement-continuous-security-vulnerability-scanning">Implement continuous security vulnerability scanning<a class="headerlink" href="#implement-continuous-security-vulnerability-scanning" title="Permanent link">&para;</a></h3>
 <p>Since new vulnerabilities are always being discovered, you may not always know if your containers may have recently-disclosed vulnerabilities (CVEs) or outdated packages. To maintain a strong security posture, do regular production scanning of first-party containers (applications you have built and previously scanned) as well as third-party containers (which are sourced from trusted repository and vendors).</p>
-<p>Open Source projects such as <a href="https://github.com/deepfence/ThreatMapper">ThreatMapper</a> can assist in identifying and prioritizing vulnerabilities.</p>
-<p>--</p>
-<h3 id="continuously-assess-the-privileges-used-by-containers">Continuously assess the privileges used by containers<a class="headerlink" href="#continuously-assess-the-privileges-used-by-containers" title="Permanent link">&para;</a></h3>
-<p>We strongly recommend that all your containers should adhere to the principle of least privilege, since your security risk is heavily influenced by the capabilities, role bindings, and privileges given to containers. Each container should only have the minimum privileges and capabilities that allows it to perform its intended function.</p>
-<p><strong>Use Pod security policies to control the security-related attributes of pods, which includes container privilege levels.</strong></p>
-<p>All security policies should include the following conditions:</p>
-<ul>
-<li>Application processes do not run as root.</li>
-<li>Privilege escalation is not allowed.</li>
-<li>The root filesystem is read-only.</li>
-<li>The default (masked) /proc filesystem mount is used.</li>
-<li>The host network or process space should NOT be used - using <code>hostNetwork: true</code> will cause NetworkPolicies to be ignored since the Pod will use its host network.</li>
-<li>Unused and unnecessary Linux capabilities are eliminated.</li>
-<li>Use SELinux options for more fine-grained process controls.</li>
-<li>Give each application its own Kubernetes Service Account.</li>
-<li>If a container does not need to access the Kubernetes API, do not let it mount the service account credentials.</li>
-</ul>
-<p>For more information on Pod security policies, refer to the documentation at <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">https://kubernetes.io/docs/concepts/policy/pod-security-policy/</a>.</p>
+<p>Open Source projects such as <a href="https://github.com/aquasecurity/trivy">Trivy</a>, <a href="https://github.com/anchore/grype">Grype</a>, and <a href="https://github.com/quay/clair">Clair</a> can assist in identifying and prioritizing vulnerabilities.</p>
 <p>--</p>
 <h3 id="apply-security-context-to-your-pods-and-containers">Apply security context to your pods and containers<a class="headerlink" href="#apply-security-context-to-your-pods-and-containers" title="Permanent link">&para;</a></h3>
 <p>The security context is a property that is defined in the deployment yaml and controls the security parameters for all pod/container/volumes, and it should be applied throughout your infrastructure. When the security context property is properly implemented everywhere, it can eliminate entire classes of attacks that rely on privileged access. For example, any attack that depends on installing software or writing to the file system will be stopped if you specify read-only root file systems in the security context.</p>
@@ -3883,19 +6279,19 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <p>Security Context Settings:</p>
 <ol>
 <li>
-<p>SecurityContext-&gt;runAsNonRoot
+<p>SecurityContext-&gt;<strong>runAsNonRoot</strong><br />
    Description: Indicates that containers should run as non-root user.</p>
 </li>
 <li>
-<p>Security Context Setting: SecurityContext-&gt;Capabilities
+<p>SecurityContext-&gt;<strong>Capabilities</strong><br />
    Description: Controls the Linux capabilities assigned to the container.</p>
 </li>
 <li>
-<p>Security Context Setting: SecurityContext-&gt;readOnlyRootFilesystem
+<p>SecurityContext-&gt;<strong>readOnlyRootFilesystem</strong><br />
    Description: Controls whether a container will be able to write into the root filesystem.</p>
 </li>
 <li>
-<p>Security Context Setting: PodSecurityContext-&gt;runAsNonRoot
+<p>PodSecurityContext-&gt;<strong>runAsNonRoot</strong><br />
    Description: Prevents running a container with 'root' user as part of the pod |</p>
 </li>
 </ol>
@@ -3916,6 +6312,49 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <span class="w">    </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <p>For more information on security context for Pods, refer to the documentation at <a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context">https://kubernetes.io/docs/tasks/configure-pod-container/security-context</a></p>
+<p>--</p>
+<h3 id="continuously-assess-the-privileges-used-by-containers">Continuously assess the privileges used by containers<a class="headerlink" href="#continuously-assess-the-privileges-used-by-containers" title="Permanent link">&para;</a></h3>
+<p>We strongly recommend that all your containers should adhere to the principle of least privilege, since your security risk is heavily influenced by the capabilities, role bindings, and privileges given to containers. Each container should only have the minimum privileges and capabilities that allows it to perform its intended function.</p>
+<h4 id="utilize-pod-security-standards-and-the-built-in-pod-security-admission-controller-to-enforce-container-privilege-levels">Utilize Pod Security Standards and the Built-in Pod Security Admission Controller to enforce container privilege levels<a class="headerlink" href="#utilize-pod-security-standards-and-the-built-in-pod-security-admission-controller-to-enforce-container-privilege-levels" title="Permanent link">&para;</a></h4>
+<p>Pod Security Standards combined with the Pod Security Admission Controller allow cluster administrators to enforce requirements on a pods <code>securityContext</code> fields. Three Pod Security Standard profiles exist:</p>
+<ul>
+<li><strong>Privileged</strong>: Unrestricted, allows for known privilege escalations. Intended for use with system and infrastructure level workloads that require privilege to operate properly. All securityContext settings are permitted</li>
+<li><strong>Baseline</strong>: Minimally restrictive policy designed for common containerized workloads while preventing known privilege escalations. Targeted at developers and operators of non-critical applications. The most dangerous securityContext settings, such as securityContext.privileged, hostPID, hostPath, hostIPC, are not permitted.</li>
+<li><strong>Restricted</strong>: The most restrictive policy, designed to enforce current Pod hardening practices at the expense of some compatibility. Intended for security critical workloads or untrusted users. Restricted includes all of the enforcements from the baseline policy, in addition to much more restrictive requirements, such as requiring the dropping of all capabilities, enforcing runAsNotRoot, and more.</li>
+</ul>
+<p>Each of the profiles have defined settings baselines that can be found in more detail <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#profile-details">here</a>.</p>
+<p>The Pod Security Admission Controller allows you to enforce, audit, or warn upon the violation of a defined policy. <code>audit</code> and <code>warn</code> modes can be utilized to determine if a particular Pod Security Standard would normally prevent the deployment of a pod when set to <code>enforce</code> mode.</p>
+<p>Below is an example of a namespace that would only allow Pods to be deployed that conform to the restricted Pod Security Standard:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Namespace</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">policy-test</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">    </span>
+<span class="w">    </span><span class="nt">pod-security.kubernetes.io/enforce</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restricted</span>
+<span class="w">    </span><span class="nt">pod-security.kubernetes.io/audit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restricted</span>
+<span class="w">    </span><span class="nt">pod-security.kubernetes.io/warn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restricted</span>
+</code></pre></div>
+<p>Cluster administrators should properly organize and and enforce policy on cluster namespaces, only permitting the privileged policy on namespaces where it is absolutely required, such as for critical cluster services that require access to the underlying host. Namespaces should be set to the lowest Pod Security Policy that can be enforced and supports their risk level.</p>
+<p>If more granular policy enforcement is required beyond the three profiles (Privileged, Baseline, Restricted), Third party admission controllers like OPA Gatekeeper or Kyverno, or built-in Validating Admission Policy can be utilized.</p>
+<h4 id="use-pod-security-policies-to-control-the-security-related-attributes-of-pods-which-includes-container-privilege-levels">Use Pod security policies to control the security-related attributes of pods, which includes container privilege levels<a class="headerlink" href="#use-pod-security-policies-to-control-the-security-related-attributes-of-pods-which-includes-container-privilege-levels" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Warning</strong><br />
+Kubernetes deprecated Pod Security Policies in favor of Pod Security Standards and the Pod Security Admission Controller, and was removed from Kubernetes in v1.25. Consider using Pod Security Standards and the Pod Security Admission Controller instead.</p>
+</blockquote>
+<p>All security policies should include the following conditions:</p>
+<ul>
+<li>Application processes do not run as root.</li>
+<li>Privilege escalation is not allowed.</li>
+<li>The root filesystem is read-only.</li>
+<li>The default (masked) /proc filesystem mount is used.</li>
+<li>The host network or process space should NOT be used - using <code>hostNetwork: true</code> will cause NetworkPolicies to be ignored since the Pod will use its host network.</li>
+<li>Unused and unnecessary Linux capabilities are eliminated.</li>
+<li>Use SELinux options for more fine-grained process controls.</li>
+<li>Give each application its own Kubernetes Service Account.</li>
+<li>If a container does not need to access the Kubernetes API, do not let it mount the service account credentials.</li>
+</ul>
+<p>For more information on Pod security policies, refer to the documentation at <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">https://kubernetes.io/docs/concepts/policy/pod-security-policy/</a>.</p>
+<p>--</p>
 <h3 id="providing-extra-security-with-a-service-mesh">Providing extra security with a service mesh<a class="headerlink" href="#providing-extra-security-with-a-service-mesh" title="Permanent link">&para;</a></h3>
 <p>A service mesh is an infrastructure layer that can handle communications between services in applications quickly, securely and reliably, which can help reduce the complexity of managing microservices and deployments. They provide a uniform way to secure, connect and monitor microservices. and a service mesh is great at resolving operational challenges and issues when running those containers and microservices.</p>
 <h4 id="advantages-of-a-service-mesh">Advantages of a service mesh<a class="headerlink" href="#advantages-of-a-service-mesh" title="Permanent link">&para;</a></h4>
@@ -3924,25 +6363,25 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <li>Observability</li>
 </ol>
 <p>It generates tracing and telemetry metrics, which make it easy to understand your system and quickly root cause any problems.</p>
-<ol>
+<ol start="2">
 <li>Specialized security features</li>
 </ol>
 <p>It provides security features which quickly identify any compromising traffic that enters your cluster and can secure the services inside your network if they are properly implemented. It can also help you manage security through mTLS, ingress and egress control, and more.</p>
-<ol>
+<ol start="3">
 <li>Ability to secure microservices with mTLS</li>
 </ol>
 <p>Since securing microservices is hard, there are many tools that address microservices security. However, the service mesh is the most elegant solution for addressing encryption of on-the-wire traffic within the network.</p>
 <p>It provides defense with mutual TLS (mTLS) encryption of the traffic between your services, and the mesh can automatically encrypt and decrypt requests and responses, which removes that burden from application developers. The mesh can also improve performance by prioritizing the reuse of existing, persistent connections, which reduces the need for the computationally expensive creation of new ones. With service mesh, you can secure traffic over the wire and also make strong identity-based authentication and authorizations for each microservice.</p>
 <p>We see that a service mesh has a lot of value of enterprise companies, because a mesh allows you to see whether mTLS is enabled and working between each of your services. Also, you can get immediate alerts if the security status changes.</p>
-<ol>
+<ol start="4">
 <li>Ingress &amp; egress control</li>
 </ol>
 <p>It allows you to monitor and address compromising traffic as it passes through the mesh. For example, if Istio integrates with Kubernetes as an ingress controller, it can take care of load balancing for ingress. This allows defenders to add a level of security at the perimeter with ingress rules, while egress control allows you to see and manage external services and control how your services interact with traffic.</p>
-<ol>
+<ol start="5">
 <li>Operational Control</li>
 </ol>
 <p>It can help security and platform teams set the right macro controls to enforce access controls, while allowing developers to make customizations they need to move quickly within these guardrails.</p>
-<ol>
+<ol start="6">
 <li>Ability to manage RBAC</li>
 </ol>
 <p>A service mesh can help defenders implement a strong Role Based Access Control (RBAC) system, which is arguably one of the most critical requirements in large engineering organizations. Even a secure system can be easily circumvented by over-privileged users or employees, and an RBAC system can:</p>
@@ -3970,8 +6409,8 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 </ul>
 <p>Since service meshes are invasive, they force developers and operators to adapt to a highly opinionated platform and conform to its rules.</p>
 <h3 id="implementing-centralized-policy-management">Implementing centralized policy management<a class="headerlink" href="#implementing-centralized-policy-management" title="Permanent link">&para;</a></h3>
-<p>There are numerous projects which are able to provide centralized policy management for a Kubernetes cluster, including the <a href="https://www.openpolicyagent.org/">Open Policy Agent</a> (OPA) project, <a href="https://kyverno.io/">Kyverno</a>, or the <a href="https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/">Validating Admission Policy</a> (a built-in, yet beta (aka off by default) feature as of 1.28). In order to provide an example with some depth, we will focus on OPA in this cheat sheet.</p>
-<p>OPA was started in 2016 to unify policy enforcement across different technologies and systems, and it can be used to enforce policies on a platform like Kubernetes. Currently, OPA is part of CNCF as an incubating project. It can create a unified method of enforcing security policy in the stack. While developers can can impose fine-grained control over the cluster with RBAC and Pod security policies, these technologies only apply to the cluster but not outside the cluster.</p>
+<p>There are numerous projects which are able to provide centralized policy management for a Kubernetes cluster, including the <a href="https://www.openpolicyagent.org/">Open Policy Agent</a> (OPA) project, <a href="https://kyverno.io/">Kyverno</a>, or the <a href="https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/">Validating Admission Policy</a> (a built-in feature released to general availability in 1.30). In order to provide an example with some depth, we will focus on OPA in this cheat sheet.</p>
+<p>OPA was started in 2016 to unify policy enforcement across different technologies and systems, and it can be used to enforce policies on a platform like Kubernetes. Currently, OPA is part of CNCF as an incubating project. It can create a unified method of enforcing security policy in the stack. While developers can impose fine-grained control over the cluster with RBAC and Pod security policies, these technologies only apply to the cluster but not outside the cluster.</p>
 <p>Since OPA is a general-purpose, domain-agnostic policy enforcement tool that is not based on any other project, the policy queries and decisions do not follow a specific format. Thus it can be integrated with APIs, the Linux SSH daemon, an object store like Ceph, and you can use any valid JSON data as request attributes as long as it provides the required data. OPA allows you to choose what is input and what is output--for example, you can opt to have OPA return a True or False JSON object, a number, a string, or even a complex data object.</p>
 <h4 id="most-common-use-cases-of-opa">Most common use cases of OPA<a class="headerlink" href="#most-common-use-cases-of-opa" title="Permanent link">&para;</a></h4>
 <h5 id="opa-for-application-authorization">OPA for application authorization<a class="headerlink" href="#opa-for-application-authorization" title="Permanent link">&para;</a></h5>
@@ -3994,10 +6433,10 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute-resources</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">hard</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">pods</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4&quot;</span>
-<span class="w">    </span><span class="nt">requests.cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">    </span><span class="nt">pods</span><span class="p">:</span><span class="w"> </span><span class="s">"4"</span>
+<span class="w">    </span><span class="nt">requests.cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span>
 <span class="w">    </span><span class="nt">requests.memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
-<span class="w">    </span><span class="nt">limits.cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2&quot;</span>
+<span class="w">    </span><span class="nt">limits.cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"2"</span>
 <span class="w">    </span><span class="nt">limits.memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
 </code></pre></div>
 <p>Assign a resource quota to namespace:</p>
@@ -4011,22 +6450,22 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <p>The following is an example of a network policy that controls the network for “backend” pods, which only allows inbound network access from “frontend” pods:</p>
 <div class="highlight"><pre><span></span><code><span class="err">POST</span><span class="w"> </span><span class="err">/apis/</span><span class="kc">net</span><span class="err">.alpha.kuber</span><span class="kc">netes</span><span class="err">.io/v</span><span class="mi">1</span><span class="err">alpha</span><span class="mi">1</span><span class="err">/</span><span class="kc">na</span><span class="err">mespaces/</span><span class="kc">tenant</span><span class="mi">-</span><span class="err">a/</span><span class="kc">net</span><span class="err">workpolicys</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NetworkPolicy&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pol1&quot;</span>
+<span class="w">  </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NetworkPolicy"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pol1"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;allowIncoming&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">        </span><span class="nt">&quot;pods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;segment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frontend&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"spec"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"allowIncoming"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">"pods"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"segment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frontend"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}],</span>
-<span class="w">      </span><span class="nt">&quot;toPorts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TCP&quot;</span>
+<span class="w">      </span><span class="nt">"toPorts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TCP"</span>
 <span class="w">      </span><span class="p">}]</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;podSelector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;segment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backend&quot;</span>
+<span class="w">    </span><span class="nt">"podSelector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"segment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"backend"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4045,7 +6484,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> <
 <p>Also see the <a href="Secrets_Management_Cheat_Sheet.html">Secrets Management</a> cheat sheet for more details and best practices on managing secrets.</p>
 <h4 id="finding-exposed-secrets">Finding exposed secrets<a class="headerlink" href="#finding-exposed-secrets" title="Permanent link">&para;</a></h4>
 <p>We strongly recommend that you review the secret material present on the container against the principle of 'least privilege' and assess the risk posed by a compromise.</p>
-<p>Remember that open-source tools such as <a href="https://github.com/deepfence/SecretScanner">SecretScanner</a> and <a href="https://github.com/deepfence/ThreatMapper">ThreatMapper</a> can scan container filesystems for sensitive resources, such as API tokens, passwords, and keys. Such resources would be accessible to any user who had access to the unencrypted container filesystem, whether during build, at rest in a registry or backup, or running.</p>
+<p>Remember that open-source tools such as <a href="https://github.com/aquasecurity/trivy">Trivy</a> and <a href="https://github.com/gitleaks/gitleaks">Gitleaks</a> can scan container filesystems for sensitive resources, such as API tokens, passwords, and keys. Such resources would be accessible to any user who had access to the unencrypted container filesystem, whether during build, at rest in a registry or backup, or running.</p>
 <hr />
 <h2 id="section-5-kubernetes-security-best-practices-runtime-phase">SECTION 5: Kubernetes Security Best Practices: Runtime Phase<a class="headerlink" href="#section-5-kubernetes-security-best-practices-runtime-phase" title="Permanent link">&para;</a></h2>
 <p>When the Kubernetes infrastructure enters the runtime phase, containerized applications are exposed to a slew of new security challenges. You must gain visibility into your running environment so you can detect and respond to threats as they arise.</p>
@@ -4109,27 +6548,27 @@ blacklist sctp
 <p>Audit logs can be useful for compliance as they should help you answer the questions of what happened, who did what and when. Kubernetes provides flexible auditing of kube-apiserver requests based on policies. These help you track all activities in chronological order.</p>
 <p>Here is an example of an audit log:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;Event&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;apiVersion&quot;</span><span class="p">:</span><span class="s2">&quot;audit.k8s.io/v1beta1&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:{</span><span class="w"> </span><span class="nt">&quot;creationTimestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2019-08-22T12:00:00Z&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;Metadata&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2019-08-22T12:00:00Z&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;auditID&quot;</span><span class="p">:</span><span class="s2">&quot;23bc44ds-2452-242g-fsf2-4242fe3ggfes&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;stage&quot;</span><span class="p">:</span><span class="s2">&quot;RequestReceived&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;requestURI&quot;</span><span class="p">:</span><span class="s2">&quot;/api/v1/namespaces/default/persistentvolumeclaims&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;user@example.org&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;groups&quot;</span><span class="p">:[</span><span class="w"> </span><span class="s2">&quot;system:authenticated&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">  </span><span class="nt">"kind"</span><span class="p">:</span><span class="s2">"Event"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"apiVersion"</span><span class="p">:</span><span class="s2">"audit.k8s.io/v1beta1"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"metadata"</span><span class="p">:{</span><span class="w"> </span><span class="nt">"creationTimestamp"</span><span class="p">:</span><span class="s2">"2019-08-22T12:00:00Z"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"level"</span><span class="p">:</span><span class="s2">"Metadata"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="s2">"2019-08-22T12:00:00Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"auditID"</span><span class="p">:</span><span class="s2">"23bc44ds-2452-242g-fsf2-4242fe3ggfes"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"stage"</span><span class="p">:</span><span class="s2">"RequestReceived"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"requestURI"</span><span class="p">:</span><span class="s2">"/api/v1/namespaces/default/persistentvolumeclaims"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"verb"</span><span class="p">:</span><span class="s2">"list"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"user@example.org"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w"> </span><span class="s2">"system:authenticated"</span><span class="w"> </span><span class="p">]</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;sourceIPs&quot;</span><span class="p">:[</span><span class="w"> </span><span class="s2">&quot;172.12.56.1&quot;</span><span class="w"> </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;objectRef&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;resource&quot;</span><span class="p">:</span><span class="s2">&quot;persistentvolumeclaims&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;apiVersion&quot;</span><span class="p">:</span><span class="s2">&quot;v1&quot;</span>
+<span class="w">  </span><span class="nt">"sourceIPs"</span><span class="p">:[</span><span class="w"> </span><span class="s2">"172.12.56.1"</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"objectRef"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"persistentvolumeclaims"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"namespace"</span><span class="p">:</span><span class="s2">"default"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"apiVersion"</span><span class="p">:</span><span class="s2">"v1"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;requestReceivedTimestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2019-08-22T12:00:00Z&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;stageTimestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2019-08-22T12:00:00Z&quot;</span>
+<span class="w">  </span><span class="nt">"requestReceivedTimestamp"</span><span class="p">:</span><span class="s2">"2019-08-22T12:00:00Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"stageTimestamp"</span><span class="p">:</span><span class="s2">"2019-08-22T12:00:00Z"</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="define-audit-policies">Define Audit Policies<a class="headerlink" href="#define-audit-policies" title="Permanent link">&para;</a></h4>
@@ -4155,7 +6594,7 @@ blacklist sctp
 <span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
 <span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">busybox</span>
-<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/bin/sh</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-c</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;while</span><span class="nv"> </span><span class="s">true;</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">echo</span><span class="nv"> </span><span class="s">$(date);</span><span class="nv"> </span><span class="s">sleep</span><span class="nv"> </span><span class="s">1;</span><span class="nv"> </span><span class="s">done&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/bin/sh</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-c</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'while</span><span class="nv"> </span><span class="s">true;</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">echo</span><span class="nv"> </span><span class="s">$(date);</span><span class="nv"> </span><span class="s">sleep</span><span class="nv"> </span><span class="s">1;</span><span class="nv"> </span><span class="s">done'</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 <p>To apply the manifest, run:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>example.yaml
@@ -4179,7 +6618,7 @@ blacklist sctp
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
 <span class="w">      </span><span class="no">while true;</span>
 <span class="w">      </span><span class="no">do</span>
-<span class="w">        </span><span class="no">echo &quot;$(date)\n&quot; &gt;&gt; /var/log/example.log;</span>
+<span class="w">        </span><span class="no">echo "$(date)\n" &gt;&gt; /var/log/example.log;</span>
 <span class="w">        </span><span class="no">sleep 1;</span>
 <span class="w">      </span><span class="no">done</span>
 <span class="w">    </span><span class="nt">volumeMounts</span><span class="p">:</span>
@@ -4187,7 +6626,7 @@ blacklist sctp
 <span class="w">      </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sidecar</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">busybox</span>
-<span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/bin/sh</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-c</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;tail</span><span class="nv"> </span><span class="s">-f</span><span class="nv"> </span><span class="s">/var/log/example.log&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/bin/sh</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-c</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'tail</span><span class="nv"> </span><span class="s">-f</span><span class="nv"> </span><span class="s">/var/log/example.log'</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">volumeMounts</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">varlog</span>
 <span class="w">      </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log</span>
@@ -4213,8 +6652,8 @@ blacklist sctp
 
 NAMESPACE<span class="w"> </span>LAST<span class="w"> </span>SEEN<span class="w"> </span>TYPE<span class="w">   </span>REASON<span class="w"> </span>OBJECT<span class="w"> </span>MESSAGE
 kube-system<span class="w">  </span>8m22s<span class="w">  </span>Normal<span class="w">   </span>Scheduled<span class="w">            </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Successfully<span class="w"> </span>assigned<span class="w"> </span>kube-system/metrics-server-66dbbb67db-lh865<span class="w"> </span>to<span class="w"> </span>aks-agentpool-42213468-1
-kube-system<span class="w">     </span>8m14s<span class="w">               </span>Normal<span class="w">    </span>Pulling<span class="w">                   </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Pulling<span class="w"> </span>image<span class="w"> </span><span class="s2">&quot;aksrepos.azurecr.io/mirror/metrics-server-amd64:v0.2.1&quot;</span>
-kube-system<span class="w">     </span>7m58s<span class="w">               </span>Normal<span class="w">    </span>Pulled<span class="w">                    </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Successfully<span class="w"> </span>pulled<span class="w"> </span>image<span class="w"> </span><span class="s2">&quot;aksrepos.azurecr.io/mirror/metrics-server-amd64:v0.2.1&quot;</span>
+kube-system<span class="w">     </span>8m14s<span class="w">               </span>Normal<span class="w">    </span>Pulling<span class="w">                   </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Pulling<span class="w"> </span>image<span class="w"> </span><span class="s2">"aksrepos.azurecr.io/mirror/metrics-server-amd64:v0.2.1"</span>
+kube-system<span class="w">     </span>7m58s<span class="w">               </span>Normal<span class="w">    </span>Pulled<span class="w">                    </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Successfully<span class="w"> </span>pulled<span class="w"> </span>image<span class="w"> </span><span class="s2">"aksrepos.azurecr.io/mirror/metrics-server-amd64:v0.2.1"</span>
 kube-system<span class="w">     </span>7m57s<span class="w">               </span>Normal<span class="w">     </span>Created<span class="w">                   </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Created<span class="w"> </span>container<span class="w"> </span>metrics-server
 kube-system<span class="w">     </span>7m57s<span class="w">               </span>Normal<span class="w">    </span>Started<span class="w">                   </span>pod/metrics-server-66dbbb67db-lh865<span class="w">                                       </span>Started<span class="w"> </span>container<span class="w"> </span>metrics-server
 kube-system<span class="w">     </span>8m23s<span class="w">               </span>Normal<span class="w">    </span>SuccessfulCreate<span class="w">          </span>replicaset/metrics-server-66dbbb67db<span class="w">             </span>Created<span class="w"> </span>pod:<span class="w"> </span>metrics-server-66dbbb67db-lh865
@@ -4226,11 +6665,39 @@ Events:
 <span class="w">  </span>Type<span class="w">    </span>Reason<span class="w">     </span>Age<span class="w">   </span>From<span class="w">                               </span>Message
 <span class="w">  </span>----<span class="w">    </span>------<span class="w">     </span>----<span class="w">  </span>----<span class="w">                               </span>-------
 <span class="w">  </span>Normal<span class="w">  </span>Scheduled<span class="w">  </span>14m<span class="w">   </span>default-scheduler<span class="w">                  </span>Successfully<span class="w"> </span>assigned<span class="w"> </span>kube-system/coredns-7b54b5b97c-dpll7<span class="w"> </span>to<span class="w"> </span>aks-agentpool-42213468-1
-<span class="w">  </span>Normal<span class="w">  </span>Pulled<span class="w">     </span>13m<span class="w">   </span>kubelet,<span class="w"> </span>aks-agentpool-42213468-1<span class="w">  </span>Container<span class="w"> </span>image<span class="w"> </span><span class="s2">&quot;aksrepos.azurecr.io/mirror/coredns:1.3.1&quot;</span><span class="w"> </span>already<span class="w"> </span>present<span class="w"> </span>on<span class="w"> </span>machine
+<span class="w">  </span>Normal<span class="w">  </span>Pulled<span class="w">     </span>13m<span class="w">   </span>kubelet,<span class="w"> </span>aks-agentpool-42213468-1<span class="w">  </span>Container<span class="w"> </span>image<span class="w"> </span><span class="s2">"aksrepos.azurecr.io/mirror/coredns:1.3.1"</span><span class="w"> </span>already<span class="w"> </span>present<span class="w"> </span>on<span class="w"> </span>machine
 <span class="w">  </span>Normal<span class="w">  </span>Created<span class="w">    </span>13m<span class="w">   </span>kubelet,<span class="w"> </span>aks-agentpool-42213468-1<span class="w">  </span>Created<span class="w"> </span>container<span class="w"> </span>coredns
 <span class="w">  </span>Normal<span class="w">  </span>Started<span class="w">    </span>13m<span class="w">   </span>kubelet,<span class="w"> </span>aks-agentpool-42213468-1<span class="w">  </span>Started<span class="w"> </span>container<span class="w"> </span>coredns
 </code></pre></div>
-<h2 id="section-5-final-thoughts">SECTION 5: Final Thoughts<a class="headerlink" href="#section-5-final-thoughts" title="Permanent link">&para;</a></h2>
+<h2 id="section-5-securing-a-managed-service-kubernetes-on-cloud-service-provider">SECTION 5: Securing a managed-service Kubernetes on Cloud Service Provider<a class="headerlink" href="#section-5-securing-a-managed-service-kubernetes-on-cloud-service-provider" title="Permanent link">&para;</a></h2>
+<h3 id="aws">AWS<a class="headerlink" href="#aws" title="Permanent link">&para;</a></h3>
+<p>There are few open source tools that can help you on securing your managed-service Kubernetes on AWS <a href="https://aws.amazon.com/eks/">(EKS)</a></p>
+<ul>
+<li><a href="https://github.com/aws-samples/hardeneks">hardeneks</a></li>
+<li><a href="https://github.com/DataDog/managed-kubernetes-auditing-toolkit">MKAD</a> (Managed Kubernetes Auditing Toolkit) from DataDog</li>
+</ul>
+<h2 id="section-6-supply-chain-security">SECTION 6: Supply Chain Security<a class="headerlink" href="#section-6-supply-chain-security" title="Permanent link">&para;</a></h2>
+<p>Container supply chain security is critical for preventing attacks that exploit vulnerabilities in the software delivery process. A compromised supply chain can lead to malicious code being deployed into production environments, potentially affecting thousands of containers and applications.</p>
+<p>Supply chain attacks in Kubernetes environments typically target:</p>
+<ul>
+<li>Base images and dependencies</li>
+<li>Build processes and CI/CD pipelines</li>
+<li>Container registries</li>
+<li>Deployment manifests and Helm charts</li>
+<li>Third-party libraries and packages</li>
+</ul>
+<p>Recent high-profile attacks (SolarWinds, Codecov, ua-parser-js) demonstrate the severe impact of supply chain compromises.</p>
+<h3 id="best-practices-for-securing-the-container-supply-chain">Best practices for securing the container supply chain<a class="headerlink" href="#best-practices-for-securing-the-container-supply-chain" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use trusted base images: Start with minimal, verified base images from reputable sources to reduce vulnerabilities.</li>
+<li>Implement image scanning: Regularly scan container images for vulnerabilities using tools like Clair, Trivy, or Aqua Security.</li>
+<li>Secure CI/CD pipelines: Ensure that build processes are secure, with proper access controls and monitoring.</li>
+<li>Sign and verify images: Use image signing tools like Notary or Cosign to ensure the integrity of container images.</li>
+<li>Use private registries: Store container images in private registries with access controls to prevent unauthorized access.</li>
+<li>Monitor for vulnerabilities: Continuously monitor for new vulnerabilities in dependencies and base images.</li>
+<li>Implement runtime security: Use tools to monitor container behavior at runtime and detect anomalies.</li>
+</ol>
+<h2 id="section-7-final-thoughts">SECTION 7: Final Thoughts<a class="headerlink" href="#section-7-final-thoughts" title="Permanent link">&para;</a></h2>
 <h3 id="embed-security-into-the-container-lifecycle-as-early-as-possible">Embed security into the container lifecycle as early as possible<a class="headerlink" href="#embed-security-into-the-container-lifecycle-as-early-as-possible" title="Permanent link">&para;</a></h3>
 <p>You must integrate security earlier into the container lifecycle and ensure alignment and shared goals between security and DevOps teams. Security can (and should) be an enabler that allows your developers and DevOps teams to confidently build and deploy applications that are production-ready for scale, stability and security.</p>
 <h3 id="use-kubernetes-native-security-controls-to-reduce-operational-risk">Use Kubernetes-native security controls to reduce operational risk<a class="headerlink" href="#use-kubernetes-native-security-controls-to-reduce-operational-risk" title="Permanent link">&para;</a></h3>
@@ -4244,8 +6711,8 @@ Events:
 <p>Control plane documentation - <a href="https://kubernetes.io">https://kubernetes.io</a></p>
 <ol>
 <li>Kubernetes Security Best Practices everyone must follow - <a href="https://www.cncf.io/blog/2019/01/14/9-kubernetes-security-best-practices-everyone-must-follow">https://www.cncf.io/blog/2019/01/14/9-kubernetes-security-best-practices-everyone-must-follow</a></li>
-<li>Securing a Cluster - <a href="https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment">https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment</a></li>
-<li>Security Best Practices for Kubernetes Deployment - <a href="https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster">https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster</a></li>
+<li>Securing a Cluster - <a href="https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster">https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster</a></li>
+<li>Security Best Practices for Kubernetes Deployment - <a href="https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment">https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment</a></li>
 <li>Kubernetes Security Best Practices - <a href="https://phoenixnap.com/kb/kubernetes-security-best-practices">https://phoenixnap.com/kb/kubernetes-security-best-practices</a></li>
 <li>Kubernetes Security 101: Risks and 29 Best Practices - <a href="https://www.stackrox.com/post/2020/05/kubernetes-security-101">https://www.stackrox.com/post/2020/05/kubernetes-security-101</a></li>
 <li>15 Kubernetes security best practice to secure your cluster - <a href="https://www.mobilise.cloud/15-kubernetes-security-best-practice-to-secure-your-cluster">https://www.mobilise.cloud/15-kubernetes-security-best-practice-to-secure-your-cluster</a></li>
@@ -4269,11 +6736,22 @@ Events:
 
 
 
+
+
+  
+  
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -4305,10 +6783,14 @@ Events:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

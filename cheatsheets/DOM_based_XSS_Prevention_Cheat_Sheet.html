@@ -19,8 +19,11 @@
         <link rel="next" href="Database_Security_Cheat_Sheet.html">
       
       
+        
+      
+      
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -680,6 +1085,7 @@
             
               
                 
+  
   
   
   
@@ -687,9 +1093,16 @@
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -700,6 +1113,7 @@
             
               
                 
+  
   
   
   
@@ -707,9 +1121,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -720,6 +1141,7 @@
             
               
                 
+  
   
   
   
@@ -727,9 +1149,16 @@
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -743,13 +1172,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -763,6 +1200,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -776,9 +1214,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -787,9 +1232,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -811,14 +1263,22 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-1-html-escape-then-javascript-escape-before-inserting-untrusted-data-into-html-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context">
@@ -826,7 +1286,11 @@
         
           <li class="md-nav__item">
   <a href="#example-dangerous-html-methods" class="md-nav__link">
-    Example Dangerous HTML Methods
+    <span class="md-ellipsis">
+      
+        Example Dangerous HTML Methods
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Example Dangerous HTML Methods">
@@ -834,14 +1298,22 @@
         
           <li class="md-nav__item">
   <a href="#attributes" class="md-nav__link">
-    Attributes
+    <span class="md-ellipsis">
+      
+        Attributes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
-    Methods
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
   </a>
   
 </li>
@@ -853,7 +1325,11 @@
         
           <li class="md-nav__item">
   <a href="#guideline" class="md-nav__link">
-    Guideline
+    <span class="md-ellipsis">
+      
+        Guideline
+      
+    </span>
   </a>
   
 </li>
@@ -865,7 +1341,11 @@
       
         <li class="md-nav__item">
   <a href="#rule-2-javascript-escape-before-inserting-untrusted-data-into-html-attribute-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context">
@@ -873,14 +1353,22 @@
         
           <li class="md-nav__item">
   <a href="#safe-but-broken-example" class="md-nav__link">
-    SAFE but BROKEN example
+    <span class="md-ellipsis">
+      
+        SAFE but BROKEN example
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#safe-and-functionally-correct-example" class="md-nav__link">
-    SAFE and FUNCTIONALLY CORRECT example
+    <span class="md-ellipsis">
+      
+        SAFE and FUNCTIONALLY CORRECT example
+      
+    </span>
   </a>
   
 </li>
@@ -892,7 +1380,11 @@
       
         <li class="md-nav__item">
   <a href="#rule-3-be-careful-when-inserting-untrusted-data-into-the-event-handler-and-javascript-code-subcontexts-within-an-execution-context" class="md-nav__link">
-    RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context">
@@ -900,7 +1392,11 @@
         
           <li class="md-nav__item">
   <a href="#html-encodings-disarming-nature" class="md-nav__link">
-    HTML Encoding's Disarming Nature
+    <span class="md-ellipsis">
+      
+        HTML Encoding's Disarming Nature
+      
+    </span>
   </a>
   
 </li>
@@ -912,35 +1408,55 @@
       
         <li class="md-nav__item">
   <a href="#rule-4-javascript-escape-before-inserting-untrusted-data-into-the-css-attribute-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #4 - JavaScript Escape Before Inserting Untrusted Data into the CSS Attribute Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #4 - JavaScript Escape Before Inserting Untrusted Data into the CSS Attribute Subcontext within the Execution Context
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-5-url-escape-then-javascript-escape-before-inserting-untrusted-data-into-url-attribute-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #5 - URL Escape then JavaScript Escape Before Inserting Untrusted Data into URL Attribute Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #5 - URL Escape then JavaScript Escape Before Inserting Untrusted Data into URL Attribute Subcontext within the Execution Context
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-6-populate-the-dom-using-safe-javascript-functions-or-properties" class="md-nav__link">
-    RULE #6 - Populate the DOM using safe JavaScript functions or properties
+    <span class="md-ellipsis">
+      
+        RULE #6 - Populate the DOM using safe JavaScript functions or properties
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-7-fixing-dom-cross-site-scripting-vulnerabilities" class="md-nav__link">
-    RULE #7 - Fixing DOM Cross-site Scripting Vulnerabilities
+    <span class="md-ellipsis">
+      
+        RULE #7 - Fixing DOM Cross-site Scripting Vulnerabilities
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#guidelines-for-developing-secure-applications-utilizing-javascript" class="md-nav__link">
-    Guidelines for Developing Secure Applications Utilizing JavaScript
+    <span class="md-ellipsis">
+      
+        Guidelines for Developing Secure Applications Utilizing JavaScript
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Guidelines for Developing Secure Applications Utilizing JavaScript">
@@ -948,35 +1464,55 @@
         
           <li class="md-nav__item">
   <a href="#guideline-1-untrusted-data-should-only-be-treated-as-displayable-text" class="md-nav__link">
-    GUIDELINE #1 - Untrusted data should only be treated as displayable text
+    <span class="md-ellipsis">
+      
+        GUIDELINE #1 - Untrusted data should only be treated as displayable text
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-2-always-javascript-encode-and-delimit-untrusted-data-as-quoted-strings-when-entering-the-application-when-building-templated-javascript" class="md-nav__link">
-    GUIDELINE #2 - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated JavaScript
+    <span class="md-ellipsis">
+      
+        GUIDELINE #2 - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated JavaScript
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-3-use-documentcreateelement-elementsetattributevalue-elementappendchild-and-similar-to-build-dynamic-interfaces" class="md-nav__link">
-    GUIDELINE #3 - Use document.createElement("..."), element.setAttribute("...","value"), element.appendChild(...) and similar to build dynamic interfaces
+    <span class="md-ellipsis">
+      
+        GUIDELINE #3 - Use document.createElement("..."), element.setAttribute("...","value"), element.appendChild(...) and similar to build dynamic interfaces
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-4-avoid-sending-untrusted-data-into-html-rendering-methods" class="md-nav__link">
-    GUIDELINE #4 - Avoid sending untrusted data into HTML rendering methods
+    <span class="md-ellipsis">
+      
+        GUIDELINE #4 - Avoid sending untrusted data into HTML rendering methods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-5-avoid-the-numerous-methods-which-implicitly-eval-data-passed-to-it" class="md-nav__link">
-    GUIDELINE #5 - Avoid the numerous methods which implicitly eval() data passed to it
+    <span class="md-ellipsis">
+      
+        GUIDELINE #5 - Avoid the numerous methods which implicitly eval() data passed to it
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="GUIDELINE #5 - Avoid the numerous methods which implicitly eval() data passed to it">
@@ -984,14 +1520,22 @@
         
           <li class="md-nav__item">
   <a href="#utilizing-an-enclosure-as-suggested-by-gaz" class="md-nav__link">
-    Utilizing an Enclosure (as suggested by Gaz)
+    <span class="md-ellipsis">
+      
+        Utilizing an Enclosure (as suggested by Gaz)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#n-levels-of-encoding" class="md-nav__link">
-    N-Levels of Encoding
+    <span class="md-ellipsis">
+      
+        N-Levels of Encoding
+      
+    </span>
   </a>
   
 </li>
@@ -1003,35 +1547,55 @@
         
           <li class="md-nav__item">
   <a href="#guideline-6-use-untrusted-data-on-only-the-right-side-of-an-expression" class="md-nav__link">
-    GUIDELINE #6 - Use untrusted data on only the right side of an expression
+    <span class="md-ellipsis">
+      
+        GUIDELINE #6 - Use untrusted data on only the right side of an expression
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-7-when-url-encoding-in-dom-be-aware-of-character-set-issues" class="md-nav__link">
-    GUIDELINE #7 - When URL encoding in DOM be aware of character set issues
+    <span class="md-ellipsis">
+      
+        GUIDELINE #7 - When URL encoding in DOM be aware of character set issues
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-8-limit-access-to-object-properties-when-using-objectx-accessors" class="md-nav__link">
-    GUIDELINE #8 - Limit access to object properties when using object[x] accessors
+    <span class="md-ellipsis">
+      
+        GUIDELINE #8 - Limit access to object properties when using object[x] accessors
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-9-run-your-javascript-in-a-ecmascript-5-canopy-or-sandbox" class="md-nav__link">
-    GUIDELINE #9 - Run your JavaScript in a ECMAScript 5 canopy or sandbox
+    <span class="md-ellipsis">
+      
+        GUIDELINE #9 - Run your JavaScript in a ECMAScript 5 canopy or sandbox
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-10-dont-eval-json-to-convert-it-to-native-javascript-objects" class="md-nav__link">
-    GUIDELINE #10 - Don't eval() JSON to convert it to native JavaScript objects
+    <span class="md-ellipsis">
+      
+        GUIDELINE #10 - Don't eval() JSON to convert it to native JavaScript objects
+      
+    </span>
   </a>
   
 </li>
@@ -1043,7 +1607,11 @@
       
         <li class="md-nav__item">
   <a href="#common-problems-associated-with-mitigating-dom-based-xss" class="md-nav__link">
-    Common Problems Associated with Mitigating DOM Based XSS
+    <span class="md-ellipsis">
+      
+        Common Problems Associated with Mitigating DOM Based XSS
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Common Problems Associated with Mitigating DOM Based XSS">
@@ -1051,35 +1619,55 @@
         
           <li class="md-nav__item">
   <a href="#complex-contexts" class="md-nav__link">
-    Complex Contexts
+    <span class="md-ellipsis">
+      
+        Complex Contexts
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#inconsistencies-of-encoding-libraries" class="md-nav__link">
-    Inconsistencies of Encoding Libraries
+    <span class="md-ellipsis">
+      
+        Inconsistencies of Encoding Libraries
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encoding-misconceptions" class="md-nav__link">
-    Encoding Misconceptions
+    <span class="md-ellipsis">
+      
+        Encoding Misconceptions
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#usually-safe-methods" class="md-nav__link">
-    Usually Safe Methods
+    <span class="md-ellipsis">
+      
+        Usually Safe Methods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#detect-dom-xss-using-variant-analysis" class="md-nav__link">
-    Detect DOM XSS using variant analysis
+    <span class="md-ellipsis">
+      
+        Detect DOM XSS using variant analysis
+      
+    </span>
   </a>
   
 </li>
@@ -1103,13 +1691,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1120,6 +1716,7 @@
             
               
                 
+  
   
   
   
@@ -1127,9 +1724,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1140,6 +1744,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1147,9 +1780,16 @@
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1160,6 +1800,7 @@
             
               
                 
+  
   
   
   
@@ -1167,9 +1808,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1180,6 +1828,7 @@
             
               
                 
+  
   
   
   
@@ -1187,9 +1836,16 @@
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1200,6 +1856,7 @@
             
               
                 
+  
   
   
   
@@ -1207,9 +1864,16 @@
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1220,6 +1884,7 @@
             
               
                 
+  
   
   
   
@@ -1227,9 +1892,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1240,6 +1912,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1247,9 +1976,16 @@
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1260,6 +1996,7 @@
             
               
                 
+  
   
   
   
@@ -1267,9 +2004,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1280,6 +2024,7 @@
             
               
                 
+  
   
   
   
@@ -1287,9 +2032,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1300,6 +2052,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1307,9 +2088,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1320,6 +2108,7 @@
             
               
                 
+  
   
   
   
@@ -1327,9 +2116,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1340,6 +2136,7 @@
             
               
                 
+  
   
   
   
@@ -1347,9 +2144,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1360,6 +2164,7 @@
             
               
                 
+  
   
   
   
@@ -1367,9 +2172,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1380,6 +2192,7 @@
             
               
                 
+  
   
   
   
@@ -1387,9 +2200,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1400,6 +2220,7 @@
             
               
                 
+  
   
   
   
@@ -1407,9 +2228,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1420,6 +2248,7 @@
             
               
                 
+  
   
   
   
@@ -1427,9 +2256,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1440,6 +2276,7 @@
             
               
                 
+  
   
   
   
@@ -1447,9 +2284,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1460,6 +2304,7 @@
             
               
                 
+  
   
   
   
@@ -1467,9 +2312,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1480,6 +2332,7 @@
             
               
                 
+  
   
   
   
@@ -1487,9 +2340,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1500,16 +2360,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1520,6 +2388,7 @@
             
               
                 
+  
   
   
   
@@ -1527,9 +2396,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1540,6 +2416,7 @@
             
               
                 
+  
   
   
   
@@ -1547,9 +2424,16 @@
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1560,6 +2444,7 @@
             
               
                 
+  
   
   
   
@@ -1567,9 +2452,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1580,6 +2472,7 @@
             
               
                 
+  
   
   
   
@@ -1587,9 +2480,16 @@
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1600,6 +2500,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1607,9 +2536,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1620,6 +2556,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1627,9 +2592,16 @@
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1640,6 +2612,7 @@
             
               
                 
+  
   
   
   
@@ -1647,9 +2620,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1660,6 +2640,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1667,9 +2676,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1680,6 +2696,7 @@
             
               
                 
+  
   
   
   
@@ -1687,9 +2704,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1700,6 +2724,7 @@
             
               
                 
+  
   
   
   
@@ -1707,9 +2732,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1720,6 +2752,7 @@
             
               
                 
+  
   
   
   
@@ -1727,9 +2760,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1740,6 +2780,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1747,9 +2816,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1760,6 +2836,7 @@
             
               
                 
+  
   
   
   
@@ -1767,9 +2844,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1780,6 +2864,7 @@
             
               
                 
+  
   
   
   
@@ -1787,9 +2872,16 @@
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1800,6 +2892,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1807,9 +2956,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1820,6 +2976,7 @@
             
               
                 
+  
   
   
   
@@ -1827,9 +2984,16 @@
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1840,6 +3004,7 @@
             
               
                 
+  
   
   
   
@@ -1847,9 +3012,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1860,6 +3032,7 @@
             
               
                 
+  
   
   
   
@@ -1867,9 +3040,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1880,6 +3060,7 @@
             
               
                 
+  
   
   
   
@@ -1887,9 +3068,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1900,6 +3088,7 @@
             
               
                 
+  
   
   
   
@@ -1907,9 +3096,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1920,6 +3116,7 @@
             
               
                 
+  
   
   
   
@@ -1927,9 +3124,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1940,6 +3144,7 @@
             
               
                 
+  
   
   
   
@@ -1947,9 +3152,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1960,6 +3172,7 @@
             
               
                 
+  
   
   
   
@@ -1967,9 +3180,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1980,6 +3200,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1987,9 +3236,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2000,6 +3256,7 @@
             
               
                 
+  
   
   
   
@@ -2007,9 +3264,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2020,6 +3284,7 @@
             
               
                 
+  
   
   
   
@@ -2027,9 +3292,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2040,6 +3312,7 @@
             
               
                 
+  
   
   
   
@@ -2047,9 +3320,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2060,6 +3340,7 @@
             
               
                 
+  
   
   
   
@@ -2067,9 +3348,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2080,6 +3368,7 @@
             
               
                 
+  
   
   
   
@@ -2087,9 +3376,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2100,6 +3396,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2107,9 +3432,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2120,6 +3452,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2127,9 +3516,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2140,6 +3536,7 @@
             
               
                 
+  
   
   
   
@@ -2147,9 +3544,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2160,6 +3564,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2167,9 +3600,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2180,6 +3620,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2187,9 +3656,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2200,6 +3676,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2207,9 +3740,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2220,6 +3760,7 @@
             
               
                 
+  
   
   
   
@@ -2227,9 +3768,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2240,6 +3788,7 @@
             
               
                 
+  
   
   
   
@@ -2247,9 +3796,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2260,6 +3816,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2267,9 +3852,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2280,6 +3872,7 @@
             
               
                 
+  
   
   
   
@@ -2287,9 +3880,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2300,6 +3900,7 @@
             
               
                 
+  
   
   
   
@@ -2307,9 +3908,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2320,6 +3928,7 @@
             
               
                 
+  
   
   
   
@@ -2327,9 +3936,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2340,6 +3956,7 @@
             
               
                 
+  
   
   
   
@@ -2347,9 +3964,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2360,6 +3984,7 @@
             
               
                 
+  
   
   
   
@@ -2367,9 +3992,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2380,6 +4012,7 @@
             
               
                 
+  
   
   
   
@@ -2387,9 +4020,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2400,6 +4040,7 @@
             
               
                 
+  
   
   
   
@@ -2407,9 +4048,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2420,6 +4068,7 @@
             
               
                 
+  
   
   
   
@@ -2427,9 +4076,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2440,6 +4096,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2447,9 +4132,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2460,6 +4152,7 @@
             
               
                 
+  
   
   
   
@@ -2467,9 +4160,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2480,6 +4180,7 @@
             
               
                 
+  
   
   
   
@@ -2487,9 +4188,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2500,6 +4208,7 @@
             
               
                 
+  
   
   
   
@@ -2507,9 +4216,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2523,13 +4239,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2573,14 +4353,22 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-1-html-escape-then-javascript-escape-before-inserting-untrusted-data-into-html-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RULE #1 - HTML Escape then JavaScript Escape Before Inserting Untrusted Data into HTML Subcontext within the Execution Context">
@@ -2588,7 +4376,11 @@
         
           <li class="md-nav__item">
   <a href="#example-dangerous-html-methods" class="md-nav__link">
-    Example Dangerous HTML Methods
+    <span class="md-ellipsis">
+      
+        Example Dangerous HTML Methods
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Example Dangerous HTML Methods">
@@ -2596,14 +4388,22 @@
         
           <li class="md-nav__item">
   <a href="#attributes" class="md-nav__link">
-    Attributes
+    <span class="md-ellipsis">
+      
+        Attributes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#methods" class="md-nav__link">
-    Methods
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
   </a>
   
 </li>
@@ -2615,7 +4415,11 @@
         
           <li class="md-nav__item">
   <a href="#guideline" class="md-nav__link">
-    Guideline
+    <span class="md-ellipsis">
+      
+        Guideline
+      
+    </span>
   </a>
   
 </li>
@@ -2627,7 +4431,11 @@
       
         <li class="md-nav__item">
   <a href="#rule-2-javascript-escape-before-inserting-untrusted-data-into-html-attribute-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context">
@@ -2635,14 +4443,22 @@
         
           <li class="md-nav__item">
   <a href="#safe-but-broken-example" class="md-nav__link">
-    SAFE but BROKEN example
+    <span class="md-ellipsis">
+      
+        SAFE but BROKEN example
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#safe-and-functionally-correct-example" class="md-nav__link">
-    SAFE and FUNCTIONALLY CORRECT example
+    <span class="md-ellipsis">
+      
+        SAFE and FUNCTIONALLY CORRECT example
+      
+    </span>
   </a>
   
 </li>
@@ -2654,7 +4470,11 @@
       
         <li class="md-nav__item">
   <a href="#rule-3-be-careful-when-inserting-untrusted-data-into-the-event-handler-and-javascript-code-subcontexts-within-an-execution-context" class="md-nav__link">
-    RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context">
@@ -2662,7 +4482,11 @@
         
           <li class="md-nav__item">
   <a href="#html-encodings-disarming-nature" class="md-nav__link">
-    HTML Encoding's Disarming Nature
+    <span class="md-ellipsis">
+      
+        HTML Encoding's Disarming Nature
+      
+    </span>
   </a>
   
 </li>
@@ -2674,35 +4498,55 @@
       
         <li class="md-nav__item">
   <a href="#rule-4-javascript-escape-before-inserting-untrusted-data-into-the-css-attribute-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #4 - JavaScript Escape Before Inserting Untrusted Data into the CSS Attribute Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #4 - JavaScript Escape Before Inserting Untrusted Data into the CSS Attribute Subcontext within the Execution Context
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-5-url-escape-then-javascript-escape-before-inserting-untrusted-data-into-url-attribute-subcontext-within-the-execution-context" class="md-nav__link">
-    RULE #5 - URL Escape then JavaScript Escape Before Inserting Untrusted Data into URL Attribute Subcontext within the Execution Context
+    <span class="md-ellipsis">
+      
+        RULE #5 - URL Escape then JavaScript Escape Before Inserting Untrusted Data into URL Attribute Subcontext within the Execution Context
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-6-populate-the-dom-using-safe-javascript-functions-or-properties" class="md-nav__link">
-    RULE #6 - Populate the DOM using safe JavaScript functions or properties
+    <span class="md-ellipsis">
+      
+        RULE #6 - Populate the DOM using safe JavaScript functions or properties
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rule-7-fixing-dom-cross-site-scripting-vulnerabilities" class="md-nav__link">
-    RULE #7 - Fixing DOM Cross-site Scripting Vulnerabilities
+    <span class="md-ellipsis">
+      
+        RULE #7 - Fixing DOM Cross-site Scripting Vulnerabilities
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#guidelines-for-developing-secure-applications-utilizing-javascript" class="md-nav__link">
-    Guidelines for Developing Secure Applications Utilizing JavaScript
+    <span class="md-ellipsis">
+      
+        Guidelines for Developing Secure Applications Utilizing JavaScript
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Guidelines for Developing Secure Applications Utilizing JavaScript">
@@ -2710,35 +4554,55 @@
         
           <li class="md-nav__item">
   <a href="#guideline-1-untrusted-data-should-only-be-treated-as-displayable-text" class="md-nav__link">
-    GUIDELINE #1 - Untrusted data should only be treated as displayable text
+    <span class="md-ellipsis">
+      
+        GUIDELINE #1 - Untrusted data should only be treated as displayable text
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-2-always-javascript-encode-and-delimit-untrusted-data-as-quoted-strings-when-entering-the-application-when-building-templated-javascript" class="md-nav__link">
-    GUIDELINE #2 - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated JavaScript
+    <span class="md-ellipsis">
+      
+        GUIDELINE #2 - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated JavaScript
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-3-use-documentcreateelement-elementsetattributevalue-elementappendchild-and-similar-to-build-dynamic-interfaces" class="md-nav__link">
-    GUIDELINE #3 - Use document.createElement("..."), element.setAttribute("...","value"), element.appendChild(...) and similar to build dynamic interfaces
+    <span class="md-ellipsis">
+      
+        GUIDELINE #3 - Use document.createElement("..."), element.setAttribute("...","value"), element.appendChild(...) and similar to build dynamic interfaces
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-4-avoid-sending-untrusted-data-into-html-rendering-methods" class="md-nav__link">
-    GUIDELINE #4 - Avoid sending untrusted data into HTML rendering methods
+    <span class="md-ellipsis">
+      
+        GUIDELINE #4 - Avoid sending untrusted data into HTML rendering methods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-5-avoid-the-numerous-methods-which-implicitly-eval-data-passed-to-it" class="md-nav__link">
-    GUIDELINE #5 - Avoid the numerous methods which implicitly eval() data passed to it
+    <span class="md-ellipsis">
+      
+        GUIDELINE #5 - Avoid the numerous methods which implicitly eval() data passed to it
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="GUIDELINE #5 - Avoid the numerous methods which implicitly eval() data passed to it">
@@ -2746,14 +4610,22 @@
         
           <li class="md-nav__item">
   <a href="#utilizing-an-enclosure-as-suggested-by-gaz" class="md-nav__link">
-    Utilizing an Enclosure (as suggested by Gaz)
+    <span class="md-ellipsis">
+      
+        Utilizing an Enclosure (as suggested by Gaz)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#n-levels-of-encoding" class="md-nav__link">
-    N-Levels of Encoding
+    <span class="md-ellipsis">
+      
+        N-Levels of Encoding
+      
+    </span>
   </a>
   
 </li>
@@ -2765,35 +4637,55 @@
         
           <li class="md-nav__item">
   <a href="#guideline-6-use-untrusted-data-on-only-the-right-side-of-an-expression" class="md-nav__link">
-    GUIDELINE #6 - Use untrusted data on only the right side of an expression
+    <span class="md-ellipsis">
+      
+        GUIDELINE #6 - Use untrusted data on only the right side of an expression
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-7-when-url-encoding-in-dom-be-aware-of-character-set-issues" class="md-nav__link">
-    GUIDELINE #7 - When URL encoding in DOM be aware of character set issues
+    <span class="md-ellipsis">
+      
+        GUIDELINE #7 - When URL encoding in DOM be aware of character set issues
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-8-limit-access-to-object-properties-when-using-objectx-accessors" class="md-nav__link">
-    GUIDELINE #8 - Limit access to object properties when using object[x] accessors
+    <span class="md-ellipsis">
+      
+        GUIDELINE #8 - Limit access to object properties when using object[x] accessors
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-9-run-your-javascript-in-a-ecmascript-5-canopy-or-sandbox" class="md-nav__link">
-    GUIDELINE #9 - Run your JavaScript in a ECMAScript 5 canopy or sandbox
+    <span class="md-ellipsis">
+      
+        GUIDELINE #9 - Run your JavaScript in a ECMAScript 5 canopy or sandbox
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#guideline-10-dont-eval-json-to-convert-it-to-native-javascript-objects" class="md-nav__link">
-    GUIDELINE #10 - Don't eval() JSON to convert it to native JavaScript objects
+    <span class="md-ellipsis">
+      
+        GUIDELINE #10 - Don't eval() JSON to convert it to native JavaScript objects
+      
+    </span>
   </a>
   
 </li>
@@ -2805,7 +4697,11 @@
       
         <li class="md-nav__item">
   <a href="#common-problems-associated-with-mitigating-dom-based-xss" class="md-nav__link">
-    Common Problems Associated with Mitigating DOM Based XSS
+    <span class="md-ellipsis">
+      
+        Common Problems Associated with Mitigating DOM Based XSS
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Common Problems Associated with Mitigating DOM Based XSS">
@@ -2813,35 +4709,55 @@
         
           <li class="md-nav__item">
   <a href="#complex-contexts" class="md-nav__link">
-    Complex Contexts
+    <span class="md-ellipsis">
+      
+        Complex Contexts
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#inconsistencies-of-encoding-libraries" class="md-nav__link">
-    Inconsistencies of Encoding Libraries
+    <span class="md-ellipsis">
+      
+        Inconsistencies of Encoding Libraries
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encoding-misconceptions" class="md-nav__link">
-    Encoding Misconceptions
+    <span class="md-ellipsis">
+      
+        Encoding Misconceptions
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#usually-safe-methods" class="md-nav__link">
-    Usually Safe Methods
+    <span class="md-ellipsis">
+      
+        Usually Safe Methods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#detect-dom-xss-using-variant-analysis" class="md-nav__link">
-    Detect DOM XSS using variant analysis
+    <span class="md-ellipsis">
+      
+        Detect DOM XSS using variant analysis
+      
+    </span>
   </a>
   
 </li>
@@ -2861,9 +4777,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -2890,8 +4808,8 @@
 <p>In JavaScript code, the main context is JavaScript but with the right tags and context closing characters, an attacker can try to attack the other 4 contexts using equivalent JavaScript DOM methods.</p>
 <p>The following is an example vulnerability which occurs in the JavaScript context and HTML subcontext:</p>
 <div class="highlight"><pre><span></span><code> <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;%= taintedVar %&gt;&#39;</span><span class="p">;</span>
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'&lt;%= taintedVar %&gt;'</span><span class="p">;</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
 <span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span>
 <span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>
 <span class="w"> </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -2901,12 +4819,12 @@
 <p>There are several methods and attributes which can be used to directly render HTML content within JavaScript. These methods constitute the HTML Subcontext within the Execution Context. If these methods are provided with untrusted input, then an XSS vulnerability could result. For example:</p>
 <h3 id="example-dangerous-html-methods">Example Dangerous HTML Methods<a class="headerlink" href="#example-dangerous-html-methods" title="Permanent link">&para;</a></h3>
 <h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">;</span>
-<span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">outerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;HTML&gt; Tags and markup"</span><span class="p">;</span>
+<span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">outerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;HTML&gt; Tags and markup"</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s2">&quot;&lt;HTML&gt; Tags and markup&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"&lt;HTML&gt; Tags and markup"</span><span class="p">);</span>
+<span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s2">"&lt;HTML&gt; Tags and markup"</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="guideline">Guideline<a class="headerlink" href="#guideline" title="Permanent link">&para;</a></h3>
 <p>To make dynamic updates to HTML in the DOM safe, we recommend:</p>
@@ -2914,34 +4832,34 @@
 <li>HTML encoding, and then</li>
 <li>JavaScript encoding all untrusted input, as shown in these examples:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">;</span>
-<span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">outerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;"</span><span class="p">;</span>
+<span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">outerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;"</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s2">&quot;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;"</span><span class="p">);</span>
+<span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s2">"&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(untrustedData))%&gt;"</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="rule-2-javascript-escape-before-inserting-untrusted-data-into-html-attribute-subcontext-within-the-execution-context">RULE #2 - JavaScript Escape Before Inserting Untrusted Data into HTML Attribute Subcontext within the Execution Context<a class="headerlink" href="#rule-2-javascript-escape-before-inserting-untrusted-data-into-html-attribute-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h2>
 <p>The HTML attribute <em>subcontext</em> within the <em>execution</em> context is divergent from the standard encoding rules. This is because the rule to HTML attribute encode in an HTML attribute rendering context is necessary in order to mitigate attacks which try to exit out of an HTML attributes or try to add additional attributes which could lead to XSS.</p>
 <p>When you are in a DOM execution context you only need to JavaScript encode HTML attributes which do not execute code (attributes other than event handler, CSS, and URL attributes).</p>
 <p>For example, the general rule is to HTML Attribute encode untrusted data (data from the database, HTTP request, user, back-end system, etc.) placed in an HTML Attribute. This is the appropriate step to take when outputting data in a rendering context, however using HTML Attribute encoding in an execution context will break the application display of data.</p>
 <h3 id="safe-but-broken-example">SAFE but BROKEN example<a class="headerlink" href="#safe-but-broken-example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;company_name&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"input"</span><span class="p">);</span>
+<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"company_name"</span><span class="p">);</span>
 <span class="w"> </span><span class="c1">// In the following line of code, companyName represents untrusted user input</span>
 <span class="w"> </span><span class="c1">// The ESAPI.encoder().encodeForHTMLAttribute() is unnecessary and causes double-encoding</span>
-<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTMLAttribute(companyName))%&gt;&#39;</span><span class="p">);</span>
+<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"value"</span><span class="p">,</span><span class="w"> </span><span class="s1">'&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTMLAttribute(companyName))%&gt;'</span><span class="p">);</span>
 <span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">form1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
 <span class="w"> </span><span class="nx">form1</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </code></pre></div>
 <p>The problem is that if companyName had the value "Johnson &amp; Johnson". What would be displayed in the input text field would be "Johnson &#x26;amp; Johnson". The appropriate encoding to use in the above case would be only JavaScript encoding to disallow an attacker from closing out the single quotes and in-lining code, or escaping to HTML and opening a new script tag.</p>
 <h3 id="safe-and-functionally-correct-example">SAFE and FUNCTIONALLY CORRECT example<a class="headerlink" href="#safe-and-functionally-correct-example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;company_name&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;%=ESAPI.encoder().encodeForJavascript(companyName)%&gt;&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"input"</span><span class="p">);</span>
+<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"company_name"</span><span class="p">);</span>
+<span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"value"</span><span class="p">,</span><span class="w"> </span><span class="s1">'&lt;%=ESAPI.encoder().encodeForJavascript(companyName)%&gt;'</span><span class="p">);</span>
 <span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">form1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
 <span class="w"> </span><span class="nx">form1</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </code></pre></div>
@@ -2949,12 +4867,12 @@
 <h2 id="rule-3-be-careful-when-inserting-untrusted-data-into-the-event-handler-and-javascript-code-subcontexts-within-an-execution-context">RULE #3 - Be Careful when Inserting Untrusted Data into the Event Handler and JavaScript code Subcontexts within an Execution Context<a class="headerlink" href="#rule-3-be-careful-when-inserting-untrusted-data-into-the-event-handler-and-javascript-code-subcontexts-within-an-execution-context" title="Permanent link">&para;</a></h2>
 <p>Putting dynamic data within JavaScript code is especially dangerous because JavaScript encoding has different semantics for JavaScript encoded data when compared to other encodings. In many cases, JavaScript encoding does not stop attacks within an execution context. For example, a JavaScript encoded string will execute even though it is JavaScript encoded.</p>
 <p>Therefore, the primary recommendation is to <strong>avoid including untrusted data in this context</strong>. If you must, the following examples describe some approaches that do and do not work.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
-<span class="nx">x</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"#"</span><span class="p">;</span>
 <span class="c1">// In the line of code below, the encoded data on the right (the second argument to setAttribute)</span>
 <span class="c1">// is an example of untrusted data that was properly JavaScript encoded but still executes.</span>
-<span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;onclick&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0032\u0032\u0029&quot;</span><span class="p">);</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="s2">&quot;Click To Test&quot;</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"onclick"</span><span class="p">,</span><span class="w"> </span><span class="s2">"\u0061\u006c\u0065\u0072\u0074\u0028\u0032\u0032\u0029"</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="s2">"Click To Test"</span><span class="p">);</span>
 <span class="nx">x</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </code></pre></div>
@@ -2962,40 +4880,43 @@
 <p>In the case above, the attribute name is an JavaScript event handler, so the attribute value is implicitly converted to JavaScript code and evaluated. In the case above, JavaScript encoding does not mitigate against DOM based XSS.</p>
 <p>Other JavaScript methods which take code as a string types will have a similar problem as outline above (<code>setTimeout</code>, <code>setInterval</code>, new Function, etc.). This is in stark contrast to JavaScript encoding in the event handler attribute of a HTML tag (HTML parser) where JavaScript encoding mitigates against XSS.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Does NOT work  --&gt;</span>
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bb&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029&quot;</span><span class="p">&gt;</span> Test Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">"bb"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029"</span><span class="p">&gt;</span> Test Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>An alternative to using <code>Element.setAttribute(...)</code> to set DOM attributes is to set the attribute directly. Directly setting event handler attributes will allow JavaScript encoding to mitigate against DOM based XSS. Please note, it is always dangerous design to put untrusted data directly into a command execution context.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bb&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span> Test Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">id</span><span class="o">=</span><span class="s">"bb"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span> Test Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">//The following does NOT work because the event handler is being set to a string.</span>
-<span class="c1">//&quot;alert(7)&quot; is JavaScript encoded.</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onclick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0029&quot;</span><span class="p">;</span>
+<span class="c1">//"alert(7)" is JavaScript encoded.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"bb"</span><span class="p">).</span><span class="nx">onclick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0029"</span><span class="p">;</span>
 
 <span class="c1">//The following does NOT work because the event handler is being set to a string.</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;testIt&quot;</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"bb"</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"testIt"</span><span class="p">;</span>
 
-<span class="c1">//The following does NOT work because of the encoded &quot;(&quot; and &quot;)&quot;.</span>
-<span class="c1">//&quot;alert(77)&quot; is JavaScript encoded.</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0037\u0029</span><span class="p">;</span>
+<span class="c1">//The following does NOT work because of the encoded "(" and ")".</span>
+<span class="c1">//"alert(77)" is JavaScript encoded.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"bb"</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">\u0061\u006c\u0065\u0072\u0074\u0028\u0037\u0037\u0029</span><span class="p">;</span>
 
-<span class="c1">//The following does NOT work because of the encoded &quot;;&quot;.</span>
-<span class="c1">//&quot;testIt;testIt&quot; is JavaScript encoded.</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">\u0074\u0065\u0073\u0074\u0049\u0074\u003b\u0074\u0065\u0073</span>
+<span class="c1">//The following example is tricky</span>
+<span class="c1">// first testIt will be assigned as an onmousehover event handler, The second testIt will fire while parsing.</span>
+<span class="c1">// because second testIt is a separate js statement</span>
+<span class="c1">// this happen because of ; separator</span>
+<span class="c1">//"testIt;testIt" is JavaScript encoded.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"bb"</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">\u0074\u0065\u0073\u0074\u0049\u0074\u003b\u0074\u0065\u0073</span>
 <span class="w">                                            </span><span class="nx">\u0074\u0049\u0074</span><span class="p">;</span>
 
 <span class="c1">//The following DOES WORK because the encoded value is a valid variable name or function reference.</span>
-<span class="c1">//&quot;testIt&quot; is JavaScript encoded</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;bb&quot;</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">\u0074\u0065\u0073\u0074\u0049\u0074</span><span class="p">;</span>
+<span class="c1">//"testIt" is JavaScript encoded</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"bb"</span><span class="p">).</span><span class="nx">onmouseover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">\u0074\u0065\u0073\u0074\u0049\u0074</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">testIt</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;I was called.&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="nx">alert</span><span class="p">(</span><span class="s2">"I was called."</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>There are other places in JavaScript where JavaScript encoding is accepted as valid executable code.</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">\u0062</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">\u0062</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">\u0062</span><span class="o">++</span><span class="p">){</span>
 <span class="w">     </span><span class="nx">\u0064\u006f\u0063\u0075\u006d\u0065\u006e\u0074</span>
 <span class="w">     </span><span class="p">.</span><span class="nx">\u0077\u0072\u0069\u0074\u0065\u006c\u006e</span>
-<span class="w">     </span><span class="p">(</span><span class="s2">&quot;\u0048\u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064&quot;</span><span class="p">);</span>
+<span class="w">     </span><span class="p">(</span><span class="s2">"\u0048\u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064"</span><span class="p">);</span>
 <span class="w"> </span><span class="p">}</span>
 <span class="w"> </span><span class="nx">\u0077\u0069\u006e\u0064\u006f\u0077</span>
 <span class="w"> </span><span class="p">.</span><span class="nx">\u0065\u0076\u0061\u006c</span>
@@ -3003,15 +4924,15 @@
 <span class="w"> </span><span class="p">.</span><span class="nx">\u0077\u0072\u0069\u0074\u0065</span><span class="p">(</span><span class="mf">111111111</span><span class="p">);</span>
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;\u0065\u0076\u0061\u006c&quot;</span><span class="p">;</span>
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0031\u0029&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\u0065\u0076\u0061\u006c"</span><span class="p">;</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0031\u0029"</span><span class="p">;</span>
 <span class="w"> </span><span class="nb">window</span><span class="p">[</span><span class="nx">s</span><span class="p">](</span><span class="nx">t</span><span class="p">);</span>
 </code></pre></div>
 <p>Because JavaScript is based on an international standard (ECMAScript), JavaScript encoding enables the support of international characters in programming constructs and variables in addition to alternate string representations (string escapes).</p>
 <p>However the opposite is the case with HTML encoding. HTML tag elements are well defined and do not support alternate representations of the same tag. So HTML encoding cannot be used to allow the developer to have alternate representations of the <code>&lt;a&gt;</code> tag for example.</p>
 <h3 id="html-encodings-disarming-nature">HTML Encoding's Disarming Nature<a class="headerlink" href="#html-encodings-disarming-nature" title="Permanent link">&para;</a></h3>
 <p>In general, HTML encoding serves to castrate HTML tags which are placed in HTML and HTML attribute contexts. Working example (no HTML encoding):</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"..."</span> <span class="p">&gt;</span>
 </code></pre></div>
 <p>Normally encoded example (Does Not Work – DNW):</p>
 <div class="highlight"><pre><span></span><code><span class="ni">&amp;#x3c;</span>a href=... <span class="ni">&amp;#x3e;</span>
@@ -3023,15 +4944,15 @@
 <h2 id="rule-4-javascript-escape-before-inserting-untrusted-data-into-the-css-attribute-subcontext-within-the-execution-context">RULE #4 - JavaScript Escape Before Inserting Untrusted Data into the CSS Attribute Subcontext within the Execution Context<a class="headerlink" href="#rule-4-javascript-escape-before-inserting-untrusted-data-into-the-css-attribute-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h2>
 <p>Normally executing JavaScript from a CSS context required either passing <code>javascript:attackCode()</code> to the CSS <code>url()</code> method or invoking the CSS <code>expression()</code> method passing JavaScript code to be directly executed.</p>
 <p>From my experience, calling the <code>expression()</code> function from an execution context (JavaScript) has been disabled. In order to mitigate against the CSS <code>url()</code> method, ensure that you are URL encoding the data passed to the CSS <code>url()</code> method.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;url(&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForURL(companyName))%&gt;)&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"url(&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForURL(companyName))%&gt;)"</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="rule-5-url-escape-then-javascript-escape-before-inserting-untrusted-data-into-url-attribute-subcontext-within-the-execution-context">RULE #5 - URL Escape then JavaScript Escape Before Inserting Untrusted Data into URL Attribute Subcontext within the Execution Context<a class="headerlink" href="#rule-5-url-escape-then-javascript-escape-before-inserting-untrusted-data-into-url-attribute-subcontext-within-the-execution-context" title="Permanent link">&para;</a></h2>
 <p>The logic which parses URLs in both execution and rendering contexts looks to be the same. Therefore there is little change in the encoding rules for URL attributes in an execution (DOM) context.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
-<span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForURL(userRelativePath))%&gt;&#39;</span><span class="p">);</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createTextElement</span><span class="p">(</span><span class="s2">&quot;Click Me To Test&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"a"</span><span class="p">);</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"href"</span><span class="p">,</span><span class="w"> </span><span class="s1">'&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForURL(userRelativePath))%&gt;'</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createTextElement</span><span class="p">(</span><span class="s2">"Click Me To Test"</span><span class="p">);</span>
 <span class="nx">x</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 </code></pre></div>
@@ -3047,10 +4968,10 @@
 <p>The best way to fix DOM based cross-site scripting is to use the right output method (sink). For example if you want to use user input to write in a <code>div tag</code> element don't use <code>innerHtml</code>, instead use <code>innerText</code> or <code>textContent</code>. This will solve the problem, and it is the right way to re-mediate DOM based XSS vulnerabilities.</p>
 <p><strong>It is always a bad idea to use a user-controlled input in dangerous sources such as eval. 99% of the time it is an indication of bad or lazy programming practice, so simply don't do it instead of trying to sanitize the input.</strong></p>
 <p>Finally, to fix the problem in our initial code, instead of trying to encode the output correctly which is a hassle and can easily go wrong we would simply use <code>element.textContent</code> to write it in a content like this:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Current URL:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;contentholder&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Current URL:<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">"contentholder"</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 ...
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;contentholder&quot;</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">baseURI</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"contentholder"</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">baseURI</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>It does the same thing but this time it is not vulnerable to DOM based cross-site scripting vulnerabilities.</p>
@@ -3061,7 +4982,7 @@
 <p>Avoid treating untrusted data as code or markup within JavaScript code.</p>
 <h3 id="guideline-2-always-javascript-encode-and-delimit-untrusted-data-as-quoted-strings-when-entering-the-application-when-building-templated-javascript">GUIDELINE #2 - Always JavaScript encode and delimit untrusted data as quoted strings when entering the application when building templated JavaScript<a class="headerlink" href="#guideline-2-always-javascript-encode-and-delimit-untrusted-data-as-quoted-strings-when-entering-the-application-when-building-templated-javascript" title="Permanent link">&para;</a></h3>
 <p>Always JavaScript encode and delimit untrusted data as quoted strings when entering the application as illustrated in the following example.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;%= Encode.forJavaScript(untrustedData) %&gt;&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;%= Encode.forJavaScript(untrustedData) %&gt;"</span><span class="p">;</span>
 </code></pre></div>
 <h3 id="guideline-3-use-documentcreateelement-elementsetattributevalue-elementappendchild-and-similar-to-build-dynamic-interfaces">GUIDELINE #3 - Use document.createElement("..."), element.setAttribute("...","value"), element.appendChild(...) and similar to build dynamic interfaces<a class="headerlink" href="#guideline-3-use-documentcreateelement-elementsetattributevalue-elementappendchild-and-similar-to-build-dynamic-interfaces" title="Permanent link">&para;</a></h3>
 <p><code>document.createElement("...")</code>, <code>element.setAttribute("...","value")</code>, <code>element.appendChild(...)</code> and similar are safe ways to build dynamic interfaces.</p>
@@ -3087,18 +5008,18 @@
 <p>Ensure to follow step 3 above to make sure that the untrusted data is not sent to dangerous methods within the custom function or handle it by adding an extra layer of encoding.</p>
 <h4 id="utilizing-an-enclosure-as-suggested-by-gaz">Utilizing an Enclosure (as suggested by Gaz)<a class="headerlink" href="#utilizing-an-enclosure-as-suggested-by-gaz" title="Permanent link">&para;</a></h4>
 <p>The example that follows illustrates using closures to avoid double JavaScript encoding.</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
 <span class="w"> </span><span class="nx">setTimeout</span><span class="p">((</span><span class="kd">function</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nx">customFunction</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w"> </span><span class="p">})(</span><span class="s2">&quot;&lt;%=ESAPI.encoder().encodeForJavascript(untrustedData)%&gt;&quot;</span><span class="p">),</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span>
+<span class="w"> </span><span class="p">})(</span><span class="s2">"&lt;%=ESAPI.encoder().encodeForJavascript(untrustedData)%&gt;"</span><span class="p">),</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span>
 </code></pre></div>
 <p>The other alternative is using N-levels of encoding.</p>
 <h4 id="n-levels-of-encoding">N-Levels of Encoding<a class="headerlink" href="#n-levels-of-encoding" title="Permanent link">&para;</a></h4>
 <p>If your code looked like the following, you would need to only double JavaScript encode input data.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(</span><span class="s2">&quot;customFunction(&#39;&lt;%=doubleJavaScriptEncodedData%&gt;&#39;, y)&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(</span><span class="s2">"customFunction('&lt;%=doubleJavaScriptEncodedData%&gt;', y)"</span><span class="p">);</span>
 <span class="kd">function</span><span class="w"> </span><span class="nx">customFunction</span><span class="w"> </span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span><span class="w"> </span><span class="nx">lastName</span><span class="p">)</span>
-<span class="w">     </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">lastNam</span><span class="p">);</span>
+<span class="w">     </span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Hello"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">firstName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">lastName</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The <code>doubleJavaScriptEncodedData</code> has its first layer of JavaScript encoding reversed (upon execution) in the single quotes.</p>
@@ -3106,39 +5027,39 @@
 <p>The reason why you only need to double JavaScript encode is that the <code>customFunction</code> function did not itself pass the input to another method which implicitly or explicitly called <code>eval</code> If <em>firstName</em> was passed to another JavaScript method which implicitly or explicitly called <code>eval()</code> then <code>&lt;%=doubleJavaScriptEncodedData%&gt;</code> above would need to be changed to <code>&lt;%=tripleJavaScriptEncodedData%&gt;</code>.</p>
 <p>An important implementation note is that if the JavaScript code tries to utilize the double or triple encoded data in string comparisons, the value may be interpreted as different values based on the number of <code>evals()</code> the data has passed through before being passed to the if comparison and the number of times the value was JavaScript encoded.</p>
 <p>If <strong>A</strong> is double JavaScript encoded then the following <strong>if</strong> check will return false.</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;doubleJavaScriptEncodedA&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">//\u005c\u0075\u0030\u0030\u0034\u0031</span>
-<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;x is A&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;\u0041&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;This is what pops&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"doubleJavaScriptEncodedA"</span><span class="p">;</span><span class="w">  </span><span class="c1">//\u005c\u0075\u0030\u0030\u0034\u0031</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"A"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">"x is A"</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"\u0041"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">alert</span><span class="p">(</span><span class="s2">"This is what pops"</span><span class="p">);</span>
 <span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>This brings up an interesting design point. Ideally, the correct way to apply encoding and avoid the problem stated above is to server-side encode for the output context where data is introduced into the application.</p>
 <p>Then client-side encode (using a JavaScript encoding library such as <a href="https://github.com/ESAPI/node-esapi/">node-esapi</a>) for the individual subcontext (DOM methods) which untrusted data is passed to.</p>
 <p>Here are some examples of how they are used:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//server-side encoding</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;%=ESAPI.encoder().encodeForJavascript(untrustedData)%&gt;&quot;</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;%=ESAPI.encoder().encodeForJavascript(untrustedData)%&gt;"</span><span class="p">;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">//HTML encoding is happening in JavaScript</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-esapi&#39;</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">ESAPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'node-esapi'</span><span class="p">);</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">ESAPI</span><span class="p">.</span><span class="nx">encoder</span><span class="p">().</span><span class="nx">encodeForHTML</span><span class="p">(</span><span class="nx">input</span><span class="p">));</span>
 </code></pre></div>
 <p>One option is utilize ECMAScript 5 immutable properties in the JavaScript library.
 Another option provided by Gaz (Gareth) was to use a specific code construct to limit mutability with anonymous closures.</p>
 <p>An example follows:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">escapeHTML</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">;</span>
-<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"''"</span><span class="p">;</span>
+<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"''"</span><span class="p">;</span>
 <span class="w">     </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;&amp;lt;&#39;</span><span class="p">;</span>
-<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;&gt;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;&amp;gt;&#39;</span><span class="p">;</span>
-<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&#39;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;&amp;#39;&#39;</span><span class="p">;</span>
-<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;&amp;quot;&#39;</span><span class="p">;</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'&lt;'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">'&amp;lt;'</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'&gt;'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">'&amp;gt;'</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"'"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">'&amp;#39;'</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'"'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">'&amp;quot;'</span><span class="p">;</span>
 <span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">             </span><span class="nx">out</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <span class="w">         </span><span class="p">}</span>
@@ -3148,7 +5069,7 @@ Another option provided by Gaz (Gareth) was to use a specific code construct to 
 </code></pre></div>
 <h3 id="guideline-6-use-untrusted-data-on-only-the-right-side-of-an-expression">GUIDELINE #6 - Use untrusted data on only the right side of an expression<a class="headerlink" href="#guideline-6-use-untrusted-data-on-only-the-right-side-of-an-expression" title="Permanent link">&para;</a></h3>
 <p>Use untrusted data on only the right side of an expression, especially data that looks like code and may be passed to the application (e.g., <code>location</code> and <code>eval()</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="nb">window</span><span class="p">[</span><span class="nx">userDataOnLeftSide</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;userDataOnRightSide&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">window</span><span class="p">[</span><span class="nx">userDataOnLeftSide</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"userDataOnRightSide"</span><span class="p">;</span>
 </code></pre></div>
 <p>Using untrusted user data on the left side of the expression allows an attacker to subvert internal and external attributes of the window object, whereas using user input on the right side of the expression doesn't allow direct manipulation.</p>
 <h3 id="guideline-7-when-url-encoding-in-dom-be-aware-of-character-set-issues">GUIDELINE #7 - When URL encoding in DOM be aware of character set issues<a class="headerlink" href="#guideline-7-when-url-encoding-in-dom-be-aware-of-character-set-issues" title="Permanent link">&para;</a></h3>
@@ -3157,12 +5078,12 @@ Another option provided by Gaz (Gareth) was to use a specific code construct to 
 <p>Limit access to object properties when using <code>object[x]</code> accessors (Mike Samuel). In other words, add a level of indirection between untrusted input and specified object properties.</p>
 <p>Here is an example of the problem using map types:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">myMapType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-<span class="nx">myMapType</span><span class="p">[</span><span class="o">&lt;%=</span><span class="nx">untrustedData</span><span class="o">%&gt;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;moreUntrustedData&quot;</span><span class="p">;</span>
+<span class="nx">myMapType</span><span class="p">[</span><span class="o">&lt;%=</span><span class="nx">untrustedData</span><span class="o">%&gt;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"moreUntrustedData"</span><span class="p">;</span>
 </code></pre></div>
 <p>The developer writing the code above was trying to add additional keyed elements to the <code>myMapType</code> object. However, this could be used by an attacker to subvert internal and external attributes of the <code>myMapType</code> object.</p>
 <p>A better approach would be to use the following:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">untrustedData</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">myMapType</span><span class="p">.</span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;moreUntrustedData&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">untrustedData</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'location'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">myMapType</span><span class="p">.</span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"moreUntrustedData"</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="guideline-9-run-your-javascript-in-a-ecmascript-5-canopy-or-sandbox">GUIDELINE #9 - Run your JavaScript in a ECMAScript 5 canopy or sandbox<a class="headerlink" href="#guideline-9-run-your-javascript-in-a-ecmascript-5-canopy-or-sandbox" title="Permanent link">&para;</a></h3>
@@ -3176,11 +5097,15 @@ Another option provided by Gaz (Gareth) was to use a specific code construct to 
 <li><a href="https://owasp.org/www-pdf-archive/OWASPSummit2011DOMSandboxingBrowserSecurityTrack.pdf">OWASP Summit 2011 - DOM Sandboxing</a></li>
 </ul>
 <h3 id="guideline-10-dont-eval-json-to-convert-it-to-native-javascript-objects">GUIDELINE #10 - Don't eval() JSON to convert it to native JavaScript objects<a class="headerlink" href="#guideline-10-dont-eval-json-to-convert-it-to-native-javascript-objects" title="Permanent link">&para;</a></h3>
-<p>Don't <code>eval()</code> JSON to convert it to native JavaScript objects. Instead use <code>JSON.toJSON()</code> and <code>JSON.parse()</code> (Chris Schmidt).</p>
+<p>Don't <code>eval()</code> JSON to convert it to native JavaScript objects. Use the built-in <code>JSON.parse()</code> to deserialize JSON into JavaScript values, and <code>JSON.stringify()</code> to serialize JavaScript values into JSON. <code>JSON.parse()</code> rejects anything that is not valid JSON, so it cannot execute attacker-supplied code the way <code>eval()</code> can.</p>
+<blockquote>
+<p>[!WARNING]
+<code>JSON.stringify()</code> is <strong>not</strong> an output-encoding function. Its output is valid JSON but is not safe to embed directly in an HTML, HTML-attribute, or inline <code>&lt;script&gt;</code> context — characters like <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>, <code></code>, and <code></code> can break out of the surrounding context and enable XSS. When embedding the output of <code>JSON.stringify()</code> in a page, either (a) deliver it as a separate JSON response and parse it client-side with <code>JSON.parse()</code>, or (b) HTML-encode (or JavaScript-string-encode, depending on the sink) the serialized string before injecting it. See <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">OWASP XSS Prevention Rules #3 and #3.1</a>.</p>
+</blockquote>
 <h2 id="common-problems-associated-with-mitigating-dom-based-xss">Common Problems Associated with Mitigating DOM Based XSS<a class="headerlink" href="#common-problems-associated-with-mitigating-dom-based-xss" title="Permanent link">&para;</a></h2>
 <h3 id="complex-contexts">Complex Contexts<a class="headerlink" href="#complex-contexts" title="Permanent link">&para;</a></h3>
 <p>In many cases the context isn't always straightforward to discern.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:myFunction(&#39;&lt;%=untrustedData%&gt;&#39;, &#39;test&#39;);&quot;</span><span class="p">&gt;</span>Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"javascript:myFunction('&lt;%=untrustedData%&gt;', 'test');"</span><span class="p">&gt;</span>Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  ...
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="nb">Function</span><span class="w"> </span><span class="nx">myFunction</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3190,13 +5115,13 @@ Another option provided by Gaz (Gareth) was to use a specific code construct to 
 </code></pre></div>
 <p>In the above example, untrusted data started in the rendering URL context (<code>href</code> attribute of an <code>a</code> tag) then changed to a JavaScript execution context (<code>javascript:</code> protocol handler) which passed the untrusted data to an execution URL subcontext (<code>window.location</code> of <code>myFunction</code>).</p>
 <p>Because the data was introduced in JavaScript code and passed to a URL subcontext the appropriate server-side encoding would be the following:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:myFunction(&#39;&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForURL(untrustedData)) %&gt;&#39;, &#39;test&#39;);&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"javascript:myFunction('&lt;%=ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForURL(untrustedData)) %&gt;', 'test');"</span><span class="p">&gt;</span>
 Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  ...
 </code></pre></div>
 <p>Or if you were using ECMAScript 5 with an immutable JavaScript client-side encoding libraries you could do the following:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- server side URL encoding has been removed.  Now only JavaScript encoding on server side. --&gt;</span>
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:myFunction(&#39;&lt;%=ESAPI.encoder().encodeForJavascript(untrustedData)%&gt;&#39;, &#39;test&#39;);&quot;</span><span class="p">&gt;</span>Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"javascript:myFunction('&lt;%=ESAPI.encoder().encodeForJavascript(untrustedData)%&gt;', 'test');"</span><span class="p">&gt;</span>Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  ...
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="nb">Function</span><span class="w"> </span><span class="nx">myFunction</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3223,13 +5148,13 @@ Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt
 <p>However, if the pages returned from your web application utilize a content type of <code>text/xhtml</code> or the file type extension of <code>*.xhtml</code> then HTML encoding may not work to mitigate against XSS.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="o">&amp;</span><span class="err">#</span><span class="nx">x61</span><span class="p">;</span><span class="nx">lert</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="o">&amp;</span><span class="n">#x61</span><span class="p">;</span><span class="nx">lert</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>The HTML encoded value above is still executable. If that isn't enough to keep in mind, you have to remember that encodings are lost when you retrieve them using the value attribute of a DOM element.</p>
 <p>Let's look at the sample page and script:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;myForm&quot;</span> <span class="err">...</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lName&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&lt;%=ESAPI.encoder().encodeForHTML(last_name)%&gt;&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">name</span><span class="o">=</span><span class="s">"myForm"</span> <span class="err">...</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"lName"</span> <span class="na">value</span><span class="o">=</span><span class="s">"&lt;%=ESAPI.encoder().encodeForHTML(last_name)%&gt;"</span><span class="p">&gt;</span>
  ...
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -3242,19 +5167,29 @@ Click Me<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt
 <p>One example of an attribute which is thought to be safe is <code>innerText</code>.</p>
 <p>Some papers or guides advocate its use as an alternative to <code>innerHTML</code> to mitigate against XSS in <code>innerHTML</code>. However, depending on the tag which <code>innerText</code> is applied, code can be executed.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
-<span class="w"> </span><span class="nx">tag</span><span class="p">.</span><span class="nx">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;%=untrustedData%&gt;&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">//executes code</span>
+<span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span>
+<span class="w"> </span><span class="nx">tag</span><span class="p">.</span><span class="nx">innerText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&lt;%=untrustedData%&gt;"</span><span class="p">;</span><span class="w">  </span><span class="c1">//executes code</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>The <code>innerText</code> feature was originally introduced by Internet Explorer, and was formally specified in the HTML standard in 2016 after being adopted by all major browser vendors.</p>
 <h3 id="detect-dom-xss-using-variant-analysis">Detect DOM XSS using variant analysis<a class="headerlink" href="#detect-dom-xss-using-variant-analysis" title="Permanent link">&para;</a></h3>
 <p><strong>Vulnerable code:</strong></p>
 <div class="highlight"><pre><span></span><code>&lt;script&gt;
-var x = location.hash.split(&quot;#&quot;)[1];
+var x = location.hash.split("#")[1];
 document.write(x);
 &lt;/script&gt;
 </code></pre></div>
 <p>Semgrep rule to identify above dom xss <a href="https://semgrep.dev/s/we30">link</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
 
 
 
@@ -3265,6 +5200,7 @@ document.write(x);
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -3296,10 +5232,14 @@ document.write(x);
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -16,11 +16,14 @@
         <link rel="prev" href="Docker_Security_Cheat_Sheet.html">
       
       
-        <link rel="next" href="Error_Handling_Cheat_Sheet.html">
+        <link rel="next" href="Drone_Security_Cheat_Sheet.html">
+      
+      
+        
       
       
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -680,6 +1085,7 @@
             
               
                 
+  
   
   
   
@@ -687,9 +1093,16 @@
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -700,6 +1113,7 @@
             
               
                 
+  
   
   
   
@@ -707,9 +1121,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -720,6 +1141,7 @@
             
               
                 
+  
   
   
   
@@ -727,9 +1149,16 @@
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -740,6 +1169,7 @@
             
               
                 
+  
   
   
   
@@ -747,9 +1177,16 @@
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -760,6 +1197,7 @@
             
               
                 
+  
   
   
   
@@ -767,9 +1205,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -780,6 +1225,7 @@
             
               
                 
+  
   
   
   
@@ -787,9 +1233,16 @@
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -800,6 +1253,7 @@
             
               
                 
+  
   
   
   
@@ -807,9 +1261,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -820,6 +1281,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -827,9 +1317,16 @@
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -840,6 +1337,7 @@
             
               
                 
+  
   
   
   
@@ -847,9 +1345,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -860,6 +1365,7 @@
             
               
                 
+  
   
   
   
@@ -867,9 +1373,16 @@
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -883,13 +1396,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -903,6 +1424,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -916,9 +1438,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -927,9 +1456,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -951,7 +1487,11 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Introduction">
@@ -959,21 +1499,33 @@
         
           <li class="md-nav__item">
   <a href="#the-net-framework" class="md-nav__link">
-    The .NET Framework
+    <span class="md-ellipsis">
+      
+        The .NET Framework
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#updating-the-framework" class="md-nav__link">
-    Updating the Framework
+    <span class="md-ellipsis">
+      
+        Updating the Framework
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#security-announcements" class="md-nav__link">
-    Security Announcements
+    <span class="md-ellipsis">
+      
+        Security Announcements
+      
+    </span>
   </a>
   
 </li>
@@ -985,7 +1537,11 @@
       
         <li class="md-nav__item">
   <a href="#net-general-guidance" class="md-nav__link">
-    .NET General Guidance
+    <span class="md-ellipsis">
+      
+        .NET General Guidance
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label=".NET General Guidance">
@@ -993,7 +1549,11 @@
         
           <li class="md-nav__item">
   <a href="#a01-broken-access-control" class="md-nav__link">
-    A01 Broken Access Control
+    <span class="md-ellipsis">
+      
+        A01 Broken Access Control
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A01 Broken Access Control">
@@ -1001,21 +1561,33 @@
         
           <li class="md-nav__item">
   <a href="#weak-account-management" class="md-nav__link">
-    Weak Account management
+    <span class="md-ellipsis">
+      
+        Weak Account management
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#missing-function-level-access-control" class="md-nav__link">
-    Missing function-level access control
+    <span class="md-ellipsis">
+      
+        Missing function-level access control
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#insecure-direct-object-references" class="md-nav__link">
-    Insecure Direct object references
+    <span class="md-ellipsis">
+      
+        Insecure Direct object references
+      
+    </span>
   </a>
   
 </li>
@@ -1027,7 +1599,11 @@
         
           <li class="md-nav__item">
   <a href="#a02-cryptographic-failures" class="md-nav__link">
-    A02 Cryptographic Failures
+    <span class="md-ellipsis">
+      
+        A02 Cryptographic Failures
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A02 Cryptographic Failures">
@@ -1035,42 +1611,66 @@
         
           <li class="md-nav__item">
   <a href="#general-cryptography-guidance" class="md-nav__link">
-    General cryptography guidance
+    <span class="md-ellipsis">
+      
+        General cryptography guidance
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#hashing" class="md-nav__link">
-    Hashing
+    <span class="md-ellipsis">
+      
+        Hashing
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#passwords" class="md-nav__link">
-    Passwords
+    <span class="md-ellipsis">
+      
+        Passwords
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encryption" class="md-nav__link">
-    Encryption
+    <span class="md-ellipsis">
+      
+        Encryption
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encryption-for-storage" class="md-nav__link">
-    Encryption for storage
+    <span class="md-ellipsis">
+      
+        Encryption for storage
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encryption-for-transmission" class="md-nav__link">
-    Encryption for transmission
+    <span class="md-ellipsis">
+      
+        Encryption for transmission
+      
+    </span>
   </a>
   
 </li>
@@ -1082,7 +1682,11 @@
         
           <li class="md-nav__item">
   <a href="#a03-injection" class="md-nav__link">
-    A03 Injection
+    <span class="md-ellipsis">
+      
+        A03 Injection
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A03 Injection">
@@ -1090,21 +1694,33 @@
         
           <li class="md-nav__item">
   <a href="#sql-injection" class="md-nav__link">
-    SQL Injection
+    <span class="md-ellipsis">
+      
+        SQL Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#os-injection" class="md-nav__link">
-    OS Injection
+    <span class="md-ellipsis">
+      
+        OS Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#ldap-injection" class="md-nav__link">
-    LDAP injection
+    <span class="md-ellipsis">
+      
+        LDAP injection
+      
+    </span>
   </a>
   
 </li>
@@ -1116,14 +1732,22 @@
         
           <li class="md-nav__item">
   <a href="#a04-insecure-design" class="md-nav__link">
-    A04 Insecure Design
+    <span class="md-ellipsis">
+      
+        A04 Insecure Design
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a05-security-misconfiguration" class="md-nav__link">
-    A05 Security Misconfiguration
+    <span class="md-ellipsis">
+      
+        A05 Security Misconfiguration
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A05 Security Misconfiguration">
@@ -1131,14 +1755,22 @@
         
           <li class="md-nav__item">
   <a href="#debug-and-stack-trace" class="md-nav__link">
-    Debug and Stack Trace
+    <span class="md-ellipsis">
+      
+        Debug and Stack Trace
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cross-site-request-forgery" class="md-nav__link">
-    Cross-site request forgery
+    <span class="md-ellipsis">
+      
+        Cross-site request forgery
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Cross-site request forgery">
@@ -1146,21 +1778,33 @@
         
           <li class="md-nav__item">
   <a href="#using-net-framework" class="md-nav__link">
-    Using .NET Framework
+    <span class="md-ellipsis">
+      
+        Using .NET Framework
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#using-net-core-20-or-later" class="md-nav__link">
-    Using .NET Core 2.0 or later
+    <span class="md-ellipsis">
+      
+        Using .NET Core 2.0 or later
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#using-net-core-or-net-framework-with-ajax" class="md-nav__link">
-    Using .Net Core or .NET Framework with AJAX
+    <span class="md-ellipsis">
+      
+        Using .Net Core or .NET Framework with AJAX
+      
+    </span>
   </a>
   
 </li>
@@ -1177,28 +1821,44 @@
         
           <li class="md-nav__item">
   <a href="#a06-vulnerable-and-outdated-components" class="md-nav__link">
-    A06 Vulnerable and Outdated Components
+    <span class="md-ellipsis">
+      
+        A06 Vulnerable and Outdated Components
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a07-identification-and-authentication-failures" class="md-nav__link">
-    A07 Identification and Authentication Failures
+    <span class="md-ellipsis">
+      
+        A07 Identification and Authentication Failures
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a08-software-and-data-integrity-failures" class="md-nav__link">
-    A08 Software and Data Integrity Failures
+    <span class="md-ellipsis">
+      
+        A08 Software and Data Integrity Failures
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a09-security-logging-and-monitoring-failures" class="md-nav__link">
-    A09 Security Logging and Monitoring Failures
+    <span class="md-ellipsis">
+      
+        A09 Security Logging and Monitoring Failures
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A09 Security Logging and Monitoring Failures">
@@ -1206,14 +1866,22 @@
         
           <li class="md-nav__item">
   <a href="#logging" class="md-nav__link">
-    Logging
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#monitoring" class="md-nav__link">
-    Monitoring
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
   </a>
   
 </li>
@@ -1225,43 +1893,67 @@
         
           <li class="md-nav__item">
   <a href="#a10-server-side-request-forgery-ssrf" class="md-nav__link">
-    A10 Server-Side Request Forgery (SSRF)
+    <span class="md-ellipsis">
+      
+        A10 Server-Side Request Forgery (SSRF)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#owasp-2013-2017" class="md-nav__link">
-    OWASP 2013 &amp; 2017
+    <span class="md-ellipsis">
+      
+        OWASP 2013 &amp; 2017
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="OWASP 2013 & 2017">
+    <nav class="md-nav" aria-label="OWASP 2013 &amp; 2017">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#a042017-xml-external-entities-xxe" class="md-nav__link">
-    A04:2017 XML External Entities (XXE)
+    <span class="md-ellipsis">
+      
+        A04:2017 XML External Entities (XXE)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a072017-cross-site-scripting-xss" class="md-nav__link">
-    A07:2017 Cross-Site Scripting (XSS)
+    <span class="md-ellipsis">
+      
+        A07:2017 Cross-Site Scripting (XSS)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a082017-insecure-deserialization" class="md-nav__link">
-    A08:2017 Insecure Deserialization
+    <span class="md-ellipsis">
+      
+        A08:2017 Insecure Deserialization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a102013-unvalidated-redirects-and-forwards" class="md-nav__link">
-    A10:2013 Unvalidated redirects and forwards
+    <span class="md-ellipsis">
+      
+        A10:2013 Unvalidated redirects and forwards
+      
+    </span>
   </a>
   
 </li>
@@ -1273,7 +1965,11 @@
         
           <li class="md-nav__item">
   <a href="#other-advice" class="md-nav__link">
-    Other advice
+    <span class="md-ellipsis">
+      
+        Other advice
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Other advice">
@@ -1281,7 +1977,11 @@
         
           <li class="md-nav__item">
   <a href="#sample-project" class="md-nav__link">
-    Sample project
+    <span class="md-ellipsis">
+      
+        Sample project
+      
+    </span>
   </a>
   
 </li>
@@ -1298,7 +1998,11 @@
       
         <li class="md-nav__item">
   <a href="#guidance-for-specific-topics" class="md-nav__link">
-    Guidance for specific topics
+    <span class="md-ellipsis">
+      
+        Guidance for specific topics
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Guidance for specific topics">
@@ -1306,14 +2010,22 @@
         
           <li class="md-nav__item">
   <a href="#configuration-and-deployment" class="md-nav__link">
-    Configuration and Deployment
+    <span class="md-ellipsis">
+      
+        Configuration and Deployment
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#data-access" class="md-nav__link">
-    Data Access
+    <span class="md-ellipsis">
+      
+        Data Access
+      
+    </span>
   </a>
   
 </li>
@@ -1325,7 +2037,11 @@
       
         <li class="md-nav__item">
   <a href="#asp-net-web-forms-guidance" class="md-nav__link">
-    ASP NET Web Forms Guidance
+    <span class="md-ellipsis">
+      
+        ASP NET Web Forms Guidance
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="ASP NET Web Forms Guidance">
@@ -1333,14 +2049,22 @@
         
           <li class="md-nav__item">
   <a href="#http-validation-and-encoding" class="md-nav__link">
-    HTTP validation and encoding
+    <span class="md-ellipsis">
+      
+        HTTP validation and encoding
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#forms-authentication" class="md-nav__link">
-    Forms authentication
+    <span class="md-ellipsis">
+      
+        Forms authentication
+      
+    </span>
   </a>
   
 </li>
@@ -1352,21 +2076,33 @@
       
         <li class="md-nav__item">
   <a href="#xaml-guidance" class="md-nav__link">
-    XAML Guidance
+    <span class="md-ellipsis">
+      
+        XAML Guidance
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#windows-forms-guidance" class="md-nav__link">
-    Windows Forms Guidance
+    <span class="md-ellipsis">
+      
+        Windows Forms Guidance
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#wcf-guidance" class="md-nav__link">
-    WCF Guidance
+    <span class="md-ellipsis">
+      
+        WCF Guidance
+      
+    </span>
   </a>
   
 </li>
@@ -1385,13 +2121,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    Error Handling
+    
+  
+    Drone Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1402,6 +2146,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1409,9 +2210,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1422,6 +2230,7 @@
             
               
                 
+  
   
   
   
@@ -1429,9 +2238,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1442,6 +2258,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1449,9 +2294,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1462,6 +2314,7 @@
             
               
                 
+  
   
   
   
@@ -1469,9 +2322,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1482,6 +2342,7 @@
             
               
                 
+  
   
   
   
@@ -1489,9 +2350,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1502,6 +2370,7 @@
             
               
                 
+  
   
   
   
@@ -1509,9 +2378,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1522,6 +2398,7 @@
             
               
                 
+  
   
   
   
@@ -1529,9 +2406,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1542,6 +2426,7 @@
             
               
                 
+  
   
   
   
@@ -1549,9 +2434,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1562,6 +2454,7 @@
             
               
                 
+  
   
   
   
@@ -1569,9 +2462,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1582,6 +2482,7 @@
             
               
                 
+  
   
   
   
@@ -1589,9 +2490,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1602,6 +2510,7 @@
             
               
                 
+  
   
   
   
@@ -1609,9 +2518,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1622,6 +2538,7 @@
             
               
                 
+  
   
   
   
@@ -1629,9 +2546,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1642,16 +2566,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1662,6 +2594,7 @@
             
               
                 
+  
   
   
   
@@ -1669,9 +2602,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1682,6 +2622,7 @@
             
               
                 
+  
   
   
   
@@ -1689,9 +2630,16 @@
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1702,6 +2650,7 @@
             
               
                 
+  
   
   
   
@@ -1709,9 +2658,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1722,6 +2678,7 @@
             
               
                 
+  
   
   
   
@@ -1729,9 +2686,16 @@
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1742,6 +2706,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1749,9 +2742,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1762,6 +2762,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1769,9 +2798,16 @@
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1782,6 +2818,7 @@
             
               
                 
+  
   
   
   
@@ -1789,9 +2826,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1802,6 +2846,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1809,9 +2882,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1822,6 +2902,7 @@
             
               
                 
+  
   
   
   
@@ -1829,9 +2910,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1842,6 +2930,7 @@
             
               
                 
+  
   
   
   
@@ -1849,9 +2938,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1862,6 +2958,7 @@
             
               
                 
+  
   
   
   
@@ -1869,9 +2966,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1882,6 +2986,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1889,9 +3022,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1902,6 +3042,7 @@
             
               
                 
+  
   
   
   
@@ -1909,9 +3050,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1922,6 +3070,7 @@
             
               
                 
+  
   
   
   
@@ -1929,9 +3078,16 @@
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1942,6 +3098,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1949,9 +3162,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1962,6 +3182,7 @@
             
               
                 
+  
   
   
   
@@ -1969,9 +3190,16 @@
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1982,6 +3210,7 @@
             
               
                 
+  
   
   
   
@@ -1989,9 +3218,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2002,6 +3238,7 @@
             
               
                 
+  
   
   
   
@@ -2009,9 +3246,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2022,6 +3266,7 @@
             
               
                 
+  
   
   
   
@@ -2029,9 +3274,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2042,6 +3294,7 @@
             
               
                 
+  
   
   
   
@@ -2049,9 +3302,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2062,6 +3322,7 @@
             
               
                 
+  
   
   
   
@@ -2069,9 +3330,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2082,6 +3350,7 @@
             
               
                 
+  
   
   
   
@@ -2089,9 +3358,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2102,6 +3378,7 @@
             
               
                 
+  
   
   
   
@@ -2109,9 +3386,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2122,6 +3406,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2129,9 +3442,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2142,6 +3462,7 @@
             
               
                 
+  
   
   
   
@@ -2149,9 +3470,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2162,6 +3490,7 @@
             
               
                 
+  
   
   
   
@@ -2169,9 +3498,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2182,6 +3518,7 @@
             
               
                 
+  
   
   
   
@@ -2189,9 +3526,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2202,6 +3546,7 @@
             
               
                 
+  
   
   
   
@@ -2209,9 +3554,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2222,6 +3574,7 @@
             
               
                 
+  
   
   
   
@@ -2229,9 +3582,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2242,6 +3602,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2249,9 +3638,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2262,6 +3658,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2269,9 +3722,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2282,6 +3742,7 @@
             
               
                 
+  
   
   
   
@@ -2289,9 +3750,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2302,6 +3770,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2309,9 +3806,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2322,6 +3826,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2329,9 +3862,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2342,6 +3882,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2349,9 +3946,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2362,6 +3966,7 @@
             
               
                 
+  
   
   
   
@@ -2369,9 +3974,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2382,6 +3994,7 @@
             
               
                 
+  
   
   
   
@@ -2389,9 +4002,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2402,6 +4022,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2409,9 +4058,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2422,6 +4078,7 @@
             
               
                 
+  
   
   
   
@@ -2429,9 +4086,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2442,6 +4106,7 @@
             
               
                 
+  
   
   
   
@@ -2449,9 +4114,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2462,6 +4134,7 @@
             
               
                 
+  
   
   
   
@@ -2469,9 +4142,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2482,6 +4162,7 @@
             
               
                 
+  
   
   
   
@@ -2489,9 +4170,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2502,6 +4190,7 @@
             
               
                 
+  
   
   
   
@@ -2509,9 +4198,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2522,6 +4218,7 @@
             
               
                 
+  
   
   
   
@@ -2529,9 +4226,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2542,6 +4246,7 @@
             
               
                 
+  
   
   
   
@@ -2549,9 +4254,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2562,6 +4274,7 @@
             
               
                 
+  
   
   
   
@@ -2569,9 +4282,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2582,6 +4302,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2589,9 +4338,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2602,6 +4358,7 @@
             
               
                 
+  
   
   
   
@@ -2609,9 +4366,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2622,6 +4386,7 @@
             
               
                 
+  
   
   
   
@@ -2629,9 +4394,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2642,6 +4414,7 @@
             
               
                 
+  
   
   
   
@@ -2649,9 +4422,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2665,13 +4445,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2715,7 +4559,11 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Introduction">
@@ -2723,21 +4571,33 @@
         
           <li class="md-nav__item">
   <a href="#the-net-framework" class="md-nav__link">
-    The .NET Framework
+    <span class="md-ellipsis">
+      
+        The .NET Framework
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#updating-the-framework" class="md-nav__link">
-    Updating the Framework
+    <span class="md-ellipsis">
+      
+        Updating the Framework
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#security-announcements" class="md-nav__link">
-    Security Announcements
+    <span class="md-ellipsis">
+      
+        Security Announcements
+      
+    </span>
   </a>
   
 </li>
@@ -2749,7 +4609,11 @@
       
         <li class="md-nav__item">
   <a href="#net-general-guidance" class="md-nav__link">
-    .NET General Guidance
+    <span class="md-ellipsis">
+      
+        .NET General Guidance
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label=".NET General Guidance">
@@ -2757,7 +4621,11 @@
         
           <li class="md-nav__item">
   <a href="#a01-broken-access-control" class="md-nav__link">
-    A01 Broken Access Control
+    <span class="md-ellipsis">
+      
+        A01 Broken Access Control
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A01 Broken Access Control">
@@ -2765,21 +4633,33 @@
         
           <li class="md-nav__item">
   <a href="#weak-account-management" class="md-nav__link">
-    Weak Account management
+    <span class="md-ellipsis">
+      
+        Weak Account management
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#missing-function-level-access-control" class="md-nav__link">
-    Missing function-level access control
+    <span class="md-ellipsis">
+      
+        Missing function-level access control
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#insecure-direct-object-references" class="md-nav__link">
-    Insecure Direct object references
+    <span class="md-ellipsis">
+      
+        Insecure Direct object references
+      
+    </span>
   </a>
   
 </li>
@@ -2791,7 +4671,11 @@
         
           <li class="md-nav__item">
   <a href="#a02-cryptographic-failures" class="md-nav__link">
-    A02 Cryptographic Failures
+    <span class="md-ellipsis">
+      
+        A02 Cryptographic Failures
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A02 Cryptographic Failures">
@@ -2799,42 +4683,66 @@
         
           <li class="md-nav__item">
   <a href="#general-cryptography-guidance" class="md-nav__link">
-    General cryptography guidance
+    <span class="md-ellipsis">
+      
+        General cryptography guidance
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#hashing" class="md-nav__link">
-    Hashing
+    <span class="md-ellipsis">
+      
+        Hashing
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#passwords" class="md-nav__link">
-    Passwords
+    <span class="md-ellipsis">
+      
+        Passwords
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encryption" class="md-nav__link">
-    Encryption
+    <span class="md-ellipsis">
+      
+        Encryption
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encryption-for-storage" class="md-nav__link">
-    Encryption for storage
+    <span class="md-ellipsis">
+      
+        Encryption for storage
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#encryption-for-transmission" class="md-nav__link">
-    Encryption for transmission
+    <span class="md-ellipsis">
+      
+        Encryption for transmission
+      
+    </span>
   </a>
   
 </li>
@@ -2846,7 +4754,11 @@
         
           <li class="md-nav__item">
   <a href="#a03-injection" class="md-nav__link">
-    A03 Injection
+    <span class="md-ellipsis">
+      
+        A03 Injection
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A03 Injection">
@@ -2854,21 +4766,33 @@
         
           <li class="md-nav__item">
   <a href="#sql-injection" class="md-nav__link">
-    SQL Injection
+    <span class="md-ellipsis">
+      
+        SQL Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#os-injection" class="md-nav__link">
-    OS Injection
+    <span class="md-ellipsis">
+      
+        OS Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#ldap-injection" class="md-nav__link">
-    LDAP injection
+    <span class="md-ellipsis">
+      
+        LDAP injection
+      
+    </span>
   </a>
   
 </li>
@@ -2880,14 +4804,22 @@
         
           <li class="md-nav__item">
   <a href="#a04-insecure-design" class="md-nav__link">
-    A04 Insecure Design
+    <span class="md-ellipsis">
+      
+        A04 Insecure Design
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a05-security-misconfiguration" class="md-nav__link">
-    A05 Security Misconfiguration
+    <span class="md-ellipsis">
+      
+        A05 Security Misconfiguration
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A05 Security Misconfiguration">
@@ -2895,14 +4827,22 @@
         
           <li class="md-nav__item">
   <a href="#debug-and-stack-trace" class="md-nav__link">
-    Debug and Stack Trace
+    <span class="md-ellipsis">
+      
+        Debug and Stack Trace
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cross-site-request-forgery" class="md-nav__link">
-    Cross-site request forgery
+    <span class="md-ellipsis">
+      
+        Cross-site request forgery
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Cross-site request forgery">
@@ -2910,21 +4850,33 @@
         
           <li class="md-nav__item">
   <a href="#using-net-framework" class="md-nav__link">
-    Using .NET Framework
+    <span class="md-ellipsis">
+      
+        Using .NET Framework
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#using-net-core-20-or-later" class="md-nav__link">
-    Using .NET Core 2.0 or later
+    <span class="md-ellipsis">
+      
+        Using .NET Core 2.0 or later
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#using-net-core-or-net-framework-with-ajax" class="md-nav__link">
-    Using .Net Core or .NET Framework with AJAX
+    <span class="md-ellipsis">
+      
+        Using .Net Core or .NET Framework with AJAX
+      
+    </span>
   </a>
   
 </li>
@@ -2941,28 +4893,44 @@
         
           <li class="md-nav__item">
   <a href="#a06-vulnerable-and-outdated-components" class="md-nav__link">
-    A06 Vulnerable and Outdated Components
+    <span class="md-ellipsis">
+      
+        A06 Vulnerable and Outdated Components
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a07-identification-and-authentication-failures" class="md-nav__link">
-    A07 Identification and Authentication Failures
+    <span class="md-ellipsis">
+      
+        A07 Identification and Authentication Failures
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a08-software-and-data-integrity-failures" class="md-nav__link">
-    A08 Software and Data Integrity Failures
+    <span class="md-ellipsis">
+      
+        A08 Software and Data Integrity Failures
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a09-security-logging-and-monitoring-failures" class="md-nav__link">
-    A09 Security Logging and Monitoring Failures
+    <span class="md-ellipsis">
+      
+        A09 Security Logging and Monitoring Failures
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="A09 Security Logging and Monitoring Failures">
@@ -2970,14 +4938,22 @@
         
           <li class="md-nav__item">
   <a href="#logging" class="md-nav__link">
-    Logging
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#monitoring" class="md-nav__link">
-    Monitoring
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
   </a>
   
 </li>
@@ -2989,43 +4965,67 @@
         
           <li class="md-nav__item">
   <a href="#a10-server-side-request-forgery-ssrf" class="md-nav__link">
-    A10 Server-Side Request Forgery (SSRF)
+    <span class="md-ellipsis">
+      
+        A10 Server-Side Request Forgery (SSRF)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#owasp-2013-2017" class="md-nav__link">
-    OWASP 2013 &amp; 2017
+    <span class="md-ellipsis">
+      
+        OWASP 2013 &amp; 2017
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="OWASP 2013 & 2017">
+    <nav class="md-nav" aria-label="OWASP 2013 &amp; 2017">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#a042017-xml-external-entities-xxe" class="md-nav__link">
-    A04:2017 XML External Entities (XXE)
+    <span class="md-ellipsis">
+      
+        A04:2017 XML External Entities (XXE)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a072017-cross-site-scripting-xss" class="md-nav__link">
-    A07:2017 Cross-Site Scripting (XSS)
+    <span class="md-ellipsis">
+      
+        A07:2017 Cross-Site Scripting (XSS)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a082017-insecure-deserialization" class="md-nav__link">
-    A08:2017 Insecure Deserialization
+    <span class="md-ellipsis">
+      
+        A08:2017 Insecure Deserialization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#a102013-unvalidated-redirects-and-forwards" class="md-nav__link">
-    A10:2013 Unvalidated redirects and forwards
+    <span class="md-ellipsis">
+      
+        A10:2013 Unvalidated redirects and forwards
+      
+    </span>
   </a>
   
 </li>
@@ -3037,7 +5037,11 @@
         
           <li class="md-nav__item">
   <a href="#other-advice" class="md-nav__link">
-    Other advice
+    <span class="md-ellipsis">
+      
+        Other advice
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Other advice">
@@ -3045,7 +5049,11 @@
         
           <li class="md-nav__item">
   <a href="#sample-project" class="md-nav__link">
-    Sample project
+    <span class="md-ellipsis">
+      
+        Sample project
+      
+    </span>
   </a>
   
 </li>
@@ -3062,7 +5070,11 @@
       
         <li class="md-nav__item">
   <a href="#guidance-for-specific-topics" class="md-nav__link">
-    Guidance for specific topics
+    <span class="md-ellipsis">
+      
+        Guidance for specific topics
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Guidance for specific topics">
@@ -3070,14 +5082,22 @@
         
           <li class="md-nav__item">
   <a href="#configuration-and-deployment" class="md-nav__link">
-    Configuration and Deployment
+    <span class="md-ellipsis">
+      
+        Configuration and Deployment
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#data-access" class="md-nav__link">
-    Data Access
+    <span class="md-ellipsis">
+      
+        Data Access
+      
+    </span>
   </a>
   
 </li>
@@ -3089,7 +5109,11 @@
       
         <li class="md-nav__item">
   <a href="#asp-net-web-forms-guidance" class="md-nav__link">
-    ASP NET Web Forms Guidance
+    <span class="md-ellipsis">
+      
+        ASP NET Web Forms Guidance
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="ASP NET Web Forms Guidance">
@@ -3097,14 +5121,22 @@
         
           <li class="md-nav__item">
   <a href="#http-validation-and-encoding" class="md-nav__link">
-    HTTP validation and encoding
+    <span class="md-ellipsis">
+      
+        HTTP validation and encoding
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#forms-authentication" class="md-nav__link">
-    Forms authentication
+    <span class="md-ellipsis">
+      
+        Forms authentication
+      
+    </span>
   </a>
   
 </li>
@@ -3116,21 +5148,33 @@
       
         <li class="md-nav__item">
   <a href="#xaml-guidance" class="md-nav__link">
-    XAML Guidance
+    <span class="md-ellipsis">
+      
+        XAML Guidance
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#windows-forms-guidance" class="md-nav__link">
-    Windows Forms Guidance
+    <span class="md-ellipsis">
+      
+        Windows Forms Guidance
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#wcf-guidance" class="md-nav__link">
-    WCF Guidance
+    <span class="md-ellipsis">
+      
+        WCF Guidance
+      
+    </span>
   </a>
   
 </li>
@@ -3145,9 +5189,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -3184,22 +5230,23 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <div class="highlight"><pre><span></span><code><span class="n">CookieHttpOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
 </code></pre></div>
 <p>Reduce the time period a session can be stolen in by reducing session timeout and removing sliding expiration:</p>
-<div class="highlight"><pre><span></span><code><span class="n">ExpireTimeSpan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">60</span><span class="p">),</span>
+<p>The decision to use sliding expiration depends on your application's threat model. Setting <code>SlidingExpiration</code> to <code>false</code> enforces an absolute session lifetime, which limits how long a stolen session can be reused, at the cost of reduced usability for long-lived interactive sessions. For some applications, enabling sliding expiration (<code>true</code>) may be preferred for user experience, as it keeps the session alive as long as the user is active. This convenience comes with increased risk if a session is compromised.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ExpireTimeSpan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span>
 <span class="n">SlidingExpiration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span>
 </code></pre></div>
 <p>See <a href="https://github.com/johnstaveley/SecurityEssentials/blob/master/SecurityEssentials/App_Start/Startup.Auth.cs">here</a> for an example of a full startup code snippet.</p>
 <p>Ensure cookies are sent over HTTPS in production. This should be enforced in the config transforms:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;httpCookies</span><span class="w"> </span><span class="na">requireSSL=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;httpCookies</span><span class="w"> </span><span class="na">requireSSL=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;authentication&gt;</span>
-<span class="w">    </span><span class="nt">&lt;forms</span><span class="w"> </span><span class="na">requireSSL=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;forms</span><span class="w"> </span><span class="na">requireSSL=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/authentication&gt;</span>
 </code></pre></div>
 <p>Protect LogOn, Registration and password reset methods against brute force attacks by throttling requests (see code below). Consider also using ReCaptcha.</p>
 <div class="highlight"><pre><span></span><code><span class="na">[HttpPost]</span>
 <span class="na">[AllowAnonymous]</span>
 <span class="na">[ValidateAntiForgeryToken]</span>
-<span class="na">[AllowXRequestsEveryXSecondsAttribute(Name = &quot;LogOn&quot;,</span>
-<span class="na">Message = &quot;You have performed this action more than {x} times in the last {n} seconds.&quot;,</span>
+<span class="na">[AllowXRequestsEveryXSecondsAttribute(Name = "LogOn",</span>
+<span class="na">Message = "You have performed this action more than {x} times in the last {n} seconds.",</span>
 <span class="na">Requests = 3, Seconds = 60)]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">ActionResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">LogOn</span><span class="p">(</span><span class="n">LogOnViewModel</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">returnUrl</span><span class="p">)</span>
 </code></pre></div>
@@ -3208,9 +5255,9 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <p>The feedback to the user should be identical whether or not the account exists, both in terms of content and behavior. E.g., if the response takes 50% longer when the account is real then membership information can be guessed and tested.</p>
 <h4 id="missing-function-level-access-control">Missing function-level access control<a class="headerlink" href="#missing-function-level-access-control" title="Permanent link">&para;</a></h4>
 <p>DO: Authorize users on all externally facing endpoints. The .NET framework has many ways to authorize a user, use them at method level:</p>
-<div class="highlight"><pre><span></span><code><span class="na">[Authorize(Roles = &quot;Admin&quot;)]</span>
+<div class="highlight"><pre><span></span><code><span class="na">[Authorize(Roles = "Admin")]</span>
 <span class="na">[HttpGet]</span>
-<span class="k">public</span><span class="w"> </span><span class="n">ActionResult</span><span class="w"> </span><span class="nf">Index</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="k">public</span><span class="w"> </span><span class="n">ActionResult</span><span class="w"> </span><span class="nf">Index</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p>or better yet, at controller level:</p>
 <div class="highlight"><pre><span></span><code><span class="na">[Authorize]</span>
@@ -3225,7 +5272,7 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <span class="k">public</span><span class="w"> </span><span class="n">ActionResult</span><span class="w"> </span><span class="nf">Edit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="kt">var</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_context</span><span class="p">.</span><span class="n">Users</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="s">&quot;Details&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserViewModel</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="s">"Details"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserViewModel</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// Secure</span>
@@ -3236,10 +5283,10 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">_userIdentity</span><span class="p">.</span><span class="n">GetUserId</span><span class="p">())</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">        </span><span class="n">HandleErrorInfo</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HandleErrorInfo</span><span class="p">(</span>
-<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">&quot;INFO: You do not have permission to edit these details&quot;</span><span class="p">));</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">View</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="p">);</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">"INFO: You do not have permission to edit these details"</span><span class="p">));</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">View</span><span class="p">(</span><span class="s">"Error"</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nf">View</span><span class="p">(</span><span class="s">&quot;Edit&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserViewModel</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nf">View</span><span class="p">(</span><span class="s">"Edit"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserViewModel</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>More information can be found in the <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html">Insecure Direct Object Reference Prevention Cheat Sheet</a>.</p>
@@ -3278,25 +5325,25 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <p>DO: Ensure headers are not disclosing information about your application. See <a href="https://github.com/johnstaveley/SecurityEssentials/blob/master/SecurityEssentials/Core/HttpHeaders.cs">HttpHeaders.cs</a>, <a href="https://github.com/Dionach/StripHeaders/">Dionach StripHeaders</a>, disable via <code>web.config</code> or <a href="https://medium.com/bugbountywriteup/security-headers-1c770105940b">Startup.cs</a>.</p>
 <p>e.g Web.config</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;system.web&gt;</span>
-<span class="w">    </span><span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">enableVersionHeader=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/system.web&gt;</span>
 <span class="nt">&lt;system.webServer&gt;</span>
 <span class="w">    </span><span class="nt">&lt;security&gt;</span>
-<span class="w">        </span><span class="nt">&lt;requestFiltering</span><span class="w"> </span><span class="na">removeServerHeader=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;requestFiltering</span><span class="w"> </span><span class="na">removeServerHeader=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/security&gt;</span>
 <span class="w">    </span><span class="nt">&lt;httpProtocol&gt;</span>
 <span class="w">        </span><span class="nt">&lt;customHeaders&gt;</span>
-<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Content-Type-Options&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Frame-Options&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;DENY&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Permitted-Cross-Domain-Policies&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;master-only&quot;</span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-XSS-Protection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
-<span class="w">            </span><span class="nt">&lt;remove</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Powered-By&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Content-Type-Options"</span><span class="w"> </span><span class="na">value=</span><span class="s">"nosniff"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Frame-Options"</span><span class="w"> </span><span class="na">value=</span><span class="s">"DENY"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Permitted-Cross-Domain-Policies"</span><span class="w"> </span><span class="na">value=</span><span class="s">"master-only"</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-XSS-Protection"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;remove</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Powered-By"</span><span class="nt">/&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/customHeaders&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/httpProtocol&gt;</span>
 <span class="nt">&lt;/system.webServer&gt;</span>
 </code></pre></div>
 <p>e.g Startup.cs</p>
-<div class="highlight"><pre><span></span><code><span class="n">app</span><span class="p">.</span><span class="n">UseHsts</span><span class="p">(</span><span class="n">hsts</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">hsts</span><span class="p">.</span><span class="n">MaxAge</span><span class="p">(</span><span class="m">365</span><span class="p">).</span><span class="n">IncludeSubdomains</span><span class="p">());</span>
+<div class="highlight"><pre><span></span><code><span class="n">app</span><span class="p">.</span><span class="n">UseHsts</span><span class="p">(</span><span class="n">hsts</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">hsts</span><span class="p">.</span><span class="n">MaxAge</span><span class="p">(</span><span class="mi">365</span><span class="p">).</span><span class="n">IncludeSubdomains</span><span class="p">());</span>
 <span class="n">app</span><span class="p">.</span><span class="n">UseXContentTypeOptions</span><span class="p">();</span>
 <span class="n">app</span><span class="p">.</span><span class="n">UseReferrerPolicy</span><span class="p">(</span><span class="n">opts</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opts</span><span class="p">.</span><span class="n">NoReferrer</span><span class="p">());</span>
 <span class="n">app</span><span class="p">.</span><span class="n">UseXXssProtection</span><span class="p">(</span><span class="n">options</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">FilterDisabled</span><span class="p">());</span>
@@ -3339,7 +5386,7 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <span class="w">    </span><span class="p">{</span>
 
 <span class="w">        </span><span class="c1">// Key of 32 bytes / 256 bits for AES</span>
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">32</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
 <span class="w">        </span><span class="n">RandomNumberGenerator</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// MaxSize = 12 bytes / 96 bits and this size should always be used.</span>
@@ -3349,7 +5396,7 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <span class="w">        </span><span class="c1">// Tag for authenticated encryption</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="n">AesGcm</span><span class="p">.</span><span class="n">TagByteSizes</span><span class="p">.</span><span class="n">MaxSize</span><span class="p">];</span>
 
-<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This message to be encrypted&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"This message to be encrypted"</span><span class="p">;</span>
 <span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// Encrypt the message</span>
@@ -3409,7 +5456,7 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <ul>
 <li>Again, follow the algorithm guidance in the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html#algorithms">OWASP Cryptographic Storage Cheat Sheet</a>.</li>
 </ul>
-<p>The following code snippet shows an example of using Eliptic Curve/Diffie Helman (ECDH) together with AES-GCM to perform encryption/decryption of data between two different sides without the need the transfer the symmetric key between the two sides. Instead, the sides exchange public keys and can then use ECDH to generate a shared secret which can be used for the symmetric encryption.</p>
+<p>The following code snippet shows an example of using Elliptic Curve/Diffie-Hellman (ECDH) together with AES-GCM to perform encryption/decryption of data between two different sides without the need to transfer the symmetric key between the two sides. Instead, the sides exchange public keys and can then use ECDH to generate a shared secret which can be used for the symmetric encryption.</p>
 <p>Again, it is strongly recommended to have a cryptography expert review your final design and code, as even the most trivial error can severely weaken your encryption.</p>
 <p>Note that this code sample relies on the <code>AesGcmSimple</code> class from the <a href="#encryption-for-storage">previous section</a>.</p>
 <p>A few constraints/pitfalls with this code:</p>
@@ -3435,31 +5482,31 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">bob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ECDHSimple</span><span class="p">();</span>
 <span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">bobPublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bob</span><span class="p">.</span><span class="n">PublicKey</span><span class="p">;</span>
 
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">plaintext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, Bob! How are you?&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Secret being sent from Alice to Bob: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">plaintext</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">plaintext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, Bob! How are you?"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Secret being sent from Alice to Bob: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">plaintext</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// Note that a new nonce is generated with every encryption operation in line with</span>
 <span class="w">        </span><span class="c1">// in line with the AES GCM security</span>
 <span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">tag</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">nonce</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">cipherText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alice</span><span class="p">.</span><span class="n">Encrypt</span><span class="p">(</span><span class="n">bobPublicKey</span><span class="p">,</span><span class="w"> </span><span class="n">plaintext</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">nonce</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Ciphertext, nonce, and tag being sent from Alice to Bob: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">cipherText</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">tag</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Ciphertext, nonce, and tag being sent from Alice to Bob: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">cipherText</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">tag</span><span class="p">));</span>
 
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">decrypted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bob</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">alicePublicKey</span><span class="p">,</span><span class="w"> </span><span class="n">cipherText</span><span class="p">,</span><span class="w"> </span><span class="n">nonce</span><span class="p">,</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Secret received by Bob from Alice: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">decrypted</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Secret received by Bob from Alice: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">decrypted</span><span class="p">);</span>
 
 <span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
 
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">plaintext2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, Alice! I&#39;m good, how are you?&quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Secret being sent from Bob to Alice: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">plaintext2</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">plaintext2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello, Alice! I'm good, how are you?"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Secret being sent from Bob to Alice: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">plaintext2</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">tag2</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">nonce2</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">cipherText2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bob</span><span class="p">.</span><span class="n">Encrypt</span><span class="p">(</span><span class="n">alicePublicKey</span><span class="p">,</span><span class="w"> </span><span class="n">plaintext2</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">nonce2</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">tag2</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Ciphertext, nonce, and tag being sent from Bob to Alice: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">cipherText2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">nonce2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">tag2</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Ciphertext, nonce, and tag being sent from Bob to Alice: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">cipherText2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">nonce2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">tag2</span><span class="p">));</span>
 
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">decrypted2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alice</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">bobPublicKey</span><span class="p">,</span><span class="w"> </span><span class="n">cipherText2</span><span class="p">,</span><span class="w"> </span><span class="n">nonce2</span><span class="p">,</span><span class="w"> </span><span class="n">tag2</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Secret received by Alice from Bob: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">decrypted2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Secret received by Alice from Bob: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">decrypted2</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -3507,11 +5554,11 @@ to assess for other threats or get a professionally completed Penetration Test.<
 
 <span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="nf">GenerateAESKey</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">partnerPublicKey</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Derive the secret based on this side&#39;s private key and the other side&#39;s public key</span>
+<span class="w">        </span><span class="c1">// Derive the secret based on this side's private key and the other side's public key</span>
 <span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ecdh</span><span class="p">.</span><span class="n">DeriveKeyMaterial</span><span class="p">(</span><span class="n">CngKey</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="n">partnerPublicKey</span><span class="p">,</span><span class="w"> </span><span class="n">CngKeyBlobFormat</span><span class="p">.</span><span class="n">EccPublicBlob</span><span class="p">));</span>
 
-<span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">aesKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="m">32</span><span class="p">];</span><span class="w"> </span><span class="c1">// 256-bit AES key</span>
-<span class="w">        </span><span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">aesKey</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">32</span><span class="p">);</span><span class="w"> </span><span class="c1">// Copy first 32 bytes as the key</span>
+<span class="w">        </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">aesKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span><span class="w"> </span><span class="c1">// 256-bit AES key</span>
+<span class="w">        </span><span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">aesKey</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span><span class="w"> </span><span class="c1">// Copy first 32 bytes as the key</span>
 
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">aesKey</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -3526,16 +5573,16 @@ to assess for other threats or get a professionally completed Penetration Test.<
 <p>DO: Use parameterized queries where a direct SQL query must be used. More Information can be found in the
 <a href="Query_Parameterization_Cheat_Sheet.html">Query Parameterization Cheat Sheet</a>.</p>
 <p>E.g., using Entity Framework:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;Update [User] SET FirstName = @FirstName WHERE Id = @Id&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@"Update [User] SET FirstName = @FirstName WHERE Id = @Id"</span><span class="p">;</span>
 <span class="n">context</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">ExecuteSqlCommand</span><span class="p">(</span>
 <span class="w">    </span><span class="n">sql</span><span class="p">,</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">SqlParameter</span><span class="p">(</span><span class="s">&quot;@FirstName&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">firstname</span><span class="p">),</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">SqlParameter</span><span class="p">(</span><span class="s">&quot;@Id&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">));</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">SqlParameter</span><span class="p">(</span><span class="s">"@FirstName"</span><span class="p">,</span><span class="w"> </span><span class="n">firstname</span><span class="p">),</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">SqlParameter</span><span class="p">(</span><span class="s">"@Id"</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">));</span>
 </code></pre></div>
 <p>DO NOT: Concatenate strings anywhere in your code and execute them against your database (Known as <em>dynamic SQL</em>).</p>
 <p>Note: You can still accidentally do this with ORMs or Stored procedures so check everywhere. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">string</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SELECT * FROM Users WHERE UserName=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">txtUser</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39; AND Password=&#39;&quot;</span>
-<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="n">txtPassword</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"SELECT * FROM Users WHERE UserName='"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">txtUser</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"' AND Password='"</span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="n">txtPassword</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"'"</span><span class="p">;</span>
 <span class="n">context</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">ExecuteSqlCommand</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span><span class="w"> </span><span class="c1">// SQL Injection vulnerability!</span>
 </code></pre></div>
 <p>DO: Practice Least Privilege - connect to the database using an account with a minimum set of permissions required
@@ -3546,8 +5593,8 @@ to do its job, not the database administrator account.</p>
 <p>e.g</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">Process</span><span class="p">();</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">startInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Diagnostics</span><span class="p">.</span><span class="n">ProcessStartInfo</span><span class="p">();</span>
-<span class="n">startInfo</span><span class="p">.</span><span class="n">FileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;validatedCommand&quot;</span><span class="p">;</span>
-<span class="n">startInfo</span><span class="p">.</span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;validatedArg1 validatedArg2 validatedArg3&quot;</span><span class="p">;</span>
+<span class="n">startInfo</span><span class="p">.</span><span class="n">FileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"validatedCommand"</span><span class="p">;</span>
+<span class="n">startInfo</span><span class="p">.</span><span class="n">Arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"validatedArg1 validatedArg2 validatedArg3"</span><span class="p">;</span>
 <span class="n">process</span><span class="p">.</span><span class="n">StartInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startInfo</span><span class="p">;</span>
 <span class="n">process</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
 </code></pre></div>
@@ -3555,7 +5602,7 @@ to do its job, not the database administrator account.</p>
 <p>DO: Use allowlist validation on all user supplied input wherever possible. Input validation prevents improperly formed data from entering an information system. For more information please see the <a href="Input_Validation_Cheat_Sheet.html">Input Validation Cheat Sheet</a>.</p>
 <p>e.g Validating user input using <a href="https://docs.microsoft.com/en-us/dotnet/api/system.net.ipaddress.tryparse?view=netframework-4.8">IPAddress.TryParse Method</a></p>
 <div class="highlight"><pre><span></span><code><span class="c1">//User input</span>
-<span class="kt">string</span><span class="w"> </span><span class="n">ipAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">ipAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"127.0.0.1"</span><span class="p">;</span>
 
 <span class="c1">//check to make sure an ip address was provided</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">))</span>
@@ -3594,8 +5641,8 @@ technology or language and is therefore out of scope for this cheat sheet. See t
 <h3 id="a05-security-misconfiguration">A05 Security Misconfiguration<a class="headerlink" href="#a05-security-misconfiguration" title="Permanent link">&para;</a></h3>
 <h4 id="debug-and-stack-trace">Debug and Stack Trace<a class="headerlink" href="#debug-and-stack-trace" title="Permanent link">&para;</a></h4>
 <p>Ensure debug and trace are off in production. This can be enforced using web.config transforms:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;compilation</span><span class="w"> </span><span class="na">xdt:Transform=</span><span class="s">&quot;RemoveAttributes(debug)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;trace</span><span class="w"> </span><span class="na">enabled=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">xdt:Transform=</span><span class="s">&quot;Replace&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;compilation</span><span class="w"> </span><span class="na">xdt:Transform=</span><span class="s">"RemoveAttributes(debug)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;trace</span><span class="w"> </span><span class="na">enabled=</span><span class="s">"false"</span><span class="w"> </span><span class="na">xdt:Transform=</span><span class="s">"Replace"</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>DO NOT: Use default passwords</p>
 <p>DO: Redirect a request made over HTTP to HTTPS:</p>
@@ -3607,7 +5654,7 @@ technology or language and is therefore out of scope for this cheat sheet. See t
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Request</span><span class="p">.</span><span class="n">IsLocal</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">Context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">IsSecureConnection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">redirect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Url</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span>
 <span class="w">                        </span><span class="p">.</span><span class="n">ToLower</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">)</span>
-<span class="w">                        </span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;http:&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;https:&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">"http:"</span><span class="p">,</span><span class="w"> </span><span class="s">"https:"</span><span class="p">);</span>
 <span class="w">        </span><span class="n">Response</span><span class="p">.</span><span class="n">Redirect</span><span class="p">(</span><span class="n">redirect</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="cp">#endif</span>
@@ -3620,16 +5667,16 @@ technology or language and is therefore out of scope for this cheat sheet. See t
 <p>DO NOT: Send sensitive data without validating Anti-Forgery-Tokens (<a href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks">.NET</a> / <a href="https://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-7.0#aspnet-core-antiforgery-configuration">.NET Core</a>).</p>
 <p>DO: Send the anti-forgery token with every POST/PUT request:</p>
 <h5 id="using-net-framework">Using .NET Framework<a class="headerlink" href="#using-net-framework" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="s">&quot;LogOff&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;logoutForm&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="n">@class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pull-right&quot;</span><span class="w"> </span><span class="p">}))</span>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="s">"LogOff"</span><span class="p">,</span><span class="w"> </span><span class="s">"Account"</span><span class="p">,</span><span class="w"> </span><span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"logoutForm"</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">@class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"pull-right"</span><span class="w"> </span><span class="p">}))</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">@Html</span><span class="p">.</span><span class="n">AntiForgeryToken</span><span class="p">()</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="n">class</span><span class="o">=</span><span class="s">&quot;nav nav-pills&quot;</span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="n">role</span><span class="o">=</span><span class="s">&quot;presentation&quot;</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">ul</span><span class="w"> </span><span class="n">class</span><span class="o">=</span><span class="s">"nav nav-pills"</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="n">role</span><span class="o">=</span><span class="s">"presentation"</span><span class="o">&gt;</span>
 <span class="w">        </span><span class="n">Logged</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">@User</span><span class="p">.</span><span class="n">Identity</span><span class="p">.</span><span class="n">Name</span>
 <span class="w">        </span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="n">role</span><span class="o">=</span><span class="s">&quot;presentation&quot;</span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="n">a</span><span class="w"> </span><span class="n">href</span><span class="o">=</span><span class="s">&quot;javascript:document.getElementById(&#39;logoutForm&#39;).submit()&quot;</span><span class="o">&gt;</span><span class="n">Log</span><span class="w"> </span><span class="n">off</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="n">li</span><span class="w"> </span><span class="n">role</span><span class="o">=</span><span class="s">"presentation"</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="n">a</span><span class="w"> </span><span class="n">href</span><span class="o">=</span><span class="s">"javascript:document.getElementById('logoutForm').submit()"</span><span class="o">&gt;</span><span class="n">Log</span><span class="w"> </span><span class="n">off</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 <span class="w">        </span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
 <span class="p">}</span>
@@ -3649,9 +5696,9 @@ technology or language and is therefore out of scope for this cheat sheet. See t
 <span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">allCookies</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Cookies</span><span class="p">[</span><span class="n">cookie</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">            </span><span class="n">cookie</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;__RequestVerificationToken&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">cookie</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"__RequestVerificationToken"</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">controller</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Cookies</span><span class="p">[</span><span class="n">cookie</span><span class="p">].</span><span class="n">Expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">AddDays</span><span class="p">(</span><span class="o">-</span><span class="m">1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">controller</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Cookies</span><span class="p">[</span><span class="n">cookie</span><span class="p">].</span><span class="n">Expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">AddDays</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -3663,7 +5710,7 @@ technology or language and is therefore out of scope for this cheat sheet. See t
 </code></pre></div>
 <p><code>IHtmlHelper.BeginForm</code> also sends anti-forgery-tokens automatically.</p>
 <p>If you are not using tag-helpers or <code>IHtmlHelper.BeginForm</code>, you must use the requisite helper on forms as seen here:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;RelevantAction&quot;</span> <span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"RelevantAction"</span> <span class="p">&gt;</span>
 @Html.AntiForgeryToken()
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3703,12 +5750,12 @@ technology or language and is therefore out of scope for this cheat sheet. See t
 <div class="highlight"><pre><span></span><code><span class="err">@</span><span class="nx">inject</span><span class="w">  </span><span class="nx">Microsoft</span><span class="p">.</span><span class="nx">AspNetCore</span><span class="p">.</span><span class="nx">Antiforgery</span><span class="p">.</span><span class="nx">IAntiforgery</span><span class="w"> </span><span class="nx">antiforgeryProvider</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;@Url.Action(&quot;Action&quot;, &quot;Controller&quot;)&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">contentType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/x-www-form-urlencoded; charset=utf-8&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">'@Url.Action("Action", "Controller")'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">contentType</span><span class="o">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded; charset=utf-8"</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;__RequestVerificationToken&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;@antiforgeryProvider.GetAndStoreTokens(this.Context).RequestToken&#39;</span>
+<span class="w">        </span><span class="s1">'__RequestVerificationToken'</span><span class="o">:</span><span class="w"> </span><span class="s1">'@antiforgeryProvider.GetAndStoreTokens(this.Context).RequestToken'</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div>
@@ -3730,14 +5777,14 @@ ASP.NET Core Identity framework is well configured by default, where it uses sec
 <span class="p">{</span>
 <span class="w"> </span><span class="c1">// Password settings</span>
 <span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireDigit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequiredLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">;</span>
+<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequiredLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
 <span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireNonAlphanumeric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireUppercase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequireLowercase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequiredUniqueChars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">;</span>
+<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Password</span><span class="p">.</span><span class="n">RequiredUniqueChars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
 
-<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Lockout</span><span class="p">.</span><span class="n">DefaultLockoutTimeSpan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="m">30</span><span class="p">);</span>
-<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Lockout</span><span class="p">.</span><span class="n">MaxFailedAccessAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Lockout</span><span class="p">.</span><span class="n">DefaultLockoutTimeSpan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Lockout</span><span class="p">.</span><span class="n">MaxFailedAccessAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
 <span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">SignIn</span><span class="p">.</span><span class="n">RequireConfirmedEmail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 
@@ -3750,8 +5797,9 @@ ASP.NET Core Identity framework is well configured by default, where it uses sec
 <span class="n">services</span><span class="p">.</span><span class="n">ConfigureApplicationCookie</span><span class="p">(</span><span class="n">options</span><span class="w"> </span><span class="o">=&gt;</span>
 <span class="p">{</span>
 <span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Cookie</span><span class="p">.</span><span class="n">HttpOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">Cookie</span><span class="p">.</span><span class="n">Expiration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromHours</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
-<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">SlidingExpiration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">ExpireTimeSpan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="w"> </span><span class="c1">// See the discussion in A01 for trade-offs on using sliding expiration.</span>
+<span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="n">SlidingExpiration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div>
 <h3 id="a08-software-and-data-integrity-failures">A08 Software and Data Integrity Failures<a class="headerlink" href="#a08-software-and-data-integrity-failures" title="Permanent link">&para;</a></h3>
@@ -3766,7 +5814,7 @@ objects received from the network</p>
 .NET offers several in-box serializers that can handle untrusted data safely:</p>
 <ul>
 <li>XmlSerializer and DataContractSerializer to serialize object graphs into and from XML. Do not confuse DataContractSerializer with NetDataContractSerializer.</li>
-<li>BinaryReader and BinaryWriter for XML and JSON.</li>
+<li>BinaryReader and BinaryWriter for reading and writing primitive data types (such as Int32, Double, Boolean, and String) in binary format.</li>
 <li>The System.Text.Json APIs to serialize object graphs into JSON.</li>
 </ul>
 <h3 id="a09-security-logging-and-monitoring-failures">A09 Security Logging and Monitoring Failures<a class="headerlink" href="#a09-security-logging-and-monitoring-failures" title="Permanent link">&para;</a></h3>
@@ -3777,7 +5825,7 @@ objects received from the network</p>
 <h4 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h4>
 <p>What logs to collect and more information about logging can be found in the <a href="Logging_Cheat_Sheet.html">Logging Cheat Sheet</a>.</p>
 <p>.NET Core comes with a LoggerFactory, which is in Microsoft.Extensions.Logging. More information about ILogger can be found <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.ilogger">here</a>.</p>
-<p>How to log all errors from the <code>Startup.cs</code>, so that anytime an error is thrown it will be logged:</p>
+<p>Here's how to log all errors from the <code>Startup.cs</code>, so that anytime an error is thrown it will be logged:</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Configure</span><span class="p">(</span><span class="n">IApplicationBuilder</span><span class="w"> </span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="n">IHostingEnvironment</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">IsDevelopment</span><span class="p">())</span>
@@ -3794,7 +5842,7 @@ objects received from the network</p>
 <span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">errorFeature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="n">Features</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">IExceptionHandlerFeature</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">exception</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">errorFeature</span><span class="p">.</span><span class="n">Error</span><span class="p">;</span>
 
-<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Stacktrace of error: {0}&quot;</span><span class="p">,</span><span class="n">exception</span><span class="p">.</span><span class="n">StackTrace</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
+<span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">"Stacktrace of error: {0}"</span><span class="p">,</span><span class="n">exception</span><span class="p">.</span><span class="n">StackTrace</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
 <span class="w">        </span><span class="p">});</span>
 <span class="w">    </span><span class="p">});</span>
 
@@ -3824,14 +5872,14 @@ objects received from the network</p>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Succeeded</span><span class="p">)</span>
 <span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="c1">//Log all successful log in attempts</span>
-<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;User: {0}, Successfully Logged in&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
+<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">"User: {0}, Successfully Logged in"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
 <span class="w">                    </span><span class="c1">//Code for successful login</span>
 <span class="w">                    </span><span class="c1">//...</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">                </span><span class="k">else</span>
 <span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="c1">//Log all incorrect log in attempts</span>
-<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;User: {0}, Incorrect Password&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
+<span class="w">                    </span><span class="n">Log</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">"User: {0}, Incorrect Password"</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="n">Email</span><span class="p">));</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">             </span><span class="p">}</span>
 <span class="w">            </span><span class="p">...</span>
@@ -3863,10 +5911,10 @@ JavaScript, CSS, LDAP, etc., use the Microsoft AntiXSS library:</p>
 <p><code>Install-Package AntiXSS</code></p>
 <p>Then set in config:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;system.web&gt;</span>
-<span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">targetFramework=</span><span class="s">&quot;4.5&quot;</span>
-<span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span>
-<span class="na">encoderType=</span><span class="s">&quot;Microsoft.Security.Application.AntiXssEncoder, AntiXssLibrary&quot;</span>
-<span class="na">maxRequestLength=</span><span class="s">&quot;4096&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">targetFramework=</span><span class="s">"4.5"</span>
+<span class="na">enableVersionHeader=</span><span class="s">"false"</span>
+<span class="na">encoderType=</span><span class="s">"Microsoft.Security.Application.AntiXssEncoder, AntiXssLibrary"</span>
+<span class="na">maxRequestLength=</span><span class="s">"4096"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>DO NOT: Use the <code>[AllowHTML]</code> attribute or helper class <code>@Html.Raw</code> unless you are absolutely
 sure that the content you are writing to the browser is safe and has been escaped properly.</p>
@@ -3874,9 +5922,9 @@ sure that the content you are writing to the browser is safe and has been escape
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;system.webServer&gt;</span>
 <span class="w">    </span><span class="nt">&lt;httpProtocol&gt;</span>
 <span class="w">        </span><span class="nt">&lt;customHeaders&gt;</span>
-<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Content-Security-Policy&quot;</span>
-<span class="w">                </span><span class="na">value=</span><span class="s">&quot;default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;;</span>
-<span class="s">                font-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"Content-Security-Policy"</span>
+<span class="w">                </span><span class="na">value=</span><span class="s">"default-src 'none'; style-src 'self'; img-src 'self';</span>
+<span class="s">                font-src 'self'; script-src 'self'"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>More information can be found in the <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">Cross Site Scripting Prevention Cheat Sheet</a>.</p>
 <h4 id="a082017-insecure-deserialization">A08:2017 Insecure Deserialization<a class="headerlink" href="#a082017-insecure-deserialization" title="Permanent link">&para;</a></h4>
@@ -3885,7 +5933,7 @@ sure that the content you are writing to the browser is safe and has been escape
 <p>Malicious users are able to use objects like cookies to insert malicious information to change user roles. In some cases, hackers are able to elevate their privileges to administrator rights by using a pre-existing or cached password hash from a previous session.</p>
 <p>DO: Prevent Deserialization of Domain Objects</p>
 <p>DO: Run the Deserialization Code with Limited Access Permissions
-If a deserialized hostile object tries to initiate a system processes or access a resource within the server or the host's OS, it will be denied access and a permission flag will be raised so that a system administrator is made aware of any anomalous activity on the server.</p>
+If a deserialized hostile object tries to initiate a system process or access a resource within the server or the host's OS, it will be denied access and a permission flag will be raised so that a system administrator is made aware of any anomalous activity on the server.</p>
 <p>More information about Insecure Deserialization can be found in the <a href="Deserialization_Cheat_Sheet.html#net-csharp">Deserialization Cheat Sheet</a>.</p>
 <h4 id="a102013-unvalidated-redirects-and-forwards">A10:2013 Unvalidated redirects and forwards<a class="headerlink" href="#a102013-unvalidated-redirects-and-forwards" title="Permanent link">&para;</a></h4>
 <p>A protection against this was introduced in MVC 3 template. Here is the code:</p>
@@ -3908,7 +5956,7 @@ If a deserialized hostile object tries to initiate a system processes or access 
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">else</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">RedirectToAction</span><span class="p">(</span><span class="s">&quot;Landing&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Account&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">RedirectToAction</span><span class="p">(</span><span class="s">"Landing"</span><span class="p">,</span><span class="w"> </span><span class="s">"Account"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3929,7 +5977,12 @@ go to <a href="http://github.com/johnstaveley/SecurityEssentials/">Security Esse
 <ul>
 <li>Lock down config files.<ul>
 <li>Remove all aspects of configuration that are not in use.</li>
-<li>Encrypt sensitive parts of the <code>web.config</code> using <code>aspnet_regiis -pe</code> (<a href="https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-2.0/k6h9cz8h(v=vs.80)">command line help</a>).</li>
+<li><strong>Do not store secrets in source-controlled config files (<code>web.config</code>, <code>appsettings.json</code>).</strong> Keep secrets out of the configuration file entirely.<ul>
+<li>Modern .NET (Core / 6+ / 8+): use <a href="https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets">User Secrets</a> for development and a managed secret store (Azure Key Vault, AWS Secrets Manager, HashiCorp Vault) accessed via Managed Identity / Workload Identity for production.</li>
+<li>Legacy .NET Framework (4.7.1+): use <a href="https://learn.microsoft.com/en-us/aspnet/config-builder">Configuration Builders</a> (e.g. <code>Microsoft.Configuration.ConfigurationBuilders.Azure</code>, <code>...Environment</code>) to inject secrets at runtime from a secret store or environment variables, so they never appear in <code>web.config</code>.</li>
+<li>Only as a last resort — for legacy applications that cannot be modified — encrypt sensitive <code>web.config</code> sections using <code>aspnet_regiis -pe</code> (<a href="https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-2.0/k6h9cz8h(v=vs.80)">command line help</a>). Note that this only protects the file at rest on the server; the application still loads the plaintext into memory.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>For ClickOnce applications, the .NET Framework should be upgraded to use the latest version to ensure support of TLS 1.2 or later.</li>
@@ -3962,8 +6015,8 @@ go to <a href="http://github.com/johnstaveley/SecurityEssentials/">Security Esse
 <span class="p">}</span>
 </code></pre></div>
 <p>If you don't use Viewstate, then look to the default main page of the ASP.NET Web Forms default template for a manual anti-CSRF token using a double-submit cookie.</p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">AntiXsrfTokenKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;__AntiXsrfToken&quot;</span><span class="p">;</span>
-<span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">AntiXsrfUserNameKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;__AntiXsrfUserName&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">AntiXsrfTokenKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"__AntiXsrfToken"</span><span class="p">;</span>
+<span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">AntiXsrfUserNameKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"__AntiXsrfUserName"</span><span class="p">;</span>
 <span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">_antiXsrfTokenValue</span><span class="p">;</span>
 <span class="k">protected</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Page_Init</span><span class="p">(</span><span class="kt">object</span><span class="w"> </span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">EventArgs</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
 <span class="p">{</span>
@@ -3979,7 +6032,7 @@ go to <a href="http://github.com/johnstaveley/SecurityEssentials/">Security Esse
 <span class="w">    </span><span class="k">else</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">       </span><span class="c1">// Generate a new Anti-XSRF token and save to the cookie</span>
-<span class="w">       </span><span class="n">_antiXsrfTokenValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">().</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;N&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="n">_antiXsrfTokenValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">().</span><span class="n">ToString</span><span class="p">(</span><span class="s">"N"</span><span class="p">);</span>
 <span class="w">       </span><span class="n">Page</span><span class="p">.</span><span class="n">ViewStateUserKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_antiXsrfTokenValue</span><span class="p">;</span>
 <span class="w">       </span><span class="kt">var</span><span class="w"> </span><span class="n">responseCookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HttpCookie</span><span class="p">(</span><span class="n">AntiXsrfTokenKey</span><span class="p">)</span>
 <span class="w">       </span><span class="p">{</span>
@@ -4008,7 +6061,7 @@ go to <a href="http://github.com/johnstaveley/SecurityEssentials/">Security Esse
 <span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">string</span><span class="p">)</span><span class="n">ViewState</span><span class="p">[</span><span class="n">AntiXsrfTokenKey</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">_antiXsrfTokenValue</span><span class="w"> </span><span class="o">||</span>
 <span class="w">          </span><span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">ViewState</span><span class="p">[</span><span class="n">AntiXsrfUserNameKey</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">User</span><span class="p">.</span><span class="n">Identity</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">))</span>
 <span class="w">       </span><span class="p">{</span>
-<span class="w">          </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">&quot;Validation of Anti-XSRF token failed.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InvalidOperationException</span><span class="p">(</span><span class="s">"Validation of Anti-XSRF token failed."</span><span class="p">);</span>
 <span class="w">       </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4017,50 +6070,50 @@ go to <a href="http://github.com/johnstaveley/SecurityEssentials/">Security Esse
 <li>Consider <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">HSTS</a> in IIS. See <a href="https://support.microsoft.com/en-us/help/954002/how-to-add-a-custom-http-response-header-to-a-web-site-that-is-hosted">here</a> for the procedure.</li>
 <li>This is a recommended <code>web.config</code> setup that handles HSTS among other things.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w"> </span><span class="nt">&lt;configuration&gt;</span>
 <span class="w">   </span><span class="nt">&lt;system.web&gt;</span>
-<span class="w">     </span><span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">     </span><span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">enableVersionHeader=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;/system.web&gt;</span>
 <span class="w">   </span><span class="nt">&lt;system.webServer&gt;</span>
 <span class="w">     </span><span class="nt">&lt;security&gt;</span>
-<span class="w">       </span><span class="nt">&lt;requestFiltering</span><span class="w"> </span><span class="na">removeServerHeader=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">       </span><span class="nt">&lt;requestFiltering</span><span class="w"> </span><span class="na">removeServerHeader=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">     </span><span class="nt">&lt;/security&gt;</span>
 <span class="w">     </span><span class="nt">&lt;staticContent&gt;</span>
-<span class="w">       </span><span class="nt">&lt;clientCache</span><span class="w"> </span><span class="na">cacheControlCustom=</span><span class="s">&quot;public&quot;</span>
-<span class="w">            </span><span class="na">cacheControlMode=</span><span class="s">&quot;UseMaxAge&quot;</span>
-<span class="w">            </span><span class="na">cacheControlMaxAge=</span><span class="s">&quot;1.00:00:00&quot;</span>
-<span class="w">            </span><span class="na">setEtag=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">       </span><span class="nt">&lt;clientCache</span><span class="w"> </span><span class="na">cacheControlCustom=</span><span class="s">"public"</span>
+<span class="w">            </span><span class="na">cacheControlMode=</span><span class="s">"UseMaxAge"</span>
+<span class="w">            </span><span class="na">cacheControlMaxAge=</span><span class="s">"1.00:00:00"</span>
+<span class="w">            </span><span class="na">setEtag=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">     </span><span class="nt">&lt;/staticContent&gt;</span>
 <span class="w">     </span><span class="nt">&lt;httpProtocol&gt;</span>
 <span class="w">       </span><span class="nt">&lt;customHeaders&gt;</span>
-<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Content-Security-Policy&quot;</span>
-<span class="w">            </span><span class="na">value=</span><span class="s">&quot;default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; font-src &#39;self&#39;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Content-Type-Options&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;NOSNIFF&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Frame-Options&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;DENY&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Permitted-Cross-Domain-Policies&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;master-only&quot;</span><span class="nt">/&gt;</span>
-<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-XSS-Protection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
-<span class="w">         </span><span class="nt">&lt;remove</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;X-Powered-By&quot;</span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"Content-Security-Policy"</span>
+<span class="w">            </span><span class="na">value=</span><span class="s">"default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Content-Type-Options"</span><span class="w"> </span><span class="na">value=</span><span class="s">"NOSNIFF"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Frame-Options"</span><span class="w"> </span><span class="na">value=</span><span class="s">"DENY"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Permitted-Cross-Domain-Policies"</span><span class="w"> </span><span class="na">value=</span><span class="s">"master-only"</span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-XSS-Protection"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;remove</span><span class="w"> </span><span class="na">name=</span><span class="s">"X-Powered-By"</span><span class="nt">/&gt;</span>
 <span class="w">       </span><span class="nt">&lt;/customHeaders&gt;</span>
 <span class="w">     </span><span class="nt">&lt;/httpProtocol&gt;</span>
 <span class="w">     </span><span class="nt">&lt;rewrite&gt;</span>
 <span class="w">       </span><span class="nt">&lt;rules&gt;</span>
-<span class="w">         </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Redirect to https&quot;</span><span class="nt">&gt;</span>
-<span class="w">           </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">url=</span><span class="s">&quot;(.*)&quot;</span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">name=</span><span class="s">"Redirect to https"</span><span class="nt">&gt;</span>
+<span class="w">           </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">url=</span><span class="s">"(.*)"</span><span class="nt">/&gt;</span>
 <span class="w">           </span><span class="nt">&lt;conditions&gt;</span>
-<span class="w">             </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">input=</span><span class="s">&quot;{HTTPS}&quot;</span><span class="w"> </span><span class="na">pattern=</span><span class="s">&quot;Off&quot;</span><span class="nt">/&gt;</span>
-<span class="w">             </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">input=</span><span class="s">&quot;{REQUEST_METHOD}&quot;</span><span class="w"> </span><span class="na">pattern=</span><span class="s">&quot;^get$|^head$&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">             </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">input=</span><span class="s">"{HTTPS}"</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"Off"</span><span class="nt">/&gt;</span>
+<span class="w">             </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">input=</span><span class="s">"{REQUEST_METHOD}"</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"^get$|^head$"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">           </span><span class="nt">&lt;/conditions&gt;</span>
-<span class="w">           </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Redirect&quot;</span><span class="w"> </span><span class="na">url=</span><span class="s">&quot;https://{HTTP_HOST}/{R:1}&quot;</span><span class="w"> </span><span class="na">redirectType=</span><span class="s">&quot;Permanent&quot;</span><span class="nt">/&gt;</span>
+<span class="w">           </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">type=</span><span class="s">"Redirect"</span><span class="w"> </span><span class="na">url=</span><span class="s">"https://{HTTP_HOST}/{R:1}"</span><span class="w"> </span><span class="na">redirectType=</span><span class="s">"Permanent"</span><span class="nt">/&gt;</span>
 <span class="w">         </span><span class="nt">&lt;/rule&gt;</span>
 <span class="w">       </span><span class="nt">&lt;/rules&gt;</span>
 <span class="w">       </span><span class="nt">&lt;outboundRules&gt;</span>
-<span class="w">         </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Add HSTS Header&quot;</span><span class="w"> </span><span class="na">enabled=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-<span class="w">           </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">serverVariable=</span><span class="s">&quot;RESPONSE_Strict_Transport_Security&quot;</span><span class="w"> </span><span class="na">pattern=</span><span class="s">&quot;.*&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;rule</span><span class="w"> </span><span class="na">name=</span><span class="s">"Add HSTS Header"</span><span class="w"> </span><span class="na">enabled=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+<span class="w">           </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">serverVariable=</span><span class="s">"RESPONSE_Strict_Transport_Security"</span><span class="w"> </span><span class="na">pattern=</span><span class="s">".*"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">           </span><span class="nt">&lt;conditions&gt;</span>
-<span class="w">             </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">input=</span><span class="s">&quot;{HTTPS}&quot;</span><span class="w"> </span><span class="na">pattern=</span><span class="s">&quot;on&quot;</span><span class="w"> </span><span class="na">ignoreCase=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">             </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">input=</span><span class="s">"{HTTPS}"</span><span class="w"> </span><span class="na">pattern=</span><span class="s">"on"</span><span class="w"> </span><span class="na">ignoreCase=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">           </span><span class="nt">&lt;/conditions&gt;</span>
-<span class="w">           </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Rewrite&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;max-age=15768000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">           </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">type=</span><span class="s">"Rewrite"</span><span class="w"> </span><span class="na">value=</span><span class="s">"max-age=15768000"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">         </span><span class="nt">&lt;/rule&gt;</span>
 <span class="w">       </span><span class="nt">&lt;/outboundRules&gt;</span>
 <span class="w">     </span><span class="nt">&lt;/rewrite&gt;</span>
@@ -4070,12 +6123,12 @@ go to <a href="http://github.com/johnstaveley/SecurityEssentials/">Security Esse
 <ul>
 <li>Remove the version header by adding the following line in <code>Machine.config</code> file:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">enableVersionHeader=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;httpRuntime</span><span class="w"> </span><span class="na">enableVersionHeader=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 <ul>
 <li>Also remove the Server header using the HttpContext Class in your code.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">&quot;Server&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">HttpContext</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">Response</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="s">"Server"</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="http-validation-and-encoding">HTTP validation and encoding<a class="headerlink" href="#http-validation-and-encoding" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4123,11 +6176,22 @@ be logged and stored in their browser history.</li>
 
 
 
+
+
+  
+  
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -4159,10 +6223,14 @@ be logged and stored in their browser history.</li>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

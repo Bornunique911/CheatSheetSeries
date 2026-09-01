@@ -13,14 +13,17 @@
         <link rel="canonical" href="https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html">
       
       
-        <link rel="prev" href="LDAP_Injection_Prevention_Cheat_Sheet.html">
+        <link rel="prev" href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">
       
       
-        <link rel="next" href="Logging_Cheat_Sheet.html">
+        <link rel="next" href="Legacy_Application_Management_Cheat_Sheet.html">
+      
+      
+        
       
       
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -680,6 +1085,7 @@
             
               
                 
+  
   
   
   
@@ -687,9 +1093,16 @@
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -700,6 +1113,7 @@
             
               
                 
+  
   
   
   
@@ -707,9 +1121,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -720,6 +1141,7 @@
             
               
                 
+  
   
   
   
@@ -727,9 +1149,16 @@
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -740,6 +1169,7 @@
             
               
                 
+  
   
   
   
@@ -747,9 +1177,16 @@
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -760,6 +1197,7 @@
             
               
                 
+  
   
   
   
@@ -767,9 +1205,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -780,6 +1225,7 @@
             
               
                 
+  
   
   
   
@@ -787,9 +1233,16 @@
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -800,6 +1253,7 @@
             
               
                 
+  
   
   
   
@@ -807,9 +1261,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -820,6 +1281,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -827,9 +1317,16 @@
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -840,6 +1337,7 @@
             
               
                 
+  
   
   
   
@@ -847,9 +1345,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -860,6 +1365,7 @@
             
               
                 
+  
   
   
   
@@ -867,9 +1373,16 @@
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -880,6 +1393,7 @@
             
               
                 
+  
   
   
   
@@ -887,9 +1401,16 @@
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -900,6 +1421,7 @@
             
               
                 
+  
   
   
   
@@ -907,9 +1429,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -920,6 +1449,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -927,9 +1513,16 @@
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -940,6 +1533,7 @@
             
               
                 
+  
   
   
   
@@ -947,9 +1541,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -960,6 +1561,7 @@
             
               
                 
+  
   
   
   
@@ -967,9 +1569,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -980,6 +1589,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -987,9 +1625,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1000,6 +1645,7 @@
             
               
                 
+  
   
   
   
@@ -1007,9 +1653,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1020,6 +1673,7 @@
             
               
                 
+  
   
   
   
@@ -1027,9 +1681,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1040,6 +1701,7 @@
             
               
                 
+  
   
   
   
@@ -1047,9 +1709,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1060,6 +1729,7 @@
             
               
                 
+  
   
   
   
@@ -1067,9 +1737,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1080,6 +1757,7 @@
             
               
                 
+  
   
   
   
@@ -1087,9 +1765,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1100,6 +1785,7 @@
             
               
                 
+  
   
   
   
@@ -1107,9 +1793,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1120,6 +1813,7 @@
             
               
                 
+  
   
   
   
@@ -1127,9 +1821,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1140,6 +1841,7 @@
             
               
                 
+  
   
   
   
@@ -1147,9 +1849,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1160,6 +1869,7 @@
             
               
                 
+  
   
   
   
@@ -1167,9 +1877,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1180,16 +1897,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1200,6 +1925,7 @@
             
               
                 
+  
   
   
   
@@ -1207,9 +1933,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1220,6 +1953,7 @@
             
               
                 
+  
   
   
   
@@ -1227,9 +1961,16 @@
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1240,6 +1981,7 @@
             
               
                 
+  
   
   
   
@@ -1247,9 +1989,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1263,13 +2012,49 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -1283,6 +2068,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -1296,9 +2082,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -1307,9 +2100,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1331,28 +2131,44 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#the-basics" class="md-nav__link">
-    The Basics
+    <span class="md-ellipsis">
+      
+        The Basics
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#cookie-security-and-session-management" class="md-nav__link">
-    Cookie Security and Session Management
+    <span class="md-ellipsis">
+      
+        Cookie Security and Session Management
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#authentication" class="md-nav__link">
-    Authentication
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Authentication">
@@ -1360,21 +2176,33 @@
         
           <li class="md-nav__item">
   <a href="#guards-and-providers" class="md-nav__link">
-    Guards and Providers
+    <span class="md-ellipsis">
+      
+        Guards and Providers
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#starter-kits" class="md-nav__link">
-    Starter Kits
+    <span class="md-ellipsis">
+      
+        Starter Kits
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api-authentication-packages" class="md-nav__link">
-    API Authentication Packages
+    <span class="md-ellipsis">
+      
+        API Authentication Packages
+      
+    </span>
   </a>
   
 </li>
@@ -1386,14 +2214,22 @@
       
         <li class="md-nav__item">
   <a href="#mass-assignment" class="md-nav__link">
-    Mass Assignment
+    <span class="md-ellipsis">
+      
+        Mass Assignment
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sql-injection" class="md-nav__link">
-    SQL Injection
+    <span class="md-ellipsis">
+      
+        SQL Injection
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SQL Injection">
@@ -1401,28 +2237,44 @@
         
           <li class="md-nav__item">
   <a href="#eloquent-orm-sql-injection-protection" class="md-nav__link">
-    Eloquent ORM SQL Injection Protection
+    <span class="md-ellipsis">
+      
+        Eloquent ORM SQL Injection Protection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#raw-query-sql-injection" class="md-nav__link">
-    Raw Query SQL Injection
+    <span class="md-ellipsis">
+      
+        Raw Query SQL Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#column-name-sql-injection" class="md-nav__link">
-    Column Name SQL Injection
+    <span class="md-ellipsis">
+      
+        Column Name SQL Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#validation-rule-sql-injection" class="md-nav__link">
-    Validation Rule SQL Injection
+    <span class="md-ellipsis">
+      
+        Validation Rule SQL Injection
+      
+    </span>
   </a>
   
 </li>
@@ -1434,14 +2286,22 @@
       
         <li class="md-nav__item">
   <a href="#cross-site-scripting-xss" class="md-nav__link">
-    Cross Site Scripting (XSS)
+    <span class="md-ellipsis">
+      
+        Cross Site Scripting (XSS)
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#unrestricted-file-uploads" class="md-nav__link">
-    Unrestricted File Uploads
+    <span class="md-ellipsis">
+      
+        Unrestricted File Uploads
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Unrestricted File Uploads">
@@ -1449,21 +2309,33 @@
         
           <li class="md-nav__item">
   <a href="#always-validate-file-type-and-size" class="md-nav__link">
-    Always Validate File Type and Size
+    <span class="md-ellipsis">
+      
+        Always Validate File Type and Size
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#do-not-rely-on-user-input-to-dictate-filenames-or-path" class="md-nav__link">
-    Do Not Rely On User Input To Dictate Filenames or Path
+    <span class="md-ellipsis">
+      
+        Do Not Rely On User Input To Dictate Filenames or Path
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#avoid-processing-zip-or-xml-files-if-possible" class="md-nav__link">
-    Avoid Processing ZIP or XML Files If Possible
+    <span class="md-ellipsis">
+      
+        Avoid Processing ZIP or XML Files If Possible
+      
+    </span>
   </a>
   
 </li>
@@ -1475,56 +2347,138 @@
       
         <li class="md-nav__item">
   <a href="#path-traversal" class="md-nav__link">
-    Path Traversal
+    <span class="md-ellipsis">
+      
+        Path Traversal
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#open-redirection" class="md-nav__link">
-    Open Redirection
+    <span class="md-ellipsis">
+      
+        Open Redirection
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#cross-site-request-forgery-csrf" class="md-nav__link">
-    Cross Site Request Forgery (CSRF)
+    <span class="md-ellipsis">
+      
+        Cross Site Request Forgery (CSRF)
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#command-injection" class="md-nav__link">
-    Command Injection
+    <span class="md-ellipsis">
+      
+        Command Injection
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#other-injections" class="md-nav__link">
-    Other Injections
+    <span class="md-ellipsis">
+      
+        Other Injections
+      
+    </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limiting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate Limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-per-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Per Route
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-per-route-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Per Route Group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-custom-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Custom Rate Limiter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-global-api-web-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Global API / Web Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#security-headers" class="md-nav__link">
-    Security Headers
-  </a>
-  
-</li>
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
+        Security Headers
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
-    References
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
   </a>
   
 </li>
@@ -1543,13 +2497,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    Logging
+    
+  
+    Legacy Application Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1560,6 +2522,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1567,9 +2558,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1580,6 +2578,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1587,9 +2614,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1600,6 +2634,7 @@
             
               
                 
+  
   
   
   
@@ -1607,9 +2642,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1620,6 +2662,7 @@
             
               
                 
+  
   
   
   
@@ -1627,9 +2670,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1640,6 +2690,7 @@
             
               
                 
+  
   
   
   
@@ -1647,9 +2698,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1660,6 +2718,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1667,9 +2754,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1680,6 +2774,7 @@
             
               
                 
+  
   
   
   
@@ -1687,9 +2782,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1700,6 +2802,7 @@
             
               
                 
+  
   
   
   
@@ -1707,9 +2810,16 @@
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1720,6 +2830,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1727,9 +2894,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1740,6 +2914,7 @@
             
               
                 
+  
   
   
   
@@ -1747,9 +2922,16 @@
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1760,6 +2942,7 @@
             
               
                 
+  
   
   
   
@@ -1767,9 +2950,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1780,6 +2970,7 @@
             
               
                 
+  
   
   
   
@@ -1787,9 +2978,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1800,6 +2998,7 @@
             
               
                 
+  
   
   
   
@@ -1807,9 +3006,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1820,6 +3026,7 @@
             
               
                 
+  
   
   
   
@@ -1827,9 +3034,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1840,6 +3054,7 @@
             
               
                 
+  
   
   
   
@@ -1847,9 +3062,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1860,6 +3082,7 @@
             
               
                 
+  
   
   
   
@@ -1867,9 +3090,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1880,6 +3110,7 @@
             
               
                 
+  
   
   
   
@@ -1887,9 +3118,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1900,6 +3138,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1907,9 +3174,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1920,6 +3194,7 @@
             
               
                 
+  
   
   
   
@@ -1927,9 +3202,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1940,6 +3222,7 @@
             
               
                 
+  
   
   
   
@@ -1947,9 +3230,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1960,6 +3250,7 @@
             
               
                 
+  
   
   
   
@@ -1967,9 +3258,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1980,6 +3278,7 @@
             
               
                 
+  
   
   
   
@@ -1987,9 +3286,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2000,6 +3306,7 @@
             
               
                 
+  
   
   
   
@@ -2007,9 +3314,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2020,6 +3334,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2027,9 +3370,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2040,6 +3390,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2047,9 +3454,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2060,6 +3474,7 @@
             
               
                 
+  
   
   
   
@@ -2067,9 +3482,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2080,6 +3502,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2087,9 +3538,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2100,6 +3558,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2107,9 +3594,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2120,6 +3614,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2127,9 +3678,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2140,6 +3698,7 @@
             
               
                 
+  
   
   
   
@@ -2147,9 +3706,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2160,6 +3726,7 @@
             
               
                 
+  
   
   
   
@@ -2167,9 +3734,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2180,6 +3754,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2187,9 +3790,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2200,6 +3810,7 @@
             
               
                 
+  
   
   
   
@@ -2207,9 +3818,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2220,6 +3838,7 @@
             
               
                 
+  
   
   
   
@@ -2227,9 +3846,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2240,6 +3866,7 @@
             
               
                 
+  
   
   
   
@@ -2247,9 +3874,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2260,6 +3894,7 @@
             
               
                 
+  
   
   
   
@@ -2267,9 +3902,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2280,6 +3922,7 @@
             
               
                 
+  
   
   
   
@@ -2287,9 +3930,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2300,6 +3950,7 @@
             
               
                 
+  
   
   
   
@@ -2307,9 +3958,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2320,6 +3978,7 @@
             
               
                 
+  
   
   
   
@@ -2327,9 +3986,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2340,6 +4006,7 @@
             
               
                 
+  
   
   
   
@@ -2347,9 +4014,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2360,6 +4034,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2367,9 +4070,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2380,6 +4090,7 @@
             
               
                 
+  
   
   
   
@@ -2387,9 +4098,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2400,6 +4118,7 @@
             
               
                 
+  
   
   
   
@@ -2407,9 +4126,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2420,6 +4146,7 @@
             
               
                 
+  
   
   
   
@@ -2427,9 +4154,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2443,13 +4177,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2493,28 +4291,44 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#the-basics" class="md-nav__link">
-    The Basics
+    <span class="md-ellipsis">
+      
+        The Basics
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#cookie-security-and-session-management" class="md-nav__link">
-    Cookie Security and Session Management
+    <span class="md-ellipsis">
+      
+        Cookie Security and Session Management
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#authentication" class="md-nav__link">
-    Authentication
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Authentication">
@@ -2522,21 +4336,33 @@
         
           <li class="md-nav__item">
   <a href="#guards-and-providers" class="md-nav__link">
-    Guards and Providers
+    <span class="md-ellipsis">
+      
+        Guards and Providers
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#starter-kits" class="md-nav__link">
-    Starter Kits
+    <span class="md-ellipsis">
+      
+        Starter Kits
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api-authentication-packages" class="md-nav__link">
-    API Authentication Packages
+    <span class="md-ellipsis">
+      
+        API Authentication Packages
+      
+    </span>
   </a>
   
 </li>
@@ -2548,14 +4374,22 @@
       
         <li class="md-nav__item">
   <a href="#mass-assignment" class="md-nav__link">
-    Mass Assignment
+    <span class="md-ellipsis">
+      
+        Mass Assignment
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sql-injection" class="md-nav__link">
-    SQL Injection
+    <span class="md-ellipsis">
+      
+        SQL Injection
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="SQL Injection">
@@ -2563,28 +4397,44 @@
         
           <li class="md-nav__item">
   <a href="#eloquent-orm-sql-injection-protection" class="md-nav__link">
-    Eloquent ORM SQL Injection Protection
+    <span class="md-ellipsis">
+      
+        Eloquent ORM SQL Injection Protection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#raw-query-sql-injection" class="md-nav__link">
-    Raw Query SQL Injection
+    <span class="md-ellipsis">
+      
+        Raw Query SQL Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#column-name-sql-injection" class="md-nav__link">
-    Column Name SQL Injection
+    <span class="md-ellipsis">
+      
+        Column Name SQL Injection
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#validation-rule-sql-injection" class="md-nav__link">
-    Validation Rule SQL Injection
+    <span class="md-ellipsis">
+      
+        Validation Rule SQL Injection
+      
+    </span>
   </a>
   
 </li>
@@ -2596,14 +4446,22 @@
       
         <li class="md-nav__item">
   <a href="#cross-site-scripting-xss" class="md-nav__link">
-    Cross Site Scripting (XSS)
+    <span class="md-ellipsis">
+      
+        Cross Site Scripting (XSS)
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#unrestricted-file-uploads" class="md-nav__link">
-    Unrestricted File Uploads
+    <span class="md-ellipsis">
+      
+        Unrestricted File Uploads
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Unrestricted File Uploads">
@@ -2611,21 +4469,33 @@
         
           <li class="md-nav__item">
   <a href="#always-validate-file-type-and-size" class="md-nav__link">
-    Always Validate File Type and Size
+    <span class="md-ellipsis">
+      
+        Always Validate File Type and Size
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#do-not-rely-on-user-input-to-dictate-filenames-or-path" class="md-nav__link">
-    Do Not Rely On User Input To Dictate Filenames or Path
+    <span class="md-ellipsis">
+      
+        Do Not Rely On User Input To Dictate Filenames or Path
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#avoid-processing-zip-or-xml-files-if-possible" class="md-nav__link">
-    Avoid Processing ZIP or XML Files If Possible
+    <span class="md-ellipsis">
+      
+        Avoid Processing ZIP or XML Files If Possible
+      
+    </span>
   </a>
   
 </li>
@@ -2637,56 +4507,138 @@
       
         <li class="md-nav__item">
   <a href="#path-traversal" class="md-nav__link">
-    Path Traversal
+    <span class="md-ellipsis">
+      
+        Path Traversal
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#open-redirection" class="md-nav__link">
-    Open Redirection
+    <span class="md-ellipsis">
+      
+        Open Redirection
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#cross-site-request-forgery-csrf" class="md-nav__link">
-    Cross Site Request Forgery (CSRF)
+    <span class="md-ellipsis">
+      
+        Cross Site Request Forgery (CSRF)
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#command-injection" class="md-nav__link">
-    Command Injection
+    <span class="md-ellipsis">
+      
+        Command Injection
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#other-injections" class="md-nav__link">
-    Other Injections
+    <span class="md-ellipsis">
+      
+        Other Injections
+      
+    </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limiting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate Limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-per-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Per Route
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-per-route-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Per Route Group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-custom-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Custom Rate Limiter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-global-api-web-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Global API / Web Rate Limiting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#security-headers" class="md-nav__link">
-    Security Headers
-  </a>
-  
-</li>
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
+        Security Headers
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
-    References
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
   </a>
   
 </li>
@@ -2701,9 +4653,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -2713,7 +4667,6 @@
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This <em>Cheatsheet</em> intends to provide security tips to developers building Laravel applications. It aims to cover all common vulnerabilities and how to ensure that your Laravel applications are secure.</p>
 <p>The Laravel Framework provides in-built security features and is meant to be secure by default. However, it also provides additional flexibility for complex use cases. This means that developers unfamiliar with the inner workings of Laravel may fall into the trap of using complex features in a way that is not secure. This guide is meant to educate developers to avoid common pitfalls and develop Laravel applications in a secure manner.</p>
-<p>You may also refer the <a href="https://www.laravel-enlightn.com/docs/security/">Enlightn Security Documentation</a>, which highlights common vulnerabilities and good practices on securing Laravel applications.</p>
 <h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Make sure your app is not in debug mode while in production. To turn off debug mode, set your <code>APP_DEBUG</code> environment variable to <code>false</code>:</li>
@@ -2733,7 +4686,7 @@
 <p>Set safe file and directory permissions on your Laravel application. In general, all Laravel directories should be setup with a max permission level of <code>775</code> and non-executable files with a max permission level of <code>664</code>. Executable files such as Artisan or deployment scripts should be provided with a max permission level of <code>775</code>.</p>
 </li>
 <li>
-<p>Make sure your application does not have vulnerable dependencies. You can check this using the <a href="https://github.com/enlightn/security-checker">Enlightn Security Checker</a>.</p>
+<p>Make sure your application does not have vulnerable dependencies.</p>
 </li>
 </ul>
 <h2 id="cookie-security-and-session-management">Cookie Security and Session Management<a class="headerlink" href="#cookie-security-and-session-management" title="Permanent link">&para;</a></h2>
@@ -2742,12 +4695,12 @@
 <li>Enable the cookie encryption middleware if you use the <code>cookie</code> session store or if you store any kind of data that should not be readable or tampered with by clients. In general, this should be enabled unless your application has a very specific use case that requires disabling this. To enable this middleware, simply add the <code>EncryptCookies</code> middleware to the <code>web</code> middleware group in your <code>App\Http\Kernel</code> class:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="x">/**</span>
-<span class="x"> * The application&#39;s route middleware groups.</span>
+<span class="x"> * The application's route middleware groups.</span>
 <span class="x"> *</span>
 <span class="x"> * @var array</span>
 <span class="x"> */</span>
 <span class="x">protected $middlewareGroups = [</span>
-<span class="x">    &#39;web&#39; =&gt; [</span>
+<span class="x">    'web' =&gt; [</span>
 <span class="x">        \App\Http\Middleware\EncryptCookies::class,</span>
 <span class="x">        ...</span>
 <span class="x">    ],</span>
@@ -2755,29 +4708,29 @@
 <span class="x">];</span>
 </code></pre></div>
 <ul>
-<li>Enable the <code>HttpOnly</code> attribute on your session cookies via your <code>config/session.php</code> file, so that your session cookies are inaccessible from Javascript:</li>
+<li>Enable the <code>HttpOnly</code> attribute on your session cookies via your <code>config/session.php</code> file, so that your session cookies are inaccessible from JavaScript:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;http_only&#39; =&gt; true,</span>
+<div class="highlight"><pre><span></span><code><span class="x">'http_only' =&gt; true,</span>
 </code></pre></div>
 <ul>
 <li>Unless you are using sub-domain route registrations in your Laravel application, it is recommended to set the cookie <code>domain</code> attribute to null so that only the same origin (excluding subdomains) can set the cookie. This can be configured in your <code>config/session.php</code> file:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;domain&#39; =&gt; null,</span>
+<div class="highlight"><pre><span></span><code><span class="x">'domain' =&gt; null,</span>
 </code></pre></div>
 <ul>
 <li>Set your <code>SameSite</code> cookie attribute to <code>lax</code> or <code>strict</code> in your <code>config/session.php</code> file to restrict your cookies to a first-party or same-site context:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;same_site&#39; =&gt; &#39;lax&#39;,</span>
+<div class="highlight"><pre><span></span><code><span class="x">'same_site' =&gt; 'lax',</span>
 </code></pre></div>
 <ul>
 <li>If your application is HTTPS only, it is recommended to set the <code>secure</code> configuration option in your <code>config/session.php</code> file to <code>true</code> to protect against man-in-the-middle attacks. If your application has a combination of HTTP and HTTPS, then it is recommended to set this value to <code>null</code> so that the secure attribute is set automatically when serving HTTPS requests:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;secure&#39; =&gt; null,</span>
+<div class="highlight"><pre><span></span><code><span class="x">'secure' =&gt; null,</span>
 </code></pre></div>
 <ul>
 <li>Ensure that you have a low session idle timeout value. <a href="Session_Management_Cheat_Sheet.html">OWASP recommends</a> a 2-5 minutes idle timeout for high value applications and 15-30 minutes for low risk applications. This can be configured in your <code>config/session.php</code> file:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="x">&#39;lifetime&#39; =&gt; 15,</span>
+<div class="highlight"><pre><span></span><code><span class="x">'lifetime' =&gt; 15,</span>
 </code></pre></div>
 <p>You may also refer the <a href="https://owasp.org/www-chapter-london/assets/slides/OWASPLondon20171130_Cookie_Security_Myths_Misconceptions_David_Johansson.pdf">Cookie Security Guide</a> to learn more about cookie security and the cookie attributes mentioned above.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
@@ -2805,13 +4758,13 @@
 <p><a href="Mass_Assignment_Cheat_Sheet.html">Mass assignment</a> is a common vulnerability in modern web applications that use an ORM like Laravel's Eloquent ORM.</p>
 <p>A mass assignment is a vulnerability where an ORM pattern is abused to modify data items that the user should not be normally allowed to modify.</p>
 <p>Consider the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::any(&#39;/profile&#39;, function (Request $request) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::any('/profile', function (Request $request) {</span>
 <span class="x">    $request-&gt;user()-&gt;forceFill($request-&gt;all())-&gt;save();</span>
 
 <span class="x">    $user = $request-&gt;user()-&gt;fresh();</span>
 
-<span class="x">    return response()-&gt;json(compact(&#39;user&#39;));</span>
-<span class="x">})-&gt;middleware(&#39;auth&#39;);</span>
+<span class="x">    return response()-&gt;json(compact('user'));</span>
+<span class="x">})-&gt;middleware('auth');</span>
 </code></pre></div>
 <p>The above profile route allows the logged in user to change their profile information.</p>
 <p>However, let's say there is an <code>is_admin</code> column in the users table. You probably do not want the user to be allowed to change the value of this column. However, the above code allows users to change any column values for their row in the users table. This is a mass assignment vulnerability.</p>
@@ -2827,7 +4780,7 @@
 <p>By default, Laravel's Eloquent ORM protects against SQL injection by parameterizing queries and using SQL bindings. For instance, consider the following query:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
 
-<span class="x">User::where(&#39;email&#39;, $email)-&gt;get();</span>
+<span class="x">User::where('email', $email)-&gt;get();</span>
 </code></pre></div>
 <p>The code above fires the query below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span>
@@ -2839,38 +4792,38 @@
 <div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Support\Facades\DB;</span>
 <span class="x">use App\Models\User;</span>
 
-<span class="x">User::whereRaw(&#39;email = &quot;&#39;.$request-&gt;input(&#39;email&#39;).&#39;&quot;&#39;)-&gt;get();</span>
-<span class="x">DB::table(&#39;users&#39;)-&gt;whereRaw(&#39;email = &quot;&#39;.$request-&gt;input(&#39;email&#39;).&#39;&quot;&#39;)-&gt;get();</span>
+<span class="x">User::whereRaw('email = "'.$request-&gt;input('email').'"')-&gt;get();</span>
+<span class="x">DB::table('users')-&gt;whereRaw('email = "'.$request-&gt;input('email').'"')-&gt;get();</span>
 </code></pre></div>
 <p>Both lines of code actually execute the same query, which is vulnerable to SQL injection as the query does not use SQL bindings for untrusted user input data.</p>
 <p>The code above fires the following query:</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;value of email query parameter&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"value of email query parameter"</span>
 </code></pre></div>
 <p>Always remember to use SQL bindings for request data. We can fix the above code by making the following modification:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
 
-<span class="x">User::whereRaw(&#39;email = ?&#39;, [$request-&gt;input(&#39;email&#39;)])-&gt;get();</span>
+<span class="x">User::whereRaw('email = ?', [$request-&gt;input('email')])-&gt;get();</span>
 </code></pre></div>
 <p>We can even use named SQL bindings like so:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
 
-<span class="x">User::whereRaw(&#39;email = :email&#39;, [&#39;email&#39; =&gt; $request-&gt;input(&#39;email&#39;)])-&gt;get();</span>
+<span class="x">User::whereRaw('email = :email', ['email' =&gt; $request-&gt;input('email')])-&gt;get();</span>
 </code></pre></div>
 <h3 id="column-name-sql-injection">Column Name SQL Injection<a class="headerlink" href="#column-name-sql-injection" title="Permanent link">&para;</a></h3>
 <p>You must never allow user input data to dictate column names referenced by your queries.</p>
 <p>The following queries may be vulnerable to SQL injection:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
 
-<span class="x">User::where($request-&gt;input(&#39;colname&#39;), &#39;somedata&#39;)-&gt;get();</span>
-<span class="x">User::query()-&gt;orderBy($request-&gt;input(&#39;sortBy&#39;))-&gt;get();</span>
+<span class="x">User::where($request-&gt;input('colname'), 'somedata')-&gt;get();</span>
+<span class="x">User::query()-&gt;orderBy($request-&gt;input('sortBy'))-&gt;get();</span>
 </code></pre></div>
 <p>It is important to note that even though Laravel has some in-built features such as wrapping column names to protect against the above SQL injection vulnerabilities, some database engines (depending on versions and configurations) may still be vulnerable because binding column names is not supported by databases.</p>
 <p>At the very least, this may result in a mass assignment vulnerability instead of a SQL injection because you may have expected a certain set of column values, but since they are not validated here, the user is free to use other columns as well.</p>
 <p>Always validate user input for such situations like so:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
 
-<span class="x">$request-&gt;validate([&#39;sortBy&#39; =&gt; &#39;in:price,updated_at&#39;]);</span>
-<span class="x">User::query()-&gt;orderBy($request-&gt;validated()[&#39;sortBy&#39;])-&gt;get();</span>
+<span class="x">$request-&gt;validate(['sortBy' =&gt; 'in:price,updated_at']);</span>
+<span class="x">User::query()-&gt;orderBy($request-&gt;validated()['sortBy'])-&gt;get();</span>
 </code></pre></div>
 <h3 id="validation-rule-sql-injection">Validation Rule SQL Injection<a class="headerlink" href="#validation-rule-sql-injection" title="Permanent link">&para;</a></h3>
 <p>Certain validation rules have the option of providing database column names. Such rules are vulnerable to SQL injection in the same manner as column name SQL injection because they construct queries in a similar manner.</p>
@@ -2878,14 +4831,14 @@
 <div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Validation\Rule;</span>
 
 <span class="x">$request-&gt;validate([</span>
-<span class="x">    &#39;id&#39; =&gt; Rule::unique(&#39;users&#39;)-&gt;ignore($id, $request-&gt;input(&#39;colname&#39;))</span>
+<span class="x">    'id' =&gt; Rule::unique('users')-&gt;ignore($id, $request-&gt;input('colname'))</span>
 <span class="x">]);</span>
 </code></pre></div>
 <p>Behind the scenes, the above code triggers the following query:</p>
 <div class="highlight"><pre><span></span><code><span class="x">use App\Models\User;</span>
 
-<span class="x">$colname = $request-&gt;input(&#39;colname&#39;);</span>
-<span class="x">User::where($colname, $request-&gt;input(&#39;id&#39;))-&gt;where($colname, &#39;&lt;&gt;&#39;, $id)-&gt;count();</span>
+<span class="x">$colname = $request-&gt;input('colname');</span>
+<span class="x">User::where($colname, $request-&gt;input('id'))-&gt;where($colname, '&lt;&gt;', $id)-&gt;count();</span>
 </code></pre></div>
 <p>Since the column name is dictated by user input, it is similar to column name SQL injection.</p>
 <h2 id="cross-site-scripting-xss">Cross Site Scripting (XSS)<a class="headerlink" href="#cross-site-scripting-xss" title="Permanent link">&para;</a></h2>
@@ -2893,10 +4846,10 @@
 <p>Laravel's <a href="https://laravel.com/docs/blade">Blade templating engine</a> has echo statements <code>{{ }}</code> that automatically escape variables using the <code>htmlspecialchars</code> PHP function to protect against XSS attacks.</p>
 <p>Laravel also offers displaying unescaped data using the unescaped syntax <code>{!! !!}</code>. This must not be used on any untrusted data, otherwise your application will be subject to an XSS attack.</p>
 <p>For instance, if you have something like this in any of your Blade templates, it would result in a vulnerability:</p>
-<div class="highlight"><pre><span></span><code>{!! request()-&gt;input(&#39;somedata&#39;) !!}
+<div class="highlight"><pre><span></span><code>{!! request()-&gt;input('somedata') !!}
 </code></pre></div>
 <p>This, however, is safe to do:</p>
-<div class="highlight"><pre><span></span><code>{{ request()-&gt;input(&#39;somedata&#39;) }}
+<div class="highlight"><pre><span></span><code>{{ request()-&gt;input('somedata') }}
 </code></pre></div>
 <p>For other information on XSS prevention that is not specific to Laravel, you may refer the <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html">Cross Site Scripting Prevention Cheatsheet</a>.</p>
 <h2 id="unrestricted-file-uploads">Unrestricted File Uploads<a class="headerlink" href="#unrestricted-file-uploads" title="Permanent link">&para;</a></h2>
@@ -2904,7 +4857,7 @@
 <h3 id="always-validate-file-type-and-size">Always Validate File Type and Size<a class="headerlink" href="#always-validate-file-type-and-size" title="Permanent link">&para;</a></h3>
 <p>Always validate the file type (extension or MIME type) and file size to avoid storage DOS attacks and remote code execution:</p>
 <div class="highlight"><pre><span></span><code><span class="x">$request-&gt;validate([</span>
-<span class="x">    &#39;photo&#39; =&gt; &#39;file|size:100|mimes:jpg,bmp,png&#39;</span>
+<span class="x">    'photo' =&gt; 'file|size:100|mimes:jpg,bmp,png'</span>
 <span class="x">]);</span>
 </code></pre></div>
 <p>Storage DOS attacks exploit missing file size validations and upload massive files to cause a denial of service (DOS) by exhausting the disk space.</p>
@@ -2913,16 +4866,16 @@
 <h3 id="do-not-rely-on-user-input-to-dictate-filenames-or-path">Do Not Rely On User Input To Dictate Filenames or Path<a class="headerlink" href="#do-not-rely-on-user-input-to-dictate-filenames-or-path" title="Permanent link">&para;</a></h3>
 <p>If your application allows user controlled data to construct the path of a file upload, this may result in overwriting a critical file or storing the file in a bad location.</p>
 <p>Consider the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::post(&#39;/upload&#39;, function (Request $request) {</span>
-<span class="x">    $request-&gt;file(&#39;file&#39;)-&gt;storeAs(auth()-&gt;id(), $request-&gt;input(&#39;filename&#39;));</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::post('/upload', function (Request $request) {</span>
+<span class="x">    $request-&gt;file('file')-&gt;storeAs(auth()-&gt;id(), $request-&gt;input('filename'));</span>
 
 <span class="x">    return back();</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>This route saves a file to a directory specific to a user ID. Here, we rely on the <code>filename</code> user input data and this may result in a vulnerability as the filename could be something like <code>../2/filename.pdf</code>. This will upload the file in user ID 2's directory instead of the directory pertaining to the current logged in user.</p>
 <p>To fix this, we should use the <code>basename</code> PHP function to strip out any directory information from the <code>filename</code> input data:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::post(&#39;/upload&#39;, function (Request $request) {</span>
-<span class="x">    $request-&gt;file(&#39;file&#39;)-&gt;storeAs(auth()-&gt;id(), basename($request-&gt;input(&#39;filename&#39;)));</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::post('/upload', function (Request $request) {</span>
+<span class="x">    $request-&gt;file('file')-&gt;storeAs(auth()-&gt;id(), basename($request-&gt;input('filename')));</span>
 
 <span class="x">    return back();</span>
 <span class="x">});</span>
@@ -2934,21 +4887,21 @@
 <p>A path traversal attack aims to access files by manipulating request input data with <code>../</code> sequences and variations or by using absolute file paths.</p>
 <p>If you allow users to download files by filename, you may be exposed to this vulnerability if input data is not stripped of directory information.</p>
 <p>Consider the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/download&#39;, function(Request $request) {</span>
-<span class="x">    return response()-&gt;download(storage_path(&#39;content/&#39;).$request-&gt;input(&#39;filename&#39;));</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/download', function(Request $request) {</span>
+<span class="x">    return response()-&gt;download(storage_path('content/').$request-&gt;input('filename'));</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>Here, the filename is not stripped of directory information, so a malformed filename such as <code>../../.env</code> could expose your application credentials to potential attackers.</p>
 <p>Similar to unrestricted file uploads, you should use the <code>basename</code> PHP function to strip out directory information like so:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/download&#39;, function(Request $request) {</span>
-<span class="x">    return response()-&gt;download(storage_path(&#39;content/&#39;).basename($request-&gt;input(&#39;filename&#39;)));</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/download', function(Request $request) {</span>
+<span class="x">    return response()-&gt;download(storage_path('content/').basename($request-&gt;input('filename')));</span>
 <span class="x">});</span>
 </code></pre></div>
 <h2 id="open-redirection">Open Redirection<a class="headerlink" href="#open-redirection" title="Permanent link">&para;</a></h2>
 <p>Open Redirection attacks in themselves are not that dangerous but they enable phishing attacks.</p>
 <p>Consider the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="x">Route::get(&#39;/redirect&#39;, function (Request $request) {</span>
-<span class="x">   return redirect($request-&gt;input(&#39;url&#39;));</span>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/redirect', function (Request $request) {</span>
+<span class="x">   return redirect($request-&gt;input('url'));</span>
 <span class="x">});</span>
 </code></pre></div>
 <p>This code redirects the user to any external URL provided by user input. This could enable attackers to create seemingly safe URLs like <code>https://example.com/redirect?url=http://evil.com</code>. For instance, attackers may use a URL of this type to spoof password reset emails and lead victims to expose their credentials on the attacker's website.</p>
@@ -2956,12 +4909,12 @@
 <p><a href="https://owasp.org/www-community/attacks/csrf">Cross-Site Request Forgery (CSRF)</a> is a type of attack that occurs when a malicious web site, email, blog, instant message, or program causes a user's web browser to perform an unwanted action on a trusted site when the user is authenticated.</p>
 <p>Laravel provides CSRF protection out-of-the-box with the <code>VerifyCSRFToken</code> middleware. Generally, if you have this middleware in the <code>web</code> middleware group of your <code>App\Http\Kernel</code> class, you should be well protected:</p>
 <div class="highlight"><pre><span></span><code><span class="x">/**</span>
-<span class="x"> * The application&#39;s route middleware groups.</span>
+<span class="x"> * The application's route middleware groups.</span>
 <span class="x"> *</span>
 <span class="x"> * @var array</span>
 <span class="x"> */</span>
 <span class="x">protected $middlewareGroups = [</span>
-<span class="x">    &#39;web&#39; =&gt; [</span>
+<span class="x">    'web' =&gt; [</span>
 <span class="x">        ...</span>
 <span class="x">         \App\Http\Middleware\VerifyCsrfToken::class,</span>
 <span class="x">         ...</span>
@@ -2969,11 +4922,11 @@
 <span class="x">];</span>
 </code></pre></div>
 <p>Next, for all your <code>POST</code> request forms, you may use the <code>@csrf</code> blade directive to generate the hidden CSRF input token fields:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/profile&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span> <span class="na">action</span><span class="o">=</span><span class="s">"/profile"</span><span class="p">&gt;</span>
     @csrf
 
     <span class="cm">&lt;!-- Equivalent to... --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;_token&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ csrf_token() }}&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"_token"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ csrf_token() }}"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>For AJAX requests, you can setup the <a href="https://laravel.com/docs/csrf#csrf-x-csrf-token">X-CSRF-Token header</a>.</p>
@@ -2983,18 +4936,66 @@
 <p>For example, the following code performs a <code>whois</code> on a user provided domain name:</p>
 <div class="highlight"><pre><span></span><code><span class="x">public function verifyDomain(Request $request)</span>
 <span class="x">{</span>
-<span class="x">    exec(&#39;whois &#39;.$request-&gt;input(&#39;domain&#39;));</span>
+<span class="x">    exec('whois '.$request-&gt;input('domain'));</span>
 <span class="x">}</span>
 </code></pre></div>
 <p>The above code is vulnerable as the user data is not escaped properly. To do so, you may use the <code>escapeshellcmd</code> and/or <code>escapeshellarg</code> PHP functions.</p>
 <h2 id="other-injections">Other Injections<a class="headerlink" href="#other-injections" title="Permanent link">&para;</a></h2>
 <p>Object injection, eval code injection and extract variable hijacking attacks involve unserializing, evaluating or using the <code>extract</code> function on untrusted user input data.</p>
 <p>Some examples are:</p>
-<div class="highlight"><pre><span></span><code><span class="x">unserialize($request-&gt;input(&#39;data&#39;));</span>
-<span class="x">eval($request-&gt;input(&#39;data&#39;));</span>
+<div class="highlight"><pre><span></span><code><span class="x">unserialize($request-&gt;input('data'));</span>
+<span class="x">eval($request-&gt;input('data'));</span>
 <span class="x">extract($request-&gt;all());</span>
 </code></pre></div>
 <p>In general, avoid passing any untrusted input data to these dangerous functions.</p>
+<h2 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
+<p>Laravel provides built-in mechanisms to protect your routes from excessive requests and potential abuse.</p>
+<p>The two main ways to implement rate limiting are:</p>
+<ol>
+<li><strong><code>throttle</code> middleware</strong> – A built-in middleware that you can apply directly to routes or route groups.</li>
+<li><strong><code>RateLimiter::for()</code></strong> – Allows you to define custom rate limiting rules with more flexibility.</li>
+</ol>
+<p>Below are the main ways to apply rate limiting effectively:</p>
+<h3 id="1-per-route">1. Per Route<a class="headerlink" href="#1-per-route" title="Permanent link">&para;</a></h3>
+<p>Apply a limit directly to a single route using the <code>throttle</code> middleware:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::get('/profile', function () {</span>
+<span class="x">    return 'User profile';</span>
+<span class="x">})-&gt;middleware('throttle:10,1'); // 10 requests per minute</span>
+</code></pre></div>
+<h3 id="2-per-route-group">2. Per Route Group<a class="headerlink" href="#2-per-route-group" title="Permanent link">&para;</a></h3>
+<p>Apply a limit to a group of routes:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::middleware('throttle:20,1')-&gt;group(function () {</span>
+<span class="x">    Route::get('/posts', fn () =&gt; 'Posts');</span>
+<span class="x">    Route::get('/comments', fn () =&gt; 'Comments');</span>
+<span class="x">});</span>
+</code></pre></div>
+<h3 id="3-custom-rate-limiter">3. Custom Rate Limiter<a class="headerlink" href="#3-custom-rate-limiter" title="Permanent link">&para;</a></h3>
+<p>Define a custom rate limiter in <code>RouteServiceProvider</code> using <code>RateLimiter::for()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="x">use Illuminate\Cache\RateLimiting\Limit;</span>
+<span class="x">use Illuminate\Support\Facades\RateLimiter;</span>
+
+<span class="x">RateLimiter::for('custom-limit', function ($request) {</span>
+<span class="x">    return Limit::perMinute(5)-&gt;by($request-&gt;user()?-&gt;id ?: $request-&gt;ip());</span>
+<span class="x">});</span>
+</code></pre></div>
+<p>Apply the custom limiter to your routes:</p>
+<div class="highlight"><pre><span></span><code><span class="x">Route::middleware('throttle:custom-limit')-&gt;get('/dashboard', fn () =&gt; 'Dashboard');</span>
+</code></pre></div>
+<h3 id="4-global-api-web-rate-limiting">4. Global API / Web Rate Limiting<a class="headerlink" href="#4-global-api-web-rate-limiting" title="Permanent link">&para;</a></h3>
+<p>Laravel allows you to apply global rate limiting to entire route groups like <code>api</code> or <code>web</code> by including the <code>throttle</code> middleware in <code>Kernel.php</code> (note that the <code>api</code> group is rate-limited by default).</p>
+<div class="highlight"><pre><span></span><code><span class="x">protected $middlewareGroups = [</span>
+<span class="x">    'api' =&gt; [</span>
+<span class="x">        'throttle:60,1', // 60 requests per minute globally for API</span>
+<span class="x">        // ...</span>
+<span class="x">    ],</span>
+
+<span class="x">    'web' =&gt; [</span>
+<span class="x">        'throttle:30,1', // 30 requests per minute globally for web</span>
+<span class="x">        // ...</span>
+<span class="x">    ],</span>
+<span class="x">];</span>
+</code></pre></div>
+<p>For more details, see the official Laravel documentation on <a href="https://laravel.com/docs/12.x/routing#rate-limiting">rate limiting</a>.</p>
 <h2 id="security-headers">Security Headers<a class="headerlink" href="#security-headers" title="Permanent link">&para;</a></h2>
 <p>You should consider adding the following security headers to your web server or Laravel application middleware:</p>
 <ul>
@@ -3004,18 +5005,23 @@
 <li>Content-Security-Policy</li>
 </ul>
 <p>For more information, refer the <a href="https://owasp.org/www-project-secure-headers/">OWASP secure headers project</a>.</p>
-<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
-<p>You should consider using <a href="https://www.laravel-enlightn.com/">Enlightn</a>, a static and dynamic analysis tool for Laravel applications that has over 45 automated security checks to identify potential security issues. There is both an open source version and a commercial version of Enlightn available. Enlightn includes an extensive 45 page documentation on security vulnerabilities and a great way to learn more on Laravel security is to just review its <a href="https://www.laravel-enlightn.com/docs/security/">documentation</a>.</p>
-<p>You should also use the <a href="https://github.com/enlightn/security-checker">Enlightn Security Checker</a> or the <a href="https://github.com/fabpot/local-php-security-checker">Local PHP Security Checker</a>. Both of them are open source packages, licensed under the MIT and AGPL licenses respectively, that scan your PHP dependencies for known vulnerabilities using the <a href="https://github.com/FriendsOfPHP/security-advisories">Security Advisories Database</a>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://laravel.com/docs/authentication">Laravel Documentation on Authentication</a></li>
 <li><a href="https://laravel.com/docs/authorization">Laravel Documentation on Authorization</a></li>
 <li><a href="https://laravel.com/docs/csrf">Laravel Documentation on CSRF</a></li>
 <li><a href="https://laravel.com/docs/validation">Laravel Documentation on Validation</a></li>
-<li><a href="https://www.laravel-enlightn.com/">Enlightn SAST and DAST Tool</a></li>
-<li><a href="https://www.laravel-enlightn.com/docs/security/">Laravel Enlightn Security Documentation</a></li>
 </ul>
+
+
+
+
+
+
+
+  
+  
+
 
 
 
@@ -3026,6 +5032,7 @@
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -3057,10 +5064,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

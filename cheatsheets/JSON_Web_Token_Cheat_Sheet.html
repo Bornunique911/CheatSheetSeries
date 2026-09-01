@@ -1,0 +1,5041 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+        <link rel="canonical" href="https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet.html">
+      
+      
+        <link rel="prev" href="JAAS_Cheat_Sheet.html">
+      
+      
+        <link rel="next" href="Java_Security_Cheat_Sheet.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>JSON Web Token - OWASP Cheat Sheet Series</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#json-web-token-cheat-sheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-header__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
+      
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JSON Web Token
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OWASP/CheatSheetSeries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
+      
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OWASP/CheatSheetSeries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Alphabetical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexASVS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index ASVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexMASVS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index MASVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexProactiveControls.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Proactive Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexTopTen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cheatsheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abuse Case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attack Surface Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Testing Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bean Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C-Based Toolchain Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI CD Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing and Using Security Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clickjacking Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Credential Stuffing Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Site Request Forgery Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Site Scripting Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptographic Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM Clobbering Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM based XSS Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Denial of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deserialization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Django REST Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Django Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DotNet Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Upload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forgot Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML5 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Headers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Strict Transport Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Prevention in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Insecure Direct Object Reference Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JAAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Web Token
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Web Token
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-about-using-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Considerations about using JWTs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerations about using JWTs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#not-using-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not using JWTs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-signatures-vs-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public-key Signatures vs. MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public-key Signatures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public-key Signatures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#header-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Header fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claims
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threats-on-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threats on JWTs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Threats on JWTs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsecured-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unsecured JWTs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-type-confusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key type confusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusting-key-material-named-in-the-token-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusting key material named in the token header
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-revocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT revocation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JWT revocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-status-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Status List
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replay-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay protection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Replay protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-denylist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT denylist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging Vocabulary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mass Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices based Security Arch Doc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobile Application Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multifactor Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NPM Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NodeJS Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nodejs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OAuth2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Command Injection Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Password Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prototype Pollution Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parameterization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ruby on Rails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAML Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Cloud Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Product Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Securing Cascading Style Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server Side Request Forgery Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS Cipher String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Javascript Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transaction Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unvalidated Redirects and Forwards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Privacy Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Patching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerability Disclosure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerable Dependency Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Service Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML External Entity Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XSS Filter Evasion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XS Leaks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-about-using-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Considerations about using JWTs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerations about using JWTs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#not-using-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not using JWTs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-signatures-vs-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public-key Signatures vs. MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public-key Signatures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public-key Signatures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#header-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Header fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claims
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threats-on-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threats on JWTs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Threats on JWTs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsecured-jwts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unsecured JWTs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-type-confusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key type confusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusting-key-material-named-in-the-token-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusting key material named in the token header
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-revocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT revocation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JWT revocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-status-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Status List
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replay-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replay protection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Replay protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-denylist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT denylist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="json-web-token-cheat-sheet">JSON Web Token Cheat Sheet<a class="headerlink" href="#json-web-token-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This cheat sheet provides tips to prevent common security issues when using JSON Web Tokens (JWT).</p>
+<p><a href="https://datatracker.ietf.org/doc/html/rfc7519"><strong>JSON Web Tokens</strong></a> (JWT) are security tokens for carrying information (<strong>claims</strong>), often about a user, an application, etc. (<strong>subject</strong>). JWTs can provide authenticity of the claims (<strong>signed JWT</strong>) and/or confidentiality of the claims (<strong>encrypted JWT</strong>). In addition, JWT defines <a href="https://www.iana.org/assignments/jwt/jwt.xhtml">standard claims</a>.</p>
+<p>JWTs are used in a wide range of applications such as:</p>
+<ul>
+<li>In <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>, the <a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken">ID token</a> is a JWT used to represent the identity and attributes of the connected user.</li>
+<li>In <a href="https://datatracker.ietf.org/doc/html/rfc6749">OAuth 2</a>, the access token used to obtain access to a protected resource <a href="https://datatracker.ietf.org/doc/html/rfc9068">can be a JWT</a>.</li>
+<li>A JWT is often suggested for “stateless” user sessions. However, this usage is <a href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/">frowned upon</a>.</li>
+<li>A <a href="https://datatracker.ietf.org/doc/html/rfc9449#name-dpop-proof-jwts">DPoP Proof JWT</a> can be used to prove possession of a private key.</li>
+<li>In <a href="https://spiffe.io/">SPIFFE</a>, a <a href="https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md">JWT-SVID</a> can be used to authenticate a workload.</li>
+</ul>
+<p>In its most common form (signed JWT), this information is protected by the generating application (<strong>issuer</strong>) using a signature to ensure it has not been tampered with. This signature prevents attackers, such as a malicious client or user, from forging a token or modifying the claims in an existing token, for example changing the user role from a simple user to an admin or altering the client's login. The JWT can be seen as a protected identity card or certificate about a user, an application, etc. An application (<strong>presenter</strong>) presents the token to a consuming application (<strong>audience</strong>) which can verify the token's authenticity and validity and take decisions or actions based on these claims.</p>
+<p>JWT can also provide confidentiality of the claims (encrypted JWT). Encryption is currently not treated in this cheat sheet but many aspects of this cheat sheet are applicable to encrypted JWTs.</p>
+<h2 id="token-structure">Token Structure<a class="headerlink" href="#token-structure" title="Permanent link">&para;</a></h2>
+<p>Signed JWTs have the following structure:</p>
+<div class="highlight"><pre><span></span><code>{base64url(json(header))}.{base64url(json(claims))}.{base64url(signature)}
+</code></pre></div>
+<p>The following elements are present in signed JWTs:</p>
+<ul>
+<li><strong>Protected Header:</strong> the JWT header contains some information about the token such as the type of token (IANA media type) and the cryptographic algorithms used to protect the token.</li>
+<li><strong>Claims:</strong> the content JWT is a list of claims (usually about the subject). See the <a href="https://www.iana.org/assignments/jwt/jwt.xhtml">JWT IANA Registry</a> for a list of standard claims.</li>
+<li><strong>Signature:</strong> a signature in JWT is either a public-key digital signature (using a public/private key pair) or a MAC (using a shared secret). The signature protects both the protected headers and the claims.</li>
+</ul>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>For example, the following example (<a href="https://jwt.io/#token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30">taken from JWT.IO</a>):</p>
+<div class="highlight"><pre><span></span><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30
+</code></pre></div>
+<p>The first part (<a href="https://datatracker.ietf.org/doc/html/rfc7515#section-4"><strong>protected header</strong></a>) can be decoded into:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The second part (<a href="https://datatracker.ietf.org/doc/html/rfc7519#section-4"><strong>claims</strong></a>) can be decoded into:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"iat"</span><span class="p">:</span><span class="w"> </span><span class="mi">1516239022</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The last part (<strong>signature</strong>) guarantees the authenticity of both the header and the claims, either using a public/private key pair (digital signature) or a shared secret (MAC), depending on the <code>alg</code> header value. For our example, it is computed as:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">base64url</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">HMACSHA256</span><span class="p">(</span>
+<span class="w">        </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"</span>
+<span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="s2">"."</span>
+<span class="w">        </span><span class="o">+</span><span class="w"> </span><span class="s2">"eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">key</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="considerations-about-using-jwts">Considerations about using JWTs<a class="headerlink" href="#considerations-about-using-jwts" title="Permanent link">&para;</a></h2>
+<h3 id="not-using-jwts">Not using JWTs<a class="headerlink" href="#not-using-jwts" title="Permanent link">&para;</a></h3>
+<p>Before using JWTs to solve your problems, you should consider if they are really necessary for your use case.</p>
+<p>JWTs are often suggested for “stateless” user sessions. However, if you use JWTs for user sessions, you will need a solution for managing session invalidation. This can be achieved using a deny list of revoked sessions/tokens. If your application implements such a deny list, user sessions won't be completely stateless anymore which might defeat the benefits of stateless sessions. You might want to consider using a plain session system and follow the advices from the dedicated <a href="Session_Management_Cheat_Sheet.html">session management cheat sheet</a>.</p>
+<h3 id="public-key-signatures-vs-mac">Public-key Signatures vs. MAC<a class="headerlink" href="#public-key-signatures-vs-mac" title="Permanent link">&para;</a></h3>
+<p>A signed JWT can be authenticated using either a digital signature or a MAC:</p>
+<ul>
+<li><strong>When using a digital signature,</strong> the issuer of the token uses its private key to generate a signature. The audience of the token can use the associated public key to verify the authenticity of the token. Whereas the private key must only be known by the issuer, the public key can be public.</li>
+<li><strong>When using a MAC,</strong> a shared secret is shared between the issuer and the audience. The <em>same</em> shared secret is used by the issuer to generate the token and by the audience to verify the authenticity of the token.</li>
+</ul>
+<p>The two approaches differ on how credentials are managed.</p>
+<p>When using a digital signature:</p>
+<ul>
+<li>The issuer can reuse the same public key for many different audiences.</li>
+<li>The audience of the token only need public information to validate the token authenticity which removes the risk of secret leakage by the audience.</li>
+<li>Because the public key does not need to be secret, it can easily be distributed (eg. by publishing it at a public HTTPS URI).</li>
+<li>This makes key rotation simpler as well.</li>
+<li>Traditional digital signature schemes might be <a href="https://datatracker.ietf.org/doc/html/rfc9958#name-asymmetric-cryptography">broken by post quantum computers</a> in the future. They would need to be replaced with post-quantum digital signature schemes which <a href="https://datatracker.ietf.org/doc/html/rfc9958#name-impact-on-constrained-devic">heavier</a> are traditional signature schemes.</li>
+</ul>
+<p>When using a MAC:</p>
+<ul>
+<li>A different secret must be used for each (issuer, audience) pair. If, for example, the same secret is reused for difference audiences, one audience can forge a token (impersonating the issuer).</li>
+<li>Secret keys must obviously not be published at a public HTTPS URI. Some solution for secret distribution and rotation must be found.</li>
+<li>MAC are much faster than digital signatures (but this is usually negligible in practice).</li>
+</ul>
+<p>Using a MAC may be interesting in the following cases:</p>
+<ul>
+<li>The issuer of the token is the sole audience of the token. Even in this case, it might be easier to use digital signature for secret rotation/distribution.</li>
+<li>The issuer of the token is the audience. In this case, there is no problem of secret rotation/distribution.</li>
+</ul>
+<h3 id="public-key-signatures">Public-key Signatures<a class="headerlink" href="#public-key-signatures" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signature scheme</th>
+<th>Identifier</th>
+<th>Type</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EdDSA</td>
+<td>EdDSA, Ed448, Ed25519</td>
+<td>Traditional</td>
+<td>Recommended, limited support</td>
+</tr>
+<tr>
+<td>ECDSA</td>
+<td>ES256, ES384, ES512</td>
+<td>Traditional</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>RSASSA-PSS</td>
+<td>PS256, PS384, PS512</td>
+<td>Traditional</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>RSASSA-PKCS1-v1_5</td>
+<td>RS256, RS384, RS512</td>
+<td>Traditional</td>
+<td>Not recommended</td>
+</tr>
+<tr>
+<td>Hybrid ML-DSA / EdDSA</td>
+<td>ML-DSA-44-Ed25519, etc.</td>
+<td>PQ/T hybrid</td>
+<td><a href="https://ietf-wg-jose.github.io/draft-ietf-jose-pq-composite-sigs/draft-ietf-jose-pq-composite-sigs.html">Draft</a></td>
+</tr>
+<tr>
+<td>Hybrid ML-DSA / ECDSA</td>
+<td>ML-DSA-44-ES256, etc.</td>
+<td>PQ/T hybrid</td>
+<td><a href="https://ietf-wg-jose.github.io/draft-ietf-jose-pq-composite-sigs/draft-ietf-jose-pq-composite-sigs.html">Draft</a></td>
+</tr>
+<tr>
+<td>ML-DSA</td>
+<td>ML-DSA-44, ML-DSA-65, ML-DSA-87</td>
+<td>Post-quantum</td>
+<td>Very limited support at best</td>
+</tr>
+</tbody>
+</table>
+<p>Explanations:</p>
+<ul>
+<li>Support for EdDSA in JWT implementations is currently limited.</li>
+<li>Generating ECDSA signatures may be dangerous on embedded systems where the quality of the randomness may be problematic. In this case, you the implementation must use deterministic ECDA as defined in <a href="https://datatracker.ietf.org/doc/html/rfc6979">RFC 6979</a>.</li>
+<li>Post-quantum signatures (<a href="https://datatracker.ietf.org/doc/html/rfc9964">ML-DSA</a>) or <a href="https://ietf-wg-jose.github.io/draft-ietf-jose-pq-composite-sigs/draft-ietf-jose-pq-composite-sigs.html">hybrid post quantum signatures</a> are designed to be resistant against quantum computers. However, they produce very large signatures, resulting in very large JWTs. Their usage is probably not justified at the moment unless you need signatures with a long validity.</li>
+</ul>
+<p>Key management:</p>
+<ul>
+<li>Do not reuse the key pair for another purpose (eg. for encryption).</li>
+<li>Using the same key for authenticating different types of JWTs is fine as long as this does not introduce a risk of token type confusion.</li>
+<li>Do not publish your private key!</li>
+</ul>
+<h4 id="mac">MAC<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Signature scheme</th>
+<th>Identifier</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HMAC with SHA-2</td>
+<td>HS256, HS384, HS512</td>
+<td>Recommended</td>
+</tr>
+</tbody>
+</table>
+<p>Secret management:</p>
+<ul>
+<li>Do not reuse the same secret for another purpose (eg. for encryption).</li>
+<li>Using the same key for authenticating different types of JWTs is fine as long as this does not introduce a risk of token type confusion.</li>
+<li>Do not reuse the same secret with another audience.</li>
+<li>Do not reuse the same secret with another issuer.</li>
+<li>Do not use a password as MAC secret.</li>
+<li>The secret must be generated using a local, cryptographically secure secret generator.</li>
+<li>The secret must have at least the same size as the output (eg. 256, 384 and 512 bits respectively for HS256, HS384 and HS512).</li>
+<li>Do not publish your secret key!</li>
+<li>The secret must have at least 160 bits of entropy.</li>
+<li>For HMAC, the secret <a href="https://datatracker.ietf.org/doc/html/rfc2104#section-3">should be at least as long as the output size</a>.</li>
+</ul>
+<p>Valid HMAC secret generation example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+<span class="n">secret_for_hs256</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_bytes</span><span class="p">(</span><span class="mi">256</span><span class="o">//</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">secret_for_hs512</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_bytes</span><span class="p">(</span><span class="mi">512</span><span class="o">//</span><span class="mi">8</span><span class="p">)</span>
+</code></pre></div>
+<p>Invalid HMAC secret generation:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+
+<span class="c1"># Using a password/passphrase is not OK:</span>
+<span class="n">bad_secret</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"MyProject2026"</span>
+
+<span class="c1"># Using a hardcoded secret is not OK:</span>
+<span class="n">bad_secret</span> <span class="o">=</span> <span class="n">urlsafe_b64decode</span><span class="p">(</span><span class="sa">b</span><span class="s1">'KYkbbclxtjJMiHzoPvuahOfarej0VV-nQZPFxK0hyro='</span><span class="p">)</span>
+
+<span class="c1"># Not a secure randomness source:</span>
+<span class="n">bad_secret</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randbytes</span><span class="p">(</span><span class="mi">256</span><span class="o">//</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Not enough entropy:</span>
+<span class="n">bad_secret</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_bytes</span><span class="p">(</span><span class="mi">128</span><span class="o">//</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Not enough entropy for HS512</span>
+<span class="n">meh_secret_for_hs512</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_bytes</span><span class="p">(</span><span class="mi">256</span><span class="o">//</span><span class="mi">8</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="header-fields">Header fields<a class="headerlink" href="#header-fields" title="Permanent link">&para;</a></h3>
+<p>The following table lists some important JWT (JOSE) header parameters for security purpose.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Semantic</th>
+<th>Security impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alg</code></td>
+<td>Signature algorithm</td>
+<td>Signature algorithm used, risk of key type confusion</td>
+</tr>
+<tr>
+<td><code>typ</code></td>
+<td>Media type</td>
+<td>Protection against token type confusion</td>
+</tr>
+<tr>
+<td><code>jku</code></td>
+<td>Verification key (URL to the JWK)</td>
+<td>Risk of untrusted key usage, risk or SSRF</td>
+</tr>
+<tr>
+<td><code>x5u</code></td>
+<td>Verification key (URL to certificate)</td>
+<td>Risk of untrusted key usage, risk or SSRF</td>
+</tr>
+<tr>
+<td><code>jwk</code></td>
+<td>Verification key (JWK)</td>
+<td>Risk of untrusted key usage</td>
+</tr>
+<tr>
+<td><code>kid</code></td>
+<td>Verification key (key ID)</td>
+<td>Risk of untrusted key usage</td>
+</tr>
+<tr>
+<td><code>x5c</code></td>
+<td>Verification key (certificate chain)</td>
+<td>Risk of untrusted key usage</td>
+</tr>
+<tr>
+<td><code>x5t</code></td>
+<td>Verification key (certificate hash)</td>
+<td>Risk of untrusted key usage</td>
+</tr>
+<tr>
+<td><code>x5t#S256</code></td>
+<td>Verification key (certificate hash)</td>
+<td>Risk of untrusted key usage</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-header-parameters">header parameters subregistry</a> for a list of standard JWT (JOSE) header parameters.</p>
+<h3 id="claims">Claims<a class="headerlink" href="#claims" title="Permanent link">&para;</a></h3>
+<p>The following table lists some important JWT claims for security purpose.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Semantic</th>
+<th>Security impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exp</code></td>
+<td>Expiration</td>
+<td>Token validity</td>
+</tr>
+<tr>
+<td><code>nbf</code></td>
+<td>Not valid before</td>
+<td>Token validity</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>Reference to token status list</td>
+<td>Token revocation, risk of SSRF</td>
+</tr>
+<tr>
+<td><code>iss</code></td>
+<td>Issuer</td>
+<td>Scoping of claims (eg. <code>iss</code>), risk of untrusted issuer, risk of SSRF</td>
+</tr>
+<tr>
+<td><code>aud</code></td>
+<td>Audience</td>
+<td>Protection against audience confusion</td>
+</tr>
+<tr>
+<td><code>sub</code>, <code>sub_id</code></td>
+<td>Subject identifier</td>
+<td>Subject/user identification, risk of cross-issuer user impersonation</td>
+</tr>
+<tr>
+<td><code>jti</code></td>
+<td>Token identifier</td>
+<td>Audit (logs)</td>
+</tr>
+<tr>
+<td><code>iat</code></td>
+<td>Issuance timestamp</td>
+<td>Audit (logs)</td>
+</tr>
+<tr>
+<td><code>azp</code></td>
+<td>Authorized Party (OIDC)</td>
+<td>Audit (logs), authorization</td>
+</tr>
+<tr>
+<td><code>client_id</code></td>
+<td>Client (OAuth 2)</td>
+<td>Audit (logs), authorization</td>
+</tr>
+<tr>
+<td><code>auth_time</code></td>
+<td>Authentication timestamp (OIDC)</td>
+<td>Enforcing authentication freshness</td>
+</tr>
+<tr>
+<td><code>acr</code></td>
+<td>Authentication class</td>
+<td>Enforcing authentication strength (eg. MFA)</td>
+</tr>
+<tr>
+<td><code>amr</code></td>
+<td>Authentication method reference</td>
+<td>Enforcing authentication strength (eg. MFA)</td>
+</tr>
+<tr>
+<td><code>cnf</code></td>
+<td>Token holder (public) key</td>
+<td>Sender constrained token</td>
+</tr>
+<tr>
+<td><code>may_act</code></td>
+<td>Authorized Actor (impersonation/delegation)</td>
+<td>Risk of cross-issuer user impersonation</td>
+</tr>
+<tr>
+<td><code>act</code></td>
+<td>Actor (delegation, “on behalf of”)</td>
+<td>Audit (logs), risk of invalid actor imputation</td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td>Token restriction (OAuth 2)</td>
+<td>Authorization</td>
+</tr>
+<tr>
+<td><code>roles</code></td>
+<td>User roles</td>
+<td>Authorization, risk of spoofed cross-issuer authorization</td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td>User groups</td>
+<td>Authorization, risk of spoofed cross-issuer authorization</td>
+</tr>
+<tr>
+<td><code>entitlements</code></td>
+<td>User entitlements</td>
+<td>Authorization, risk of spoofed cross-issuer authorization</td>
+</tr>
+<tr>
+<td><code>authorization_details</code></td>
+<td>Fine grained authorizations</td>
+<td>Authorization, risk of spoofed cross-issuer authorization</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="https://www.iana.org/assignments/jwt/jwt.xhtml">JSON Web Token Claims subregistry</a> for a list of standard JWT claims.</p>
+<p>Many implementation have built-in support for validating core JWT claims such as <code>nbf</code>, <code>exp</code>, <code>iss</code> and <code>aud</code>.</p>
+<h2 id="threats-on-jwts">Threats on JWTs<a class="headerlink" href="#threats-on-jwts" title="Permanent link">&para;</a></h2>
+<p>See <a href="https://datatracker.ietf.org/doc/html/rfc8725#name-threats-and-vulnerabilities">RFC 8725</a> for a discussion on threats and vulnerabilities related to JWT.</p>
+<h3 id="unsecured-jwts">Unsecured JWTs<a class="headerlink" href="#unsecured-jwts" title="Permanent link">&para;</a></h3>
+<p>Some JWT libraries, <a href="https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/">used to accept unsecured JWTs by default</a> (<code>"alg":"none"</code>). In this case, an attacker would be able to forge their own JWTs: depending on the application, they might be able to impersonate arbitrary users, obtains arbitrary authorizations, etc.</p>
+<p>This issue should now be fixed in JWT libraries.</p>
+<p>Mitigation:</p>
+<ul>
+<li>Make sure that <code>"alg":"none"</code> is not accepted by your JWT parser. It should be disabled by default by recent implementations.</li>
+</ul>
+<h3 id="key-type-confusion">Key type confusion<a class="headerlink" href="#key-type-confusion" title="Permanent link">&para;</a></h3>
+<p>Some JWT implementations would accept to use a public key intended for public-key digital signature as if it was a secret key used for MAC verification. In this context, an attacker could forge a MAC-based JWT by using the public key of the real issuer as if it was a secret key.</p>
+<p>This threat is also called “key confusion” or “algorithm confusion”.</p>
+<p>Example of legitimate token issuance:</p>
+<div class="highlight"><pre><span></span><code><span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">claims</span><span class="p">,</span> <span class="n">private_key_bytes</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">"ES256"</span><span class="p">)</span>
+</code></pre></div>
+<p>Example of attacker forging a token based on key type confusion:</p>
+<div class="highlight"><pre><span></span><code><span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">claims</span><span class="p">,</span> <span class="n">public_key_bytes</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">"HS256"</span><span class="p">)</span>
+</code></pre></div>
+<p>Example of validation potentially vulnerable to key type confusion:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># If the token is using a MAC, the library might interpret the public key bytes as a MAC secret:</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">public_key_bytes</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="n">jwt</span><span class="o">.</span><span class="n">algorithms</span><span class="o">.</span><span class="n">get_default_algorithms</span><span class="p">())</span>
+</code></pre></div>
+<p>Note: this issue is <a href="https://github.com/jpadilla/pyjwt/commit/9c528670c455b8d948aff95ed50e22940d1ad3fc">mitigated</a> in recent versions of the PyJWT library by detecting whether a MAC key appears to be a public key (in PEM of SSH format).</p>
+<p>Mitigations (at validation):</p>
+<ul>
+<li>use a library which is not vulnerable to the issue (eg. strong-typing of the type of key);</li>
+<li>chose the key depending on the requested signature algorithm or validate that the key used for validation is consistent with the signature algorithm;</li>
+<li>if possible, hardcode the accepted algorithms and do not mix public-key digital signatures algorithms and MAC algorithms.</li>
+</ul>
+<p>Example of validation not vulnerable because MAC algorithms are not accepted:</p>
+<div class="highlight"><pre><span></span><code><span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">public_key_bytes</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">"ES256"</span><span class="p">])</span>
+</code></pre></div>
+<p>Example of validation not vulnerable because the key is strictly typed:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">joserfc</span><span class="w"> </span><span class="kn">import</span> <span class="n">jwt</span><span class="p">,</span> <span class="n">jwk</span>
+
+<span class="c1"># {"kty":"EC",</span>
+<span class="c1">#  "crv":"P-256",</span>
+<span class="c1">#  "x":"f83OJ3D2xF1Bg8vub9tLe1gHMzV76e8Tus9uPHvRVEU",</span>
+<span class="c1">#  "y":"x_FEzRu9m36HLN_tue659LNpXW6pCyStikYjKIWI5a0"}</span>
+<span class="n">public_key</span> <span class="o">=</span> <span class="n">jwk</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">jwk</span><span class="p">)</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded</span><span class="p">,</span> <span class="n">public_key</span><span class="p">)</span>
+</code></pre></div>
+<p>References:</p>
+<ul>
+<li><a href="https://portswigger.net/web-security/jwt/algorithm-confusion">Algorithm confusion attacks</a>;</li>
+<li><a href="https://nvd.nist.gov/vuln/detail/cve-2022-29217">CVE-2022-29217</a>, Key confusion through non-blocklisted public key formats (PyJWT);</li>
+<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-48223">CVE-2023-48223</a>, JWT Algorithm Confusion in fast-jwt.</li>
+</ul>
+<h3 id="trusting-key-material-named-in-the-token-header">Trusting key material named in the token header<a class="headerlink" href="#trusting-key-material-named-in-the-token-header" title="Permanent link">&para;</a></h3>
+<p>A JWS header can carry the verification key itself or a pointer to it: <code>jwk</code> (an embedded key), <code>jku</code> (a URL to a JWK Set), <code>x5u</code> (a URL to an X.509 certificate) and <code>x5c</code> (an embedded certificate chain), alongside the key selection hints <code>kid</code>, <code>x5t</code> and <code>x5t#S256</code>. An application that resolves or selects its verification key from these header parameters, without tying the result back to something it already trusts, can be steered into trusting a key the attacker controls, because the header is unauthenticated attacker input.</p>
+<p>An attacker can forge their own token, include their own public key in <code>jwk</code>, or point <code>jku</code> or <code>x5u</code> at a JWK Set or certificate they host, and sign the token with the matching private key. A verifier that trusts the key it has just read from the token accepts the forgery. An attacker can also try to smuggle a symmetric key through the same parameters, in the hope that the implementation will use it for MAC verification.</p>
+<p>These parameters have legitimate uses, so the distinction is anchoring rather than avoidance. <code>x5c</code> and <code>x5u</code> are usable where the certificate chain validates up to an anchor already trusted for that issuer, and <code>kid</code>, <code>x5t</code> and <code>x5t#S256</code> are the normal way to choose which key from an already configured JWKS should verify a given token. What must not happen is treating any of them as the source of trust rather than as a pointer within it.</p>
+<p>Mitigations:</p>
+<ul>
+<li>Do not take the verification key from the token unless that key can be tied, through a chain of trust, to a root trust anchor associated with the issuer.</li>
+<li>Prefer trust material established out of band, such as a pinned key or the <code>jwks_uri</code> published in the issuer's metadata.</li>
+<li>Validate or sanitize <code>kid</code> before using it in a lookup, since it also reaches databases and directories as an injection vector.</li>
+<li>Where keys are fetched by URL, see the <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html">Server Side Request Forgery Prevention Cheat Sheet</a>.</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc8725#name-do-not-trust-received-claim">RFC 8725, Do Not Trust Received Claims</a>;</li>
+<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-0114">CVE-2018-0114</a>, a key embedded in the JWS header trusted for verification.</li>
+</ul>
+<h2 id="jwt-revocation">JWT revocation<a class="headerlink" href="#jwt-revocation" title="Permanent link">&para;</a></h2>
+<h3 id="token-status-list">Token Status List<a class="headerlink" href="#token-status-list" title="Permanent link">&para;</a></h3>
+<p>If revocation of the JWTs by the issuer is needed, the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-status-list">Token Status Lists</a> (TSL) can be used:</p>
+<ul>
+<li>the JWT contains the URI of a TSL;</li>
+<li>the TSL aggregates the revocation status of several tokens in compressed form;</li>
+<li>the consumer of the token can fetch the TSL to obtain the revocation status of the JWT.</li>
+</ul>
+<p>The issuer includes a <code>status</code> claim in the JWT. This claims contains the URI of the associated TSL and the index of the status of the JWT within this list:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://issuer.example/"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NsxuACbpJ9N7Ix96aWrYxHX-EZ4"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"iat"</span><span class="p">:</span><span class="w"> </span><span class="mi">1783635268</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"nbf"</span><span class="p">:</span><span class="w"> </span><span class="mi">1783635268</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1783653268</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"status_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"idx"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://issuer.example/tsl/JAffke55FR5gtJQ_rtktWkSaTlI"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="replay-protection">Replay protection<a class="headerlink" href="#replay-protection" title="Permanent link">&para;</a></h2>
+<h3 id="jwt-denylist">JWT denylist<a class="headerlink" href="#jwt-denylist" title="Permanent link">&para;</a></h3>
+<p>In some cases, the consumer of the token might want to maintain a JWT denylist. This might be for example used a simple form of JWT replay protection or as a workaround for the “stateless session” invalidation problem.</p>
+<p>A JWT deny list can typically be implemented based on the  <code>jti</code> and <code>iss</code> claims:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">revoke_token</span><span class="p">(</span><span class="n">claims</span><span class="p">):</span>
+    <span class="n">jti</span> <span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"jti"</span><span class="p">)</span>
+    <span class="n">iss</span> <span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"iss"</span><span class="p">)</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"exp"</span><span class="p">)</span>
+    <span class="n">deny_list</span><span class="o">.</span><span class="n">insert</span><span class="p">((</span><span class="n">jti</span><span class="p">,</span> <span class="n">iss</span><span class="p">),</span> <span class="n">exp</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_token_revoked</span><span class="p">(</span><span class="n">claims</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">jti</span> <span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"jti"</span><span class="p">)</span>
+    <span class="n">iss</span> <span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"iss"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">deny_list</span><span class="o">.</span><span class="n">contains</span><span class="p">((</span><span class="n">jti</span><span class="p">,</span> <span class="n">iss</span><span class="p">))</span>
+</code></pre></div>
+<p>Depending on the application and the type of JWT, other claims might be more suitable.</p>
+<p><strong>Warning:</strong> Using the raw JWT or a secure hash of the JWT (<code>SHA-256(token)</code>) as the denylist key is <em>not safe</em> and might expose the application to <strong>denylist bypass through <a href="https://www.gabriel.urdhr.fr/2026/06/27/ecdsa-jwt-malleability/">JWT malleability</a></strong>. An attacker in possession of a revoked JWT might be able to modify an alternative representation of the JWT that still passes signature verification:</p>
+<ul>
+<li>because of non-strict JWT parsing of the JWT implementation;</li>
+<li>for ECDSA JWTs, because of the malleability of ECDSA signatures.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Not secure. Might be vulnerable to JWT malleability:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">unsafe_revoke_token</span><span class="p">(</span><span class="n">claims</span><span class="p">):</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">claims</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"exp"</span><span class="p">)</span>
+    <span class="n">token_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">deny_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">token_hash</span><span class="p">,</span> <span class="n">exp</span><span class="p">)</span>
+</code></pre></div>
+<p>Before implementing such a JWT denylist, you should consider whether there is a better solution for your problem:</p>
+<ul>
+<li>Token Status List is a scalable solution for revocation of the JWT by the issuer.</li>
+<li>Freshness and replay protection can often by implementing by using a <code>nonce</code> bound to the session in the JWT claims. This approach is <a href="https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes">used in OpenID Connect</a>.</li>
+<li>Token reuse can be mitigated by using short expiration time in the JWT.</li>
+<li>The risk of token exfiltration can be mitigated by using sender constrained JWT (such a <a href="https://datatracker.ietf.org/doc/html/rfc9449">DPoP</a> or <a href="https://www.rfc-editor.org/info/rfc8705/#section-3">TLS-bound JWT</a>).</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p>Main JWT and JOSE specifications:</p>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7515">RFC 7515</a>, JSON Web Signature (JWS)</li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7516">RFC 7516</a>, JSON Web Encryption (JWE)</li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7517">RFC 7517</a>, JSON Web Key (JWK)</li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7519">RFC 7519</a>, JSON Web Token (JWT)</li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc8725">RFC 8725</a>, JWT Best Practices</li>
+</ul>
+<p>Some applications of JWTs:</p>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc9068">JWT Profile for OAuth 2.0 Access Tokens</a></li>
+</ul>
+<p>IANA registries:</p>
+<ul>
+<li><a href="https://www.iana.org/assignments/jose/jose.xhtml">JSON Object Signing and Encryption (JOSE) IANA Reguistry</a></li>
+<li><a href="https://www.iana.org/assignments/jwt/jwt.xhtml">JSON Web Token IANA Reguistry (JWT)</a></li>
+</ul>
+<p>Attacks on JWT and JOSE:</p>
+<ul>
+<li><a href="https://github.com/ticarpi/jwt_tool/wiki">{JWT}.{Attack}.Playbook</a> - A project documents the known attacks and potential security vulnerabilities and misconfigurations of JSON Web Tokens.</li>
+<li><a href="https://community.auth0.com/c/jwt/8">JWT.io Discussion Forum</a> (Hosted by <a href="https://auth0.com/">Auth0</a>)</li>
+</ul>
+<p>Other useful links:</p>
+<ul>
+<li><a href="https://www.iana.org/assignments/jwt/jwt.xhtml">JWT IANA Registry</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©Copyright <script>document.write(new Date().getFullYear())</script> - Cheat Sheets Series Team - This work is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

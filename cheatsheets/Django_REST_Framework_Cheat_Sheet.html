@@ -19,8 +19,11 @@
         <link rel="next" href="Django_Security_Cheat_Sheet.html">
       
       
+        
+      
+      
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -680,6 +1085,7 @@
             
               
                 
+  
   
   
   
@@ -687,9 +1093,16 @@
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -700,6 +1113,7 @@
             
               
                 
+  
   
   
   
@@ -707,9 +1121,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -720,6 +1141,7 @@
             
               
                 
+  
   
   
   
@@ -727,9 +1149,16 @@
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -740,6 +1169,7 @@
             
               
                 
+  
   
   
   
@@ -747,9 +1177,16 @@
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -760,6 +1197,7 @@
             
               
                 
+  
   
   
   
@@ -767,9 +1205,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -780,6 +1225,7 @@
             
               
                 
+  
   
   
   
@@ -787,9 +1233,16 @@
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -800,6 +1253,7 @@
             
               
                 
+  
   
   
   
@@ -807,9 +1261,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -823,13 +1284,49 @@
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -843,6 +1340,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -856,9 +1354,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -867,9 +1372,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -891,14 +1403,33 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-view-in-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a view in Django?
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#settings" class="md-nav__link">
-    Settings
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Settings">
@@ -906,28 +1437,44 @@
         
           <li class="md-nav__item">
   <a href="#default_authentication_classes" class="md-nav__link">
-    DEFAULT_AUTHENTICATION_CLASSES
+    <span class="md-ellipsis">
+      
+        DEFAULT_AUTHENTICATION_CLASSES
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#default_permission_classes" class="md-nav__link">
-    DEFAULT_PERMISSION_CLASSES
+    <span class="md-ellipsis">
+      
+        DEFAULT_PERMISSION_CLASSES
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#default_throttle_classes" class="md-nav__link">
-    DEFAULT_THROTTLE_CLASSES
+    <span class="md-ellipsis">
+      
+        DEFAULT_THROTTLE_CLASSES
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#default_pagination_class" class="md-nav__link">
-    DEFAULT_PAGINATION_CLASS
+    <span class="md-ellipsis">
+      
+        DEFAULT_PAGINATION_CLASS
+      
+    </span>
   </a>
   
 </li>
@@ -938,65 +1485,101 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#owasp-api-security-top-10" class="md-nav__link">
-    OWASP API Security Top 10
+  <a href="#owasp-api-security-top-10-2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OWASP API Security Top 10 (2019)
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="OWASP API Security Top 10">
+    <nav class="md-nav" aria-label="OWASP API Security Top 10 (2019)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#api12019-broken-object-level-authorization" class="md-nav__link">
-    API1:2019 Broken Object Level Authorization
+    <span class="md-ellipsis">
+      
+        API1:2019 Broken Object Level Authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api22019-broken-user-authentication" class="md-nav__link">
-    API2:2019 Broken User Authentication
+    <span class="md-ellipsis">
+      
+        API2:2019 Broken User Authentication
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api32019-excessive-data-exposure" class="md-nav__link">
-    API3:2019 Excessive Data Exposure
+    <span class="md-ellipsis">
+      
+        API3:2019 Excessive Data Exposure
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api42019-lack-of-resources-rate-limiting" class="md-nav__link">
-    API4:2019 Lack of Resources &amp; Rate Limiting
+    <span class="md-ellipsis">
+      
+        API4:2019 Lack of Resources &amp; Rate Limiting
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api52019-broken-function-level-authorization" class="md-nav__link">
-    API5:2019 Broken Function Level Authorization
+    <span class="md-ellipsis">
+      
+        API5:2019 Broken Function Level Authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api62019-mass-assignment" class="md-nav__link">
-    API6:2019 Mass Assignment
+    <span class="md-ellipsis">
+      
+        API6:2019 Mass Assignment
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api72019-security-misconfiguration" class="md-nav__link">
-    API7:2019 Security Misconfiguration
+    <span class="md-ellipsis">
+      
+        API7:2019 Security Misconfiguration
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api82019-injection" class="md-nav__link">
-    API8:2019 Injection
+    <span class="md-ellipsis">
+      
+        API8:2019 Injection
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="API8:2019 Injection">
@@ -1004,14 +1587,22 @@
         
           <li class="md-nav__item">
   <a href="#sqli" class="md-nav__link">
-    SQLi
+    <span class="md-ellipsis">
+      
+        SQLi
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#rce" class="md-nav__link">
-    RCE
+    <span class="md-ellipsis">
+      
+        RCE
+      
+    </span>
   </a>
   
 </li>
@@ -1023,14 +1614,22 @@
         
           <li class="md-nav__item">
   <a href="#api92019-improper-assets-management" class="md-nav__link">
-    API9:2019 Improper Assets Management
+    <span class="md-ellipsis">
+      
+        API9:2019 Improper Assets Management
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api102019-insufficient-logging-monitoring" class="md-nav__link">
-    API10:2019 Insufficient Logging &amp; Monitoring
+    <span class="md-ellipsis">
+      
+        API10:2019 Insufficient Logging &amp; Monitoring
+      
+    </span>
   </a>
   
 </li>
@@ -1042,22 +1641,34 @@
       
         <li class="md-nav__item">
   <a href="#other-security-risks" class="md-nav__link">
-    Other security Risks
+    <span class="md-ellipsis">
+      
+        Other Security Risks
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="Other security Risks">
+    <nav class="md-nav" aria-label="Other Security Risks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#business-logic-bugs" class="md-nav__link">
-    Business Logic Bugs
+    <span class="md-ellipsis">
+      
+        Business Logic Bugs
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#secret-management" class="md-nav__link">
-    Secret Management
+    <span class="md-ellipsis">
+      
+        Secret Management
+      
+    </span>
   </a>
   
 </li>
@@ -1069,21 +1680,33 @@
       
         <li class="md-nav__item">
   <a href="#updating-django-and-drf-and-having-a-process-for-updating-dependencies" class="md-nav__link">
-    Updating Django and DRF and Having a Process for Updating Dependencies
+    <span class="md-ellipsis">
+      
+        Updating Django and DRF and Having a Process for Updating Dependencies
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sast-tools" class="md-nav__link">
-    SAST Tools
+    <span class="md-ellipsis">
+      
+        SAST Tools
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#related-articles-and-references" class="md-nav__link">
-    Related Articles and References
+    <span class="md-ellipsis">
+      
+        Related Articles and References
+      
+    </span>
   </a>
   
 </li>
@@ -1102,13 +1725,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1119,6 +1750,7 @@
             
               
                 
+  
   
   
   
@@ -1126,9 +1758,16 @@
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1139,6 +1778,7 @@
             
               
                 
+  
   
   
   
@@ -1146,9 +1786,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1159,6 +1806,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1166,9 +1870,16 @@
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1179,6 +1890,7 @@
             
               
                 
+  
   
   
   
@@ -1186,9 +1898,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1199,6 +1918,7 @@
             
               
                 
+  
   
   
   
@@ -1206,9 +1926,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1219,6 +1946,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1226,9 +1982,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1239,6 +2002,7 @@
             
               
                 
+  
   
   
   
@@ -1246,9 +2010,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1259,6 +2030,7 @@
             
               
                 
+  
   
   
   
@@ -1266,9 +2038,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1279,6 +2058,7 @@
             
               
                 
+  
   
   
   
@@ -1286,9 +2066,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1299,6 +2086,7 @@
             
               
                 
+  
   
   
   
@@ -1306,9 +2094,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1319,6 +2114,7 @@
             
               
                 
+  
   
   
   
@@ -1326,9 +2122,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1339,6 +2142,7 @@
             
               
                 
+  
   
   
   
@@ -1346,9 +2150,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1359,6 +2170,7 @@
             
               
                 
+  
   
   
   
@@ -1366,9 +2178,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1379,6 +2198,7 @@
             
               
                 
+  
   
   
   
@@ -1386,9 +2206,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1399,6 +2226,7 @@
             
               
                 
+  
   
   
   
@@ -1406,9 +2234,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1419,16 +2254,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1439,6 +2282,7 @@
             
               
                 
+  
   
   
   
@@ -1446,9 +2290,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1459,6 +2310,7 @@
             
               
                 
+  
   
   
   
@@ -1466,9 +2318,16 @@
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1479,6 +2338,7 @@
             
               
                 
+  
   
   
   
@@ -1486,9 +2346,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1499,6 +2366,7 @@
             
               
                 
+  
   
   
   
@@ -1506,9 +2374,16 @@
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1519,6 +2394,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1526,9 +2430,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1539,6 +2450,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1546,9 +2486,16 @@
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1559,6 +2506,7 @@
             
               
                 
+  
   
   
   
@@ -1566,9 +2514,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1579,6 +2534,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1586,9 +2570,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1599,6 +2590,7 @@
             
               
                 
+  
   
   
   
@@ -1606,9 +2598,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1619,6 +2618,7 @@
             
               
                 
+  
   
   
   
@@ -1626,9 +2626,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1639,6 +2646,7 @@
             
               
                 
+  
   
   
   
@@ -1646,9 +2654,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1659,6 +2674,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1666,9 +2710,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1679,6 +2730,7 @@
             
               
                 
+  
   
   
   
@@ -1686,9 +2738,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1699,6 +2758,7 @@
             
               
                 
+  
   
   
   
@@ -1706,9 +2766,16 @@
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1719,6 +2786,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1726,9 +2850,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1739,6 +2870,7 @@
             
               
                 
+  
   
   
   
@@ -1746,9 +2878,16 @@
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1759,6 +2898,7 @@
             
               
                 
+  
   
   
   
@@ -1766,9 +2906,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1779,6 +2926,7 @@
             
               
                 
+  
   
   
   
@@ -1786,9 +2934,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1799,6 +2954,7 @@
             
               
                 
+  
   
   
   
@@ -1806,9 +2962,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1819,6 +2982,7 @@
             
               
                 
+  
   
   
   
@@ -1826,9 +2990,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1839,6 +3010,7 @@
             
               
                 
+  
   
   
   
@@ -1846,9 +3018,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1859,6 +3038,7 @@
             
               
                 
+  
   
   
   
@@ -1866,9 +3046,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1879,6 +3066,7 @@
             
               
                 
+  
   
   
   
@@ -1886,9 +3074,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1899,6 +3094,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1906,9 +3130,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1919,6 +3150,7 @@
             
               
                 
+  
   
   
   
@@ -1926,9 +3158,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1939,6 +3178,7 @@
             
               
                 
+  
   
   
   
@@ -1946,9 +3186,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1959,6 +3206,7 @@
             
               
                 
+  
   
   
   
@@ -1966,9 +3214,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1979,6 +3234,7 @@
             
               
                 
+  
   
   
   
@@ -1986,9 +3242,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1999,6 +3262,7 @@
             
               
                 
+  
   
   
   
@@ -2006,9 +3270,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2019,6 +3290,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2026,9 +3326,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2039,6 +3346,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2046,9 +3410,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2059,6 +3430,7 @@
             
               
                 
+  
   
   
   
@@ -2066,9 +3438,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2079,6 +3458,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2086,9 +3494,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2099,6 +3514,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2106,9 +3550,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2119,6 +3570,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2126,9 +3634,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2139,6 +3654,7 @@
             
               
                 
+  
   
   
   
@@ -2146,9 +3662,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2159,6 +3682,7 @@
             
               
                 
+  
   
   
   
@@ -2166,9 +3690,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2179,6 +3710,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2186,9 +3746,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2199,6 +3766,7 @@
             
               
                 
+  
   
   
   
@@ -2206,9 +3774,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2219,6 +3794,7 @@
             
               
                 
+  
   
   
   
@@ -2226,9 +3802,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2239,6 +3822,7 @@
             
               
                 
+  
   
   
   
@@ -2246,9 +3830,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2259,6 +3850,7 @@
             
               
                 
+  
   
   
   
@@ -2266,9 +3858,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2279,6 +3878,7 @@
             
               
                 
+  
   
   
   
@@ -2286,9 +3886,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2299,6 +3906,7 @@
             
               
                 
+  
   
   
   
@@ -2306,9 +3914,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2319,6 +3934,7 @@
             
               
                 
+  
   
   
   
@@ -2326,9 +3942,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2339,6 +3962,7 @@
             
               
                 
+  
   
   
   
@@ -2346,9 +3970,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2359,6 +3990,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2366,9 +4026,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2379,6 +4046,7 @@
             
               
                 
+  
   
   
   
@@ -2386,9 +4054,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2399,6 +4074,7 @@
             
               
                 
+  
   
   
   
@@ -2406,9 +4082,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2419,6 +4102,7 @@
             
               
                 
+  
   
   
   
@@ -2426,9 +4110,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2442,13 +4133,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2492,14 +4247,33 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-view-in-django" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a view in Django?
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#settings" class="md-nav__link">
-    Settings
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Settings">
@@ -2507,28 +4281,44 @@
         
           <li class="md-nav__item">
   <a href="#default_authentication_classes" class="md-nav__link">
-    DEFAULT_AUTHENTICATION_CLASSES
+    <span class="md-ellipsis">
+      
+        DEFAULT_AUTHENTICATION_CLASSES
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#default_permission_classes" class="md-nav__link">
-    DEFAULT_PERMISSION_CLASSES
+    <span class="md-ellipsis">
+      
+        DEFAULT_PERMISSION_CLASSES
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#default_throttle_classes" class="md-nav__link">
-    DEFAULT_THROTTLE_CLASSES
+    <span class="md-ellipsis">
+      
+        DEFAULT_THROTTLE_CLASSES
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#default_pagination_class" class="md-nav__link">
-    DEFAULT_PAGINATION_CLASS
+    <span class="md-ellipsis">
+      
+        DEFAULT_PAGINATION_CLASS
+      
+    </span>
   </a>
   
 </li>
@@ -2539,65 +4329,101 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#owasp-api-security-top-10" class="md-nav__link">
-    OWASP API Security Top 10
+  <a href="#owasp-api-security-top-10-2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OWASP API Security Top 10 (2019)
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="OWASP API Security Top 10">
+    <nav class="md-nav" aria-label="OWASP API Security Top 10 (2019)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#api12019-broken-object-level-authorization" class="md-nav__link">
-    API1:2019 Broken Object Level Authorization
+    <span class="md-ellipsis">
+      
+        API1:2019 Broken Object Level Authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api22019-broken-user-authentication" class="md-nav__link">
-    API2:2019 Broken User Authentication
+    <span class="md-ellipsis">
+      
+        API2:2019 Broken User Authentication
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api32019-excessive-data-exposure" class="md-nav__link">
-    API3:2019 Excessive Data Exposure
+    <span class="md-ellipsis">
+      
+        API3:2019 Excessive Data Exposure
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api42019-lack-of-resources-rate-limiting" class="md-nav__link">
-    API4:2019 Lack of Resources &amp; Rate Limiting
+    <span class="md-ellipsis">
+      
+        API4:2019 Lack of Resources &amp; Rate Limiting
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api52019-broken-function-level-authorization" class="md-nav__link">
-    API5:2019 Broken Function Level Authorization
+    <span class="md-ellipsis">
+      
+        API5:2019 Broken Function Level Authorization
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api62019-mass-assignment" class="md-nav__link">
-    API6:2019 Mass Assignment
+    <span class="md-ellipsis">
+      
+        API6:2019 Mass Assignment
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api72019-security-misconfiguration" class="md-nav__link">
-    API7:2019 Security Misconfiguration
+    <span class="md-ellipsis">
+      
+        API7:2019 Security Misconfiguration
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api82019-injection" class="md-nav__link">
-    API8:2019 Injection
+    <span class="md-ellipsis">
+      
+        API8:2019 Injection
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="API8:2019 Injection">
@@ -2605,14 +4431,22 @@
         
           <li class="md-nav__item">
   <a href="#sqli" class="md-nav__link">
-    SQLi
+    <span class="md-ellipsis">
+      
+        SQLi
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#rce" class="md-nav__link">
-    RCE
+    <span class="md-ellipsis">
+      
+        RCE
+      
+    </span>
   </a>
   
 </li>
@@ -2624,14 +4458,22 @@
         
           <li class="md-nav__item">
   <a href="#api92019-improper-assets-management" class="md-nav__link">
-    API9:2019 Improper Assets Management
+    <span class="md-ellipsis">
+      
+        API9:2019 Improper Assets Management
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#api102019-insufficient-logging-monitoring" class="md-nav__link">
-    API10:2019 Insufficient Logging &amp; Monitoring
+    <span class="md-ellipsis">
+      
+        API10:2019 Insufficient Logging &amp; Monitoring
+      
+    </span>
   </a>
   
 </li>
@@ -2643,22 +4485,34 @@
       
         <li class="md-nav__item">
   <a href="#other-security-risks" class="md-nav__link">
-    Other security Risks
+    <span class="md-ellipsis">
+      
+        Other Security Risks
+      
+    </span>
   </a>
   
-    <nav class="md-nav" aria-label="Other security Risks">
+    <nav class="md-nav" aria-label="Other Security Risks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#business-logic-bugs" class="md-nav__link">
-    Business Logic Bugs
+    <span class="md-ellipsis">
+      
+        Business Logic Bugs
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#secret-management" class="md-nav__link">
-    Secret Management
+    <span class="md-ellipsis">
+      
+        Secret Management
+      
+    </span>
   </a>
   
 </li>
@@ -2670,21 +4524,33 @@
       
         <li class="md-nav__item">
   <a href="#updating-django-and-drf-and-having-a-process-for-updating-dependencies" class="md-nav__link">
-    Updating Django and DRF and Having a Process for Updating Dependencies
+    <span class="md-ellipsis">
+      
+        Updating Django and DRF and Having a Process for Updating Dependencies
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#sast-tools" class="md-nav__link">
-    SAST Tools
+    <span class="md-ellipsis">
+      
+        SAST Tools
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#related-articles-and-references" class="md-nav__link">
-    Related Articles and References
+    <span class="md-ellipsis">
+      
+        Related Articles and References
+      
+    </span>
   </a>
   
 </li>
@@ -2699,9 +4565,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -2709,115 +4577,101 @@
 
 <h1 id="django-rest-framework-drf-cheat-sheet">Django REST Framework (DRF) Cheat Sheet<a class="headerlink" href="#django-rest-framework-drf-cheat-sheet" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>This <em>Cheat sheet</em> intends to provide quick basic Django REST Framework security tips for developers.</p>
-<p>The Django REST framework abstracts developers from quite a bit of tedious work and provides the means to build APIs quickly and with ease using Django. New developers, those unfamiliar with the inner workings of Django, likely need a basic set of guidelines to secure fundamental aspects of their application. The intended purpose of this doc is to be that guide.</p>
+<p>This cheat sheet provides Django REST Framework security advice for developers. It is a basic set of guidelines for Django REST developers who need to secure fundamental aspects of an application.</p>
+<h2 id="what-is-a-view-in-django">What is a view in Django?<a class="headerlink" href="#what-is-a-view-in-django" title="Permanent link">&para;</a></h2>
+<p>A view in Django is a Python class or a function that returns a web response after it receives a web request. That response can be in simple HTTP, an HTML template, or an HTTP redirect request that redirects a user to another page.</p>
 <h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h2>
-<p>All the Django REST Framework (DRF) configuration is done under the
-namespace REST_FRAMEWORK, usually in the settings.py file. From a security perspective, the most relevant ones are:</p>
+<p>To configure the Django REST Framework (DRF), you will need to access the namespace REST_FRAMEWORK. Normally, you will find this namespace in the settings.py file. From a security perspective, the most relevant items are:</p>
 <h3 id="default_authentication_classes">DEFAULT_AUTHENTICATION_CLASSES<a class="headerlink" href="#default_authentication_classes" title="Permanent link">&para;</a></h3>
-<p>A list of authentication classes that determines the default set of authenticators used when accessing the request.user or request.auth properties. In other words, what classes should be used to identify which user is authenticated.</p>
-<p>Defaults are 'rest_framework.authentication.SessionAuthentication', 'rest_framework.authentication.BasicAuthentication', that means that by default it checks the session and basic authentication for the user.</p>
+<p>A list of authentication classes that are used by default to identify which user is authenticated by accessing the request.user or request.auth properties. These classes are 'rest_framework.authentication.SessionAuthentication' (session authentication) and 'rest_framework.authentication.BasicAuthentication' (basic authentication).</p>
 <h3 id="default_permission_classes">DEFAULT_PERMISSION_CLASSES<a class="headerlink" href="#default_permission_classes" title="Permanent link">&para;</a></h3>
-<p>A list of permission classes that determines the default set of permissions checked at the start of a view.</p>
-<p>Permission must be granted by every class in the list. Default is 'rest_framework.permissions.AllowAny'18, that means that by <strong>default every view allows access to everybody.</strong></p>
+<p>A list of permission classes that defines the default set of permissions that Django checks before a view can be accessed. Since the default is 'rest_framework.permissions.AllowAny', that means <strong>unless the default permission class is changed, everybody can access every view by default.</strong></p>
 <h3 id="default_throttle_classes">DEFAULT_THROTTLE_CLASSES<a class="headerlink" href="#default_throttle_classes" title="Permanent link">&para;</a></h3>
-<p>A list of throttle classes that determines the default set of throttles checked at the start of a view.
-<strong>Default is empty</strong>, that means that by default there is no throttling in place.</p>
+<p>A list of throttle classes that determines the default set of throttles checked at the start of a view. <strong>By default, there is no throttling in place since the default class is empty.</strong></p>
 <h3 id="default_pagination_class">DEFAULT_PAGINATION_CLASS<a class="headerlink" href="#default_pagination_class" title="Permanent link">&para;</a></h3>
-<p>The default class to use for queryset pagination. <strong>Pagination is disabled by default.</strong> Lack of proper pagination could lead to Denial of Service (DoS) in cases where there’s a lot of data.</p>
-<h2 id="owasp-api-security-top-10">OWASP API Security Top 10<a class="headerlink" href="#owasp-api-security-top-10" title="Permanent link">&para;</a></h2>
-<p>The <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a> is a list of the most critical security risks for APIs, developed by the <a href="https://owasp.org/">Open Web Application Security Project (OWASP)</a>. It is intended to help organizations identify and prioritize the most significant risks to their APIs, so that they can implement appropriate controls to mitigate those risks.</p>
-<p>This section is based on this. Your approach to securing your web API should be to start at the top threat A1 below and work down, this will ensure that any time spent on security will be spent most effectively spent and cover the top threats first and lesser threats afterwards. After covering the top 10 it is generally advisable to assess for other threats or get a professionally completed Penetration Test.</p>
+<p>The default class to use for queryset pagination. <strong>In Django, pagination is disabled by default.</strong> Without proper pagination, Denial of Service (DoS) problems or attacks could occur if there’s a lot of data.</p>
+<h2 id="owasp-api-security-top-10-2019">OWASP API Security Top 10 (2019)<a class="headerlink" href="#owasp-api-security-top-10-2019" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a> is a list of the most critical security risks for APIs that was developed by the <a href="https://owasp.org/">Open Worldwide Application Security Project (OWASP)</a>. It is designed to help organizations identify and prioritize the most significant risks to their APIs so that they can implement appropriate controls to mitigate those risks.</p>
+<p>This section uses the 2019 version of the API Security Top 10. The best approach to securing your web API is to start at the top threat (A1 below) and work your way down. This will ensure that any time spent on security will be spent most effectively because you will cover the top threats first. After you look at the Top 10, it is generally advisable to assess for other threats or get a professional penetration test.</p>
 <h3 id="api12019-broken-object-level-authorization">API1:2019 Broken Object Level Authorization<a class="headerlink" href="#api12019-broken-object-level-authorization" title="Permanent link">&para;</a></h3>
-<p>When using object-level permissions:</p>
-<p>DO: Validate that the object can be accessed by the user using the method <code>.check_object_permissions(request, obj)</code>. Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">obj</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">(),</span> <span class="n">pk</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pk&quot;</span><span class="p">])</span>
+<p>When using object-level permissions, you should make sure that the object can be accessed by the user using the method <code>.check_object_permissions(request, obj)</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">(),</span> <span class="n">pk</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">"pk"</span><span class="p">])</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">check_object_permissions</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">obj</span>
 </code></pre></div>
-<p>DO NOT: Override the method <code>get_object()</code> without checking if the request should have access to that object.</p>
+<p>DO NOT override the method <code>get_object()</code> without checking if the request should have access to that object.</p>
 <h3 id="api22019-broken-user-authentication">API2:2019 Broken User Authentication<a class="headerlink" href="#api22019-broken-user-authentication" title="Permanent link">&para;</a></h3>
-<p>DO: Use the setting value DEFAULT_AUTHENTICATION_CLASSES with the correct classes for your project.</p>
-<p>DO: Have authentication on every non-public API endpoint.</p>
-<p>DO NOT: Overwrite the authentication class on a class-based (variable <code>authentication_classes</code>) or function-based (decorator <code>authentication_classes</code>) view unless you are confident about the change and understand the impact.</p>
+<p>To prevent broken user authentication, use the setting value DEFAULT_AUTHENTICATION_CLASSES with the correct classes for your project and have authentication on every non-public API endpoint. Do not overwrite the authentication class on a class-based (variable <code>authentication_classes</code>) or function-based (decorator <code>authentication_classes</code>) view unless you are confident about the change and understand the impact.</p>
 <h3 id="api32019-excessive-data-exposure">API3:2019 Excessive Data Exposure<a class="headerlink" href="#api32019-excessive-data-exposure" title="Permanent link">&para;</a></h3>
-<p>DO: Review the serializer and the information you are displaying.</p>
-<p>If the serializer is inheriting from ModelSerializer DO NOT use the exclude Meta property.</p>
-<p>DO NOT: Display more information that the minimum required.</p>
+<p>To prevent this problem, only display the minimum amount of required information. Make sure you review the serializer and the information you are displaying. If the serializer is inheriting from ModelSerializer, DO NOT use the exclude Meta property.</p>
 <h3 id="api42019-lack-of-resources-rate-limiting">API4:2019 Lack of Resources &amp; Rate Limiting<a class="headerlink" href="#api42019-lack-of-resources-rate-limiting" title="Permanent link">&para;</a></h3>
-<p>DO: Configure the setting DEFAULT_THROTTLE_CLASSES.</p>
-<p>DO NOT: Overwrite the throttle class on a class-based (variable <code>throttle_classes</code>) or function-based (decorator <code>throttle_classes</code>) view unless you are confident about the change and understand the impact.</p>
-<p>EXTRA: If possible rate limiting should also be done with a WAF or similar. DRF should be the last layer of rate limiting.</p>
+<p>To prevent this problem, configure the setting DEFAULT_THROTTLE_CLASSES and DO NOT overwrite the throttle class on a class-based (variable <code>throttle_classes</code>) or function-based (decorator <code>throttle_classes</code>) view, unless you are confident about the change and understand the impact.</p>
+<p>EXTRA: If possible, do rate limiting with a WAF or similar. DRF should be the last layer of rate limiting.</p>
 <h3 id="api52019-broken-function-level-authorization">API5:2019 Broken Function Level Authorization<a class="headerlink" href="#api52019-broken-function-level-authorization" title="Permanent link">&para;</a></h3>
-<p>DO: Change the default value (<code>'rest_framework.permissions.AllowAny'</code>) of DEFAULT_PERMISSION_CLASSES.</p>
-<p>DO NOT: Use <code>rest_framework.permissions.AllowAny</code> except for public API endpoints.</p>
-<p>DO: Use the setting value DEFAULT_PERMISSION_CLASSES with the correct classes for your project.</p>
-<p>DO NOT: Overwrite the authorization class on a class-based (variable <code>permission_classes</code>) or function-based (decorator <code>permission_classes</code>) view unless you are confident about the change and understand the impact.</p>
+<p>To stop this problem, change the default value (<code>'rest_framework.permissions.AllowAny'</code>) of DEFAULT_PERMISSION_CLASSES. Use the setting value DEFAULT_PERMISSION_CLASSES with the correct classes for your project.</p>
+<p>DO NOT use <code>rest_framework.permissions.AllowAny</code> except for public API endpoints and DO NOT overwrite the authorization class on a class-based (variable <code>permission_classes</code>) or function-based (decorator <code>permission_classes</code>) view unless you are confident about the change and understand the impact.</p>
 <h3 id="api62019-mass-assignment">API6:2019 Mass Assignment<a class="headerlink" href="#api62019-mass-assignment" title="Permanent link">&para;</a></h3>
-<p>When using ModelForms:</p>
-<p>DO: Use Meta.fields (allowlist approach).</p>
-<p>DO NOT: Use Meta.exclude (denylist approach).</p>
-<p>DO NOT: Use <code>ModelForms.Meta.fields = "__all__"</code></p>
+<p>To prevent this problem, use Meta.fields (allowlist approach) when using ModelForms. DO NOT use Meta.exclude (denylist approach) or <code>ModelForms.Meta.fields = "__all__"</code></p>
 <h3 id="api72019-security-misconfiguration">API7:2019 Security Misconfiguration<a class="headerlink" href="#api72019-security-misconfiguration" title="Permanent link">&para;</a></h3>
-<p>DO: Setup Django settings <code>DEBUG</code> and <code>DEBUG_PROPAGATE_EXCEPTIONS</code> to False.</p>
-<p>DO: Setup Django setting <code>SECRET_KEY</code> to a random value. Never hardcode secrets.</p>
-<p>DO: Have a repeatable hardening process leading to fast and easy deployment of a properly locked down environment.</p>
-<p>DO: Have an automated process to continuously assess the effectiveness of the configuration and settings in all environments.</p>
-<p>DO: Ensure API can only be accessed by the specified HTTP verbs. All other HTTP verbs should be disabled.</p>
-<p>DO NOT: Use default passwords</p>
+<p>To stop this problem, you must have a repeatable hardening process leading to fast and easy deployment of a properly locked down environment. Have an automated process to continuously assess the effectiveness of the configuration and settings in all environments.</p>
+<p><strong>DO NOT use default passwords. Set the Django settings <code>DEBUG</code> and <code>DEBUG_PROPAGATE_EXCEPTIONS</code> to False. Ensure API can only be accessed by the specified HTTP verbs. All other HTTP verbs should be disabled. Set <code>SECRET_KEY</code> to a random value and NEVER hardcode secrets.</strong></p>
+<p><strong>DO validate, filter, and sanitize all client-provided data, or other data coming from integrated systems.</strong></p>
 <h3 id="api82019-injection">API8:2019 Injection<a class="headerlink" href="#api82019-injection" title="Permanent link">&para;</a></h3>
-<p>DO: Validate, filter, and sanitize all client-provided data, or other data coming from integrated systems.</p>
 <h4 id="sqli">SQLi<a class="headerlink" href="#sqli" title="Permanent link">&para;</a></h4>
-<p>DO: Use parametrized queries.</p>
-<p>TRY NOT TO: Use dangerous methods like <code>raw()</code>, <code>extra()</code> and custom SQL (via <code>cursor.execute()</code>).</p>
-<p>DO NOT: Add user input to dangerous methods (<code>raw()</code>, <code>extra()</code>, <code>cursor.execute()</code>).</p>
+<p><strong>To prevent this problem, use parametrized queries.</strong> Be careful when using dangerous methods like <code>raw()</code>, <code>extra()</code> and custom SQL (via <code>cursor.execute()</code>). DO NOT add user input to dangerous methods (<code>raw()</code>, <code>extra()</code>, <code>cursor.execute()</code>).</p>
 <h4 id="rce">RCE<a class="headerlink" href="#rce" title="Permanent link">&para;</a></h4>
-<p>DO NOT: Add user input to dangerous methods (<code>eval()</code>, <code>exec()</code> and <code>execfile()</code>).</p>
-<p>DO NOT: Load user-controlled pickle files. This includes the pandas method <code>pandas.read_pickle()</code>.</p>
-<p>DO NOT: Load user-controlled YAML files using the method <code>load()</code>.</p>
-<p>DO: Use the <code>Loader=yaml.SafeLoader</code> for YAML files.</p>
+<p>To stop this problem, use the <code>Loader=yaml.SafeLoader</code> for YAML files. DO NOT load user-controlled YAML files using the method <code>load()</code>.</p>
+<p>Also, DO NOT add user input to dangerous methods (<code>eval()</code>, <code>exec()</code> and <code>execfile()</code>) and DO NOT load user-controlled pickle files, which includes the pandas method <code>pandas.read_pickle()</code>.</p>
 <h3 id="api92019-improper-assets-management">API9:2019 Improper Assets Management<a class="headerlink" href="#api92019-improper-assets-management" title="Permanent link">&para;</a></h3>
-<p>DO: Have an inventory of all API hosts and document important aspects of each one of them, focusing on the API environment (e.g., production, staging, test, development), who should have network access to the host (e.g., public, internal, partners) and the API version.</p>
-<p>DO: Document all aspects of your API such as authentication, errors, redirects, rate limiting, cross-origin resource sharing (CORS) policy and endpoints, including their parameters, requests, and responses.</p>
+<p>To prevent this problem, create an inventory of all API hosts. In this inventory, document the important aspects of each host. Focus on the API version and the API environment (e.g., production, staging, test, development) and determine who should have network access to the host (e.g., public, internal, partners). Make sure you document all aspects of your API such as authentication, errors, redirects, rate limiting, cross-origin resource sharing (CORS) policy and endpoints, including their parameters, requests, and responses.</p>
 <h3 id="api102019-insufficient-logging-monitoring">API10:2019 Insufficient Logging &amp; Monitoring<a class="headerlink" href="#api102019-insufficient-logging-monitoring" title="Permanent link">&para;</a></h3>
-<p>DO: Log all failed authentication attempts, denied access, and input validation errors with sufficient user context to identify suspicious or malicious accounts.</p>
-<p>DO: Create logs in a format suited to be consumed by a log management solution and should include enough detail to identify the malicious actor.</p>
-<p>DO: Handle logs as sensitive data, and their integrity should be guaranteed at rest and transit.</p>
-<p>DO: Configure a monitoring system to continuously monitor the infrastructure, network, and the API functioning.</p>
-<p>DO: Use a Security Information and Event Management (SIEM) system to aggregate and manage logs from all components of the API stack and hosts.</p>
-<p>DO: Configure custom dashboards and alerts, enabling suspicious activities to be detected and responded to earlier.</p>
-<p>DO: Establish effective monitoring and alerting so suspicious activities are detected and responded to in a timely fashion.</p>
-<p>DO NOT: Log generic error messages such as: Log.Error("Error was thrown"); rather log the stack trace, error message and user ID who caused the error.</p>
-<p>DO NOT: Log sensitive data such as user's passwords, API Tokens or PII.</p>
-<h2 id="other-security-risks">Other security Risks<a class="headerlink" href="#other-security-risks" title="Permanent link">&para;</a></h2>
+<p>For proper logging and monitoring capabilities, do the following:</p>
+<p>--Log all failed authentication attempts, denied access, and input validation errors with sufficient user context to identify suspicious or malicious accounts.</p>
+<p>--Create logs in a format suited to be consumed by a log management solution and include enough detail to identify the malicious actor.</p>
+<p>--Handle logs as sensitive data, and their integrity should be guaranteed at rest and transit.</p>
+<p>--Configure a monitoring system to continuously monitor the infrastructure, network, and the API functioning.</p>
+<p>--Use a Security Information and Event Management (SIEM) system to aggregate and manage logs from all components of the API stack and hosts.</p>
+<p>--Configure custom dashboards and alerts, enabling suspicious activities to be detected and responded to earlier.</p>
+<p>--Establish effective monitoring and alerting so suspicious activities are detected and responded to in a timely fashion.</p>
+<p>DO NOT:</p>
+<p>--Log generic error messages such as: Log.Error("Error was thrown"); rather log the stack trace, error message and user ID who caused the error.</p>
+<p>--Log sensitive data such as user's passwords, API Tokens or PII.</p>
+<h2 id="other-security-risks">Other Security Risks<a class="headerlink" href="#other-security-risks" title="Permanent link">&para;</a></h2>
 <p>Below is a list of security risks for APIs not discussed in the OWASP API Security Top 10.</p>
 <h3 id="business-logic-bugs">Business Logic Bugs<a class="headerlink" href="#business-logic-bugs" title="Permanent link">&para;</a></h3>
-<p>Any application in any technology can contain business logic errors that result in security bugs. Business logic bugs are difficult to impossible to detect using automated tools. The best ways to prevent business logic security bugs are to do threat model, security design review, code review, pair program and write unit tests.</p>
+<p>Be aware of possible business logic errors that result in security bugs. Since business logic bugs are difficult to impossible to detect using automated tools, the best ways to prevent business logic security bugs are use threat models, do security design reviews, do code reviews, pair programs and write unit tests.</p>
 <h3 id="secret-management">Secret Management<a class="headerlink" href="#secret-management" title="Permanent link">&para;</a></h3>
-<p>Secrets should never be hardcoded. The best practice is to use a Secret Manager. For more information review OWASP <a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html">Secrets Management Cheat Sheet</a></p>
+<p><strong>Secrets should never be hardcoded. The best practice is to use a Secret Manager.</strong> For more information review OWASP <a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html">Secrets Management Cheat Sheet</a></p>
 <h2 id="updating-django-and-drf-and-having-a-process-for-updating-dependencies">Updating Django and DRF and Having a Process for Updating Dependencies<a class="headerlink" href="#updating-django-and-drf-and-having-a-process-for-updating-dependencies" title="Permanent link">&para;</a></h2>
-<p>An concern with every application, including Python applications, is that dependencies can have vulnerabilities.</p>
-<p>One good practice is to audit the dependencies your project is using.</p>
-<p>In general, it is important to have a process for updating dependencies. An example process might define three mechanisms for triggering an update of response:</p>
-<ul>
-<li>Every month/quarter dependencies in general are updated.</li>
-<li>Every week important security vulnerabilities are considered and potentially trigger an update.</li>
-<li>In EXCEPTIONAL conditions, emergency updates may need to be applied.</li>
-</ul>
-<p>The Django Security team has a information on <a href="https://docs.djangoproject.com/en/4.1/internals/security/#how-django-discloses-security-issues">How Django discloses security issues</a>.</p>
-<p>Finally, an important aspect when considering if a new dependency should be added or not to the project is the "Security Health" of the library. How often it's updated? Does it have known vulnerabilities? Does it have an active community? etc. Some tools can help with this task (E.g. <a href="https://snyk.io/advisor/python">Snyk Advisor</a>)</p>
+<p>All applications have dependencies and those dependencies can have vulnerabilities. One good practice is to audit the dependencies your project is using. In general, it is important to have a process for updating dependencies. A sample process might define three mechanisms for triggering an update of response:</p>
+<p>--Every month/quarter dependencies in general are updated.
+--Every week important security vulnerabilities are considered and potentially trigger an update.
+--In EXCEPTIONAL conditions, emergency updates may need to be applied.</p>
+<p>The Django Security team has information on <a href="https://docs.djangoproject.com/en/stable/internals/security/#how-django-discloses-security-issues">How Django discloses security issues</a>.</p>
+<p>When a library is under consideration, consider the "Security Health" of the library. How often it's updated? Does it have known vulnerabilities? Does it have an active community? etc. Some tools can help with this task (E.g. <a href="https://snyk.io/advisor/python">Snyk Advisor</a>)</p>
 <h2 id="sast-tools">SAST Tools<a class="headerlink" href="#sast-tools" title="Permanent link">&para;</a></h2>
 <p>There are several excellent open-source static analysis security tools for Python that are worth considering, including:</p>
-<p>Bandit – <a href="https://bandit.readthedocs.io/en/latest/">Bandit</a> is a tool designed to find common security issues in Python. To do this Bandit processes each file, builds an Abstract Syntax Tree (AST) from it, and runs appropriate plugins against the AST nodes. Once Bandit has finished scanning all the files it generates a report. Bandit was originally developed within the OpenStack Security Project and later rehomed to PyCQA.</p>
+<p>Bandit – <a href="https://bandit.readthedocs.io/en/latest/">Bandit</a> is a tool designed to find common security issues in Python. Bandit processes each file, builds an Abstract Syntax Tree (AST) from it, and runs appropriate plugins against the AST nodes. Once Bandit has finished scanning all the files it generates a report. Bandit was originally developed within the OpenStack Security Project and later rehomed to PyCQA.</p>
 <p>Semgrep – <a href="https://semgrep.dev/">Semgrep</a> is a fast, open-source, static analysis engine for finding bugs, detecting vulnerabilities in third-party dependencies, and enforcing code standards. Developed by “Return To Corporation” (usually referred to as r2c) and open-source contributors. It works based on rules, which can focus on security, language best practices, or something else. Creating a rule is easy and semgrep is very powerful. For Django there are 29 rules.</p>
 <p>PyCharm Security – <a href="https://pycharm-security.readthedocs.io/en/latest/index.html">Pycharm-security</a> is a plugin for PyCharm, or JetBrains IDEs with the Python plugin. The plugin looks at Python code for common security vulnerabilities and suggests fixes. It can also be executed from a Docker container. It has about 40 checks and some are Django specific.</p>
 <h2 id="related-articles-and-references">Related Articles and References<a class="headerlink" href="#related-articles-and-references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://openaccess.uoc.edu/handle/10609/147246">Django REST Framework (DRF) Secure Code Guidelines</a></li>
-<li><a href="https://docs.djangoproject.com/en/4.1/internals/security/">Django’s security policies</a></li>
-<li><a href="https://docs.djangoproject.com/en/4.1/topics/security/">Security in Django</a></li>
+<li><a href="https://docs.djangoproject.com/en/stable/internals/security/">Django’s security policies</a></li>
+<li><a href="https://docs.djangoproject.com/en/stable/topics/security/">Security in Django</a></li>
 </ul>
+
+
+
+
+
+
+
+  
+  
+
 
 
 
@@ -2828,6 +4682,7 @@ namespace REST_FRAMEWORK, usually in the settings.py file. From a security persp
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -2859,10 +4714,14 @@ namespace REST_FRAMEWORK, usually in the settings.py file. From a security persp
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

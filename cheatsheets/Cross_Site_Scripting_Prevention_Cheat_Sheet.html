@@ -19,8 +19,11 @@
         <link rel="next" href="Cryptographic_Storage_Cheat_Sheet.html">
       
       
+        
+      
+      
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -683,13 +1088,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -703,6 +1116,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -716,9 +1130,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -727,9 +1148,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -751,28 +1179,44 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#framework-security" class="md-nav__link">
-    Framework Security
+    <span class="md-ellipsis">
+      
+        Framework Security
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#xss-defense-philosophy" class="md-nav__link">
-    XSS Defense Philosophy
+    <span class="md-ellipsis">
+      
+        XSS Defense Philosophy
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#output-encoding" class="md-nav__link">
-    Output Encoding
+    <span class="md-ellipsis">
+      
+        Output Encoding
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Output Encoding">
@@ -780,35 +1224,55 @@
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-html-contexts" class="md-nav__link">
-    Output Encoding for “HTML Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “HTML Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-html-attribute-contexts" class="md-nav__link">
-    Output Encoding for “HTML Attribute Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “HTML Attribute Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-javascript-contexts" class="md-nav__link">
-    Output Encoding for “JavaScript Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “JavaScript Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-css-contexts" class="md-nav__link">
-    Output Encoding for “CSS Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “CSS Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-url-contexts" class="md-nav__link">
-    Output Encoding for “URL Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “URL Contexts”
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Output Encoding for “URL Contexts”">
@@ -816,7 +1280,11 @@
         
           <li class="md-nav__item">
   <a href="#common-mistake" class="md-nav__link">
-    Common Mistake
+    <span class="md-ellipsis">
+      
+        Common Mistake
+      
+    </span>
   </a>
   
 </li>
@@ -828,7 +1296,11 @@
         
           <li class="md-nav__item">
   <a href="#dangerous-contexts" class="md-nav__link">
-    Dangerous Contexts
+    <span class="md-ellipsis">
+      
+        Dangerous Contexts
+      
+    </span>
   </a>
   
 </li>
@@ -840,21 +1312,33 @@
       
         <li class="md-nav__item">
   <a href="#html-sanitization" class="md-nav__link">
-    HTML Sanitization
+    <span class="md-ellipsis">
+      
+        HTML Sanitization
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#safe-sinks" class="md-nav__link">
-    Safe Sinks
+    <span class="md-ellipsis">
+      
+        Safe Sinks
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#other-controls" class="md-nav__link">
-    Other Controls
+    <span class="md-ellipsis">
+      
+        Other Controls
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Other Controls">
@@ -862,14 +1346,22 @@
         
           <li class="md-nav__item">
   <a href="#xss-prevention-rules-summary" class="md-nav__link">
-    XSS Prevention Rules Summary
+    <span class="md-ellipsis">
+      
+        XSS Prevention Rules Summary
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-rules-summary" class="md-nav__link">
-    Output Encoding Rules Summary
+    <span class="md-ellipsis">
+      
+        Output Encoding Rules Summary
+      
+    </span>
   </a>
   
 </li>
@@ -881,7 +1373,11 @@
       
         <li class="md-nav__item">
   <a href="#common-anti-patterns-ineffective-approaches-to-avoid" class="md-nav__link">
-    Common Anti-patterns: Ineffective Approaches to Avoid
+    <span class="md-ellipsis">
+      
+        Common Anti-patterns: Ineffective Approaches to Avoid
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Common Anti-patterns: Ineffective Approaches to Avoid">
@@ -889,7 +1385,11 @@
         
           <li class="md-nav__item">
   <a href="#sole-reliance-on-content-security-policy-csp-headers" class="md-nav__link">
-    Sole Reliance on Content-Security-Policy (CSP) Headers
+    <span class="md-ellipsis">
+      
+        Sole Reliance on Content-Security-Policy (CSP) Headers
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Sole Reliance on Content-Security-Policy (CSP) Headers">
@@ -897,14 +1397,22 @@
         
           <li class="md-nav__item">
   <a href="#problem-1-assumption-browser-versions-support-csp-equally" class="md-nav__link">
-    Problem 1 - Assumption Browser Versions Support CSP Equally
+    <span class="md-ellipsis">
+      
+        Problem 1 - Assumption Browser Versions Support CSP Equally
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-2-issues-supporting-legacy-applications" class="md-nav__link">
-    Problem 2 - Issues Supporting Legacy Applications
+    <span class="md-ellipsis">
+      
+        Problem 2 - Issues Supporting Legacy Applications
+      
+    </span>
   </a>
   
 </li>
@@ -916,7 +1424,11 @@
         
           <li class="md-nav__item">
   <a href="#reliance-on-http-interceptors" class="md-nav__link">
-    Reliance on HTTP Interceptors
+    <span class="md-ellipsis">
+      
+        Reliance on HTTP Interceptors
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Reliance on HTTP Interceptors">
@@ -924,28 +1436,44 @@
         
           <li class="md-nav__item">
   <a href="#problem-1-encoding-for-specific-context-not-satisfactory-for-all-uri-paths" class="md-nav__link">
-    Problem 1 - Encoding for specific context not satisfactory for all URI paths
+    <span class="md-ellipsis">
+      
+        Problem 1 - Encoding for specific context not satisfactory for all URI paths
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-2-interceptor-approach-can-lead-to-broken-rendering-caused-by-improper-or-double-encoding" class="md-nav__link">
-    Problem 2 - Interceptor approach can lead to broken rendering caused by improper or double encoding
+    <span class="md-ellipsis">
+      
+        Problem 2 - Interceptor approach can lead to broken rendering caused by improper or double encoding
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-3-interceptors-not-effective-against-dom-based-xss" class="md-nav__link">
-    Problem 3 - Interceptors not effective against DOM-based XSS
+    <span class="md-ellipsis">
+      
+        Problem 3 - Interceptors not effective against DOM-based XSS
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-4-interceptors-not-effective-where-data-from-responses-originates-outside-your-application" class="md-nav__link">
-    Problem 4 - Interceptors not effective where data from responses originates outside your application
+    <span class="md-ellipsis">
+      
+        Problem 4 - Interceptors not effective where data from responses originates outside your application
+      
+    </span>
   </a>
   
 </li>
@@ -957,7 +1485,11 @@
         
           <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
-    Summary
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
   </a>
   
 </li>
@@ -969,7 +1501,11 @@
       
         <li class="md-nav__item">
   <a href="#related-articles" class="md-nav__link">
-    Related Articles
+    <span class="md-ellipsis">
+      
+        Related Articles
+      
+    </span>
   </a>
   
 </li>
@@ -988,13 +1524,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1005,6 +1549,7 @@
             
               
                 
+  
   
   
   
@@ -1012,9 +1557,16 @@
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1025,6 +1577,7 @@
             
               
                 
+  
   
   
   
@@ -1032,9 +1585,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1045,6 +1605,7 @@
             
               
                 
+  
   
   
   
@@ -1052,9 +1613,16 @@
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1065,6 +1633,7 @@
             
               
                 
+  
   
   
   
@@ -1072,9 +1641,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1085,6 +1661,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1092,9 +1697,16 @@
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1105,6 +1717,7 @@
             
               
                 
+  
   
   
   
@@ -1112,9 +1725,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1125,6 +1745,7 @@
             
               
                 
+  
   
   
   
@@ -1132,9 +1753,16 @@
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1145,6 +1773,7 @@
             
               
                 
+  
   
   
   
@@ -1152,9 +1781,16 @@
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1165,6 +1801,7 @@
             
               
                 
+  
   
   
   
@@ -1172,9 +1809,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1185,6 +1829,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1192,9 +1893,16 @@
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1205,6 +1913,7 @@
             
               
                 
+  
   
   
   
@@ -1212,9 +1921,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1225,6 +1941,7 @@
             
               
                 
+  
   
   
   
@@ -1232,9 +1949,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1245,6 +1969,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1252,9 +2005,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1265,6 +2025,7 @@
             
               
                 
+  
   
   
   
@@ -1272,9 +2033,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1285,6 +2053,7 @@
             
               
                 
+  
   
   
   
@@ -1292,9 +2061,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1305,6 +2081,7 @@
             
               
                 
+  
   
   
   
@@ -1312,9 +2089,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1325,6 +2109,7 @@
             
               
                 
+  
   
   
   
@@ -1332,9 +2117,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1345,6 +2137,7 @@
             
               
                 
+  
   
   
   
@@ -1352,9 +2145,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1365,6 +2165,7 @@
             
               
                 
+  
   
   
   
@@ -1372,9 +2173,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1385,6 +2193,7 @@
             
               
                 
+  
   
   
   
@@ -1392,9 +2201,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1405,6 +2221,7 @@
             
               
                 
+  
   
   
   
@@ -1412,9 +2229,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1425,6 +2249,7 @@
             
               
                 
+  
   
   
   
@@ -1432,9 +2257,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1445,16 +2277,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1465,6 +2305,7 @@
             
               
                 
+  
   
   
   
@@ -1472,9 +2313,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1485,6 +2333,7 @@
             
               
                 
+  
   
   
   
@@ -1492,9 +2341,16 @@
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1505,6 +2361,7 @@
             
               
                 
+  
   
   
   
@@ -1512,9 +2369,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1525,6 +2389,7 @@
             
               
                 
+  
   
   
   
@@ -1532,9 +2397,16 @@
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1545,6 +2417,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1552,9 +2453,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1565,6 +2473,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1572,9 +2509,16 @@
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1585,6 +2529,7 @@
             
               
                 
+  
   
   
   
@@ -1592,9 +2537,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1605,6 +2557,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1612,9 +2593,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1625,6 +2613,7 @@
             
               
                 
+  
   
   
   
@@ -1632,9 +2621,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1645,6 +2641,7 @@
             
               
                 
+  
   
   
   
@@ -1652,9 +2649,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1665,6 +2669,7 @@
             
               
                 
+  
   
   
   
@@ -1672,9 +2677,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1685,6 +2697,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1692,9 +2733,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1705,6 +2753,7 @@
             
               
                 
+  
   
   
   
@@ -1712,9 +2761,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1725,6 +2781,7 @@
             
               
                 
+  
   
   
   
@@ -1732,9 +2789,16 @@
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1745,6 +2809,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1752,9 +2873,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1765,6 +2893,7 @@
             
               
                 
+  
   
   
   
@@ -1772,9 +2901,16 @@
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1785,6 +2921,7 @@
             
               
                 
+  
   
   
   
@@ -1792,9 +2929,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1805,6 +2949,7 @@
             
               
                 
+  
   
   
   
@@ -1812,9 +2957,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1825,6 +2977,7 @@
             
               
                 
+  
   
   
   
@@ -1832,9 +2985,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1845,6 +3005,7 @@
             
               
                 
+  
   
   
   
@@ -1852,9 +3013,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1865,6 +3033,7 @@
             
               
                 
+  
   
   
   
@@ -1872,9 +3041,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1885,6 +3061,7 @@
             
               
                 
+  
   
   
   
@@ -1892,9 +3069,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1905,6 +3089,7 @@
             
               
                 
+  
   
   
   
@@ -1912,9 +3097,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1925,6 +3117,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1932,9 +3153,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1945,6 +3173,7 @@
             
               
                 
+  
   
   
   
@@ -1952,9 +3181,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1965,6 +3201,7 @@
             
               
                 
+  
   
   
   
@@ -1972,9 +3209,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1985,6 +3229,7 @@
             
               
                 
+  
   
   
   
@@ -1992,9 +3237,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2005,6 +3257,7 @@
             
               
                 
+  
   
   
   
@@ -2012,9 +3265,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2025,6 +3285,7 @@
             
               
                 
+  
   
   
   
@@ -2032,9 +3293,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2045,6 +3313,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2052,9 +3349,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2065,6 +3369,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2072,9 +3433,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2085,6 +3453,7 @@
             
               
                 
+  
   
   
   
@@ -2092,9 +3461,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2105,6 +3481,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2112,9 +3517,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2125,6 +3537,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2132,9 +3573,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2145,6 +3593,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2152,9 +3657,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2165,6 +3677,7 @@
             
               
                 
+  
   
   
   
@@ -2172,9 +3685,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2185,6 +3705,7 @@
             
               
                 
+  
   
   
   
@@ -2192,9 +3713,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2205,6 +3733,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2212,9 +3769,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2225,6 +3789,7 @@
             
               
                 
+  
   
   
   
@@ -2232,9 +3797,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2245,6 +3817,7 @@
             
               
                 
+  
   
   
   
@@ -2252,9 +3825,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2265,6 +3845,7 @@
             
               
                 
+  
   
   
   
@@ -2272,9 +3853,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2285,6 +3873,7 @@
             
               
                 
+  
   
   
   
@@ -2292,9 +3881,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2305,6 +3901,7 @@
             
               
                 
+  
   
   
   
@@ -2312,9 +3909,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2325,6 +3929,7 @@
             
               
                 
+  
   
   
   
@@ -2332,9 +3937,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2345,6 +3957,7 @@
             
               
                 
+  
   
   
   
@@ -2352,9 +3965,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2365,6 +3985,7 @@
             
               
                 
+  
   
   
   
@@ -2372,9 +3993,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2385,6 +4013,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2392,9 +4049,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2405,6 +4069,7 @@
             
               
                 
+  
   
   
   
@@ -2412,9 +4077,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2425,6 +4097,7 @@
             
               
                 
+  
   
   
   
@@ -2432,9 +4105,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2445,6 +4125,7 @@
             
               
                 
+  
   
   
   
@@ -2452,9 +4133,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2468,13 +4156,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2518,28 +4270,44 @@
       
         <li class="md-nav__item">
   <a href="#introduction" class="md-nav__link">
-    Introduction
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#framework-security" class="md-nav__link">
-    Framework Security
+    <span class="md-ellipsis">
+      
+        Framework Security
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#xss-defense-philosophy" class="md-nav__link">
-    XSS Defense Philosophy
+    <span class="md-ellipsis">
+      
+        XSS Defense Philosophy
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#output-encoding" class="md-nav__link">
-    Output Encoding
+    <span class="md-ellipsis">
+      
+        Output Encoding
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Output Encoding">
@@ -2547,35 +4315,55 @@
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-html-contexts" class="md-nav__link">
-    Output Encoding for “HTML Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “HTML Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-html-attribute-contexts" class="md-nav__link">
-    Output Encoding for “HTML Attribute Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “HTML Attribute Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-javascript-contexts" class="md-nav__link">
-    Output Encoding for “JavaScript Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “JavaScript Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-css-contexts" class="md-nav__link">
-    Output Encoding for “CSS Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “CSS Contexts”
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-for-url-contexts" class="md-nav__link">
-    Output Encoding for “URL Contexts”
+    <span class="md-ellipsis">
+      
+        Output Encoding for “URL Contexts”
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Output Encoding for “URL Contexts”">
@@ -2583,7 +4371,11 @@
         
           <li class="md-nav__item">
   <a href="#common-mistake" class="md-nav__link">
-    Common Mistake
+    <span class="md-ellipsis">
+      
+        Common Mistake
+      
+    </span>
   </a>
   
 </li>
@@ -2595,7 +4387,11 @@
         
           <li class="md-nav__item">
   <a href="#dangerous-contexts" class="md-nav__link">
-    Dangerous Contexts
+    <span class="md-ellipsis">
+      
+        Dangerous Contexts
+      
+    </span>
   </a>
   
 </li>
@@ -2607,21 +4403,33 @@
       
         <li class="md-nav__item">
   <a href="#html-sanitization" class="md-nav__link">
-    HTML Sanitization
+    <span class="md-ellipsis">
+      
+        HTML Sanitization
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#safe-sinks" class="md-nav__link">
-    Safe Sinks
+    <span class="md-ellipsis">
+      
+        Safe Sinks
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#other-controls" class="md-nav__link">
-    Other Controls
+    <span class="md-ellipsis">
+      
+        Other Controls
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Other Controls">
@@ -2629,14 +4437,22 @@
         
           <li class="md-nav__item">
   <a href="#xss-prevention-rules-summary" class="md-nav__link">
-    XSS Prevention Rules Summary
+    <span class="md-ellipsis">
+      
+        XSS Prevention Rules Summary
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#output-encoding-rules-summary" class="md-nav__link">
-    Output Encoding Rules Summary
+    <span class="md-ellipsis">
+      
+        Output Encoding Rules Summary
+      
+    </span>
   </a>
   
 </li>
@@ -2648,7 +4464,11 @@
       
         <li class="md-nav__item">
   <a href="#common-anti-patterns-ineffective-approaches-to-avoid" class="md-nav__link">
-    Common Anti-patterns: Ineffective Approaches to Avoid
+    <span class="md-ellipsis">
+      
+        Common Anti-patterns: Ineffective Approaches to Avoid
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Common Anti-patterns: Ineffective Approaches to Avoid">
@@ -2656,7 +4476,11 @@
         
           <li class="md-nav__item">
   <a href="#sole-reliance-on-content-security-policy-csp-headers" class="md-nav__link">
-    Sole Reliance on Content-Security-Policy (CSP) Headers
+    <span class="md-ellipsis">
+      
+        Sole Reliance on Content-Security-Policy (CSP) Headers
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Sole Reliance on Content-Security-Policy (CSP) Headers">
@@ -2664,14 +4488,22 @@
         
           <li class="md-nav__item">
   <a href="#problem-1-assumption-browser-versions-support-csp-equally" class="md-nav__link">
-    Problem 1 - Assumption Browser Versions Support CSP Equally
+    <span class="md-ellipsis">
+      
+        Problem 1 - Assumption Browser Versions Support CSP Equally
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-2-issues-supporting-legacy-applications" class="md-nav__link">
-    Problem 2 - Issues Supporting Legacy Applications
+    <span class="md-ellipsis">
+      
+        Problem 2 - Issues Supporting Legacy Applications
+      
+    </span>
   </a>
   
 </li>
@@ -2683,7 +4515,11 @@
         
           <li class="md-nav__item">
   <a href="#reliance-on-http-interceptors" class="md-nav__link">
-    Reliance on HTTP Interceptors
+    <span class="md-ellipsis">
+      
+        Reliance on HTTP Interceptors
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Reliance on HTTP Interceptors">
@@ -2691,28 +4527,44 @@
         
           <li class="md-nav__item">
   <a href="#problem-1-encoding-for-specific-context-not-satisfactory-for-all-uri-paths" class="md-nav__link">
-    Problem 1 - Encoding for specific context not satisfactory for all URI paths
+    <span class="md-ellipsis">
+      
+        Problem 1 - Encoding for specific context not satisfactory for all URI paths
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-2-interceptor-approach-can-lead-to-broken-rendering-caused-by-improper-or-double-encoding" class="md-nav__link">
-    Problem 2 - Interceptor approach can lead to broken rendering caused by improper or double encoding
+    <span class="md-ellipsis">
+      
+        Problem 2 - Interceptor approach can lead to broken rendering caused by improper or double encoding
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-3-interceptors-not-effective-against-dom-based-xss" class="md-nav__link">
-    Problem 3 - Interceptors not effective against DOM-based XSS
+    <span class="md-ellipsis">
+      
+        Problem 3 - Interceptors not effective against DOM-based XSS
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#problem-4-interceptors-not-effective-where-data-from-responses-originates-outside-your-application" class="md-nav__link">
-    Problem 4 - Interceptors not effective where data from responses originates outside your application
+    <span class="md-ellipsis">
+      
+        Problem 4 - Interceptors not effective where data from responses originates outside your application
+      
+    </span>
   </a>
   
 </li>
@@ -2724,7 +4576,11 @@
         
           <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
-    Summary
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
   </a>
   
 </li>
@@ -2736,7 +4592,11 @@
       
         <li class="md-nav__item">
   <a href="#related-articles" class="md-nav__link">
-    Related Articles
+    <span class="md-ellipsis">
+      
+        Related Articles
+      
+    </span>
   </a>
   
 </li>
@@ -2751,9 +4611,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -2762,22 +4624,24 @@
 <h1 id="cross-site-scripting-prevention-cheat-sheet">Cross Site Scripting Prevention Cheat Sheet<a class="headerlink" href="#cross-site-scripting-prevention-cheat-sheet" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This cheat sheet helps developers prevent XSS vulnerabilities.</p>
-<p>Cross-Site Scripting (XSS) is a misnomer. Originally this term was derived from early versions of the attack that were primarily focused on stealing data cross-site. Since then, the term has widened to include injection of basically any content. XSS attacks are serious and can lead to account impersonation, observing user behaviour, loading external content, stealing sensitive data, and more.</p>
+<p>Cross-Site Scripting (XSS) is a misnomer. Originally this term was derived from early versions of the attack that were primarily focused on stealing data cross-site. Since then, the term has widened to include injection of basically any content. XSS attacks are serious and can lead to account impersonation, observing user behavior, loading external content, stealing sensitive data, and more.</p>
 <p><strong>This cheatsheet contains techniques to prevent or limit the impact of XSS. Since no single technique will solve XSS, using the right combination of defensive techniques will be necessary to prevent XSS.</strong></p>
 <h2 id="framework-security">Framework Security<a class="headerlink" href="#framework-security" title="Permanent link">&para;</a></h2>
 <p>Fortunately, applications built with modern web frameworks have fewer XSS bugs, because these frameworks steer developers towards good security practices and help mitigate XSS by using templating, auto-escaping, and more. However, developers need to know that problems can occur if frameworks are used insecurely, such as:</p>
 <ul>
 <li><em>escape hatches</em> that frameworks use to directly manipulate the DOM</li>
-<li>React’s <code>dangerouslySetInnerHTML</code> without sanitising the HTML</li>
+<li>React’s <code>dangerouslySetInnerHTML</code> without sanitizing the HTML</li>
 <li>React cannot handle <code>javascript:</code> or <code>data:</code> URLs without specialized validation</li>
 <li>Angular’s <code>bypassSecurityTrustAs*</code> functions</li>
+<li>Lit's <code>unsafeHTML</code> function</li>
+<li>Polymer's <code>inner-h-t-m-l</code> attribute and <code>htmlLiteral</code> function</li>
 <li>Template injection</li>
 <li>Out of date framework plugins or components</li>
 <li>and more</li>
 </ul>
 <p>When you use a modern web framework, you need to know how your framework prevents XSS and where it has gaps. There will be times where you need to do something outside the protection provided by your framework, which means that Output Encoding and HTML Sanitization can be critical. OWASP will be producing framework specific cheatsheets for React, Vue, and Angular.</p>
 <h2 id="xss-defense-philosophy">XSS Defense Philosophy<a class="headerlink" href="#xss-defense-philosophy" title="Permanent link">&para;</a></h2>
-<p>In order for an XSS attack to be successful, an attacker must be able to to insert and execute malicious content in a webpage. Thus, all variables in a web application needs to be protected. Ensuring that <strong>all variables</strong> go through validation and are then escaped or sanitized is known as <strong>perfect injection resistance</strong>. Any variable that does not go through this process is a potential weakness. Frameworks make it easy to ensure variables are correctly validated and escaped or sanitised.</p>
+<p>In order for an XSS attack to be successful, an attacker must be able to insert and execute malicious content in a webpage. Thus, all variables in a web application needs to be protected. Ensuring that <strong>all variables</strong> go through validation and are then escaped or sanitized is known as <strong>perfect injection resistance</strong>. Any variable that does not go through this process is a potential weakness. Frameworks make it easy to ensure variables are correctly validated and escaped or sanitized.</p>
 <p>However, no framework is perfect and security gaps still exist in popular frameworks like React and Angular. Output encoding and HTML sanitization help address those gaps.</p>
 <h2 id="output-encoding">Output Encoding<a class="headerlink" href="#output-encoding" title="Permanent link">&para;</a></h2>
 <p>When you need to safely display data exactly as a user types it in, output encoding is recommended. Variables should not be interpreted as code instead of text. This section covers each form of output encoding, where to use it, and when you should not use dynamic variables at all.</p>
@@ -2797,12 +4661,12 @@
 <div class="highlight"><pre><span></span><code><span class="err">&amp;</span>    <span class="ni">&amp;amp;</span>
 <span class="err">&lt;</span>    <span class="ni">&amp;lt;</span>
 &gt;    <span class="ni">&amp;gt;</span>
-&quot;    <span class="ni">&amp;quot;</span>
-&#39;    <span class="ni">&amp;#x27;</span>
+"    <span class="ni">&amp;quot;</span>
+'    <span class="ni">&amp;#x27;</span>
 </code></pre></div>
 <h3 id="output-encoding-for-html-attribute-contexts">Output Encoding for “HTML Attribute Contexts”<a class="headerlink" href="#output-encoding-for-html-attribute-contexts" title="Permanent link">&para;</a></h3>
 <p>“HTML Attribute Contexts” occur when a variable is placed in an HTML attribute value. You may want to do this to change a hyperlink, hide an element, add alt-text for an image, or change inline CSS styles. You should apply HTML attribute encoding to variables being placed in most HTML attributes. A list of safe HTML attributes is provided in the <strong>Safe Sinks</strong> section.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">attr</span><span class="o">=</span><span class="s">&quot;$varUnsafe&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">attr</span><span class="o">=</span><span class="s">"$varUnsafe"</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">attr</span><span class="o">=</span><span class="s">”*x”</span> <span class="na">onblur</span><span class="o">=</span><span class="s">”alert(1)*”</span><span class="p">&gt;</span> // Example Attack
 </code></pre></div>
 <p><strong>It’s critical to use quotation marks like <code>"</code> or <code>'</code> to surround your variables.</strong> Quoting makes it difficult to change the context a variable operates in, which helps prevent XSS. Quoting also significantly reduces the characterset that you need to encode, making your application more reliable and the encoding easier to implement.</p>
@@ -2811,9 +4675,9 @@
 <p>“JavaScript Contexts” refers to the situation where variables are placed into inline JavaScript and then embedded in an HTML document. This situation commonly occurs in programs that heavily use custom JavaScript that is embedded in their web pages.</p>
 <p>However, the only ‘safe’ location for placing variables in JavaScript is inside a “quoted data value”. All other contexts are unsafe and you should not place variable data in them.</p>
 <p>Examples of “Quoted Data Values”</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">$varUnsafe</span><span class="err">’</span><span class="p">)&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="err">'</span><span class="nx">$varUnsafe</span><span class="err">’</span><span class="p">)&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">x</span><span class="o">=</span><span class="err">’</span><span class="nx">$varUnsafe</span><span class="err">’</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">onmouseover</span><span class="o">=</span><span class="s">&quot;&#39;$varUnsafe&#39;&quot;</span><span class="err">&lt;/</span><span class="na">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">onmouseover</span><span class="o">=</span><span class="s">"'$varUnsafe'"</span><span class="err">&lt;/</span><span class="na">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Encode all characters using the <code>\xHH</code> format. Encoding libraries often have a <code>EncodeForJavaScript</code> or similar to support this function.</p>
 <p>Please look at the <a href="https://owasp.org/www-project-java-encoder/">OWASP Java Encoder JavaScript encoding examples</a> for examples of proper JavaScript use that requires minimal encoding.</p>
@@ -2821,20 +4685,22 @@
 <h3 id="output-encoding-for-css-contexts">Output Encoding for “CSS Contexts”<a class="headerlink" href="#output-encoding-for-css-contexts" title="Permanent link">&para;</a></h3>
 <p>“CSS Contexts” refer to variables placed into inline CSS, which is common when developers want their users to customize the look and feel of their webpages. Since CSS is surprisingly powerful, it has been used for many types of attacks. <strong>Variables should only be placed in a CSS property value. Other “CSS Contexts” are unsafe and you should not place variable data in them.</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"> </span><span class="nt">selector</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">varUnsafe</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"> </span><span class="nt">selector</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$varUnsafe&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;property : $varUnsafe&quot;</span><span class="p">&gt;</span>Oh no<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"> </span><span class="nt">selector</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"$varUnsafe"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">"property : $varUnsafe"</span><span class="p">&gt;</span>Oh no<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>If you're using JavaScript to change a CSS property, look into using <code>style.property = x</code>. This is a <strong>Safe Sink</strong> and will automatically CSS encode data in it.</p>
-<p>// Add CSS Encoding Advice</p>
+<p>If you're using JavaScript to change a CSS property, look into using
+<code>style.property = x</code>.
+This is a <strong>Safe Sink</strong> and will automatically CSS encode data in it.</p>
+<p>When inserting variables into CSS properties, ensure the data is properly encoded and sanitized to prevent injection attacks. Avoid placing variables directly into selectors or other CSS contexts.</p>
 <h3 id="output-encoding-for-url-contexts">Output Encoding for “URL Contexts”<a class="headerlink" href="#output-encoding-for-url-contexts" title="Permanent link">&para;</a></h3>
 <p>“URL Contexts” refer to variables placed into a URL. Most commonly, a developer will add a parameter or URL fragment to a URL base that is then displayed or used in some operation. Use URL Encoding for these scenarios.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.owasp.org?test=$varUnsafe&quot;</span><span class="p">&gt;</span>link<span class="p">&lt;/</span><span class="nt">a</span> <span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"http://www.owasp.org?test=$varUnsafe"</span><span class="p">&gt;</span>link<span class="p">&lt;/</span><span class="nt">a</span> <span class="p">&gt;</span>
 </code></pre></div>
 <p>Encode all characters with the <code>%HH</code> encoding format. Make sure any attributes are fully quoted, same as JS and CSS.</p>
 <h4 id="common-mistake">Common Mistake<a class="headerlink" href="#common-mistake" title="Permanent link">&para;</a></h4>
 <p>There will be situations where you use a URL in different contexts. The most common one would be adding it to an <code>href</code> or <code>src</code> attribute of an <code>&lt;a&gt;</code> tag. In these scenarios, you should do URL encoding, followed by HTML attribute encoding.</p>
-<div class="highlight"><pre><span></span><code>url = &quot;https://site.com?data=&quot; + urlencode(parameter)
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;attributeEncode(url)&#39;</span><span class="p">&gt;</span>link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code>url = "https://site.com?data=" + urlencode(parameter)
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">'attributeEncode(url)'</span><span class="p">&gt;</span>link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>If you're using JavaScript to construct a URL Query Value, look into using <code>window.encodeURIComponent(x)</code>. This is a <strong>Safe Sink</strong> and will automatically URL encode data in it.</p>
 <h3 id="dangerous-contexts">Dangerous Contexts<a class="headerlink" href="#dangerous-contexts" title="Permanent link">&para;</a></h3>
@@ -2843,7 +4709,7 @@
 <span class="cm">&lt;!-- Inside an HTML comment --&gt;</span>
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="nt">Directly</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nt">CSS</span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ToDefineAnAttribute</span><span class="o">=</span><span class="s">test</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">ToDefineATag</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/test&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">ToDefineATag</span> <span class="na">href</span><span class="o">=</span><span class="s">"/test"</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <p>Other areas to be careful with include:</p>
 <ul>
@@ -2877,13 +4743,14 @@
 <span class="nx">elem</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DOMPurify</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span><span class="nx">dangerVar</span><span class="p">);</span>
 </code></pre></div>
 <p><strong>Safe HTML Attributes include:</strong> <code>align</code>, <code>alink</code>, <code>alt</code>, <code>bgcolor</code>, <code>border</code>, <code>cellpadding</code>, <code>cellspacing</code>, <code>class</code>, <code>color</code>, <code>cols</code>, <code>colspan</code>, <code>coords</code>, <code>dir</code>, <code>face</code>, <code>height</code>, <code>hspace</code>, <code>ismap</code>, <code>lang</code>, <code>marginheight</code>, <code>marginwidth</code>, <code>multiple</code>, <code>nohref</code>, <code>noresize</code>, <code>noshade</code>, <code>nowrap</code>, <code>ref</code>, <code>rel</code>, <code>rev</code>, <code>rows</code>, <code>rowspan</code>, <code>scrolling</code>, <code>shape</code>, <code>span</code>, <code>summary</code>, <code>tabindex</code>, <code>title</code>, <code>usemap</code>, <code>valign</code>, <code>value</code>, <code>vlink</code>, <code>vspace</code>, <code>width</code>.</p>
-<p>For a comprehensive list, check out the <a href="https://github.com/cure53/DOMPurify/blob/main/src/attrs.js">DOMPurify allowlist</a></p>
+<p>For attributes not reported above, ensure that if JavaScript code is provided as a value, it cannot be executed.</p>
 <h2 id="other-controls">Other Controls<a class="headerlink" href="#other-controls" title="Permanent link">&para;</a></h2>
 <p>Framework Security Protections, Output Encoding, and HTML Sanitization will provide the best protection for your application. OWASP recommends these in all circumstances.</p>
 <p>Consider adopting the following controls in addition to the above.</p>
 <ul>
 <li>Cookie Attributes - These change how JavaScript and browsers can interact with cookies. Cookie attributes try to limit the impact of an XSS attack but don’t prevent the execution of malicious content or address the root cause of the vulnerability.</li>
 <li>Content Security Policy - An allowlist that prevents content being loaded. It’s easy to make mistakes with the implementation so it should not be your primary defense mechanism. Use a CSP as an additional layer of defense and have a look at the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">cheatsheet here</a>.</li>
+<li>Trusted Types - On Chromium-based browsers, enable <a href="https://web.dev/articles/trusted-types">Trusted Types</a> by adding <code>Content-Security-Policy: require-trusted-types-for 'script'</code>. This causes DOM XSS sinks (<code>innerHTML</code>, <code>outerHTML</code>, <code>document.write</code>, <code>script.src</code>, etc.) to reject plain strings, forcing all assignments to go through a vetted policy. It is one of the few controls that eliminates entire classes of DOM XSS rather than mitigating them. Combine with a default policy that delegates to a sanitizer (e.g. DOMPurify) for legacy code paths.</li>
 <li>Web Application Firewalls - These look for known attack strings and block them. WAF’s are unreliable and new bypass techniques are being discovered regularly. WAFs also don’t address the root cause of an XSS vulnerability. In addition, WAFs also miss a class of XSS vulnerabilities that operate exclusively client-side. WAFs are not recommended for preventing XSS, especially DOM-Based XSS.</li>
 </ul>
 <h3 id="xss-prevention-rules-summary">XSS Prevention Rules Summary<a class="headerlink" href="#xss-prevention-rules-summary" title="Permanent link">&para;</a></h3>
@@ -2892,7 +4759,7 @@
 Context: HTML Body
 Code: <code>&lt;span&gt;UNTRUSTED DATA &lt;/span&gt;</code>
 Sample Defense: HTML Entity Encoding (rule #1)</p>
-<p>Data Type: Strong
+<p>Data Type: String
 Context: Safe HTML Attributes
 Code: <code>&lt;input type="text" name="fname" value="UNTRUSTED DATA "&gt;</code>
 Sample Defense: Aggressive HTML Entity Encoding (rule #2), Only place untrusted data into a list of safe attributes (listed below), Strictly validate unsafe attributes such as background, ID and name.</p>
@@ -2907,7 +4774,7 @@ Sample Defense: Canonicalize input, URL Validation, Safe URL verification, Allow
 <p>Data Type: String
 Context: CSS Value
 Code: <code>HTML &lt;div style="width: UNTRUSTED DATA ;"&gt;Selection&lt;/div&gt;</code>
-Sample Defense: Strict structural validation (rule #4), CSS hex encoding, Good design of CSS features. J</p>
+Sample Defense: Strict structural validation (rule #4), CSS hex encoding, Good design of CSS features.</p>
 <p>Data Type: String
 Context: JavaScript Variable
 Code: <code>&lt;script&gt;var currentValue='UNTRUSTED DATA ';&lt;/script&gt; &lt;script&gt;someFunction('UNTRUSTED DATA ');&lt;/script&gt;</code>
@@ -2959,7 +4826,7 @@ Encoding Mechanism: CSS encoding supports both <code>\XX</code> and <code>\XXXXX
 <p>The third problem with this is that it is not effective against DOM-based XSS. To do that, one would have to have an interceptor or filter scan all the JavaScript content going as part of an HTTP response, try to figure out the tainted output and see if it it is susceptible to DOM-based XSS. That simply is not practical.</p>
 <h4 id="problem-4-interceptors-not-effective-where-data-from-responses-originates-outside-your-application">Problem 4 - Interceptors not effective where data from responses originates outside your application<a class="headerlink" href="#problem-4-interceptors-not-effective-where-data-from-responses-originates-outside-your-application" title="Permanent link">&para;</a></h4>
 <p>The last problem with interceptors is that they generally are oblivious to data in your application's responses that originate from other internal sources such as an internal REST-based web service or even an internal database. The problem is that unless your application is strictly validating that data <em>at the point that it is retrieved</em> (which generally is the only point your application has enough context to do a strict data validation using an allow-list approach), that data should always be considered tainted. But if you are attempting to do output encoding or strict data validation all of tainted data on the HTTP response side of an interceptor (such as a Java servlet filter), at that point, your application's interceptor will have no idea of there is tainted data present from those REST web services or other databases that you used. The approach that generally is used on response-side interceptors attempting to provide XSS defense has been to only consider the matching "input parameters" as tainted and do output encoding or HTML sanitization on them and everything else is considered safe. But sometimes it's not? While it frequently is assumed that all internal web services and all internal databases can be "trusted" and used as it, this is a very bad assumption to make unless you have included that in some deep threat modeling for your application.</p>
-<p>For example, suppose you are working on an application to show a customer their detailed monthly bill. Let's assume that your application is either querying a foreign (as in not part of your specific application) internal database or REST web service that your application uses to obtain the user's full name, address, etc. But that data originates from another application which you are assuming is "trusted" but actually has an unreported persistent XSS vulnerability on the various customer address-related fields. Furthermore, let's assume that you company's customer support staff can examine a customer's detailed bill to assist them when customers have questions about their bills. So nefarious customer decides to plant an XSS bomb in the address field and then calls customer service for assistance with the bill. Should a scenario lik3 that ever play out, an interceptor attempting to prevent XSS is going to miss that completely and the result is going to be something much worse than just popping an alert box to display "1" or "XSS" or "pwn'd".</p>
+<p>For example, suppose you are working on an application to show a customer their detailed monthly bill. Let's assume that your application is either querying a foreign (as in not part of your specific application) internal database or REST web service that your application uses to obtain the user's full name, address, etc. But that data originates from another application which you are assuming is "trusted" but actually has an unreported persistent XSS vulnerability on the various customer address-related fields. Furthermore, let's assume that you company's customer support staff can examine a customer's detailed bill to assist them when customers have questions about their bills. So nefarious customer decides to plant an XSS bomb in the address field and then calls customer service for assistance with the bill. Should a scenario like that ever play out, an interceptor attempting to prevent XSS is going to miss that completely and the result is going to be something much worse than just popping an alert box to display "1" or "XSS" or "pwn'd".</p>
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <p>One final note: If deploying interceptors / filters as an XSS defense was a useful approach against XSS attacks, don't you think that it would be incorporated into all commercial Web Application Firewalls (WAFs) and be an approach that OWASP recommends in this cheat sheet?</p>
 <h2 id="related-articles">Related Articles<a class="headerlink" href="#related-articles" title="Permanent link">&para;</a></h2>
@@ -2983,8 +4850,18 @@ Encoding Mechanism: CSS encoding supports both <code>\XX</code> and <code>\XXXXX
 <p><strong>How to Test for Cross-Site Scripting Vulnerabilities:</strong></p>
 <ul>
 <li><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Testing Guide</a> article on testing for Cross-Site Scripting vulnerabilities.</li>
-<li><a href="https://wiki.owasp.org/index.php/XSS_Experimental_Minimal_Encoding_Rules">XSS Experimental Minimal Encoding Rules</a>#  &lt;#Title#&gt;</li>
+<li><a href="https://wiki.owasp.org/index.php/XSS_Experimental_Minimal_Encoding_Rules">XSS Experimental Minimal Encoding Rules</a> Provides examples and guidelines for experimental minimal encoding strategies to prevent Cross-Site Scripting (XSS) attacks.</li>
 </ul>
+
+
+
+
+
+
+
+  
+  
+
 
 
 
@@ -2995,6 +4872,7 @@ Encoding Mechanism: CSS encoding supports both <code>\XX</code> and <code>\XXXXX
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -3026,10 +4904,14 @@ Encoding Mechanism: CSS encoding supports both <code>\XX</code> and <code>\XXXXX
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -13,14 +13,17 @@
         <link rel="canonical" href="https://cheatsheetseries.owasp.org/cheatsheets/NodeJS_Docker_Cheat_Sheet.html">
       
       
-        <link rel="prev" href="Network_Segmentation_Cheat_Sheet.html">
+        <link rel="prev" href="NoSQL_Security_Cheat_Sheet.html">
       
       
         <link rel="next" href="Nodejs_Security_Cheat_Sheet.html">
       
       
+        
+      
+      
       <link rel="icon" href="../assets/WebSite_Favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,11 +53,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -69,9 +71,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -102,7 +101,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -127,20 +126,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -148,33 +147,38 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -185,13 +189,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -236,7 +241,7 @@
       <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     OWASP/CheatSheetSeries
@@ -251,13 +256,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Introduction
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -267,6 +280,7 @@
     
       
       
+  
   
   
   
@@ -274,9 +288,16 @@
       <a href="../Glossary.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Alphabetical
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -286,6 +307,7 @@
     
       
       
+  
   
   
   
@@ -293,9 +315,16 @@
       <a href="../IndexASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index ASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -305,6 +334,7 @@
     
       
       
+  
   
   
   
@@ -312,9 +342,16 @@
       <a href="../IndexMASVS.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index MASVS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -324,6 +361,7 @@
     
       
       
+  
   
   
   
@@ -331,9 +369,16 @@
       <a href="../IndexProactiveControls.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Proactive Controls
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -343,6 +388,7 @@
     
       
       
+  
   
   
   
@@ -350,9 +396,16 @@
       <a href="../IndexTopTen.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Index Top 10
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -367,25 +420,37 @@
     
   
   
+  
+    
     
     
     
       
+        
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Cheatsheets
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -394,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Cheatsheets
+            
+  
+    Cheatsheets
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -403,13 +472,21 @@
   
   
   
+  
     <li class="md-nav__item">
-      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    AJAX Security
+    
+  
+    AI Agent Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -420,6 +497,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -427,9 +561,16 @@
       <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Abuse Case
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -440,6 +581,7 @@
             
               
                 
+  
   
   
   
@@ -447,9 +589,16 @@
       <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Access Control
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -460,6 +609,7 @@
             
               
                 
+  
   
   
   
@@ -467,9 +617,16 @@
       <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Attack Surface Analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -480,6 +637,7 @@
             
               
                 
+  
   
   
   
@@ -487,9 +645,16 @@
       <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,6 +665,7 @@
             
               
                 
+  
   
   
   
@@ -507,9 +673,16 @@
       <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -520,6 +693,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -527,9 +729,16 @@
       <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Authorization Testing Automation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -540,6 +749,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -547,9 +785,16 @@
       <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Bean Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -560,6 +805,91 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -567,9 +897,16 @@
       <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     C-Based Toolchain Hardening
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -580,6 +917,7 @@
             
               
                 
+  
   
   
   
@@ -587,9 +925,16 @@
       <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     CI CD Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -600,6 +945,7 @@
             
               
                 
+  
   
   
   
@@ -607,9 +953,16 @@
       <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Choosing and Using Security Questions
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -620,6 +973,7 @@
             
               
                 
+  
   
   
   
@@ -627,9 +981,16 @@
       <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Clickjacking Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -640,6 +1001,7 @@
             
               
                 
+  
   
   
   
@@ -647,9 +1009,16 @@
       <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Content Security Policy
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -660,6 +1029,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -667,9 +1065,16 @@
       <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Credential Stuffing Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -680,6 +1085,7 @@
             
               
                 
+  
   
   
   
@@ -687,9 +1093,16 @@
       <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross-Site Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -700,6 +1113,7 @@
             
               
                 
+  
   
   
   
@@ -707,9 +1121,16 @@
       <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cross Site Scripting Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -720,6 +1141,7 @@
             
               
                 
+  
   
   
   
@@ -727,9 +1149,16 @@
       <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Cryptographic Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -740,6 +1169,7 @@
             
               
                 
+  
   
   
   
@@ -747,9 +1177,16 @@
       <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM Clobbering Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -760,6 +1197,7 @@
             
               
                 
+  
   
   
   
@@ -767,9 +1205,16 @@
       <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DOM based XSS Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -780,6 +1225,7 @@
             
               
                 
+  
   
   
   
@@ -787,9 +1233,16 @@
       <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Database Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -800,6 +1253,7 @@
             
               
                 
+  
   
   
   
@@ -807,9 +1261,16 @@
       <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Denial of Service
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -820,6 +1281,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -827,9 +1317,16 @@
       <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Deserialization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -840,6 +1337,7 @@
             
               
                 
+  
   
   
   
@@ -847,9 +1345,16 @@
       <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django REST Framework
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -860,6 +1365,7 @@
             
               
                 
+  
   
   
   
@@ -867,9 +1373,16 @@
       <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Django Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -880,6 +1393,7 @@
             
               
                 
+  
   
   
   
@@ -887,9 +1401,16 @@
       <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Docker Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -900,6 +1421,7 @@
             
               
                 
+  
   
   
   
@@ -907,9 +1429,16 @@
       <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     DotNet Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -920,6 +1449,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -927,9 +1513,16 @@
       <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Error Handling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -940,6 +1533,7 @@
             
               
                 
+  
   
   
   
@@ -947,9 +1541,16 @@
       <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     File Upload
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -960,6 +1561,7 @@
             
               
                 
+  
   
   
   
@@ -967,9 +1569,16 @@
       <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Forgot Password
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -980,6 +1589,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -987,9 +1625,16 @@
       <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GraphQL
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1000,6 +1645,7 @@
             
               
                 
+  
   
   
   
@@ -1007,9 +1653,16 @@
       <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTML5 Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1020,6 +1673,7 @@
             
               
                 
+  
   
   
   
@@ -1027,9 +1681,16 @@
       <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Headers
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1040,6 +1701,7 @@
             
               
                 
+  
   
   
   
@@ -1047,9 +1709,16 @@
       <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     HTTP Strict Transport Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1060,6 +1729,7 @@
             
               
                 
+  
   
   
   
@@ -1067,9 +1737,16 @@
       <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Infrastructure as Code Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1080,6 +1757,7 @@
             
               
                 
+  
   
   
   
@@ -1087,9 +1765,16 @@
       <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1100,6 +1785,7 @@
             
               
                 
+  
   
   
   
@@ -1107,9 +1793,16 @@
       <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Injection Prevention in Java
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1120,6 +1813,7 @@
             
               
                 
+  
   
   
   
@@ -1127,9 +1821,16 @@
       <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Input Validation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1140,6 +1841,7 @@
             
               
                 
+  
   
   
   
@@ -1147,9 +1849,16 @@
       <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Insecure Direct Object Reference Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1160,6 +1869,7 @@
             
               
                 
+  
   
   
   
@@ -1167,9 +1877,16 @@
       <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     JAAS
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1180,16 +1897,24 @@
             
               
                 
+  
   
   
   
     <li class="md-nav__item">
-      <a href="JSON_Web_Token_for_Java_Cheat_Sheet.html" class="md-nav__link">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    JSON Web Token for Java
+    
+  
+    JSON Web Token
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1200,6 +1925,7 @@
             
               
                 
+  
   
   
   
@@ -1207,9 +1933,16 @@
       <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Java Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1220,6 +1953,7 @@
             
               
                 
+  
   
   
   
@@ -1227,9 +1961,16 @@
       <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Key Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1240,6 +1981,7 @@
             
               
                 
+  
   
   
   
@@ -1247,9 +1989,16 @@
       <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Kubernetes Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1260,6 +2009,7 @@
             
               
                 
+  
   
   
   
@@ -1267,9 +2017,16 @@
       <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     LDAP Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1280,6 +2037,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1287,9 +2073,16 @@
       <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Laravel
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1300,6 +2093,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1307,9 +2129,16 @@
       <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1320,6 +2149,7 @@
             
               
                 
+  
   
   
   
@@ -1327,9 +2157,16 @@
       <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Logging Vocabulary
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1340,6 +2177,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1347,9 +2213,16 @@
       <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mass Assignment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1360,6 +2233,7 @@
             
               
                 
+  
   
   
   
@@ -1367,9 +2241,16 @@
       <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1380,6 +2261,7 @@
             
               
                 
+  
   
   
   
@@ -1387,9 +2269,16 @@
       <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Microservices based Security Arch Doc
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1400,6 +2289,7 @@
             
               
                 
+  
   
   
   
@@ -1407,9 +2297,16 @@
       <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Mobile Application Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1420,6 +2317,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1427,9 +2353,16 @@
       <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Multifactor Authentication
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1440,6 +2373,7 @@
             
               
                 
+  
   
   
   
@@ -1447,9 +2381,16 @@
       <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NPM Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1463,13 +2404,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Network Segmentation
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -1483,6 +2488,7 @@
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -1496,9 +2502,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -1507,9 +2520,16 @@
       <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     NodeJS Docker
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1531,7 +2551,11 @@
       
         <li class="md-nav__item">
   <a href="#1-use-explicit-and-deterministic-docker-base-image-tags" class="md-nav__link">
-    1) Use explicit and deterministic Docker base image tags
+    <span class="md-ellipsis">
+      
+        1) Use explicit and deterministic Docker base image tags
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="1) Use explicit and deterministic Docker base image tags">
@@ -1539,14 +2563,22 @@
         
           <li class="md-nav__item">
   <a href="#from-node" class="md-nav__link">
-    FROM node
+    <span class="md-ellipsis">
+      
+        FROM node
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#from-nodelts-alpine" class="md-nav__link">
-    FROM node:lts-alpine
+    <span class="md-ellipsis">
+      
+        FROM node:lts-alpine
+      
+    </span>
   </a>
   
 </li>
@@ -1558,49 +2590,77 @@
       
         <li class="md-nav__item">
   <a href="#2-install-only-production-dependencies-in-the-nodejs-docker-image" class="md-nav__link">
-    2) Install only production dependencies in the Node.js Docker image
+    <span class="md-ellipsis">
+      
+        2) Install only production dependencies in the Node.js Docker image
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3-optimize-nodejs-tooling-for-production" class="md-nav__link">
-    3) Optimize Node.js tooling for production
+    <span class="md-ellipsis">
+      
+        3) Optimize Node.js tooling for production
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#4-dont-run-containers-as-root" class="md-nav__link">
-    4) Don’t run containers as root
+    <span class="md-ellipsis">
+      
+        4) Don’t run containers as root
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#5-properly-handle-events-to-safely-terminate-a-nodejs-docker-web-application" class="md-nav__link">
-    5) Properly handle events to safely terminate a Node.js Docker web application
+    <span class="md-ellipsis">
+      
+        5) Properly handle events to safely terminate a Node.js Docker web application
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-graceful-tear-down-for-your-nodejs-web-applications" class="md-nav__link">
-    6) Graceful tear down for your Node.js web applications
+    <span class="md-ellipsis">
+      
+        6) Graceful tear down for your Node.js web applications
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-find-and-fix-security-vulnerabilities-in-your-nodejs-docker-image" class="md-nav__link">
-    7) Find and fix security vulnerabilities in your Node.js docker image
+    <span class="md-ellipsis">
+      
+        7) Find and fix security vulnerabilities in your Node.js docker image
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8-use-multi-stage-builds" class="md-nav__link">
-    8) Use multi-stage builds
+    <span class="md-ellipsis">
+      
+        8) Use multi-stage builds
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="8) Use multi-stage builds">
@@ -1608,14 +2668,22 @@
         
           <li class="md-nav__item">
   <a href="#prevent-sensitive-information-leak" class="md-nav__link">
-    Prevent sensitive information leak
+    <span class="md-ellipsis">
+      
+        Prevent sensitive information leak
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#introducing-multi-stage-builds-for-nodejs-docker-images" class="md-nav__link">
-    Introducing multi-stage builds for Node.js Docker images
+    <span class="md-ellipsis">
+      
+        Introducing multi-stage builds for Node.js Docker images
+      
+    </span>
   </a>
   
 </li>
@@ -1627,14 +2695,22 @@
       
         <li class="md-nav__item">
   <a href="#9-keeping-unnecessary-files-out-of-your-nodejs-docker-images" class="md-nav__link">
-    9) Keeping unnecessary files out of your Node.js Docker images
+    <span class="md-ellipsis">
+      
+        9) Keeping unnecessary files out of your Node.js Docker images
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#10-mounting-secrets-into-the-docker-build-image" class="md-nav__link">
-    10) Mounting secrets into the Docker build image
+    <span class="md-ellipsis">
+      
+        10) Mounting secrets into the Docker build image
+      
+    </span>
   </a>
   
 </li>
@@ -1653,13 +2729,21 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Nodejs Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1670,6 +2754,7 @@
             
               
                 
+  
   
   
   
@@ -1677,9 +2762,16 @@
       <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OAuth2
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1690,6 +2782,7 @@
             
               
                 
+  
   
   
   
@@ -1697,9 +2790,16 @@
       <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     OS Command Injection Defense
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1710,6 +2810,7 @@
             
               
                 
+  
   
   
   
@@ -1717,9 +2818,16 @@
       <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     PHP Configuration
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1730,6 +2838,7 @@
             
               
                 
+  
   
   
   
@@ -1737,9 +2846,16 @@
       <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Password Storage
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1750,6 +2866,7 @@
             
               
                 
+  
   
   
   
@@ -1757,9 +2874,16 @@
       <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Pinning
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1770,6 +2894,7 @@
             
               
                 
+  
   
   
   
@@ -1777,9 +2902,16 @@
       <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Prototype Pollution Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1790,6 +2922,7 @@
             
               
                 
+  
   
   
   
@@ -1797,9 +2930,16 @@
       <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Query Parameterization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1810,6 +2950,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1817,9 +2986,16 @@
       <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Assessment
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1830,6 +3006,7 @@
             
               
                 
+  
   
   
   
@@ -1837,9 +3014,16 @@
       <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     REST Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1850,6 +3034,7 @@
             
               
                 
+  
   
   
   
@@ -1857,9 +3042,16 @@
       <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Ruby on Rails
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1870,6 +3062,7 @@
             
               
                 
+  
   
   
   
@@ -1877,9 +3070,16 @@
       <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SAML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1890,6 +3090,7 @@
             
               
                 
+  
   
   
   
@@ -1897,9 +3098,16 @@
       <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     SQL Injection Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1910,6 +3118,7 @@
             
               
                 
+  
   
   
   
@@ -1917,9 +3126,16 @@
       <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secrets Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1930,6 +3146,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1937,9 +3182,16 @@
       <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Cloud Architecture
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1950,6 +3202,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1957,9 +3266,16 @@
       <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Secure Product Design
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1970,6 +3286,7 @@
             
               
                 
+  
   
   
   
@@ -1977,9 +3294,16 @@
       <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Securing Cascading Style Sheets
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -1990,6 +3314,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -1997,9 +3350,16 @@
       <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Server Side Request Forgery Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2010,6 +3370,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2017,9 +3406,16 @@
       <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Session Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2030,6 +3426,63 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2037,9 +3490,16 @@
       <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Symfony
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2050,6 +3510,7 @@
             
               
                 
+  
   
   
   
@@ -2057,9 +3518,16 @@
       <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     TLS Cipher String
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2070,6 +3538,7 @@
             
               
                 
+  
   
   
   
@@ -2077,9 +3546,16 @@
       <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Third Party Javascript Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2090,6 +3566,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2097,9 +3602,16 @@
       <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Threat Modeling
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2110,6 +3622,7 @@
             
               
                 
+  
   
   
   
@@ -2117,9 +3630,16 @@
       <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transaction Authorization
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2130,6 +3650,7 @@
             
               
                 
+  
   
   
   
@@ -2137,9 +3658,16 @@
       <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2150,6 +3678,7 @@
             
               
                 
+  
   
   
   
@@ -2157,9 +3686,16 @@
       <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Transport Layer Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2170,6 +3706,7 @@
             
               
                 
+  
   
   
   
@@ -2177,9 +3714,16 @@
       <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Unvalidated Redirects and Forwards
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2190,6 +3734,7 @@
             
               
                 
+  
   
   
   
@@ -2197,9 +3742,16 @@
       <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     User Privacy Protection
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2210,6 +3762,7 @@
             
               
                 
+  
   
   
   
@@ -2217,9 +3770,16 @@
       <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Virtual Patching
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2230,6 +3790,7 @@
             
               
                 
+  
   
   
   
@@ -2237,9 +3798,16 @@
       <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerability Disclosure
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2250,6 +3818,7 @@
             
               
                 
+  
   
   
   
@@ -2257,9 +3826,16 @@
       <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Vulnerable Dependency Management
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2270,6 +3846,35 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -2277,9 +3882,16 @@
       <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Web Service Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2290,6 +3902,7 @@
             
               
                 
+  
   
   
   
@@ -2297,9 +3910,16 @@
       <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML External Entity Prevention
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2310,6 +3930,7 @@
             
               
                 
+  
   
   
   
@@ -2317,9 +3938,16 @@
       <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XML Security
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2330,6 +3958,7 @@
             
               
                 
+  
   
   
   
@@ -2337,9 +3966,16 @@
       <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XSS Filter Evasion
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -2353,13 +3989,77 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     XS Leaks
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -2403,7 +4103,11 @@
       
         <li class="md-nav__item">
   <a href="#1-use-explicit-and-deterministic-docker-base-image-tags" class="md-nav__link">
-    1) Use explicit and deterministic Docker base image tags
+    <span class="md-ellipsis">
+      
+        1) Use explicit and deterministic Docker base image tags
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="1) Use explicit and deterministic Docker base image tags">
@@ -2411,14 +4115,22 @@
         
           <li class="md-nav__item">
   <a href="#from-node" class="md-nav__link">
-    FROM node
+    <span class="md-ellipsis">
+      
+        FROM node
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#from-nodelts-alpine" class="md-nav__link">
-    FROM node:lts-alpine
+    <span class="md-ellipsis">
+      
+        FROM node:lts-alpine
+      
+    </span>
   </a>
   
 </li>
@@ -2430,49 +4142,77 @@
       
         <li class="md-nav__item">
   <a href="#2-install-only-production-dependencies-in-the-nodejs-docker-image" class="md-nav__link">
-    2) Install only production dependencies in the Node.js Docker image
+    <span class="md-ellipsis">
+      
+        2) Install only production dependencies in the Node.js Docker image
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3-optimize-nodejs-tooling-for-production" class="md-nav__link">
-    3) Optimize Node.js tooling for production
+    <span class="md-ellipsis">
+      
+        3) Optimize Node.js tooling for production
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#4-dont-run-containers-as-root" class="md-nav__link">
-    4) Don’t run containers as root
+    <span class="md-ellipsis">
+      
+        4) Don’t run containers as root
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#5-properly-handle-events-to-safely-terminate-a-nodejs-docker-web-application" class="md-nav__link">
-    5) Properly handle events to safely terminate a Node.js Docker web application
+    <span class="md-ellipsis">
+      
+        5) Properly handle events to safely terminate a Node.js Docker web application
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-graceful-tear-down-for-your-nodejs-web-applications" class="md-nav__link">
-    6) Graceful tear down for your Node.js web applications
+    <span class="md-ellipsis">
+      
+        6) Graceful tear down for your Node.js web applications
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-find-and-fix-security-vulnerabilities-in-your-nodejs-docker-image" class="md-nav__link">
-    7) Find and fix security vulnerabilities in your Node.js docker image
+    <span class="md-ellipsis">
+      
+        7) Find and fix security vulnerabilities in your Node.js docker image
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8-use-multi-stage-builds" class="md-nav__link">
-    8) Use multi-stage builds
+    <span class="md-ellipsis">
+      
+        8) Use multi-stage builds
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="8) Use multi-stage builds">
@@ -2480,14 +4220,22 @@
         
           <li class="md-nav__item">
   <a href="#prevent-sensitive-information-leak" class="md-nav__link">
-    Prevent sensitive information leak
+    <span class="md-ellipsis">
+      
+        Prevent sensitive information leak
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#introducing-multi-stage-builds-for-nodejs-docker-images" class="md-nav__link">
-    Introducing multi-stage builds for Node.js Docker images
+    <span class="md-ellipsis">
+      
+        Introducing multi-stage builds for Node.js Docker images
+      
+    </span>
   </a>
   
 </li>
@@ -2499,14 +4247,22 @@
       
         <li class="md-nav__item">
   <a href="#9-keeping-unnecessary-files-out-of-your-nodejs-docker-images" class="md-nav__link">
-    9) Keeping unnecessary files out of your Node.js Docker images
+    <span class="md-ellipsis">
+      
+        9) Keeping unnecessary files out of your Node.js Docker images
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#10-mounting-secrets-into-the-docker-build-image" class="md-nav__link">
-    10) Mounting secrets into the Docker build image
+    <span class="md-ellipsis">
+      
+        10) Mounting secrets into the Docker build image
+      
+    </span>
   </a>
   
 </li>
@@ -2521,9 +4277,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
   
   
@@ -2541,7 +4299,7 @@
 <h3 id="from-node">FROM node<a class="headerlink" href="#from-node" title="Permanent link">&para;</a></h3>
 <p>The shortcomings of building based on the default <code>node</code> image are as follows:</p>
 <ol>
-<li>Docker image builds are inconsistent. Just like we’re using <code>lockfiles</code> to get a deterministic <code>npm install</code> behavior every time we install npm packages, we’d also like to get deterministic docker image builds. If we build the image from node—which effectively means the <code>node:latest</code> tag—then every build will pull a newly built Docker image of <code>node</code>. We don’t want to introduce this sort of non-deterministic behavior.</li>
+<li>Docker image builds are inconsistent. Just like we’re using <code>lockfiles</code> to get a deterministic <a href="https://cheatsheetseries.owasp.org/cheatsheets/NPM_Security_Cheat_Sheet.html#2-enforce-the-lockfile"><code>npm ci</code></a> behavior every time we install npm packages, we’d also like to get deterministic docker image builds. If we build the image from node—which effectively means the <code>node:latest</code> tag—then every build will pull a newly built Docker image of <code>node</code>. We don’t want to introduce this sort of non-deterministic behavior.</li>
 <li>The node Docker image is based on a full-fledged operating system, full of libraries and tools that you may or may not need to run your Node.js web application. This has two downsides. Firstly a bigger image means a bigger download size which, besides increasing the storage requirement, means more time to download and re-build the image. Secondly, it means you’re potentially introducing security vulnerabilities, that may exist in all of these libraries and tools, into the image.</li>
 </ol>
 <p>In fact, the <code>node</code> Docker image is quite big and includes hundreds of security vulnerabilities of different types and severities. If you’re using it, then by default your starting point is going to be a baseline of 642 security vulnerabilities, and hundreds of megabytes of image data that is downloaded on every pull and build.</p>
@@ -2572,20 +4330,20 @@ node                           lts-alpine       sha256:b2da3316acdc2bec442190a1f
 <div class="highlight"><pre><span></span><code>FROM node@sha256:b2da3316acdc2bec442190a1fe10dc094e7ba4121d029cb32075ff59bb27390a
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN npm install
-CMD &quot;npm&quot; &quot;start&quot;
+RUN npm ci
+CMD "npm" "start"
 </code></pre></div>
 <p>However, the Dockerfile above, only specifies the Node.js Docker image name without an image tag which creates ambiguity for which exact image tag is being used—it’s not readable, hard to maintain and doesn’t create a good developer experience.</p>
 <p>Let’s fix it by updating the Dockerfile, providing the full base image tag for the Node.js version that corresponds to that <code>SHA256</code> hash:</p>
 <div class="highlight"><pre><span></span><code>FROM node:lts-alpine@sha256:b2da3316acdc2bec442190a1fe10dc094e7ba4121d029cb32075ff59bb27390a
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN npm install
-CMD &quot;npm&quot; &quot;start&quot;
+RUN npm ci
+CMD "npm" "start"
 </code></pre></div>
 <h2 id="2-install-only-production-dependencies-in-the-nodejs-docker-image">2) Install only production dependencies in the Node.js Docker image<a class="headerlink" href="#2-install-only-production-dependencies-in-the-nodejs-docker-image" title="Permanent link">&para;</a></h2>
 <p>The following Dockerfile directive installs all dependencies in the container, including <code>devDependencies</code>, which aren’t needed for a functional application to work. It adds an unneeded security risk from packages used as development dependencies, as well as inflating the image size unnecessarily.</p>
-<p><strong><code>RUN npm install</code></strong></p>
+<p><strong><code>RUN npm ci</code></strong></p>
 <p>Enforce deterministic builds with <code>npm ci</code>. This prevents surprises in a continuous integration (CI) flow because it halts if any deviations from the lockfile are made.</p>
 <p>In the case of building a Docker image for production we want to ensure that we only install production dependencies in a deterministic way, and this brings us to the following recommendation for the best practice for installing npm dependencies in a container image:</p>
 <p><strong><code>RUN npm ci --omit=dev</code></strong></p>
@@ -2594,17 +4352,16 @@ CMD &quot;npm&quot; &quot;start&quot;
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN npm ci --omit=dev
-CMD &quot;npm&quot; &quot;start&quot;
+CMD "npm" "start"
 </code></pre></div>
 <h2 id="3-optimize-nodejs-tooling-for-production">3) Optimize Node.js tooling for production<a class="headerlink" href="#3-optimize-nodejs-tooling-for-production" title="Permanent link">&para;</a></h2>
 <p>When you build your Node.js Docker image for production, you want to ensure that all frameworks and libraries are using the optimal settings for performance and security.</p>
 <p>This brings us to add the following Dockerfile directive:</p>
 <p><strong><code>ENV NODE_ENV production</code></strong></p>
-<p>At first glance, this looks redundant, since we already specified only production dependencies in the <code>npm install</code> phase—so why is this necessary?</p>
+<p>At first glance, this looks redundant, since we already specified only production dependencies in the <code>npm ci</code> phase—so why is this necessary?</p>
 <p>Developers mostly associate the <code>NODE_ENV=production</code> environment variable setting with the installation of production-related dependencies, however, this setting also has other effects which we need to be aware of.</p>
 <p>Some frameworks and libraries may only turn on the optimized configuration that is suited to production if that <code>NODE_ENV</code> environment variable is set to <code>production</code>. Putting aside our opinion on whether this is a good or bad practice for frameworks to take, it is important to know this.</p>
 <p>As an example, the <a href="https://expressjs.com/en/advanced/best-practice-performance.html#set-node_env-to-production">Express documentation</a> outlines the importance of setting this environment variable for enabling performance and security related optimizations:</p>
-<p><img alt="Express documentation screenshot" src="https://lh3.googleusercontent.com/idNDKUUyML-rRpnNYmOo4eNBimq-u343401spkAdKWWKjNt0c_xux2Aw1W2r64qWGEcvxfQRkosPcO339g5DzQk0snm1nr6MupSPNB_zAtGgLsr3lp1L-tia4KgHwvOXMW1jT0J-" /></p>
 <p>The performance impact of the <code>NODE_ENV</code> variable could be very significant.</p>
 <p>Many of the other libraries that you are relying on may also expect this variable to be set, so we should set this in our Dockerfile.</p>
 <p>The updated Dockerfile should now read as follows with the <code>NODE_ENV</code> environment variable setting baked in:</p>
@@ -2613,7 +4370,7 @@ ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 RUN npm ci --omit=dev
-CMD &quot;npm&quot; &quot;start&quot;
+CMD "npm" "start"
 </code></pre></div>
 <h2 id="4-dont-run-containers-as-root">4) Don’t run containers as root<a class="headerlink" href="#4-dont-run-containers-as-root" title="Permanent link">&para;</a></h2>
 <p>The principle of least privilege is a long-time security control from the early days of Unix and we should always follow this when we’re running our containerized Node.js web applications.</p>
@@ -2621,7 +4378,7 @@ CMD &quot;npm&quot; &quot;start&quot;
 <p>Repeat after me: <strong>“friends don’t let friends run containers as root!”</strong></p>
 <p>The official <code>node</code> Docker image, as well as its variants like <code>alpine</code>, include a least-privileged user of the same name: <code>node</code>. However, it’s not enough to just run the process as <code>node</code>. For example, the following might not be ideal for an application to function well:</p>
 <div class="highlight"><pre><span></span><code>USER node
-CMD &quot;npm&quot; &quot;start&quot;
+CMD "npm" "start"
 </code></pre></div>
 <p>The reason for that is the <code>USER</code> Dockerfile directive only ensures that the process is owned by the <code>node</code> user. What about all the files we copied earlier with the <code>COPY</code> instruction? They are owned by root. That’s how Docker works by default.</p>
 <p>The complete and proper way of dropping privileges is as follows, also showing our up to date Dockerfile practices up to this point:</p>
@@ -2631,7 +4388,7 @@ WORKDIR /usr/src/app
 COPY --chown=node:node . /usr/src/app
 RUN npm ci --omit=dev
 USER node
-CMD &quot;npm&quot; &quot;start&quot;
+CMD "npm" "start"
 </code></pre></div>
 <h2 id="5-properly-handle-events-to-safely-terminate-a-nodejs-docker-web-application">5) Properly handle events to safely terminate a Node.js Docker web application<a class="headerlink" href="#5-properly-handle-events-to-safely-terminate-a-nodejs-docker-web-application" title="Permanent link">&para;</a></h2>
 <p>One of the most common mistakes I see with blogs and articles about containerizing Node.js applications when running in Docker containers is the way that they invoke the process. All of the following and their variants are bad patterns you should avoid:</p>
@@ -2642,7 +4399,7 @@ CMD &quot;npm&quot; &quot;start&quot;
 <li><code>CMD “start-app.sh”</code></li>
 </ul>
 <p>Let’s dig in! I’ll walk you through the differences between them and why they’re all patterns to avoid.</p>
-<p>The following concerns are key in order to understanding the context for properly running and terminating Node.js Docker applications:</p>
+<p>The following concerns are key to understanding the context for properly running and terminating Node.js Docker applications:</p>
 <ol>
 <li>An orchestration engine, such as Docker Swarm, Kubernetes, or even just Docker engine itself, needs a way to send signals to the process in the container. Mostly, these are signals to terminate an application, such as <code>SIGTERM</code> and <code>SIGKILL</code>.</li>
 <li>The process may run indirectly, and if that happens then it’s not always guaranteed that it will receive these signals.</li>
@@ -2655,7 +4412,7 @@ CMD &quot;npm&quot; &quot;start&quot;
 <div class="highlight"><pre><span></span><code>function handle(signal) {
    console.log(`*^!@4=&gt; Received event: ${signal}`)
 }
-process.on(&#39;SIGHUP&#39;, handle)
+process.on('SIGHUP', handle)
 </code></pre></div>
 <p>Then run the container, and once it’s up specifically send it the <code>SIGHUP</code> signal using the <code>docker</code> CLI and the special <code>--signal</code> command-line flag:</p>
 <p><strong><code>$ docker kill --signal=SIGHUP elastic_archimedes</code></strong></p>
@@ -2670,11 +4427,14 @@ process.on(&#39;SIGHUP&#39;, handle)
 <p>We are now invoking the node process directly, ensuring that it receives all of the signals sent to it, without it being wrapped in a shell interpreter.</p>
 <p>However, this introduces another pitfall.</p>
 <p>When processes run as PID 1 they effectively take on some of the responsibilities of an init system, which is typically responsible for initializing an operating system and processes. The kernel treats PID 1 in a different way than it treats other process identifiers. This special treatment from the kernel means that the handling of a <code>SIGTERM</code> signal to a running process won’t invoke a default fallback behavior of killing the process if the process doesn’t already set a handler for it.</p>
+<!-- textlint-disable terminology -->
 <p>To <a href="https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#handling-kernel-signals">quote the Node.js Docker working group recommendation</a> on this:  “Node.js was not designed to run as PID 1 which leads to unexpected behaviour when running inside of Docker. For example, a Node.js process running as PID 1 will not respond to SIGINT (CTRL-C) and similar signals”.</p>
-<p>The way to go about it then is to use a tool that will act like an init process, in that it is invoked with PID 1, then spawns our Node.js application as another process whilst ensuring that all signals are proxied to that Node.js process. If possible, we’d like a small as possible tooling footprint for doing so to not risk having security vulnerabilities added to our container image.</p>
+<!-- textlint-enable terminology -->
+
+<p>The way to go about it then is to use a tool that will act like an init process, in that it is invoked with PID 1, then spawns our Node.js application as another process while ensuring that all signals are proxied to that Node.js process. If possible, we’d like a small as possible tooling footprint for doing so to not risk having security vulnerabilities added to our container image.</p>
 <p>One such tool is <a href="https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html">dumb-init</a> which is statically linked and has a small footprint. Here’s how we’ll set it up:</p>
 <div class="highlight"><pre><span></span><code>RUN apk add dumb-init
-CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
+CMD ["dumb-init", "node", "server.js"]
 </code></pre></div>
 <p>This brings us to the following up to date Dockerfile. You’ll notice that we placed the <code>dumb-init</code> package install right after the image declaration, so we can take advantage of Docker’s caching of layers:</p>
 <div class="highlight"><pre><span></span><code>FROM node:lts-alpine@sha256:b2da3316acdc2bec442190a1fe10dc094e7ba4121d029cb32075ff59bb27390a
@@ -2684,19 +4444,19 @@ WORKDIR /usr/src/app
 COPY --chown=node:node . .
 RUN npm ci --omit=dev
 USER node
-CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
+CMD ["dumb-init", "node", "server.js"]
 </code></pre></div>
 <p>Good to know: <code>docker kill</code> and <code>docker stop</code> commands only send signals to the container process with PID 1. If you’re running a shell script that runs your Node.js application, then take note that a shell instance—such as <code>/bin/sh</code>, for example—doesn’t forward signals to child processes, which means your app will never get a <code>SIGTERM</code>.</p>
 <h2 id="6-graceful-tear-down-for-your-nodejs-web-applications">6) Graceful tear down for your Node.js web applications<a class="headerlink" href="#6-graceful-tear-down-for-your-nodejs-web-applications" title="Permanent link">&para;</a></h2>
 <p>If we’re already discussing process signals that terminate applications, let’s make sure we’re shutting them down properly and gracefully without disrupting users.</p>
 <p>When a Node.js application receives an interrupt signal, also known as <code>SIGINT</code>, or <code>CTRL+C</code>, it will cause an abrupt process kill, unless any event handlers were set of course to handle it in a different behavior. This means that connected clients to a web application will be immediately disconnected. Now, imagine hundreds of Node.js web containers orchestrated by Kubernetes, going up and down as needs arise to scale or manage errors. Not the greatest user experience.</p>
 <p>You can easily simulate this problem. Here’s a stock Fastify web application example, with an inherent delayed response of 60 seconds for an endpoint:</p>
-<div class="highlight"><pre><span></span><code>fastify.get(&#39;/delayed&#39;, async (request, reply) =&gt; {
+<div class="highlight"><pre><span></span><code>fastify.get('/delayed', async (request, reply) =&gt; {
  const SECONDS_DELAY = 60000
  await new Promise(resolve =&gt; {
      setTimeout(() =&gt; resolve(), SECONDS_DELAY)
  })
- return { hello: &#39;delayed world&#39; }
+ return { hello: 'delayed world' }
 })
 
 const start = async () =&gt; {
@@ -2730,8 +4490,8 @@ start()
    // await other things we should cleanup nicely
    process.exit()
 }
-process.on(&#39;SIGINT&#39;, closeGracefully)
-process.on(&#39;SIGTERM&#39;, closeGracefully)
+process.on('SIGINT', closeGracefully)
+process.on('SIGTERM', closeGracefully)
 </code></pre></div>
 <p>Admittedly, this is more of a generic web application concern than Dockerfile related, but is even more important in orchestrated environments.</p>
 <h2 id="7-find-and-fix-security-vulnerabilities-in-your-nodejs-docker-image">7) Find and fix security vulnerabilities in your Node.js docker image<a class="headerlink" href="#7-find-and-fix-security-vulnerabilities-in-your-nodejs-docker-image" title="Permanent link">&para;</a></h2>
@@ -2749,25 +4509,25 @@ ENV NPM_TOKEN 1234
 WORKDIR /usr/src/app
 COPY --chown=node:node . .
 #RUN npm ci --omit=dev
-RUN echo &quot;//registry.npmjs.org/:_authToken=$NPM_TOKEN&quot; &gt; .npmrc &amp;&amp; \
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" &gt; .npmrc &amp;&amp; \
    npm ci --omit=dev
 USER node
-CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
+CMD ["dumb-init", "node", "server.js"]
 </code></pre></div>
 <p>Doing this, however, leaves the <code>.npmrc</code> file with the secret npm token inside the Docker image. You could attempt to improve it by deleting it afterwards, like this:</p>
-<div class="highlight"><pre><span></span><code>RUN echo &quot;//registry.npmjs.org/:_authToken=$NPM_TOKEN&quot; &gt; .npmrc &amp;&amp; \
+<div class="highlight"><pre><span></span><code>RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" &gt; .npmrc &amp;&amp; \
    npm ci --omit=dev
 RUN rm -rf .npmrc
 </code></pre></div>
 <p>However, now the <code>.npmrc</code> file is available in a different layer of the Docker image. If this Docker image is public, or someone is able to access it somehow, then your token is compromised. A better improvement would be as follows:</p>
-<div class="highlight"><pre><span></span><code>RUN echo &quot;//registry.npmjs.org/:_authToken=$NPM_TOKEN&quot; &gt; .npmrc &amp;&amp; \
+<div class="highlight"><pre><span></span><code>RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" &gt; .npmrc &amp;&amp; \
    npm ci --omit=dev; \
    rm -rf .npmrc
 </code></pre></div>
 <p>The problem now is that the Dockerfile itself needs to be treated as a secret asset, because it contains the secret npm token inside it.</p>
 <p>Luckily, Docker supports a way to pass arguments into the build process:</p>
 <div class="highlight"><pre><span></span><code>ARG NPM_TOKEN
-RUN echo &quot;//registry.npmjs.org/:_authToken=$NPM_TOKEN&quot; &gt; .npmrc &amp;&amp; \
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" &gt; .npmrc &amp;&amp; \
    npm ci --omit=dev; \
    rm -rf .npmrc
 </code></pre></div>
@@ -2779,9 +4539,9 @@ RUN echo &quot;//registry.npmjs.org/:_authToken=$NPM_TOKEN&quot; &gt; .npmrc &am
 <p><strong><code>$ docker history nodejs-tutorial</code></strong></p>
 <p>which prints the following:</p>
 <div class="highlight"><pre><span></span><code>IMAGE          CREATED              CREATED BY                                      SIZE      COMMENT
-b4c2c78acaba   About a minute ago   CMD [&quot;dumb-init&quot; &quot;node&quot; &quot;server.js&quot;]            0B        buildkit.dockerfile.v0
+b4c2c78acaba   About a minute ago   CMD ["dumb-init" "node" "server.js"]            0B        buildkit.dockerfile.v0
 &lt;missing&gt;      About a minute ago   USER node                                       0B        buildkit.dockerfile.v0
-&lt;missing&gt;      About a minute ago   RUN |1 NPM_TOKEN=1234 /bin/sh -c echo &quot;//reg…   5.71MB    buildkit.dockerfile.v0
+&lt;missing&gt;      About a minute ago   RUN |1 NPM_TOKEN=1234 /bin/sh -c echo "//reg…   5.71MB    buildkit.dockerfile.v0
 &lt;missing&gt;      About a minute ago   ARG NPM_TOKEN                                   0B        buildkit.dockerfile.v0
 &lt;missing&gt;      About a minute ago   COPY . . # buildkit                             15.3kB    buildkit.dockerfile.v0
 &lt;missing&gt;      About a minute ago   WORKDIR /usr/src/app                            0B        buildkit.dockerfile.v0
@@ -2799,7 +4559,7 @@ FROM node:latest AS build
 ARG NPM_TOKEN
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
-RUN echo &quot;//registry.npmjs.org/:_authToken=$NPM_TOKEN&quot; &gt; .npmrc &amp;&amp; \
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" &gt; .npmrc &amp;&amp; \
    npm ci --omit=dev &amp;&amp; \
    rm -f .npmrc
 
@@ -2811,7 +4571,7 @@ USER node
 WORKDIR /usr/src/app
 COPY --chown=node:node --from=build /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --chown=node:node . /usr/src/app
-CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
+CMD ["dumb-init", "node", "server.js"]
 </code></pre></div>
 <p>As you can see, I chose a bigger image for the <code>build</code> stage because I might need tooling like <code>gcc</code> (the GNU Compiler Collection) to compile native npm packages, or for other needs.</p>
 <p>In the second stage, there’s a special notation for the <code>COPY</code> directive that copies the <code>node_modules/</code> folder from the build Docker image into this new production base image.</p>
@@ -2830,8 +4590,8 @@ Dockerfile
 <div class="highlight"><pre><span></span><code>FROM node@sha256:b2da3316acdc2bec442190a1fe10dc094e7ba4121d029cb32075ff59bb27390a
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN npm install
-CMD &quot;npm&quot; &quot;start&quot;
+RUN npm ci
+CMD "npm" "start"
 </code></pre></div>
 <p>In fact, it’s even more important to have a <code>.dockerignore</code> file when you are practicing multi-stage Docker builds. To refresh your memory on how the 2nd stage Docker build looks like:</p>
 <div class="highlight"><pre><span></span><code># --------------&gt; The production image
@@ -2842,7 +4602,7 @@ USER node
 WORKDIR /usr/src/app
 COPY --chown=node:node --from=build /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --chown=node:node . /usr/src/app
-CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
+CMD ["dumb-init", "node", "server.js"]
 </code></pre></div>
 <p>The importance of having a <code>.dockerignore</code> is that when we do a <code>COPY . /usr/src/app</code> from the 2nd Dockerfile stage, we’re also copying over any local node_modules/ to the Docker image. That’s a big no-no as we may be copying over modified source code inside <code>node_modules/</code>.</p>
 <p>On top of that, since we’re using the wildcard <code>COPY .</code> we may also be copying into the Docker image sensitive files that include credentials or local configuration.</p>
@@ -2888,7 +4648,7 @@ USER node
 WORKDIR /usr/src/app
 COPY --chown=node:node --from=build /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --chown=node:node . /usr/src/app
-CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
+CMD ["dumb-init", "node", "server.js"]
 </code></pre></div>
 <p>And finally, the command that builds the Node.js Docker image:</p>
 <div class="highlight"><pre><span></span><code>docker build . -t nodejs-tutorial --secret id=npmrc,src=.npmrc
@@ -2901,11 +4661,22 @@ CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
 
 
 
+
+
+  
+  
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -2937,10 +4708,14 @@ CMD [&quot;dumb-init&quot;, &quot;node&quot;, &quot;server.js&quot;]
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

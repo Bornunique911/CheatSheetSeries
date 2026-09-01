@@ -1,0 +1,4930 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Website with the collection of all the cheat sheets of the project.">
+      
+      
+      
+        <link rel="canonical" href="https://cheatsheetseries.owasp.org/cheatsheets/GitHub_Actions_Security_Cheat_Sheet.html">
+      
+      
+        <link rel="prev" href="Forgot_Password_Cheat_Sheet.html">
+      
+      
+        <link rel="next" href="GraphQL_Cheat_Sheet.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/WebSite_Favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>GitHub Actions Security - OWASP Cheat Sheet Series</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#github-actions-security-cheat-sheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-header__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
+      
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OWASP Cheat Sheet Series
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GitHub Actions Security
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OWASP/CheatSheetSeries
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="OWASP Cheat Sheet Series" class="md-nav__button md-logo" aria-label="OWASP Cheat Sheet Series" data-md-component="logo">
+      
+  <img src="../assets/OWASP_Logo.svg" alt="logo">
+
+    </a>
+    OWASP Cheat Sheet Series
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OWASP/CheatSheetSeries" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OWASP/CheatSheetSeries
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Alphabetical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexASVS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index ASVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexMASVS.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index MASVS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexProactiveControls.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Proactive Controls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IndexTopTen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index Top 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cheatsheets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AI_Agent_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Agent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AJAX_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="AML_Sanctions_AI_Agent_Payments_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AML Sanctions AI Agent Payments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Abuse_Case_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abuse Case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Access_Control_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Attack_Surface_Analysis_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attack Surface Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authentication_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Regression_Testing_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Regression Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Authorization_Testing_Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization Testing Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Automotive_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automotive Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bean_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bean Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Bot_Management_and_Anti-Automation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bot Management and Anti-Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Browser_Extension_Vulnerabilities_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browser Extension Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Business_Logic_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Logic Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C-Based_Toolchain_Hardening_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C-Based Toolchain Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CI_CD_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI CD Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Choosing_and_Using_Security_Questions_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing and Using Security Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Clickjacking_Defense_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clickjacking Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Content_Security_Policy_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cookie_Theft_Mitigation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookie Theft Mitigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Credential_Stuffing_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Credential Stuffing Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Site Request Forgery Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cross_Site_Scripting_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Site Scripting Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cryptographic_Storage_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptographic Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DOM_Clobbering_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM Clobbering Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DOM_based_XSS_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DOM based XSS Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Database_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Denial_of_Service_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Denial of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dependency_Graph_SBOM_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Graph SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Deserialization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deserialization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Django_REST_Framework_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Django REST Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Django_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Django Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Docker_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DotNet_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DotNet Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Drone_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drone Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Email_Validation_and_Verification_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Validation and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Error_Handling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="File_Upload_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Upload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Forgot_Password_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forgot Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="GitHub_Actions_Security_Cheat_Sheet.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treat-your-cicd-pipeline-as-a-critical-production-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treat your CI/CD pipeline as a critical production code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assume-failure-and-have-an-incident-response-plan-in-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assume failure and have an incident response plan in place
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-static-analysis-for-github-actions-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable static analysis for GitHub Actions workflows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harden-repository-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harden repository settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restrict-egress-traffic-from-github-hosted-runners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict egress traffic from GitHub-hosted runners
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-self-hosted-runners-with-extra-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use self-hosted runners with extra caution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segregate-runners-using-runner-groups-and-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Segregate runners using runner groups and labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintain-curated-shared-workflows-and-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintain curated shared workflows and actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevent-artifact-poisoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent artifact poisoning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#be-careful-with-ai-assistant-running-in-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Be careful with AI assistant running in CI/CD pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-secure-github-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Secure GitHub Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Write Secure GitHub Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-dangerous-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid dangerous triggers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Avoid dangerous triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-using-the-pull_request_target-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid using the pull_request_target trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-using-the-workflow_run-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid using the workflow_run trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-issue_comment-trigger-with-extra-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use issue_comment trigger with extra care
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-third-party-github-actions-and-reusable-workflows-securely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use third-party GitHub Actions and reusable workflows securely
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use third-party GitHub Actions and reusable workflows securely">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-third-party-actions-with-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use third-party actions with caution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-pin-all-action-and-reusable-workflow-versions-with-a-commit-hash-and-check-for-impostor-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Always pin all action and reusable workflow versions with a commit hash and check for impostor commits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-automated-dependency-update-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use automated dependency update tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimize-github_token-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimize GITHUB_TOKEN permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require-approval-for-deployments-or-publications-to-critical-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Require approval for deployments or publications to critical environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanitize-user-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitize user input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protect-secrets-used-in-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protect secrets used in workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protect secrets used in workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-to-eliminate-all-static-credentials-from-your-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try to eliminate all static credentials from your workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-handling-of-static-credentials-if-elimination-is-unavoidable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secure handling of static credentials (if elimination is unavoidable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminate-secrets-inherit-while-reusing-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eliminate secrets: inherit while reusing workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mask-sensitive-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mask sensitive data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-secret-scanning-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use secret scanning tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionscheckout-should-be-used-with-persist-credentials-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        actions/checkout should be used with persist-credentials: false
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="GraphQL_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTML5_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML5 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP_Headers_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Headers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Strict Transport Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Infrastructure_as_Code_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Injection_Prevention_in_Java_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Prevention in Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Input_Validation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Insecure Direct Object Reference Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JAAS_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JAAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JSON_Web_Token_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON Web Token
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Java_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Key_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Key Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Kubernetes_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LDAP_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Prompt_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Prompt Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Laravel_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laravel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Legacy_Application_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Application Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Logging_Vocabulary_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging Vocabulary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MCP_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mass_Assignment_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mass Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Microservices_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Microservices_based_Security_Arch_Doc_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microservices based Security Arch Doc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mobile_Application_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobile Application Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multi_Tenant_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi Tenant Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Multifactor_Authentication_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multifactor Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NPM_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NPM Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Network_Segmentation_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nextjs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextjs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NoSQL_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NodeJS_Docker_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NodeJS Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Nodejs_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nodejs Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="OAuth2_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OAuth2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="OS_Command_Injection_Defense_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Command Injection Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PHP_Configuration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Password_Storage_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Password Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Pinning_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Prototype_Pollution_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prototype Pollution Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Query_Parameterization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parameterization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="RAG_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="REST_Assessment_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="REST_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Ruby_on_Rails_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ruby on Rails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SAML_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAML Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SQL_Injection_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secrets_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_AI_Model_Ops_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure AI Model Ops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Cloud_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Cloud Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Code_Review_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Code Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Coding_with_AI_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Coding with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Secure_Product_Design_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Product Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Securing_Cascading_Style_Sheets_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Securing Cascading Style Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Security_Terminology_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Terminology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server Side Request Forgery Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Serverless_FaaS_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless FaaS Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Session_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Software_Supply_Chain_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Supply Chain Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Subdomain_Takeover_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Takeover Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Symfony_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TLS_Cipher_String_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS Cipher String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Javascript_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Javascript Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third Party Payment Gateway Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Threat_Modeling_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transaction_Authorization_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transaction Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transport_Layer_Protection_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Transport_Layer_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unvalidated Redirects and Forwards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="User_Privacy_Protection_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Privacy Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Virtual_Patching_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Patching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vulnerability_Disclosure_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerability Disclosure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vulnerable_Dependency_Management_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerable Dependency Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="WebSocket_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Web_Service_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Service Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XML_External_Entity_Prevention_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML External Entity Prevention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XML_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XML Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XSS_Filter_Evasion_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XSS Filter Evasion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XS_Leaks_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XS Leaks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Zero_Trust_Architecture_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Trust Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gRPC_Security_Cheat_Sheet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#treat-your-cicd-pipeline-as-a-critical-production-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Treat your CI/CD pipeline as a critical production code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assume-failure-and-have-an-incident-response-plan-in-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assume failure and have an incident response plan in place
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-static-analysis-for-github-actions-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable static analysis for GitHub Actions workflows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harden-repository-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Harden repository settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restrict-egress-traffic-from-github-hosted-runners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict egress traffic from GitHub-hosted runners
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-self-hosted-runners-with-extra-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use self-hosted runners with extra caution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segregate-runners-using-runner-groups-and-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Segregate runners using runner groups and labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintain-curated-shared-workflows-and-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintain curated shared workflows and actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevent-artifact-poisoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevent artifact poisoning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#be-careful-with-ai-assistant-running-in-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Be careful with AI assistant running in CI/CD pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-secure-github-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Secure GitHub Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Write Secure GitHub Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-dangerous-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid dangerous triggers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Avoid dangerous triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoid-using-the-pull_request_target-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid using the pull_request_target trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avoid-using-the-workflow_run-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avoid using the workflow_run trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-issue_comment-trigger-with-extra-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use issue_comment trigger with extra care
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-third-party-github-actions-and-reusable-workflows-securely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use third-party GitHub Actions and reusable workflows securely
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use third-party GitHub Actions and reusable workflows securely">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-third-party-actions-with-caution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use third-party actions with caution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-pin-all-action-and-reusable-workflow-versions-with-a-commit-hash-and-check-for-impostor-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Always pin all action and reusable workflow versions with a commit hash and check for impostor commits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-automated-dependency-update-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use automated dependency update tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimize-github_token-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimize GITHUB_TOKEN permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require-approval-for-deployments-or-publications-to-critical-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Require approval for deployments or publications to critical environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanitize-user-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitize user input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protect-secrets-used-in-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protect secrets used in workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protect secrets used in workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-to-eliminate-all-static-credentials-from-your-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try to eliminate all static credentials from your workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-handling-of-static-credentials-if-elimination-is-unavoidable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secure handling of static credentials (if elimination is unavoidable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminate-secrets-inherit-while-reusing-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eliminate secrets: inherit while reusing workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mask-sensitive-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mask sensitive data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-secret-scanning-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use secret scanning tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionscheckout-should-be-used-with-persist-credentials-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        actions/checkout should be used with persist-credentials: false
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="github-actions-security-cheat-sheet">GitHub Actions Security Cheat Sheet<a class="headerlink" href="#github-actions-security-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This cheat sheet provides guidance on securing GitHub Actions workflows, primarily for public GitHub repositories. The main goal is to prevent attacker-controlled code execution, which may lead to the following outcomes.</p>
+<ul>
+<li><strong>Secrets exfiltration.</strong> CI/CD pipelines often use long-lived credentials to access external services (e.g., cloud provider credentials or package registry tokens). Such secrets can be exfiltrated (printing to logs, sending to external endpoints or embedding them in artifacts) via remote code execution.</li>
+<li><strong>Compromise of <code>GITHUB_TOKEN</code> with <code>write</code> permissions.</strong> GitHub automatically provides each workflow run with a short-lived <code>GITHUB_TOKEN</code> that is scoped to the repository and has specific permissions. If this token is granted with <code>write</code> permissions and an attacker is able to exfiltrate or misuse the token, they could potentially modify repository contents, create or alter releases or interact with other GitHub resources.</li>
+<li><strong>GitHub Actions cache poisoning.</strong> Workflows may reuse cached data across different workflow runs. If an attacker can inject malicious content into the cache and subsequent workflows (such as release pipelines) restore and use this cache, the poisoned data can be executed in a privileged context and potentially compromise the integrity of published release artifacts, obtain code execution in the privileged workflow and steal the production secrets.</li>
+<li><strong>Denial-of-wallet attacks.</strong> CI/CD pipelines often integrate with paid external services, such as LLMs, for code review. If an attacker can repeatedly trigger pipelines or manipulate inputs to maximize resource consumption, this can lead to uncontrolled spending and financial impact.</li>
+</ul>
+<h2 id="treat-your-cicd-pipeline-as-a-critical-production-code">Treat your CI/CD pipeline as a critical production code<a class="headerlink" href="#treat-your-cicd-pipeline-as-a-critical-production-code" title="Permanent link">&para;</a></h2>
+<p>Because a CI/CD pipeline usually has access to sensitive credentials and functions/endpoints, it must be treated as a critical asset, potentially even more critical than the source code it processes.
+Therefore, secure software development best practices must be applied, including (but not limited to): threat modeling, secure code reviews, security validation and penetration testing.</p>
+<p>For deeper guidance and recommended practices, see:</p>
+<ul>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-204D.pdf">NIST "Strategies for the Integration of Software Supply Chain Security in DevSecOps CI/CD Pipeline"</a>;</li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html">OWASP CI/CD Security Cheat Sheet</a>;</li>
+<li><a href="https://owasp.org/www-project-spvs">OWASP Secure Pipeline Verification Standard</a>.</li>
+</ul>
+<h2 id="assume-failure-and-have-an-incident-response-plan-in-place">Assume failure and have an incident response plan in place<a class="headerlink" href="#assume-failure-and-have-an-incident-response-plan-in-place" title="Permanent link">&para;</a></h2>
+<p>Assume breaches will happen and design for rapid response. Define clear incident response procedures with roles, communication and escalation paths.
+Continuously improve by actively learning from other incidents through publicly available post-mortems (e.g., <a href="https://github.com/aquasecurity/trivy/discussions/10462">Trivy post-mortem</a>, <a href="https://cline.bot/blog/post-mortem-unauthorized-cline-cli-npm">Cline post-mortem</a>).</p>
+<h2 id="enable-static-analysis-for-github-actions-workflows">Enable static analysis for GitHub Actions workflows<a class="headerlink" href="#enable-static-analysis-for-github-actions-workflows" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[!IMPORTANT]
+CodeQL is freely available for open-source repositories on GitHub.
+Verify that CodeQL is enabled for your repositories and configured to scan GitHub Actions workflow files.
+CodeQL can be enabled via GitHub UI or by including a workflow file under <code>.github/workflows</code> folder:</p>
+<ul>
+<li>If enabling via workflow, ensure that <code>language: actions</code> is included in the workflow.</li>
+<li>If enabling via <code>Settings</code> → <code>Advanced Security</code> → <code>Code scanning</code> → <code>CodeQL analysis</code>, ensure that <code>GitHub Actions</code> appears under the Languages section.</li>
+</ul>
+</blockquote>
+<ul>
+<li>If available, enable <a href="https://docs.github.com/en/code-security/reference/code-scanning/codeql/codeql-queries/actions-built-in-queries">CodeQL</a> <code>actions</code> scanning in your repositories to detect vulnerabilities in GitHub Actions workflows. In addition, use <a href="https://docs.zizmor.sh/">Zizmor</a> for defense in depth. Periodically upgrade these tools, as new releases may contain updated detection rules.</li>
+<li>Configure these tools to run on every relevant pull request and mark them as required status checks before merging. At a minimum, block merges when high or critical severity issues are detected.</li>
+<li>Run comprehensive workflow scans on a scheduled basis (e.g., daily) and ensure that findings are tracked and remediated over time.</li>
+<li>If you need to enable scanning across several repositories, try to utilize a centralized reusable workflow or shared actions to standardize security practices (see this <a href="https://github.com/grafana/shared-workflows/blob/main/.github/workflows/reusable-zizmor.yml">Grafana example</a>).</li>
+</ul>
+<h2 id="harden-repository-settings">Harden repository settings<a class="headerlink" href="#harden-repository-settings" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[!IMPORTANT]
+Please note that the <code>Require approval for first-time contributors</code> setting presents a security risk because an attacker can submit an initially legitimate-looking pull request
+(e.g., a typo fix) to gain trust and later submit subsequent PRs that introduce malicious changes which are executed in CI without requiring further approval.</p>
+</blockquote>
+<ul>
+<li>Enable the setting <code>Require approval for all external contributors</code> in the repository settings. This ensures that workflows triggered by pull requests from forks (i.e., users who are not members of the repository or organization) do not run automatically and therefore prevents untrusted code execution.</li>
+<li>Restrict default <code>GITHUB_TOKEN</code> permissions to <code>Read repository contents and packages permissions</code> in the repository settings. Explicitly grant additional permissions in the workflow file if required.</li>
+<li>Enforce strong branch protection rules. Configure branch protection to require pull request reviews, status checks, signed commits and <code>CODEOWNERS</code> approval before merging into protected branches. Tools such as the <a href="https://github.com/ossf/scorecard-action">OpenSSF Scorecard</a> can help audit these settings.</li>
+<li>Require workflows to pass before merging via <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">repository rulesets</a> to enforce organizational or enterprise-level requirements — such as checking for required labels or validating commit messages — before code is merged.</li>
+</ul>
+<h2 id="restrict-egress-traffic-from-github-hosted-runners">Restrict egress traffic from GitHub-hosted runners<a class="headerlink" href="#restrict-egress-traffic-from-github-hosted-runners" title="Permanent link">&para;</a></h2>
+<p>Use solutions (e.g., <a href="https://github.com/step-security/harden-runner">Harden-Runner</a>) to monitor and restrict egress traffic from GitHub-hosted runners to prevent secret exfiltration.</p>
+<h2 id="use-self-hosted-runners-with-extra-caution">Use self-hosted runners with extra caution<a class="headerlink" href="#use-self-hosted-runners-with-extra-caution" title="Permanent link">&para;</a></h2>
+<p>Self-hosted runners usually have access to internal networks and may cache credentials, secrets or store internal data.
+Because they execute arbitrary code by design, they can be used by an attacker to establish persistent remote access and exfiltrate secrets.
+In general, never use self-hosted runners with public repositories, as anyone who can fork the repository and open a pull request can potentially execute code on your runner.</p>
+<p>If you use self-hosted runners for a public repository:</p>
+<ul>
+<li>Use standard secure software development best practices when enabling self-hosted runners (threat modeling, secure code reviews, security validation, penetration testing, patching and hardening).</li>
+<li>Use the <code>Require approval for all external contributors</code> option, review proposed changes and manually approve each workflow execution for all external contributors.</li>
+<li>Use ephemeral runners (e.g., container-based runners) and destroy the runner environment after each job execution to prevent persistence.</li>
+<li>Do not store sensitive data on runner machines, as any user who can invoke workflows has access to the runner environment.</li>
+<li>Restrict runner network access and avoid giving self-hosted runners access to sensitive infrastructure.</li>
+</ul>
+<h2 id="segregate-runners-using-runner-groups-and-labels">Segregate runners using runner groups and labels<a class="headerlink" href="#segregate-runners-using-runner-groups-and-labels" title="Permanent link">&para;</a></h2>
+<p>Use <a href="https://docs.github.com/en/actions/concepts/runners/runner-groups">runner groups</a> and <a href="https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/apply-labels">labels</a> to separate high-privilege runners from low-privilege runners. High-privilege runners may have access to sensitive resources, while low-privilege runners should not.</p>
+<p>This separation gives more granular control over <a href="https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/manage-access#changing-which-repositories-can-access-a-runner-group">which repositories can access a runner group</a> and which workflows can target specific runners, reducing the risk that a compromised or misconfigured workflow gains access to sensitive resources.</p>
+<p>For example, consider creating:</p>
+<ul>
+<li>A runner group for container image build runners, limited to only the repositories that require those privileges.</li>
+<li>A runner group for runners with access to restricted networks.</li>
+<li>A separate runner group for low-privilege tasks such as linting and static analysis, used by repositories where secrets are absent or isolated in separate environments.</li>
+</ul>
+<h2 id="maintain-curated-shared-workflows-and-actions">Maintain curated shared workflows and actions<a class="headerlink" href="#maintain-curated-shared-workflows-and-actions" title="Permanent link">&para;</a></h2>
+<p>If you need to support several repositories, establish a centralized repository of curated, security-reviewed workflows/actions and reuse it across other repositories.</p>
+<p>For a practical example, see <a href="https://github.com/grafana/shared-workflows">grafana/shared-workflows</a>.</p>
+<h2 id="prevent-artifact-poisoning">Prevent artifact poisoning<a class="headerlink" href="#prevent-artifact-poisoning" title="Permanent link">&para;</a></h2>
+<p>Artifact poisoning occurs when malicious or untrusted content is introduced into build artifacts, often via shared caches or previously stored dependencies
+(<a href="https://adnanthekhan.com/2024/05/06/the-monsters-in-your-build-cache-github-actions-cache-poisoning">GitHub Actions Cache Poisoning</a>).
+This can compromise the integrity of released software or lead to production secret exfiltration.
+To reduce this risk, disable all forms of caching in release or publishing workflows to avoid reusing potentially compromised artifacts or exfiltrating production secrets.</p>
+<h2 id="be-careful-with-ai-assistant-running-in-cicd-pipeline">Be careful with AI assistant running in CI/CD pipeline<a class="headerlink" href="#be-careful-with-ai-assistant-running-in-cicd-pipeline" title="Permanent link">&para;</a></h2>
+<p>Sometimes, an AI assistant is used directly in workflows, e.g., to review pull requests or triage submitted issues.
+This creates a risk of prompt injection attacks, where malicious input manipulates the AI assistant's behavior. If the workflow running the AI assistant has access to secrets or a <code>GITHUB_TOKEN</code> with <code>write</code> permissions and can be triggered by untrusted users (e.g., any GitHub account), this may lead to secret exfiltration or unauthorized actions.
+A real-world example is the <a href="https://adnanthekhan.com/posts/clinejection/">"clinejection" attack</a>.</p>
+<p>To mitigate potential attacks, limit AI assistant capabilities — only enable the minimum tools and actions required for task execution.</p>
+<h2 id="write-secure-github-workflows">Write Secure GitHub Workflows<a class="headerlink" href="#write-secure-github-workflows" title="Permanent link">&para;</a></h2>
+<p>This section contains some recommendations. In general, a static code analyzer (CodeQL, Zizmor) should report such issues.</p>
+<h3 id="avoid-dangerous-triggers">Avoid dangerous triggers<a class="headerlink" href="#avoid-dangerous-triggers" title="Permanent link">&para;</a></h3>
+<h4 id="avoid-using-the-pull_request_target-trigger">Avoid using the <code>pull_request_target</code> trigger<a class="headerlink" href="#avoid-using-the-pull_request_target-trigger" title="Permanent link">&para;</a></h4>
+<p>Workflows triggered by <code>pull_request_target</code> run in the context of the base (target) repository and have access to the <code>GITHUB_TOKEN</code> with <code>write</code> permissions and GitHub secrets available to the workflow.
+If untrusted code from a PR is checked out and used, this may lead to code execution.
+There are some common patterns, like labeling workflows where untrusted code is not checked out, but in general, try to avoid the <code>pull_request_target</code> trigger.</p>
+<blockquote>
+<p>[!IMPORTANT]
+Never check out (via <code>actions/checkout</code> or GitHub CLI) and run untrusted code in this context.</p>
+</blockquote>
+<h4 id="avoid-using-the-workflow_run-trigger">Avoid using the <code>workflow_run</code> trigger<a class="headerlink" href="#avoid-using-the-workflow_run-trigger" title="Permanent link">&para;</a></h4>
+<p>The <code>workflow_run</code> trigger automates tasks based on the execution of other workflows and can grant access to the <code>GITHUB_TOKEN</code> with <code>write</code> permissions and GitHub secrets.
+An attacker can modify triggering workflows via pull requests and cause privileged workflows to run.
+Even if the initial workflow is unprivileged, the triggered one may execute with higher permissions, enabling privilege escalation.
+Additionally, attackers can exploit artifact poisoning by injecting malicious files that downstream workflows use without verification, leading to potential code execution.
+If you need to implement workflow chains, use <code>workflow_call</code> with reusable workflows instead.</p>
+<h4 id="use-issue_comment-trigger-with-extra-care">Use <code>issue_comment</code> trigger with extra care<a class="headerlink" href="#use-issue_comment-trigger-with-extra-care" title="Permanent link">&para;</a></h4>
+<p>This trigger can automate workflows (e.g., end-to-end tests) in response to comments on issues or pull requests and can grant access to the <code>GITHUB_TOKEN</code> with <code>write</code> permissions and GitHub secrets.
+Implementation may introduce a Time-of-Check to Time-of-Use (TOCTOU) issue, where an attacker can modify a pull request between comment approval and workflow execution to run malicious code.
+Additionally, this trigger can bypass pull request approval mechanisms, allowing attackers to execute workflows without proper review.</p>
+<p>To secure the implementation with the <code>issue_comment</code> trigger:</p>
+<ol>
+<li>Check if the triggering actor meets authorization criteria, e.g., allow workflow execution only if it was triggered by a trusted member of the specific GitHub org.</li>
+<li>Use the commit SHA in a comment that triggers the workflow: instead of using a <code>/ok-to-test</code> comment, design the workflow to accept <code>/ok-to-test(&lt;trusted_sha_commit&gt;)</code> and check out code only from <code>&lt;trusted_sha_commit&gt;</code> submitted by an authorized actor. This will help mitigate the checkout and execution of untrusted code.</li>
+</ol>
+<p>Alternatively, consider replacing the <code>issue_comment</code> trigger with label-based triggers.
+When using the <code>pull_request</code> trigger with the labeled event, <code>github.event.pull_request.head.sha</code> contains the latest commit SHA for the pull request.
+Labels can only be applied by authorized users (i.e., GitHub accounts with write permissions), so the workflow does not need to implement additional authorization checks.
+Additionally, since the event is triggered by a user with write permissions, the workflow can consume <code>GITHUB_TOKEN</code> with <code>write</code> permissions and required GitHub secrets.
+The workflow should check out the code using the trusted commit SHA available via <code>github.event.pull_request.head.sha</code>, which reflects the state of the pull request at the time the label was applied.</p>
+<blockquote>
+<p>[!IMPORTANT]
+In general, never check out code using mutable references (e.g., pull request numbers or branch names) - always use immutable references such as a full commit SHA.</p>
+</blockquote>
+<h3 id="use-third-party-github-actions-and-reusable-workflows-securely">Use third-party GitHub Actions and reusable workflows securely<a class="headerlink" href="#use-third-party-github-actions-and-reusable-workflows-securely" title="Permanent link">&para;</a></h3>
+<h4 id="use-third-party-actions-with-caution">Use third-party actions with caution<a class="headerlink" href="#use-third-party-actions-with-caution" title="Permanent link">&para;</a></h4>
+<p>In general, try to minimize third-party actions usage, e.g., use the GitHub API in your workflows when possible to implement required logic.</p>
+<p>While using third-party actions, verify the origin, check that the author is trusted and active, ensure that there are multiple active contributors.
+Check that the code is stable and safe to use, and that the action does not require unnecessary permissions.</p>
+<h4 id="always-pin-all-action-and-reusable-workflow-versions-with-a-commit-hash-and-check-for-impostor-commits">Always pin all action and reusable workflow versions with a commit hash and check for impostor commits<a class="headerlink" href="#always-pin-all-action-and-reusable-workflow-versions-with-a-commit-hash-and-check-for-impostor-commits" title="Permanent link">&para;</a></h4>
+<p>Check that the used commit belongs to the specified organization/repository. This will prevent dependency confusion attacks, as currently GitHub resolves the commit SHA,
+finds a matching object and executes it regardless of which fork it originated from. This check can be automated with the Zizmor <code>impostor-commit</code> <a href="https://docs.zizmor.sh/audits/#impostor-commit">rule</a>.</p>
+<h4 id="use-automated-dependency-update-tools">Use automated dependency update tools<a class="headerlink" href="#use-automated-dependency-update-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Use tools such as Dependabot or Renovate to keep third-party GitHub Actions up to date.</li>
+<li>Configure a delay between a dependency release and its adoption (e.g., a few days). This helps avoid immediately pulling in newly published malicious or compromised versions, allowing time for the community to detect and report issues. To configure this, Dependabot has a <code>cooldown</code> <a href="https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference#cooldown">flag</a>, Renovate has a <code>minimumReleaseAge</code> <a href="https://docs.renovatebot.com/key-concepts/minimum-release-age/">flag</a>.</li>
+</ul>
+<h3 id="minimize-github_token-permissions">Minimize <code>GITHUB_TOKEN</code> permissions<a class="headerlink" href="#minimize-github_token-permissions" title="Permanent link">&para;</a></h3>
+<p>Always set <code>permissions: {}</code> at the workflow level to disable all permissions by default. Then, grant only the specific permissions needed at the job level.</p>
+<h3 id="require-approval-for-deployments-or-publications-to-critical-environments">Require approval for deployments or publications to critical environments<a class="headerlink" href="#require-approval-for-deployments-or-publications-to-critical-environments" title="Permanent link">&para;</a></h3>
+<p>Use <a href="https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments">GitHub environments</a> with required approval rules. Define a list of authorized accounts who must manually approve deployments to production or other critical environments before workflow execution.</p>
+<h3 id="sanitize-user-input">Sanitize user input<a class="headerlink" href="#sanitize-user-input" title="Permanent link">&para;</a></h3>
+<p>An attacker may submit a malicious payload via context (e.g., via PR title) that could cause remote execution.
+To prevent injection, always use <a href="https://docs.github.com/en/actions/reference/security/secure-use#good-practices-for-mitigating-script-injection-attacks">intermediate environment variables</a> to pass any context into <code>run:</code> and similar code execution blocks.
+Although some input contexts may appear relatively safe, it is better to always follow this approach for consistency and security.</p>
+<h3 id="protect-secrets-used-in-workflows">Protect secrets used in workflows<a class="headerlink" href="#protect-secrets-used-in-workflows" title="Permanent link">&para;</a></h3>
+<h4 id="try-to-eliminate-all-static-credentials-from-your-workflows">Try to eliminate all static credentials from your workflows<a class="headerlink" href="#try-to-eliminate-all-static-credentials-from-your-workflows" title="Permanent link">&para;</a></h4>
+<p>Try to eliminate all static credentials (e.g., personal access tokens, static cloud keys) used in workflows. Migrate to OIDC-based short-lived authentication tokens ("Trusted publishing").
+Currently, many major registries and cloud providers <a href="https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments">support</a> this feature.</p>
+<h4 id="secure-handling-of-static-credentials-if-elimination-is-unavoidable">Secure handling of static credentials (if elimination is unavoidable)<a class="headerlink" href="#secure-handling-of-static-credentials-if-elimination-is-unavoidable" title="Permanent link">&para;</a></h4>
+<p>If complete elimination cannot be achieved:</p>
+<ul>
+<li>Never hardcode secrets in workflow files.</li>
+<li>Pass secrets at the step level, not the job level.</li>
+<li>Prefer <a href="https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments">environment-level secrets</a> that are only accessible when a job targets a specific environment.</li>
+<li>Rotate secrets regularly.</li>
+</ul>
+<h4 id="eliminate-secrets-inherit-while-reusing-workflows">Eliminate <code>secrets: inherit</code> while reusing workflows<a class="headerlink" href="#eliminate-secrets-inherit-while-reusing-workflows" title="Permanent link">&para;</a></h4>
+<p>When using the <code>inherit</code> keyword while invoking a reusable workflow, all the calling workflow’s secrets (organization, repository and environment secrets) are passed to the called workflow, even if the called workflow does not need them.
+When you call a reusable workflow, explicitly pass each secret required by the called workflow.</p>
+<h4 id="mask-sensitive-data">Mask sensitive data<a class="headerlink" href="#mask-sensitive-data" title="Permanent link">&para;</a></h4>
+<p>Mask all sensitive information that is not a GitHub secret by using <code>::add-mask::{value}</code>.
+Masking a value prevents a string or variable from being printed in the log</p>
+<h4 id="use-secret-scanning-tools">Use secret scanning tools<a class="headerlink" href="#use-secret-scanning-tools" title="Permanent link">&para;</a></h4>
+<p>Implement secret scanning in both pre-commit and pull request stages to prevent accidental exposure of sensitive data in the repository:</p>
+<ul>
+<li>Run secret scanning locally (e.g., via pre-commit hooks) to catch issues before code is committed.</li>
+<li>Enforce scanning in pull requests to detect and block any leaked secrets before merging.</li>
+<li>Automatically fail checks when potential secrets are detected to ensure remediation before proceeding.</li>
+</ul>
+<h4 id="actionscheckout-should-be-used-with-persist-credentials-false"><code>actions/checkout</code> should be used with <code>persist-credentials: false</code><a class="headerlink" href="#actionscheckout-should-be-used-with-persist-credentials-false" title="Permanent link">&para;</a></h4>
+<p>Unless needed for git operations, <code>actions/checkout</code> should be used with <code>persist-credentials: false</code>.
+This prevents Git credentials from being persisted to the workflow's environment, reducing the risk of credential exposure if the workflow is compromised.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.github.com/en/actions/reference/security/secure-use">Secure use reference</a></li>
+<li><a href="https://securitylab.github.com/resources/github-actions-preventing-pwn-requests">Keeping your GitHub Actions and workflows secure Part 1: Preventing pwn requests</a></li>
+<li><a href="https://securitylab.github.com/resources/github-actions-untrusted-input">Keeping your GitHub Actions and workflows secure Part 2: Untrusted input</a></li>
+<li><a href="https://securitylab.github.com/resources/github-actions-building-blocks">Keeping your GitHub Actions and workflows secure Part 3: How to trust your building blocks</a></li>
+<li><a href="https://securitylab.github.com/resources/github-actions-new-patterns-and-mitigations">Keeping your GitHub Actions and workflows secure Part 4: New vulnerability patterns and mitigation strategies</a></li>
+<li><a href="https://wellarchitected.github.com/library/application-security/recommendations/actions-security/">Securing GitHub Actions Workflows</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©Copyright <script>document.write(new Date().getFullYear())</script> - Cheat Sheets Series Team - This work is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
